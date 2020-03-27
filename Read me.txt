@@ -1,0 +1,8 @@
+this is a guide for the code I've commited :
+the code is devided in two parts : 
+	creating the Access database with all the tables and link the oledb connection.
+ 	reading Excel files and filling tables in Access database with data , except for 			INSCRIT and MATIERE which need a bursting into other tables.
+	
+ 
+
+	
