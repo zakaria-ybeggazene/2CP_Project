@@ -1,4 +1,6 @@
-﻿Class MainWindow
+﻿Imports System.Data
+
+Class MainWindow
     Public Sub New()
 
         ' This call is required by the designer.
@@ -6,6 +8,7 @@
 
         ' Add any initialization after the InitializeComponent() call.
         DataContext = New MainWindowViewModel()
+        'Migration()
     End Sub
 
     Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded

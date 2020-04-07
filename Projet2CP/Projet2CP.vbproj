@@ -52,7 +52,23 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\SAPBusinessObjects.WPF.Viewer\v4.0_13.0.4000.0__692fbea5521e1304\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\SAPBusinessObjects.WPF.ViewerShared\v4.0_13.0.4000.0__692fbea5521e1304\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Activities" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -70,7 +86,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CrystalReports\AttestationReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttestationReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CrystalReports.vb" />
+    <Compile Include="CrystalReports\EtudiantDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\EtudiantDS.vb">
+      <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AnneeEtude.vb" />
+    <Compile Include="Model\Matiere.vb" />
+    <Compile Include="Model\Niveau.vb" />
+    <Compile Include="Model\Note.vb" />
+    <Compile Include="Model\Promotion.vb" />
+    <Compile Include="Repository.vb" />
     <Compile Include="ViewModel\CommandViewModel.vb" />
+    <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />
     <Compile Include="ViewModel\RechercheEtudiantViewModel.vb" />
     <Compile Include="ViewModel\RecherchePromoViewModel.vb" />
@@ -78,14 +116,17 @@
     <Compile Include="ViewModel\StatisticsViewModel.vb" />
     <Compile Include="ViewModel\ViewModelBase.vb" />
     <Compile Include="ViewModel\WorkspaceViewModel.vb" />
-    <Compile Include="Model\RechercheEtudiant.vb" />
-    <Compile Include="Model\RecherchePromo.vb" />
-    <Compile Include="Model\Statistics.vb" />
+    <Compile Include="View\EtudiantView.xaml.vb">
+      <DependentUpon>EtudiantView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RechercheEtudiantView.xaml.vb">
       <DependentUpon>RechercheEtudiantView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RecherchePromoView.xaml.vb">
       <DependentUpon>RecherchePromoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportWindow.xaml.vb">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StatisticsView.xaml.vb">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
@@ -106,11 +147,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\EtudiantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RechercheEtudiantView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RecherchePromoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,12 +205,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="CrystalReports\AttestationReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AttestationReport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="CrystalReports\EtudiantDS.xsc">
+      <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReports\EtudiantDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EtudiantDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\EtudiantDS.xss">
+      <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </None>
+    <None Include="Excel\INSCRIT_00_04.xlsx" />
+    <None Include="Excel\MATIERE_00_04.xlsx" />
+    <None Include="Excel\NOTE_00_04.xlsx" />
+    <None Include="Excel\RATRAP_00_04.xlsx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,17 +238,8 @@
     <AppDesigner Include="My Project\" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="ADOX">
-      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
-      <VersionMajor>6</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\icon.png" />
   </ItemGroup>

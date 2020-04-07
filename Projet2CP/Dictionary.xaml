@@ -10,4 +10,7 @@
   <DataTemplate DataType="{x:Type local:StatisticsViewModel}">
     <local:StatisticsView></local:StatisticsView>
   </DataTemplate>
+    <DataTemplate DataType="{x:Type local:EtudiantViewModel}">
+        <local:EtudiantView></local:EtudiantView>
+    </DataTemplate>
 </ResourceDictionary>

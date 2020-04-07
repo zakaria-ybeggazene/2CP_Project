@@ -3,8 +3,8 @@
 
     Public Sub New(ByVal displayName As String)
         MyBase.New(displayName)
-        v = New Statistics()
+        v = New StatisticsView()
     End Sub
 
-    Private v As Statistics
+    Private v As StatisticsView
 End Class

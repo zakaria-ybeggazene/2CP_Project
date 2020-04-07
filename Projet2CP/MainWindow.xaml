@@ -40,4 +40,5 @@
             </TabControl.ItemTemplate>
         </TabControl>
     </DockPanel>
+
 </Window>

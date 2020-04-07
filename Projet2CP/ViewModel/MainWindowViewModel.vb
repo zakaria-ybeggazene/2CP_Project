@@ -31,7 +31,7 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub AddRechercheEtudiantView(ByVal o As Object)
-        Dim workspace As WorkspaceViewModel = New RechercheEtudiantViewModel("Recherche Etudiant")
+        Dim workspace As WorkspaceViewModel = New RechercheEtudiantViewModel("Recherche Etudiant", _workspaces)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
         Workspaces.Add(workspace)
