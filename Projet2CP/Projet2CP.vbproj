@@ -98,10 +98,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReports\EtudiantDS.vb">
-      <DependentUpon>EtudiantDS.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Migration.vb" />
     <Compile Include="Model\AnneeEtude.vb" />
+    <Compile Include="Model\Etudiant.vb" />
     <Compile Include="Model\Matiere.vb" />
     <Compile Include="Model\Niveau.vb" />
     <Compile Include="Model\Note.vb" />
@@ -148,8 +147,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\EtudiantView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\RechercheEtudiantView.xaml">
       <SubType>Designer</SubType>
@@ -160,8 +159,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReportWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\StatisticsView.xaml">
       <SubType>Designer</SubType>
@@ -187,7 +186,6 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Etudiant.vb" />
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -226,10 +224,6 @@
     <None Include="CrystalReports\EtudiantDS.xss">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </None>
-    <None Include="Excel\INSCRIT_00_04.xlsx" />
-    <None Include="Excel\MATIERE_00_04.xlsx" />
-    <None Include="Excel\NOTE_00_04.xlsx" />
-    <None Include="Excel\RATRAP_00_04.xlsx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -243,5 +237,6 @@
   <ItemGroup>
     <Resource Include="Images\icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
