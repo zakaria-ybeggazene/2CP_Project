@@ -55,6 +55,9 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\SAPBusinessObjects.WPF.Viewer\v4.0_13.0.4000.0__692fbea5521e1304\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
@@ -69,6 +72,9 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -127,6 +133,12 @@
     <Compile Include="View\EtudiantView.xaml.vb">
       <DependentUpon>EtudiantView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ImportFiles.xaml.vb">
+      <DependentUpon>ImportFiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.vb">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RechercheEtudiantView.xaml.vb">
       <DependentUpon>RechercheEtudiantView.xaml</DependentUpon>
     </Compile>
@@ -143,7 +155,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\ImportFiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -151,13 +167,17 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.vb">
+    <Compile Include="View\MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\EtudiantView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RechercheEtudiantView.xaml">
       <SubType>Designer</SubType>
@@ -250,6 +270,18 @@
   <ItemGroup>
     <Resource Include="Images\icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Groupe 1.png" />
+    <Resource Include="Images\Groupe 11.png" />
+    <Resource Include="Images\Icon feather-filter.png" />
+    <Resource Include="Images\Icon feather-filter1.png" />
+    <Resource Include="Images\ic_arrow_forward_24px.png" />
+    <Resource Include="Images\ic_arrow_forward_24px1.png" />
+    <Resource Include="Images\ic_search_24px.png" />
+    <Resource Include="Images\ic_search_24px1.png" />
+    <Resource Include="Images\Login Page.png" />
+    <Resource Include="Images\Rectangle 15.png" />
+    <Resource Include="Images\undraw_spreadsheet_69ax.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
