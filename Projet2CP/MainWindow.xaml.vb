@@ -10,7 +10,4 @@ Class MainWindow
         DataContext = New MainWindowViewModel()
         'Migration()
     End Sub
-
-    Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
-    End Sub
 End Class

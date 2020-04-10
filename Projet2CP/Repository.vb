@@ -29,7 +29,7 @@
         Dim parcours As List(Of AnneeEtude) = New List(Of AnneeEtude)()
 
         ''annee 1
-        Dim anneEtude As AnneeEtude = New AnneeEtude With {.Adm = "j", .Annee = 2000, .Groupe = 10, .Mention = 4, .MoyenneJ = 15.01, .NiveauA = Niveau.TRC1, .Section = "C"}
+        Dim anneEtude As AnneeEtude = New AnneeEtude With {.Adm = "j", .Annee = 2000, .Groupe = 10, .Mention = 4, .MoyenneJ = 15.01, .Niveau = Niveau.TRC1, .Section = "C"}
         Dim notes As Dictionary(Of Matiere, Note) = New Dictionary(Of Matiere, Note)()
         Dim mat As Matiere = New Matiere With {.CodMat = "Algo", .Coef = 5, .LibeMat = "ALGORITHMIQUE", .NiveauM = Niveau.TRC1}
         Dim note As Note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
@@ -44,7 +44,7 @@
         parcours.Add(anneEtude)
 
         ''annee 2
-        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2001, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .NiveauA = Niveau.TRC2, .Section = "C"}
+        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2001, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .Niveau = Niveau.TRC2, .Section = "C"}
         notes = New Dictionary(Of Matiere, Note)()
         mat = New Matiere With {.CodMat = "Algo", .Coef = 5, .LibeMat = "ALGORITHMIQUE", .NiveauM = Niveau.TRC2}
         note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
@@ -59,7 +59,7 @@
         parcours.Add(anneEtude)
 
         ''annee 3
-        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2002, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .NiveauA = Niveau.SI1, .Section = "B"}
+        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2002, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .Niveau = Niveau.SI1, .Section = "B"}
         notes = New Dictionary(Of Matiere, Note)()
         mat = New Matiere With {.CodMat = "Sys", .Coef = 5, .LibeMat = "Systeme", .NiveauM = Niveau.SI1}
         note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}

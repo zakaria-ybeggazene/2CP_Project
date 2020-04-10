@@ -7,11 +7,11 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <ItemsControl Width="230" >
-            <Button Width="230" Command="{Binding Path=ReportCommand}" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
+            <Button Width="230" Command="{Binding Path=ReportAttestationCommand}" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
                 <TextBlock Text="Générer Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
             </Button>
             <Span></Span>
-            <Button Width="230" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
+            <Button Width="230" Command="{Binding Path=ReportReleveCommand}" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
                 <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
             </Button>
         </ItemsControl>

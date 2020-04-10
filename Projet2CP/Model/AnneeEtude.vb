@@ -1,6 +1,6 @@
 ﻿
 Public Class AnneeEtude
-    Private _annee, _groupe, _mention As Integer
+    Private _annee, _groupe, _mention, _rang As Integer
     Private _niveau As Niveau
     Private _section, _adm As Char
     Private _moyenneJ As Decimal
@@ -94,7 +94,7 @@ Public Class AnneeEtude
         End Set
     End Property
 
-    Public Property NiveauA() As Niveau
+    Public Property Niveau() As Niveau
         Get
             Return _niveau
         End Get
@@ -147,7 +147,13 @@ Public Class AnneeEtude
         End Set
     End Property
 
-
-
+    Public Property Rang() As Integer
+        Get
+            Return _rang
+        End Get
+        Set(ByVal value As Integer)
+            Me._rang = value
+        End Set
+    End Property
 
 End Class

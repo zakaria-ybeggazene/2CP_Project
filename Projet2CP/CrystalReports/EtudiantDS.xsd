@@ -29,11 +29,12 @@
               <xs:element name="Niveau" msprop:Generator_ColumnVarNameInTable="columnNiveau" msprop:Generator_ColumnPropNameInRow="Niveau" msprop:Generator_ColumnPropNameInTable="NiveauColumn" msprop:Generator_UserColumnName="Niveau" type="xs:string" minOccurs="0" />
               <xs:element name="Decision" msprop:Generator_ColumnVarNameInTable="columnDecision" msprop:Generator_ColumnPropNameInRow="Decision" msprop:Generator_ColumnPropNameInTable="DecisionColumn" msprop:Generator_UserColumnName="Decision" type="xs:string" minOccurs="0" />
               <xs:element name="MoyenneJ" msprop:Generator_ColumnVarNameInTable="columnMoyenneJ" msprop:Generator_ColumnPropNameInRow="MoyenneJ" msprop:Generator_ColumnPropNameInTable="MoyenneJColumn" msprop:Generator_UserColumnName="MoyenneJ" type="xs:double" minOccurs="0" />
-              <xs:element name="MentionJ" msprop:Generator_ColumnVarNameInTable="columnMentionJ" msprop:Generator_ColumnPropNameInRow="MentionJ" msprop:Generator_ColumnPropNameInTable="MentionJColumn" msprop:Generator_UserColumnName="MentionJ" type="xs:string" minOccurs="0" />
+              <xs:element name="MentionJ" msprop:Generator_ColumnVarNameInTable="columnMentionJ" msprop:Generator_ColumnPropNameInRow="MentionJ" msprop:Generator_ColumnPropNameInTable="MentionJColumn" msprop:Generator_UserColumnName="MentionJ" type="xs:decimal" minOccurs="0" />
               <xs:element name="MoyenneRa" msprop:Generator_ColumnVarNameInTable="columnMoyenneRa" msprop:Generator_ColumnPropNameInRow="MoyenneRa" msprop:Generator_ColumnPropNameInTable="MoyenneRaColumn" msprop:Generator_UserColumnName="MoyenneRa" type="xs:double" minOccurs="0" />
-              <xs:element name="MentionRa" msprop:Generator_ColumnVarNameInTable="columnMentionRa" msprop:Generator_ColumnPropNameInRow="MentionRa" msprop:Generator_ColumnPropNameInTable="MentionRaColumn" msprop:Generator_UserColumnName="MentionRa" type="xs:string" minOccurs="0" />
+              <xs:element name="MentionRa" msprop:Generator_ColumnVarNameInTable="columnMentionRa" msprop:Generator_ColumnPropNameInRow="MentionRa" msprop:Generator_ColumnPropNameInTable="MentionRaColumn" msprop:Generator_UserColumnName="MentionRa" type="xs:decimal" minOccurs="0" />
               <xs:element name="Elim" msprop:Generator_ColumnVarNameInTable="columnElim" msprop:Generator_ColumnPropNameInRow="Elim" msprop:Generator_ColumnPropNameInTable="ElimColumn" msprop:Generator_UserColumnName="Elim" type="xs:long" minOccurs="0" />
               <xs:element name="Matricule" msprop:Generator_ColumnVarNameInTable="columnMatricule" msprop:Generator_ColumnPropNameInRow="Matricule" msprop:Generator_ColumnPropNameInTable="MatriculeColumn" msprop:Generator_UserColumnName="Matricule" type="xs:string" minOccurs="0" />
+              <xs:element name="Rang" msprop:Generator_ColumnVarNameInTable="columnRang" msprop:Generator_ColumnPropNameInRow="Rang" msprop:Generator_ColumnPropNameInTable="RangColumn" msprop:Generator_UserColumnName="Rang" type="xs:long" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -47,6 +48,8 @@
               <xs:element name="Elim" msprop:Generator_ColumnVarNameInTable="columnElim" msprop:Generator_ColumnPropNameInRow="Elim" msprop:Generator_ColumnPropNameInTable="ElimColumn" msprop:Generator_UserColumnName="Elim" type="xs:boolean" minOccurs="0" />
               <xs:element name="NbRatrap" msprop:Generator_ColumnVarNameInTable="columnNbRatrap" msprop:Generator_ColumnPropNameInRow="NbRatrap" msprop:Generator_ColumnPropNameInTable="NbRatrapColumn" msprop:Generator_UserColumnName="NbRatrap" type="xs:long" minOccurs="0" />
               <xs:element name="Annee" msprop:Generator_ColumnVarNameInTable="columnAnnee" msprop:Generator_ColumnPropNameInRow="Annee" msprop:Generator_ColumnPropNameInTable="AnneeColumn" msprop:Generator_UserColumnName="Annee" type="xs:string" minOccurs="0" />
+              <xs:element name="Libelle" msprop:Generator_ColumnVarNameInTable="columnLibelle" msprop:Generator_ColumnPropNameInRow="Libelle" msprop:Generator_ColumnPropNameInTable="LibelleColumn" msprop:Generator_UserColumnName="Libelle" type="xs:string" minOccurs="0" />
+              <xs:element name="Coefficient" msprop:Generator_ColumnVarNameInTable="columnCoefficient" msprop:Generator_ColumnPropNameInRow="Coefficient" msprop:Generator_ColumnPropNameInTable="CoefficientColumn" msprop:Generator_UserColumnName="Coefficient" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -63,10 +66,6 @@
     <xs:unique name="Notes_Constraint1" msdata:ConstraintName="Constraint1">
       <xs:selector xpath=".//mstns:Notes" />
       <xs:field xpath="mstns:Matiere" />
-    </xs:unique>
-    <xs:unique name="Constraint2">
-      <xs:selector xpath=".//mstns:Notes" />
-      <xs:field xpath="mstns:Annee" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

@@ -681,6 +681,8 @@ Partial Public Class EtudiantDS
         
         Private columnMatricule As Global.System.Data.DataColumn
         
+        Private columnRang As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -789,6 +791,14 @@ Partial Public Class EtudiantDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RangColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRang
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -825,9 +835,9 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As Double, ByVal MentionJ As String, ByVal MoyenneRa As Double, ByVal MentionRa As String, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow) As ParcoursRow
+        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As Double, ByVal MentionJ As Decimal, ByVal MoyenneRa As Double, ByVal MentionRa As Decimal, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow, ByVal Rang As Long) As ParcoursRow
             Dim rowParcoursRow As ParcoursRow = CType(Me.NewRow,ParcoursRow)
-            Dim columnValuesArray() As Object = New Object() {Annee, Niveau, Decision, MoyenneJ, MentionJ, MoyenneRa, MentionRa, Elim, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Niveau, Decision, MoyenneJ, MentionJ, MoyenneRa, MentionRa, Elim, Nothing, Rang}
             If (Not (parentEtudiantRowByEtudiant_Parcours) Is Nothing) Then
                 columnValuesArray(8) = parentEtudiantRowByEtudiant_Parcours(0)
             End If
@@ -862,6 +872,7 @@ Partial Public Class EtudiantDS
             Me.columnMentionRa = MyBase.Columns("MentionRa")
             Me.columnElim = MyBase.Columns("Elim")
             Me.columnMatricule = MyBase.Columns("Matricule")
+            Me.columnRang = MyBase.Columns("Rang")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -875,16 +886,18 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnDecision)
             Me.columnMoyenneJ = New Global.System.Data.DataColumn("MoyenneJ", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMoyenneJ)
-            Me.columnMentionJ = New Global.System.Data.DataColumn("MentionJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnMentionJ = New Global.System.Data.DataColumn("MentionJ", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMentionJ)
             Me.columnMoyenneRa = New Global.System.Data.DataColumn("MoyenneRa", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMoyenneRa)
-            Me.columnMentionRa = New Global.System.Data.DataColumn("MentionRa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnMentionRa = New Global.System.Data.DataColumn("MentionRa", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMentionRa)
             Me.columnElim = New Global.System.Data.DataColumn("Elim", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnElim)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
+            Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRang)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnAnnee}, false))
             Me.columnAnnee.Unique = true
         End Sub
@@ -1038,6 +1051,10 @@ Partial Public Class EtudiantDS
         
         Private columnAnnee As Global.System.Data.DataColumn
         
+        Private columnLibelle As Global.System.Data.DataColumn
+        
+        Private columnCoefficient As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1130,6 +1147,22 @@ Partial Public Class EtudiantDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LibelleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLibelle
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CoefficientColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCoefficient
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1166,9 +1199,9 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddNotesRow(ByVal Matiere As String, ByVal Noju As Decimal, ByVal Nosy As Decimal, ByVal Nora As Decimal, ByVal Elim As Boolean, ByVal NbRatrap As Long, ByVal parentParcoursRowByParcours_Notes As ParcoursRow) As NotesRow
+        Public Overloads Function AddNotesRow(ByVal Matiere As String, ByVal Noju As Decimal, ByVal Nosy As Decimal, ByVal Nora As Decimal, ByVal Elim As Boolean, ByVal NbRatrap As Long, ByVal parentParcoursRowByParcours_Notes As ParcoursRow, ByVal Libelle As String, ByVal Coefficient As Short) As NotesRow
             Dim rowNotesRow As NotesRow = CType(Me.NewRow,NotesRow)
-            Dim columnValuesArray() As Object = New Object() {Matiere, Noju, Nosy, Nora, Elim, NbRatrap, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Matiere, Noju, Nosy, Nora, Elim, NbRatrap, Nothing, Libelle, Coefficient}
             If (Not (parentParcoursRowByParcours_Notes) Is Nothing) Then
                 columnValuesArray(6) = parentParcoursRowByParcours_Notes(0)
             End If
@@ -1201,6 +1234,8 @@ Partial Public Class EtudiantDS
             Me.columnElim = MyBase.Columns("Elim")
             Me.columnNbRatrap = MyBase.Columns("NbRatrap")
             Me.columnAnnee = MyBase.Columns("Annee")
+            Me.columnLibelle = MyBase.Columns("Libelle")
+            Me.columnCoefficient = MyBase.Columns("Coefficient")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1220,10 +1255,12 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnNbRatrap)
             Me.columnAnnee = New Global.System.Data.DataColumn("Annee", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnnee)
+            Me.columnLibelle = New Global.System.Data.DataColumn("Libelle", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLibelle)
+            Me.columnCoefficient = New Global.System.Data.DataColumn("Coefficient", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCoefficient)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMatiere}, false))
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint2", New Global.System.Data.DataColumn() {Me.columnAnnee}, false))
             Me.columnMatiere.Unique = true
-            Me.columnAnnee.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1548,10 +1585,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property MentionJ() As String
+        Public Property MentionJ() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableParcours.MentionJColumn),String)
+                    Return CType(Me(Me.tableParcours.MentionJColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'MentionJ' in table 'Parcours' is DBNull.", e)
                 End Try
@@ -1578,10 +1615,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property MentionRa() As String
+        Public Property MentionRa() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableParcours.MentionRaColumn),String)
+                    Return CType(Me(Me.tableParcours.MentionRaColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'MentionRa' in table 'Parcours' is DBNull.", e)
                 End Try
@@ -1618,6 +1655,21 @@ Partial Public Class EtudiantDS
             End Get
             Set
                 Me(Me.tableParcours.MatriculeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Rang() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableParcours.RangColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'Parcours' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableParcours.RangColumn) = value
             End Set
         End Property
         
@@ -1738,6 +1790,18 @@ Partial Public Class EtudiantDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetMatriculeNull()
             Me(Me.tableParcours.MatriculeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRangNull() As Boolean
+            Return Me.IsNull(Me.tableParcours.RangColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRangNull()
+            Me(Me.tableParcours.RangColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1873,6 +1937,36 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Libelle() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableNotes.LibelleColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Libelle' in table 'Notes' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableNotes.LibelleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Coefficient() As Short
+            Get
+                Try 
+                    Return CType(Me(Me.tableNotes.CoefficientColumn),Short)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Coefficient' in table 'Notes' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableNotes.CoefficientColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ParcoursRow() As ParcoursRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("Parcours_Notes")),ParcoursRow)
@@ -1964,6 +2058,30 @@ Partial Public Class EtudiantDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetAnneeNull()
             Me(Me.tableNotes.AnneeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsLibelleNull() As Boolean
+            Return Me.IsNull(Me.tableNotes.LibelleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetLibelleNull()
+            Me(Me.tableNotes.LibelleColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCoefficientNull() As Boolean
+            Return Me.IsNull(Me.tableNotes.CoefficientColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCoefficientNull()
+            Me(Me.tableNotes.CoefficientColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Etudiant" ZOrder="5" X="156" Y="142" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
     <Shape ID="DesignTable:Parcours" ZOrder="4" X="340" Y="361" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
-    <Shape ID="DesignTable:Notes" ZOrder="3" X="548" Y="181" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
+    <Shape ID="DesignTable:Notes" ZOrder="3" X="548" Y="181" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:Etudiant_Parcours" ZOrder="2" LineWidth="11">
