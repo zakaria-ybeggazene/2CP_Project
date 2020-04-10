@@ -1,0 +1,93 @@
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\bin\Debug\Projet2CP.exe.config
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.vbproj.ResolveComReference.cache
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\bin\Debug\Projet2CP.exe
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\bin\Debug\Projet2CP.pdb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\bin\Debug\Projet2CP.xml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\RechercheEtudiantView.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\StatisticsView.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\RechercheEtudiantView.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\StatisticsView.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Application.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP_MarkupCompile.cache
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP_MarkupCompile.lref
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Dictionary.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.g.resources
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.Resources.resources
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.vbproj.GenerateResource.Cache
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.exe
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.xml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.pdb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\login.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\login.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Application.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\MainWindow.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\MainWindow.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\GeneratedInternalTypeHelper.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\Projet2CP.vbprojResolveAssemblyReference.cache
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\importerfichier.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\RecherchePromoView.baml
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\importerfichier.g.vb
+C:\Users\dell\Desktop\2CP_Project-master\Projet2CP\obj\x86\Debug\View\RecherchePromoView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\bin\Debug\Projet2CP.exe.config
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.vbproj.ResolveComReference.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.exe
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.xml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.pdb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\bin\Debug\Projet2CP.exe
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\bin\Debug\Projet2CP.pdb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\bin\Debug\Projet2CP.xml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.vbprojResolveAssemblyReference.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\importerfichier.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\RechercheEtudiantView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\Login.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\RecherchePromoView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\StatisticsView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Application.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\importerfichier.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\RechercheEtudiantView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\Login.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\MainWindow.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\RecherchePromoView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\StatisticsView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Application.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\GeneratedInternalTypeHelper.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP_MarkupCompile.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP_MarkupCompile.lref
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Dictionary.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\View\MainWindow.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.g.resources
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.Resources.resources
+C:\Users\asus\Desktop\2CPI\S2\PRJP\PRJP2CP\2CP_Project\Projet2CP\obj\x86\Debug\Projet2CP.vbproj.GenerateResource.Cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\bin\Debug\Projet2CP.exe.config
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.vbproj.ResolveComReference.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.exe
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.xml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.pdb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\bin\Debug\Projet2CP.exe
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\bin\Debug\Projet2CP.pdb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\bin\Debug\Projet2CP.xml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.vbprojResolveAssemblyReference.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\importerfichier.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\RechercheEtudiantView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\Login.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\RecherchePromoView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\StatisticsView.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Application.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\importerfichier.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\RechercheEtudiantView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\Login.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\MainWindow.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\RecherchePromoView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\StatisticsView.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Application.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\GeneratedInternalTypeHelper.g.vb
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP_MarkupCompile.cache
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP_MarkupCompile.lref
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Dictionary.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\View\MainWindow.baml
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.g.resources
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.Resources.resources
+C:\Users\asus\Desktop\2CPI\S2\PRJP\Nouveau dossier\obj\x86\Debug\Projet2CP.vbproj.GenerateResource.Cache

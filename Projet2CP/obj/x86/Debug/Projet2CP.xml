@@ -1,0 +1,134 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Projet2CP
+</name>
+</assembly>
+<members>
+<member name="M:Projet2CP.Window1.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.Window1">
+	<summary>
+Window1
+</summary>
+</member><member name="M:Projet2CP.StatisticsView.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.StatisticsView">
+	<summary>
+StatisticsView
+</summary>
+</member><member name="M:Projet2CP.RechercheEtudiantView.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.RechercheEtudiantView">
+	<summary>
+RechercheEtudiantView
+</summary>
+</member><member name="M:Projet2CP.Application.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:Projet2CP.Application.Main">
+	<summary>
+Application Entry Point.
+</summary>
+</member><member name="T:Projet2CP.Application">
+	<summary>
+Application
+</summary>
+</member><member name="M:Projet2CP.importerfichier.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.importerfichier">
+	<summary>
+importerfichier
+</summary>
+</member><member name="M:Projet2CP.MainWindow.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.MainWindow">
+	<summary>
+MainWindow
+</summary>
+</member><member name="M:Projet2CP.RecherchePromoView.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:Projet2CP.RecherchePromoView">
+	<summary>
+RecherchePromoView
+</summary>
+</member><member name="M:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+	<summary>
+CreateInstance
+</summary>
+</member><member name="M:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+	<summary>
+GetPropertyValue
+</summary>
+</member><member name="M:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+	<summary>
+SetPropertyValue
+</summary>
+</member><member name="M:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+	<summary>
+CreateDelegate
+</summary>
+</member><member name="M:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+	<summary>
+AddEventHandler
+</summary>
+</member><member name="T:Projet2CP.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+	<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member><member name="P:Projet2CP.My.MyWpfExtension.Application">
+	<summary>
+ Returns the application object for the running application
+ </summary>
+</member><member name="P:Projet2CP.My.MyWpfExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:Projet2CP.My.MyWpfExtension.User">
+	<summary>
+ Returns information for the current user.  If you wish to run the application with the current 
+ Windows user credentials, call My.User.InitializeWithWindowsUser().
+ </summary>
+</member><member name="P:Projet2CP.My.MyWpfExtension.Log">
+	<summary>
+ Returns the application log. The listeners can be configured by the application's configuration file.
+ </summary>
+</member><member name="P:Projet2CP.My.MyWpfExtension.Windows">
+	<summary>
+ Returns the collection of Windows defined in the project.
+ </summary>
+</member><member name="T:Projet2CP.My.MyWpfExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for WPF
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Projet2CP.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Projet2CP.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Projet2CP.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

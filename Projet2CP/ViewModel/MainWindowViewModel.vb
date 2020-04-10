@@ -7,9 +7,10 @@ Public Class MainWindowViewModel
             Return _workspaces
         End Get
         Set(ByVal value As ObservableCollection(Of WorkspaceViewModel))
-            _workspaces = value
+            _Workspaces = value
         End Set
     End Property
+  
     Private _commands As ObservableCollection(Of CommandViewModel)
     Public Property Commands As ObservableCollection(Of CommandViewModel)
         Get
@@ -23,7 +24,6 @@ Public Class MainWindowViewModel
     Public Sub New()
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
-
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
