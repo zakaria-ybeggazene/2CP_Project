@@ -5,7 +5,7 @@
     Public Shared Sub initialiser()
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
-        Dim path As String = "E:\ESI\Projet2CP\db.accdb"
+        Dim path As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\bdd.accdb"
         dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path
 
         _connection.ConnectionString = dbConnString
