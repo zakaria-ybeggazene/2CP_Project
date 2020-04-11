@@ -12,17 +12,17 @@
   <xs:element name="EtudiantDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EtudiantDS" msprop:Generator_UserDSName="EtudiantDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Etudiant" msprop:Generator_TableClassName="EtudiantDataTable" msprop:Generator_TableVarName="tableEtudiant" msprop:Generator_TablePropName="Etudiant" msprop:Generator_RowDeletingName="EtudiantRowDeleting" msprop:Generator_RowChangingName="EtudiantRowChanging" msprop:Generator_RowEvHandlerName="EtudiantRowChangeEventHandler" msprop:Generator_RowDeletedName="EtudiantRowDeleted" msprop:Generator_UserTableName="Etudiant" msprop:Generator_RowChangedName="EtudiantRowChanged" msprop:Generator_RowEvArgName="EtudiantRowChangeEvent" msprop:Generator_RowClassName="EtudiantRow">
+        <xs:element name="Etudiant" msprop:Generator_TableClassName="EtudiantDataTable" msprop:Generator_TableVarName="tableEtudiant" msprop:Generator_RowChangedName="EtudiantRowChanged" msprop:Generator_TablePropName="Etudiant" msprop:Generator_RowDeletingName="EtudiantRowDeleting" msprop:Generator_RowChangingName="EtudiantRowChanging" msprop:Generator_RowEvHandlerName="EtudiantRowChangeEventHandler" msprop:Generator_RowDeletedName="EtudiantRowDeleted" msprop:Generator_RowClassName="EtudiantRow" msprop:Generator_UserTableName="Etudiant" msprop:Generator_RowEvArgName="EtudiantRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Matricule" msprop:Generator_ColumnVarNameInTable="columnMatricule" msprop:Generator_ColumnPropNameInRow="Matricule" msprop:Generator_ColumnPropNameInTable="MatriculeColumn" msprop:Generator_UserColumnName="Matricule" type="xs:string" />
               <xs:element name="NomPrenom" msprop:Generator_ColumnVarNameInTable="columnNomPrenom" msprop:Generator_ColumnPropNameInRow="NomPrenom" msprop:Generator_ColumnPropNameInTable="NomPrenomColumn" msprop:Generator_UserColumnName="NomPrenom" type="xs:string" minOccurs="0" />
-              <xs:element name="DateNais" msprop:Generator_ColumnVarNameInTable="columnDateNais" msprop:Generator_ColumnPropNameInRow="DateNais" msprop:Generator_ColumnPropNameInTable="DateNaisColumn" msprop:Generator_UserColumnName="DateNais" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateNais" msprop:Generator_ColumnVarNameInTable="columnDateNais" msprop:Generator_ColumnPropNameInRow="DateNais" msprop:Generator_ColumnPropNameInTable="DateNaisColumn" msprop:Generator_UserColumnName="DateNais" type="xs:string" minOccurs="0" />
               <xs:element name="LieuNais" msprop:Generator_ColumnVarNameInTable="columnLieuNais" msprop:Generator_ColumnPropNameInRow="LieuNais" msprop:Generator_ColumnPropNameInTable="LieuNaisColumn" msprop:Generator_UserColumnName="LieuNais" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Parcours" msprop:Generator_TableClassName="ParcoursDataTable" msprop:Generator_TableVarName="tableParcours" msprop:Generator_TablePropName="Parcours" msprop:Generator_RowDeletingName="ParcoursRowDeleting" msprop:Generator_RowChangingName="ParcoursRowChanging" msprop:Generator_RowEvHandlerName="ParcoursRowChangeEventHandler" msprop:Generator_RowDeletedName="ParcoursRowDeleted" msprop:Generator_UserTableName="Parcours" msprop:Generator_RowChangedName="ParcoursRowChanged" msprop:Generator_RowEvArgName="ParcoursRowChangeEvent" msprop:Generator_RowClassName="ParcoursRow">
+        <xs:element name="Parcours" msprop:Generator_TableClassName="ParcoursDataTable" msprop:Generator_TableVarName="tableParcours" msprop:Generator_RowChangedName="ParcoursRowChanged" msprop:Generator_TablePropName="Parcours" msprop:Generator_RowDeletingName="ParcoursRowDeleting" msprop:Generator_RowChangingName="ParcoursRowChanging" msprop:Generator_RowEvHandlerName="ParcoursRowChangeEventHandler" msprop:Generator_RowDeletedName="ParcoursRowDeleted" msprop:Generator_RowClassName="ParcoursRow" msprop:Generator_UserTableName="Parcours" msprop:Generator_RowEvArgName="ParcoursRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Annee" msprop:Generator_ColumnVarNameInTable="columnAnnee" msprop:Generator_ColumnPropNameInRow="Annee" msprop:Generator_ColumnPropNameInTable="AnneeColumn" msprop:Generator_UserColumnName="Annee" type="xs:string" minOccurs="0" />
@@ -38,7 +38,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Notes" msprop:Generator_TableClassName="NotesDataTable" msprop:Generator_TableVarName="tableNotes" msprop:Generator_TablePropName="Notes" msprop:Generator_RowDeletingName="NotesRowDeleting" msprop:Generator_RowChangingName="NotesRowChanging" msprop:Generator_RowEvHandlerName="NotesRowChangeEventHandler" msprop:Generator_RowDeletedName="NotesRowDeleted" msprop:Generator_UserTableName="Notes" msprop:Generator_RowChangedName="NotesRowChanged" msprop:Generator_RowEvArgName="NotesRowChangeEvent" msprop:Generator_RowClassName="NotesRow">
+        <xs:element name="Notes" msprop:Generator_TableClassName="NotesDataTable" msprop:Generator_TableVarName="tableNotes" msprop:Generator_RowChangedName="NotesRowChanged" msprop:Generator_TablePropName="Notes" msprop:Generator_RowDeletingName="NotesRowDeleting" msprop:Generator_RowChangingName="NotesRowChanging" msprop:Generator_RowEvHandlerName="NotesRowChangeEventHandler" msprop:Generator_RowDeletedName="NotesRowDeleted" msprop:Generator_RowClassName="NotesRow" msprop:Generator_UserTableName="Notes" msprop:Generator_RowEvArgName="NotesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Matiere" msprop:Generator_ColumnVarNameInTable="columnMatiere" msprop:Generator_ColumnPropNameInRow="Matiere" msprop:Generator_ColumnPropNameInTable="MatiereColumn" msprop:Generator_UserColumnName="Matiere" type="xs:string" minOccurs="0" />
@@ -70,8 +70,8 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Etudiant_Parcours" msdata:parent="Etudiant" msdata:child="Parcours" msdata:parentkey="Matricule" msdata:childkey="Matricule" msprop:Generator_UserChildTable="Parcours" msprop:Generator_ChildPropName="GetParcoursRows" msprop:Generator_UserRelationName="Etudiant_Parcours" msprop:Generator_ParentPropName="EtudiantRow" msprop:Generator_RelationVarName="relationEtudiant_Parcours" msprop:Generator_UserParentTable="Etudiant" />
-      <msdata:Relationship name="Parcours_Notes" msdata:parent="Parcours" msdata:child="Notes" msdata:parentkey="Annee" msdata:childkey="Annee" msprop:Generator_UserChildTable="Notes" msprop:Generator_ChildPropName="GetNotesRows" msprop:Generator_UserRelationName="Parcours_Notes" msprop:Generator_ParentPropName="ParcoursRow" msprop:Generator_RelationVarName="relationParcours_Notes" msprop:Generator_UserParentTable="Parcours" />
+      <msdata:Relationship name="Etudiant_Parcours" msdata:parent="Etudiant" msdata:child="Parcours" msdata:parentkey="Matricule" msdata:childkey="Matricule" msprop:Generator_UserChildTable="Parcours" msprop:Generator_ChildPropName="GetParcoursRows" msprop:Generator_UserRelationName="Etudiant_Parcours" msprop:Generator_RelationVarName="relationEtudiant_Parcours" msprop:Generator_UserParentTable="Etudiant" msprop:Generator_ParentPropName="EtudiantRow" />
+      <msdata:Relationship name="Parcours_Notes" msdata:parent="Parcours" msdata:child="Notes" msdata:parentkey="Annee" msdata:childkey="Annee" msprop:Generator_UserChildTable="Notes" msprop:Generator_ChildPropName="GetNotesRows" msprop:Generator_UserRelationName="Parcours_Notes" msprop:Generator_RelationVarName="relationParcours_Notes" msprop:Generator_UserParentTable="Parcours" msprop:Generator_ParentPropName="ParcoursRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -475,7 +475,7 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddEtudiantRow(ByVal Matricule As String, ByVal NomPrenom As String, ByVal DateNais As Date, ByVal LieuNais As String) As EtudiantRow
+        Public Overloads Function AddEtudiantRow(ByVal Matricule As String, ByVal NomPrenom As String, ByVal DateNais As String, ByVal LieuNais As String) As EtudiantRow
             Dim rowEtudiantRow As EtudiantRow = CType(Me.NewRow,EtudiantRow)
             Dim columnValuesArray() As Object = New Object() {Matricule, NomPrenom, DateNais, LieuNais}
             rowEtudiantRow.ItemArray = columnValuesArray
@@ -519,7 +519,7 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnMatricule)
             Me.columnNomPrenom = New Global.System.Data.DataColumn("NomPrenom", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomPrenom)
-            Me.columnDateNais = New Global.System.Data.DataColumn("DateNais", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDateNais = New Global.System.Data.DataColumn("DateNais", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDateNais)
             Me.columnLieuNais = New Global.System.Data.DataColumn("LieuNais", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLieuNais)
@@ -1433,10 +1433,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DateNais() As Date
+        Public Property DateNais() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEtudiant.DateNaisColumn),Date)
+                    Return CType(Me(Me.tableEtudiant.DateNaisColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'DateNais' in table 'Etudiant' is DBNull.", e)
                 End Try

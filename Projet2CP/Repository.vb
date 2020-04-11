@@ -5,7 +5,7 @@
     Public Shared Sub initialiser()
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
-        Dim path As String = "path"
+        Dim path As String = "E:\ESI\Projet2CP\db.accdb"
         dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path
 
         _connection.ConnectionString = dbConnString
@@ -13,15 +13,114 @@
 
     End Sub
 
-    Public Shared Function recherche_etudiants(ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal dateNais As Date, ByVal sexe As String, ByVal anneeMin As Date, ByVal anneeMax As Date) As List(Of Etudiant)
+    Public Shared Function recherche_etudiants(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal dateNais As String, ByVal sexe As String, ByVal annee As String, ByVal wilayaNaissance As String, ByVal lieuNaissance As String) As List(Of Etudiant)
         Dim etudiants As List(Of Etudiant) = New List(Of Etudiant)()
-        etudiants.Add(New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0225", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 12})
 
-        etudiants.Add(New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0226", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 13})
+        Dim contientAnnee As Boolean = True
+        If annee = "" Then
+            contientAnnee = False
+        End If
 
-        etudiants.Add(New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0227", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 14})
 
-        etudiants.Add(New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0228", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 15})
+        Dim sqlCommand As String
+
+        If Not contientAnnee Or matricule <> "" Then
+
+            sqlCommand = "SELECT MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
+                                    & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de " _
+                                    & "FROM ETUDIANT "
+
+        Else
+            sqlCommand = "SELECT ETUDIANT.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
+                                           & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ETUDE.ANNEE " _
+                                           & "FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
+        End If
+
+        If matricule <> "" Then
+            sqlCommand += "WHERE MATRICULE = '" & matricule & "' "
+        Else
+            Dim condition As String = ""
+            Dim hasCondition As Boolean = False
+
+            If nom <> "" Then
+                condition = "NomEtud LIKE '%" & nom & "%' "
+                hasCondition = True
+            End If
+            If prenom <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "Prenoms LIKE '%" & prenom & "%' "
+                hasCondition = True
+            End If
+            If nomA <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "NomEtudA LIKE '%" & nomA & "%' "
+                hasCondition = True
+            End If
+            If prenomA <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "PrenomsA LIKE '%" & prenomA & "%' "
+                hasCondition = True
+            End If
+            If wilayaNaissance <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "WilayaNaisA LIKE '%" & wilayaNaissance & "%' "
+                hasCondition = True
+            End If
+            If lieuNaissance <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "Lieunais LIKE '%" & lieuNaissance & "%' "
+                hasCondition = True
+            End If
+            If sexe <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "Sexe = " & sexe & " "
+                hasCondition = True
+            End If
+            If dateNais <> "" Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "DateNais = '" & dateNais & "' "
+                hasCondition = True
+            End If
+            If contientAnnee Then
+                If hasCondition Then
+                    condition += "And "
+                End If
+                condition += "ANNEE = '" & annee & "' "
+                hasCondition = True
+            End If
+            If hasCondition Then
+                sqlCommand += "WHERE " & condition
+            End If
+        End If
+        sqlCommand += ";"
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+        Console.WriteLine(sqlCommand)
+
+        dr = cmd.ExecuteReader()
+
+        Dim etudiant As Etudiant
+        Do While dr.Read()
+            etudiant = New Etudiant With {.Adresse = dr.Item("Adresse").ToString, .CodePostal = dr.Item("CodPost").ToString, .DateNais = dr.Item("DateNais").ToString, .LieuNais = dr.Item("LieuNais").ToString, .LieuNaisA = dr.Item("LieuNaisA").ToString, .Matricule = dr.Item("MATRICULE"), .Nom = dr.Item("NomEtud").ToString, .NomA = dr.Item("NomEtudA").ToString, .NomMere = dr.Item("Et_de").ToString, .Prenom = dr.Item("Prenoms").ToString, .PrenomA = dr.Item("PrenomsA").ToString, .PrenomPere = dr.Item("Fils_de").ToString(), .Ville = dr.Item("Ville").ToString(), .Wilaya = dr.Item("Wilaya").ToString(), .WilayaNaisA = dr.Item("WilayaNaisA").ToString()}
+            If Not etudiants.Contains(etudiant) Then
+                etudiants.Add(etudiant)
+            End If
+        Loop
         Return etudiants
     End Function
 

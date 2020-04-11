@@ -5,8 +5,7 @@
         MyBase.New(displayName)
         v = New EtudiantView()
         Me.Etudiant = e
-        Me.ReportAttestationCommand = New RelayCommand(AddressOf ReportAttestationWindow)
-        Me.ReportReleveCommand = New RelayCommand(AddressOf ReportReleveWindow)
+        Me.ReportCommand = New RelayCommand(AddressOf ReportWindow)
     End Sub
 
     Private _etudiant As Etudiant
@@ -18,34 +17,24 @@
             _etudiant = value
         End Set
     End Property
-    Private _reportAttestationCommand As ICommand
-    Public Property ReportAttestationCommand As ICommand
+    Private _reportCommand As ICommand
+    Public Property ReportCommand As ICommand
         Get
-            Return _reportAttestationCommand
+            Return _reportCommand
         End Get
         Set(ByVal value As ICommand)
-            _reportAttestationCommand = value
+            _reportCommand = value
         End Set
     End Property
 
-    Private Sub ReportAttestationWindow(ByVal o As Object)
+    Private Sub ReportWindow(ByVal o As Object)
         Dim reportWindow As ReportWindow = New ReportWindow
-        reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.Attestation(_etudiant)
-        reportWindow.Show()
-    End Sub
-    Private _reportReleveCommand As ICommand
-    Public Property ReportReleveCommand As ICommand
-        Get
-            Return _reportReleveCommand
-        End Get
-        Set(ByVal value As ICommand)
-            _reportReleveCommand = value
-        End Set
-    End Property
-
-    Private Sub ReportReleveWindow(ByVal o As Object)
-        Dim reportWindow As ReportWindow = New ReportWindow
-        reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.ReleveNotes(_etudiant, Niveau.TRC1)
+        Dim s As String = CType(o, String)
+        If s = "Attestation" Then
+            reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.Attestation(_etudiant)
+        ElseIf s = "ReleveNotes" Then
+            reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.ReleveNotes(_etudiant, Niveau.TRC1)
+        End If
         reportWindow.Show()
     End Sub
     Private v As EtudiantView

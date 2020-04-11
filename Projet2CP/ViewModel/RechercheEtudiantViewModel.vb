@@ -3,35 +3,131 @@
 Public Class RechercheEtudiantViewModel
     Inherits WorkspaceViewModel
 
-    Public Sub New(ByVal displayName As String, ByRef w As ObservableCollection(Of WorkspaceViewModel))
-        MyBase.New(displayName)
-        v = New RechercheEtudiantView()
-        Me._workspaces = w
-        Me.EtudiantOnglet = New RelayCommand(AddressOf AddEtudiantView)
-    End Sub
-
-    Private _workspaces As ObservableCollection(Of WorkspaceViewModel)
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _dateNais, _lieuNais, _annee, _sexe, _wilayaNais As String
+    Private _resultats As List(Of Etudiant)
     Private v As RechercheEtudiantView
 
-    Private _etudiantOnglet As ICommand
-    Public Property EtudiantOnglet As ICommand
+    Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object))
+        MyBase.New(displayName)
+        v = New RechercheEtudiantView()
+        Me.EtudiantTab = New RelayCommand(addEtudiantView)
+    End Sub
+
+    'Recherche Command Property
+    Public _rechercheCommand As New RelayCommand(AddressOf recherche)
+    Public ReadOnly Property RechercheCommand As ICommand
         Get
-            Return _etudiantOnglet
+            Return _rechercheCommand
         End Get
-        Set(ByVal value As ICommand)
-            _etudiantOnglet = value
+    End Property
+
+    'Recherche Sub
+    Public Sub recherche()
+        Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, DateNais, Sexe, Annee, WilayaNais, LieuNais)
+    End Sub
+
+    'Recherche Properties
+    Public Property Matricule() As String
+        Get
+            Return _matricule
+        End Get
+        Set(ByVal value As String)
+            _matricule = value
+        End Set
+    End Property
+    Public Property Nom() As String
+        Get
+            Return _nom
+        End Get
+        Set(ByVal value As String)
+            _nom = value
+        End Set
+    End Property
+    Public Property Prenom() As String
+        Get
+            Return _prenom
+        End Get
+        Set(ByVal value As String)
+            _prenom = value
+        End Set
+    End Property
+    Public Property NomA() As String
+        Get
+            Return _nomA
+        End Get
+        Set(ByVal value As String)
+            _nomA = value
+        End Set
+    End Property
+    Public Property PrenomA() As String
+        Get
+            Return _prenomA
+        End Get
+        Set(ByVal value As String)
+            _prenomA = value
         End Set
     End Property
 
-    Private Sub AddEtudiantView(ByVal o As Object)
-        Dim e As New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0225", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 12}
-        e = Repository.paracours_etudiant(e)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel("Etudiant", e)
-        AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
+    Public Property DateNais() As String
+        Get
+            Return _dateNais
+        End Get
+        Set(ByVal value As String)
+            _dateNais = value
+        End Set
+    End Property
 
-        _workspaces.Add(workspace)
-    End Sub
-    Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)
-        _workspaces.Remove(sender)
-    End Sub
+    Public Property LieuNais() As String
+        Get
+            Return _lieuNais
+        End Get
+        Set(ByVal value As String)
+            _lieuNais = value
+        End Set
+    End Property
+    Public Property WilayaNais() As String
+        Get
+            Return _wilayaNais
+        End Get
+        Set(ByVal value As String)
+            _wilayaNais = value
+        End Set
+    End Property
+    Public Property Sexe() As String
+        Get
+            Return _sexe
+        End Get
+        Set(ByVal value As String)
+            _sexe = value
+        End Set
+    End Property
+
+    Public Property Annee() As String
+        Get
+            Return _annee
+        End Get
+        Set(ByVal value As String)
+            _annee = value
+        End Set
+    End Property
+    Public Property Resultats As List(Of Etudiant)
+        Get
+            Return _resultats
+
+        End Get
+        Set(ByVal value As List(Of Etudiant))
+            _resultats = value
+            OnPropertyChanged("Resultats")
+        End Set
+    End Property
+
+    Private _etudiantTab As ICommand
+    Public Property EtudiantTab As ICommand
+        Get
+            Return _etudiantTab
+        End Get
+        Set(ByVal value As ICommand)
+            _etudiantTab = value
+        End Set
+    End Property
 End Class

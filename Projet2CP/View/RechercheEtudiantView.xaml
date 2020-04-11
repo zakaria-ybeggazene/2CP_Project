@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignWidth="1048" d:DesignHeight="695">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" mc:Ignorable="d" d:DesignWidth="1048" d:DesignHeight="695">
 
     <UserControl.Resources>
 
@@ -10,21 +11,21 @@
 
     </UserControl.Resources>
 
-    <Grid Height="690" Width="1148">
-        <Grid Margin="1,180,121,2" >
+    <Grid Height="Auto" Width="Auto">
+        <Grid Margin="1,180,25,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="566*" />
                 <ColumnDefinition Width="557*" />
             </Grid.ColumnDefinitions>
-            <Border Margin="0,18,6,0" CornerRadius=" 15" BorderThickness="3" Grid.ColumnSpan="2">
+            <Border Margin="0,18,0,0" CornerRadius=" 15" BorderThickness="3" Grid.ColumnSpan="2">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="480" Width="1000" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding}" DataContext="{Binding}" Loaded="thisONe" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="470" Width="1005" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" DataContext ="{Binding}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Nom" Width=" 140" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="140" Binding="{Binding Nom}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Wilaya de naissance" Width=" 180" Binding="{Binding LieuNais}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Date de Naissance" Width=" 160" Binding="{Binding DateNais}" FontFamily="Montserrat" />
@@ -33,14 +34,18 @@
                         <DataGridTemplateColumn Header="Details">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Details" Command="{Binding Path=EtudiantOnglet}"/>
+                                    <Button Content="Details" Command="{Binding Path=EtudiantTab}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
 
-                    
-                    
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding Path=EtudiantTab}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
                             <Setter Property="Height" Value="30" />
@@ -65,33 +70,39 @@
         </Grid>
         <Button Content="Filters" Height="30" HorizontalAlignment="Left" FontFamily="Montserrat"  Name="Openbutton" VerticalAlignment="Top" Background="{x:Null}" FontSize="20" Margin="46,43,0,0" Foreground="#FF123456" FontStretch="Normal" BorderBrush="{x:Null}" FontWeight="SemiBold" HorizontalContentAlignment="Left" Cursor="Hand" />
 
-        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Margin="0,144,485,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="100" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True">
+        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechercheCommand}" Margin="0,144,408,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="100" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True">
 
         </Button>
-        <Grid  Height="35"  Margin="264,90,0,0" Background="#F0F0F0" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Label FontFamily="Montserrat" BorderThickness="0" Name="NomHintfr" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Width="150" Height="35" VerticalContentAlignment="Center" Background="{x:Null}">Nom</Label>
-            <TextBox  BorderThickness="0" Background="Transparent"  TextChanged="NomChangedfr" x:Name="Nomfr" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="2,0,0,0"  />
-            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="150" />
-        </Grid>
 
-        <Grid Height="35" Background="#F0F0F0" Margin="464,90,0,0" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Label FontFamily="Montserrat" BorderThickness="0" Name="PreNomHintfr" Foreground="#123456" Opacity="0.5" FontSize="14" Width="150" Height="35" VerticalContentAlignment="Center" Background="#00000000">Prenom</Label>
-            <TextBox BorderThickness="0" Background="Transparent" TextChanged="PreNomChangedfr" x:Name="PreNomfr" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Width="150" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
-            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="150" />
-        </Grid>
-        <Grid Width=" 150" VerticalAlignment=" Top" Background="#F0F0F0" HorizontalAlignment=" left" Margin="864,89,0,0" Height="36">
-            <Label FontFamily="Montserrat" BorderThickness="0" IsHitTestVisible="False" Name="WilayaHint" Foreground="#123456" Opacity="0.5" FontSize="14" Width="150" Height="35" VerticalContentAlignment="Center" Background="#F0F0F0" Margin="0,1,0,0">Wilaya</Label>
-            <TextBox BorderThickness="0" Background="Transparent" TextChanged="Wilayachanged" x:Name="Wilaya" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Width="150" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
-            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,35,0,0" VerticalAlignment="Top" Width="150" />
-        </Grid>
-        <Grid Background="#F0F0F0" HorizontalAlignment="Left" Margin="63,90,0,0" VerticalAlignment="Top" Width="150">
+        <Grid Background="#F0F0F0" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="120" Height="35">
             <Label Background="#00000000" BorderThickness="0" Content="Matricule" FontFamily="Montserrat" FontSize="14" Foreground="#123456" Height="35" Name="MatriculeHint" Opacity="0.5" VerticalContentAlignment="Center" Width="150" />
-            <TextBox Background="Transparent" BorderThickness="0" FontFamily="Montserrat" FontSize="14" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" Name="Matricule" SelectionBrush="#FF123456" TextChanged="MatriculeChanged" VerticalContentAlignment="Center" Width="150" />
+            <TextBox Text="{Binding Path=Matricule}" Background="Transparent" BorderThickness="0" FontFamily="Montserrat" FontSize="14" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" Name="MatriculeTB" SelectionBrush="#FF123456" TextChanged="MatriculeChanged" VerticalContentAlignment="Center" Margin="-1,0,1,0" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="150" />
         </Grid>
-        <Grid Width="150" Name="StackPanel1" Background="#F0F0F0" Margin="664,90,0,565" HorizontalAlignment="Left">
+        <Grid  Height="35"  Margin="160,90,0,0" Background="#F0F0F0" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="Nom" FontFamily="Montserrat" BorderThickness="0" Name="NomHintfr" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Width="150" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
+            <TextBox Text="{Binding Path=Nom}" BorderThickness="0" Background="Transparent"  TextChanged="NomChangedfr" x:Name="NomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="150" />
+        </Grid>
+        <Grid Height="35" Background="#F0F0F0" Margin="310,90,0,0" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="Prenom" FontFamily="Montserrat" BorderThickness="0" Name="PrenomHintfr" Foreground="#123456" Opacity="0.5" FontSize="14" Width="150" Height="35" VerticalContentAlignment="Center" Background="#00000000"/>
+            <TextBox Text="{Binding Path=Prenom}" BorderThickness="0" Background="Transparent" TextChanged="PrenomChangedfr" x:Name="PrenomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="150"></Border>
+        </Grid>
+        <Grid  Height="35"  Margin="460,90,0,0" Background="#F0F0F0" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="Promotion" FontFamily="Montserrat" BorderThickness="0" Name="PromoHint" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
+            <TextBox Text="{Binding Path=Annee}" BorderThickness="0" Background="Transparent"  TextChanged="PromoChanged" x:Name="PromoTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="150" />
+        </Grid>
+        <Grid Width="120" VerticalAlignment=" Top" Background="#F0F0F0" HorizontalAlignment=" left" Margin="610,90,0,0" Height="35">
+            <Label Content="Wilaya" FontFamily="Montserrat" BorderThickness="0" IsHitTestVisible="False" Name="WilayaHint" Foreground="#123456" Opacity="0.5" FontSize="14" Width="150" VerticalContentAlignment="Center" Background="#F0F0F0" Margin="0,1"/>
+            <TextBox Text="{Binding Path=WilayaNais}" BorderThickness="0" Background="Transparent" TextChanged="Wilayachanged" x:Name="WilayaTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="0,0,0,1" />
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="130" />
+        </Grid>
 
-            <DatePicker Height="35" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="DatePicker1" VerticalAlignment="Center" Width="150" BorderThickness="0" Foreground="#FF123456" VerticalContentAlignment="Center" Background="{x:Null}" OpacityMask="{x:Null}" FontFamily="Montserrat" FontSize="14">
+        <Grid Width="120" Name="StackPanel1" Background="#F0F0F0" Margin="760,90,0,569" HorizontalAlignment="Left" Height="36">
+
+            <DatePicker Text="{Binding Path=DateNais}" Height="35" HorizontalAlignment="Left" Margin="0,0,0,0" Name="DatePicker1" VerticalAlignment="Center" Width="120" BorderThickness="0" Foreground="#FF123456" VerticalContentAlignment="Center" Background="{x:Null}" OpacityMask="{x:Null}" FontFamily="Montserrat" FontSize="12">
                 <DatePicker.Resources>
                     <Style TargetType="{x:Type DatePicker}">
                         <Style.Resources>
@@ -103,13 +114,29 @@
                     </Style>
                 </DatePicker.Resources>
             </DatePicker>
-            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="150" />
-            <Rectangle Height="20" HorizontalAlignment="Left" Margin="1,7,0,0" Name="Rectangle1" Stroke="#FFF0F0F0" VerticalAlignment="Top" Width="121" StrokeThickness="2" />
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="120" />
+            <Rectangle Height="19" Margin="1,8,26,0" Name="Rectangle1" Stroke="#FFF0F0F0" VerticalAlignment="Top" StrokeThickness="2" />
+        </Grid>
+        <Grid Height="35" HorizontalAlignment="Left" Margin="910,90,0,0" Name="Grid1" VerticalAlignment="Top" Width="120"  Background="#F0F0F0">
+            <ComboBox Text="{Binding Path=Sexe}" Background="#F0F0F0" Height="34" BorderThickness="0"  HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Width="120" Name="SexeCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#F0F0F0" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
         <Image Height="30" HorizontalAlignment="Left" Margin="10,43,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" />
 
-        <Border Margin="414,144,635,516" CornerRadius=" 15" BorderThickness="2">
-            <Button Content="Reset" Height="24" Style="{DynamicResource Reset}" HorizontalAlignment="Left"   Name="Button1" VerticalAlignment="Top" Width="93" Background="{x:Null}" FontSize="16" FontFamily="Montserrat" FontWeight="Normal" BorderThickness="0" Cursor="Hand">
+        <Border Margin="407,144,0,520" CornerRadius=" 15" BorderThickness="2" Width="100" HorizontalAlignment="Left">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF123456" Offset="0" />
+                    <GradientStop Color="#FF1168BF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Button Content="Reset" Height="24" Style="{DynamicResource Reset}" Name="Button1" Width="93" Background="{x:Null}" FontSize="16" FontFamily="Montserrat" FontWeight="Normal" BorderThickness="0" Cursor="Hand">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />
@@ -118,12 +145,6 @@
                     </LinearGradientBrush>
                 </Button.Foreground>
             </Button>
-            <Border.BorderBrush>
-                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                    <GradientStop Color="#FF123456" Offset="0" />
-                    <GradientStop Color="#FF1168BF" Offset="1" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
         </Border>
     </Grid>
 </UserControl> 

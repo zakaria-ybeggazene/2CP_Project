@@ -31,7 +31,7 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub AddRechercheEtudiantView(ByVal o As Object)
-        Dim workspace As WorkspaceViewModel = New RechercheEtudiantViewModel("Recherche Etudiant", _workspaces)
+        Dim workspace As WorkspaceViewModel = New RechercheEtudiantViewModel("Recherche Etudiant", AddressOf Me.AddEtudiantView)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
         Workspaces.Add(workspace)
@@ -47,6 +47,14 @@ Public Class MainWindowViewModel
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
         Workspaces.Add(workspace)
+    End Sub
+    Private Sub AddEtudiantView(ByVal o As Object)
+        Dim e As New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0225", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 12}
+        e = Repository.paracours_etudiant(e)
+        Dim workspace As WorkspaceViewModel = New EtudiantViewModel("Etudiant", e)
+        AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
+
+        _workspaces.Add(workspace)
     End Sub
 
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)

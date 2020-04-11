@@ -1,6 +1,4 @@
-﻿Imports System.Collections.ObjectModel
-
-Public Class RechercheEtudiantView
+﻿Public Class RechercheEtudiantView
 
     Public Sub New()
 
@@ -10,25 +8,16 @@ Public Class RechercheEtudiantView
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-
-    End Sub
-
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-
-    End Sub
-
-
-    Private Sub PreNomChangedfr(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If PreNomfr.Text.Length = 0 Then
-            PreNomHintfr.Visibility = Windows.Visibility.Visible
+    Private Sub PrenomChangedfr(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If PrenomfrTB.Text.Length = 0 Then
+            PrenomHintfr.Visibility = Windows.Visibility.Visible
         Else
-            PreNomHintfr.Visibility = Windows.Visibility.Hidden
+            PrenomHintfr.Visibility = Windows.Visibility.Hidden
         End If
 
     End Sub
     Private Sub NomChangedfr(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If Nomfr.Text.Length = 0 Then
+        If NomfrTB.Text.Length = 0 Then
             NomHintfr.Visibility = Windows.Visibility.Visible
         Else
             NomHintfr.Visibility = Windows.Visibility.Hidden
@@ -36,24 +25,30 @@ Public Class RechercheEtudiantView
 
     End Sub
     Private Sub WilayaChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If Wilaya.Text.Length = 0 Then
+        If WilayaTB.Text.Length = 0 Then
             WilayaHint.Visibility = Windows.Visibility.Visible
         Else
             WilayaHint.Visibility = Windows.Visibility.Hidden
         End If
 
     End Sub
+    Private Sub PromoChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If PromoTB.Text.Length = 0 Then
+            PromoHint.Visibility = Windows.Visibility.Visible
+        Else
+            PromoHint.Visibility = Windows.Visibility.Hidden
+        End If
+
+    End Sub
 
     Private Sub MatriculeChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If Matricule.Text.Length = 0 Then
+        If MatriculeTB.Text.Length = 0 Then
             MatriculeHint.Visibility = Windows.Visibility.Visible
         Else
             MatriculeHint.Visibility = Windows.Visibility.Hidden
         End If
 
     End Sub
-
-
 
     'just for test 
     Private Sub thisONe(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
@@ -215,23 +210,14 @@ Public Class RechercheEtudiantView
         Mygrid.ItemsSource = Etudiants
     End Sub
 
-    Private Sub Image2_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
-
+    Private Sub comboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
+        Dim list As New List(Of String)
+        list.Add("Masculin")
+        list.Add("Feminin")
+        SexeCB.ItemsSource = list
     End Sub
 
-    Private Sub Mygrid_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles Mygrid.SelectionChanged
-
-    End Sub
-
-    Private Sub Openbutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-
-    End Sub
-
-    Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Filter.Click
-
-    End Sub
-
-    Private Sub Filter_FocusableChanged(ByVal sender As System.Object, ByVal e As System.Windows.DependencyPropertyChangedEventArgs)
+    Private Sub cbTest_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles SexeCB.SelectionChanged
 
     End Sub
 End Class
