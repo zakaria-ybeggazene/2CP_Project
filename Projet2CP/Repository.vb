@@ -5,9 +5,9 @@
     Public Shared Sub initialiser()
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
-        Dim path As String = "C:/Users/dell/Desktop/db.accdb"
-        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path
-
+        'Dim path As String = "C:/Users/dell/Desktop/db.accdb"
+        'dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & Migration.dbPath
+        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & Migration.dbPath & "; Jet OLEDB:Database Password=" & Migration.dbPassword & ""
         _connection.ConnectionString = dbConnString
         _connection.Open()
 

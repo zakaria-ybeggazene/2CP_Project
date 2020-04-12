@@ -8,7 +8,7 @@
 
     End Sub
     Private Sub adminPassword_PasswordChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If adminPassword.Password.Length = 0 Then
+        If UserPassword.Password.Length = 0 Then
             adminPasswordHint.Visibility = Windows.Visibility.Visible
         Else
             adminPasswordHint.Visibility = Windows.Visibility.Hidden
@@ -20,10 +20,14 @@
 
     End Sub
 
-
     Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Login.Click
-        Dim mainWindow As New MainWindow
-        Me.Close()
-        mainWindow.Show()
+        If Migration.login(1, UserPassword.Password) Then
+            Dim mainWindow As New MainWindow
+            Me.Close()
+            mainWindow.Show()
+        Else : UserPassword.Password = ""
+        End If
     End Sub
+
+
 End Class
