@@ -48,10 +48,9 @@ Public Class MainWindowViewModel
 
         Workspaces.Add(workspace)
     End Sub
-    Private Sub AddEtudiantView(ByVal o As Object)
-        Dim e As New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0225", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 12}
-        e = Repository.paracours_etudiant(e)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel("Etudiant", e)
+    Private Sub AddEtudiantView(ByVal o As Etudiant)
+        o = Repository.paracours_etudiant(o)
+        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(o.Nom.Trim & " " & o.Prenom.Trim, o)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
         _workspaces.Add(workspace)

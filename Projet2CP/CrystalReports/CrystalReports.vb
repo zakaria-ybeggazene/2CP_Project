@@ -10,7 +10,7 @@ Public Class CrystalReports
 
         row = etudiantTable.NewEtudiantRow()
         row("Matricule") = etudiant.Matricule
-        row("NomPrenom") = etudiant.Nom & " " & etudiant.Prenom
+        row("NomPrenom") = etudiant.Nom.Trim & " " & etudiant.Prenom.Trim
         row("DateNais") = etudiant.DateNais
         row("LieuNais") = etudiant.LieuNais
         etudiantTable.Rows.Add(row)
@@ -56,7 +56,7 @@ Public Class CrystalReports
 
         row = etudiantTable.NewEtudiantRow()
         row("Matricule") = etudiant.Matricule
-        row("NomPrenom") = etudiant.Nom & " " & etudiant.Prenom
+        row("NomPrenom") = etudiant.Nom.Trim & " " & etudiant.Prenom.Trim
         etudiantTable.Rows.Add(row)
         ds.Tables.Add(etudiantTable)
 

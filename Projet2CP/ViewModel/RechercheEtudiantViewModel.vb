@@ -23,6 +23,13 @@ Public Class RechercheEtudiantViewModel
 
     'Recherche Sub
     Public Sub recherche()
+        If Sexe = "Masculin" Then
+            _sexe = "1"
+        ElseIf Sexe = "Feminin" Then
+            _sexe = "2"
+        Else
+            _sexe = ""
+        End If
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, DateNais, Sexe, Annee, WilayaNais, LieuNais)
     End Sub
 

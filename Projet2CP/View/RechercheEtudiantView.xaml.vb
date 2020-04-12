@@ -16,6 +16,14 @@
         End If
 
     End Sub
+    Private Sub PrenomChangedA(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If PrenomATB.Text.Length = 0 Then
+            PrenomHintA.Visibility = Windows.Visibility.Visible
+        Else
+            PrenomHintA.Visibility = Windows.Visibility.Hidden
+        End If
+
+    End Sub
     Private Sub NomChangedfr(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
         If NomfrTB.Text.Length = 0 Then
             NomHintfr.Visibility = Windows.Visibility.Visible
@@ -24,11 +32,27 @@
         End If
 
     End Sub
-    Private Sub WilayaChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
-        If WilayaTB.Text.Length = 0 Then
-            WilayaHint.Visibility = Windows.Visibility.Visible
+    Private Sub NomChangedA(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If NomATB.Text.Length = 0 Then
+            NomHintA.Visibility = Windows.Visibility.Visible
         Else
-            WilayaHint.Visibility = Windows.Visibility.Hidden
+            NomHintA.Visibility = Windows.Visibility.Hidden
+        End If
+
+    End Sub
+    Private Sub LieuNaisChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If LieuNaisTB.Text.Length = 0 Then
+            LieuNaiSHint.Visibility = Windows.Visibility.Visible
+        Else
+            LieuNaiSHint.Visibility = Windows.Visibility.Hidden
+        End If
+
+    End Sub
+    Private Sub WilayaNaisChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If WilayaNaisTB.Text.Length = 0 Then
+            WilayaNaisHint.Visibility = Windows.Visibility.Visible
+        Else
+            WilayaNaisHint.Visibility = Windows.Visibility.Hidden
         End If
 
     End Sub
