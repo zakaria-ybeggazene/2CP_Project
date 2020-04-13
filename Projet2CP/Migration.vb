@@ -4,16 +4,16 @@
         start = Timer
 
         'enter your excel files paths here
-        Dim inscrit As String = "C:\Users\asus\Desktop\2CPI\PRJP\Données_client\INSCRIT_00_04.xlsx"
-        Dim note As String = "C:\Users\asus\Desktop\2CPI\PRJP\Données_client\NOTE_00_04.xlsx"
-        Dim matiere As String = "C:\Users\asus\Desktop\2CPI\PRJP\Données_client\MATIERE_00_04.xlsx"
-        Dim rattrap As String = "C:\Users\asus\Desktop\2CPI\PRJP\Données_client\RATRAP_00_04.xlsx"
+        Dim inscrit As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\INSCRIT_00_04.xlsx"
+        Dim note As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\NOTE_00_04.xlsx"
+        Dim matiere As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\MATIERE_00_04.xlsx"
+        Dim rattrap As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\RATRAP_00_04.xlsx"
 
         'enter the full path where access database will be created here
         Dim dbPath As String = "C:\Users\asus\Desktop\2CPI\PRJP\Database.accdb"
-
+        dbPath = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
         'enter the database password here
-        Dim dbPassword As String = "123"
+        Dim dbPassword As String = "historia"
 
         ''access database 
         Dim dbConnString As String
@@ -120,7 +120,7 @@
                                 & " max(LIEUNAISA) as 'LIEUNAISA',max(LIEUNAIS) as 'LIEUNAIS' ,max(WILNAISA) as 'WILNAISA',max(ADRESSE) as 'ADRESSE',max(VILLE) as 'VILLE', " _
                                 & "max(WILAYA) as 'WILAYA',max(CODPOST) as 'CODPOST' ,max(SEXE) as 'SEXE',max(FILS_DE) as 'FILS_DE',max(ET_DE) as 'ET_DE' FROM inscrits GROUP BY MATRIN order by MATRIN;"
         cmdAccess.ExecuteNonQuery()
-        cmdAccess.CommandText = "INSERT INTO PROMO (ANNEE ,OPTIIN , ANETIN ) SELECT ANSCIN ,OPTIIN ,ANETIN " _
+        cmdAccess.CommandText = "INSERT INTO PROMO (ANNEE ,OPTIIN , ANETIN, NbInscrits) SELECT ANSCIN ,OPTIIN ,ANETIN, COUNT(*) AS 'NbInscrits' " _
                                 & "FROM inscrits GROUP BY ANSCIN, OPTIIN,ANETIN ORDER BY ANSCIN;"
         cmdAccess.ExecuteNonQuery()
         cmdAccess.CommandText = "INSERT INTO ETUDE (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,ADM)" _
@@ -143,10 +143,10 @@
         cmdAccess.ExecuteNonQuery()
         connAccess.Close()
 
-        ''set database password
+        'set database password
         db = CreateObject("Access.Application")
         db.OpenCurrentDatabase(dbPath, True)
-        db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & dbPassword & " NULL")
+        db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(dbPassword).Substring(0, 14) & " NULL")
         db.CloseCurrentDatabase()
         db.Quit()
         MsgBox("Successfully done !" & vbCrLf & "Excecution time : " & Timer - start & " seconds")

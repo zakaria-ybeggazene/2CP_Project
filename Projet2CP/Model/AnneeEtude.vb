@@ -1,6 +1,7 @@
 ﻿
 Public Class AnneeEtude
-    Private _annee, _groupe, _mention, _rang As Integer
+    Private _annee As String
+    Private _groupe, _mention, _rang, _nbrEtudiants As Integer
     Private _niveau As Niveau
     Private _section, _adm As Char
     Private _moyenneJ As Decimal
@@ -9,16 +10,6 @@ Public Class AnneeEtude
         Private _moyenneR As Decimal
         Private _mentionR, _elim As Integer
 
-        'Constructeur
-        Public Sub New()
-
-        End Sub
-
-        Public Sub New(ByVal moyenneR As Decimal, ByVal mentionR As Integer, ByVal elim As Integer)
-            _moyenneR = moyenneR
-            _mentionR = mentionR
-            _elim = elim
-        End Sub
 
         'Propreties
         Public Property MoyenneR() As Decimal
@@ -67,11 +58,11 @@ Public Class AnneeEtude
 
 
     'Properties
-    Public Property Annee() As Integer
+    Public Property Annee() As String
         Get
             Return _annee
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             Me._annee = value
         End Set
     End Property
@@ -153,6 +144,14 @@ Public Class AnneeEtude
         End Get
         Set(ByVal value As Integer)
             Me._rang = value
+        End Set
+    End Property
+    Public Property NbrEtudiants() As Integer
+        Get
+            Return _nbrEtudiants
+        End Get
+        Set(ByVal value As Integer)
+            Me._nbrEtudiants = value
         End Set
     End Property
 

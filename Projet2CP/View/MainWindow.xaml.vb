@@ -6,7 +6,6 @@
 
         ' Add any initialization after the InitializeComponent() call.
         DataContext = New MainWindowViewModel()
-        Repository.initialiser()
     End Sub
 
     Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
