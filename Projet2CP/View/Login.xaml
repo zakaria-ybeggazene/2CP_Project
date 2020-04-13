@@ -12,7 +12,6 @@
             <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Margin="0,39,8,0" Name="Border1" VerticalAlignment="Top" Width="260" />
         </Grid>
         <Button Style="{DynamicResource RoundCorner}" Name="Login" Content="Login" Margin="0,262,158,0" Foreground="White" FontSize="28" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="144" VerticalAlignment="Top" Height="40" ClickMode="Release" Cursor="Hand">
-
         </Button>
     </Grid>
 </Window>

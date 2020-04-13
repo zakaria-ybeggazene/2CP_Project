@@ -8,7 +8,6 @@
       Title="importerfichier" Height="554" Width="1050" ResizeMode="noResize">
     <Grid Background="White" Visibility="Visible">
         <Label  Height="64" HorizontalAlignment="Left" Margin="633,33,0,0" Content ="Importer Fichiers " VerticalAlignment="Top" Width="359" FontFamily="Montserrat" FontSize="38" FontWeight="SemiBold">
-
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="#FF123456" Offset="0" />

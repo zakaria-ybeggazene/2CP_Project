@@ -12,7 +12,7 @@
         _connection.Open()
 
     End Sub
-
+    ''
     Public Shared Function recherche_etudiants(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal dateNais As String, ByVal sexe As String, ByVal annee As String, ByVal wilayaNaissance As String, ByVal lieuNaissance As String) As List(Of Etudiant)
         Dim etudiants As List(Of Etudiant) = New List(Of Etudiant)()
 

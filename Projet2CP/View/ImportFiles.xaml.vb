@@ -18,7 +18,53 @@ Public Class ImportFiles
         'Else
         '    FichierHint.Visibility = Windows.Visibility.Hidden
         'End If
+    End Sub
 
+
+    Public Sub ParcourirButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ParcourirButton.Click
+        Dim app As New Excel.Application
+        Try
+            filePath = ParcourirButtonClicked()
+            If filePath <> "" Then
+                Fichier.Content = filePath
+            End If
+            If ins = False Then
+                verify(filePath, 1)
+                If ins = True Then
+                    'app.Wait(DateAdd("s", 5, Now))
+                    Fichier.Content = "Nom du fichier"
+                    file.Content = "Select NOTE File"
+                End If
+            ElseIf notes = False Then
+                verify(filePath, 2)
+                If notes = True Then
+                    Fichier.Content = "Nom du fichier"
+                    file.Content = "Select MATIERE File"
+                End If
+            ElseIf mat = False Then
+                verify(filePath, 3)
+                If mat = True Then
+                    Fichier.Content = "Nom du fichier"
+                    file.Content = "Select RATTRAPAGE File"
+                End If
+            ElseIf rattrap = False Then
+                verify(filePath, 4)
+                If rattrap = True Then
+                    Fichier.Content = "Nom du fichier"
+                    file.Content = ""
+                    ParcourirButton.IsEnabled = False
+                    terminerButton.Opacity = "10"
+                    terminerButton.IsEnabled = True
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("Enter a valid path")
+        End Try
+        app.Quit()
+    End Sub
+
+    Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
+        Migration.migration(inscritPath, notePath, matPath, ratPath)
     End Sub
 
     Function ParcourirButtonClicked()
@@ -134,51 +180,4 @@ Public Class ImportFiles
         wb.Close()
         xlApp.Quit()
     End Sub
-
-    Public Sub ParcourirButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ParcourirButton.Click
-        Dim app As New Excel.Application
-        Try
-            filePath = ParcourirButtonClicked()
-            If filePath <> "" Then
-                Fichier.Content = filePath
-            End If
-            If ins = False Then
-                verify(filePath, 1)
-                If ins = True Then
-                    'app.Wait(DateAdd("s", 5, Now))
-                    Fichier.Content = "Nom du fichier"
-                    file.Content = "Select NOTE File"
-                End If
-            ElseIf notes = False Then
-                verify(filePath, 2)
-                If notes = True Then
-                    Fichier.Content = "Nom du fichier"
-                    file.Content = "Select MATIERE File"
-                End If
-            ElseIf mat = False Then
-                verify(filePath, 3)
-                If mat = True Then
-                    Fichier.Content = "Nom du fichier"
-                    file.Content = "Select RATTRAPAGE File"
-                End If
-            ElseIf rattrap = False Then
-                verify(filePath, 4)
-                If rattrap = True Then
-                    Fichier.Content = "Nom du fichier"
-                    file.Content = ""
-                    ParcourirButton.IsEnabled = False
-                    terminerButton.Opacity = "10"
-                    terminerButton.IsEnabled = True
-                End If
-            End If
-        Catch ex As Exception
-            MsgBox("Enter a valid path")
-        End Try
-        app.Quit()
-    End Sub
-
-    Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
-        Migration.migration(inscritPath, notePath, matPath, ratPath)
-    End Sub
-
 End Class

@@ -1,5 +1,5 @@
 ﻿Public Class Window1
-
+    '' a revoir
     Private Sub Image1_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
 
     End Sub
@@ -20,6 +20,20 @@
 
     End Sub
 
+
+
+    Private Sub tb_KeyDown(ByVal sender As System.Object, ByVal e As KeyEventArgs) Handles UserPassword.PreviewKeyDown
+
+        If (e.Key = Key.Enter) Then
+            If Migration.login(1, UserPassword.Password) Then
+                Dim mainWindow As New MainWindow
+                Me.Close()
+                mainWindow.Show()
+            Else : UserPassword.Password = ""
+            End If
+        End If
+    End Sub
+
     Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Login.Click
         If Migration.login(1, UserPassword.Password) Then
             Dim mainWindow As New MainWindow
@@ -28,6 +42,4 @@
         Else : UserPassword.Password = ""
         End If
     End Sub
-
-
 End Class
