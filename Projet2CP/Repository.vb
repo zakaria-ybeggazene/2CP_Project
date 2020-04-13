@@ -2,7 +2,7 @@
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
 
-    Public Shared Sub initialiser()
+    Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
         'Dim path As String = "C:/Users/dell/Desktop/db.accdb"
@@ -11,6 +11,36 @@
         _connection.ConnectionString = dbConnString
         _connection.Open()
 
+        'initialiser la liste des matieres
+        Dim matieres As List(Of Matiere) = New List(Of Matiere)()
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT COMAMA,OPTIMA,ANETMA,LibeMA ,CoefMA FROM MATIERE;"
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        Dim m As Matiere
+        Do While dr.Read
+            m = New Matiere With {.CodMat = dr.Item("COMAMA"),
+                                  .Coef = dr.Item("CoefMA"),
+                                  .LibeMat = dr.Item("LibeMA"),
+                                  .NiveauM = Util.GetNiveau(dr.Item("OPTIMA"), dr.Item("ANETMA"))}
+            matieres.Add(m)
+        Loop
+
+        Matiere.initialiserMatieres(matieres)
+
+        dr.Close()
+
+    End Sub
+
+    Public Shared Sub disposer()
+        'fermer la connection base de donnée
+        _connection.Close()
     End Sub
     ''
     Public Shared Function recherche_etudiants(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal dateNais As String, ByVal sexe As String, ByVal annee As String, ByVal wilayaNaissance As String, ByVal lieuNaissance As String) As List(Of Etudiant)
@@ -110,67 +140,97 @@
 
         Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
         Dim dr As System.Data.OleDb.OleDbDataReader
-        Console.WriteLine(sqlCommand)
 
         dr = cmd.ExecuteReader()
 
         Dim etudiant As Etudiant
         Do While dr.Read()
-            etudiant = New Etudiant With {.Adresse = dr.Item("Adresse").ToString, .CodePostal = dr.Item("CodPost").ToString, .DateNais = dr.Item("DateNais").ToString, .LieuNais = dr.Item("LieuNais").ToString, .LieuNaisA = dr.Item("LieuNaisA").ToString, .Matricule = dr.Item("MATRICULE"), .Nom = dr.Item("NomEtud").ToString, .NomA = dr.Item("NomEtudA").ToString, .NomMere = dr.Item("Et_de").ToString, .Prenom = dr.Item("Prenoms").ToString, .PrenomA = dr.Item("PrenomsA").ToString, .PrenomPere = dr.Item("Fils_de").ToString(), .Ville = dr.Item("Ville").ToString(), .Wilaya = dr.Item("Wilaya").ToString(), .WilayaNaisA = dr.Item("WilayaNaisA").ToString()}
+            etudiant = New Etudiant With {.Adresse = dr.Item("Adresse").ToString(), .CodePostal = dr.Item("CodPost").ToString.Trim, .DateNais = dr.Item("DateNais").ToString.Trim, .LieuNais = dr.Item("LieuNais").ToString.Trim, .LieuNaisA = dr.Item("LieuNaisA").ToString.Trim, .Matricule = dr.Item("MATRICULE").Trim, .Nom = dr.Item("NomEtud").ToString, .NomA = dr.Item("NomEtudA").ToString.Trim, .NomMere = dr.Item("Et_de").ToString.Trim, .Prenom = dr.Item("Prenoms").ToString.Trim, .PrenomA = dr.Item("PrenomsA").ToString.Trim, .PrenomPere = dr.Item("Fils_de").ToString().Trim, .Ville = dr.Item("Ville").ToString().Trim, .Wilaya = dr.Item("Wilaya").ToString().Trim, .WilayaNaisA = dr.Item("WilayaNaisA").ToString().Trim}
             If Not etudiants.Contains(etudiant) Then
                 etudiants.Add(etudiant)
             End If
         Loop
+
+        dr.Close()
+
         Return etudiants
     End Function
 
     Public Shared Function paracours_etudiant(ByVal etudiant As Etudiant) As Etudiant
         Dim parcours As List(Of AnneeEtude) = New List(Of AnneeEtude)()
 
-        ''annee 1
-        Dim anneEtude As AnneeEtude = New AnneeEtude With {.Adm = "j", .Annee = 2000, .Groupe = 10, .Mention = 4, .MoyenneJ = 15.01, .Niveau = Niveau.TRC1, .Section = "C"}
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, ADM, NbInscrits " _
+                    & "FROM ETUDE INNER JOIN PROMO ON PROMO.ANNEE = ETUDE.ANNEE AND PROMO.OPTIIN = ETUDE.OPTIIN AND PROMO.ANETIN = ETUDE.ANETIN " _
+                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN ASC;"
+
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        Dim anneEtude As AnneeEtude
+        Dim ratrapage As List(Of Integer) = New List(Of Integer)
+        Do While dr.Read()
+            ratrapage.Add(dr.Item("RatIN"))
+            anneEtude = New AnneeEtude With {.Adm = Util.dbNullToString(dr.Item("ADM")),
+                                             .Annee = Util.dbNullToString(dr.Item("ANNEE")).Trim(),
+                                             .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
+                                             .Mention = Util.dbNullToString(dr.Item("MentIN")),
+                                             .MoyenneJ = Util.dbNullToDouble(dr.Item("Moyenne")),
+                                             .Niveau = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIIN")).Trim(), Util.dbNullToString(dr.Item("ANETIN")).Trim()),
+                                             .Section = Util.dbNullToString(dr.Item("NumScn")),
+                                             .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
+                                             .NbrEtudiants = Util.dbNullToInteger(dr.Item("NbInscrits"))}
+
+            parcours.Add(anneEtude)
+        Loop
+        dr.Close()
+
         Dim notes As Dictionary(Of Matiere, Note) = New Dictionary(Of Matiere, Note)()
-        Dim mat As Matiere = New Matiere With {.CodMat = "Algo", .Coef = 5, .LibeMat = "ALGORITHMIQUE", .NiveauM = Niveau.TRC1}
-        Dim note As Note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "Archi", .Coef = 5, .LibeMat = "Architecture", .NiveauM = Niveau.TRC1}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "Sys", .Coef = 5, .LibeMat = "Systeme", .NiveauM = Niveau.TRC1}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        anneEtude.Notes = notes
-        parcours.Add(anneEtude)
+        Dim i As Integer = 0
+        For Each a As AnneeEtude In parcours
+            cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
+                            & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
+            dr = cmd.ExecuteReader()
+            Dim n As Note
+            Do While dr.Read
+                n = New Note With {.Noju = Util.dbNullToDouble(dr.Item("NoJuNo")),
+                                      .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
+                                      .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
+                                      .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
+                                      .Eliminatoire = Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
+                notes.Add(Matiere.getMatiere(dr.Item("ComaMa"), a.Niveau), n)
+            Loop
+            dr.Close()
 
-        ''annee 2
-        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2001, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .Niveau = Niveau.TRC2, .Section = "C"}
-        notes = New Dictionary(Of Matiere, Note)()
-        mat = New Matiere With {.CodMat = "Algo", .Coef = 5, .LibeMat = "ALGORITHMIQUE", .NiveauM = Niveau.TRC2}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "Archi", .Coef = 5, .LibeMat = "Architecture", .NiveauM = Niveau.TRC2}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "SFSD", .Coef = 5, .LibeMat = "Structure fichier", .NiveauM = Niveau.TRC2}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        anneEtude.Notes = notes
-        parcours.Add(anneEtude)
+            If ratrapage(i) > 0 Then
+                sqlCommand = "SELECT MoyeRa,MentRa,ElimRa " _
+                            & "FROM RATTRAP " _
+                            & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIRA = '" & Util.GetOption(a.Niveau) & "' AND ANETRA = '" & Util.GetAnneEt(a.Niveau) & "';"
 
-        ''annee 3
-        anneEtude = New AnneeEtude With {.Adm = "j", .Annee = 2002, .Groupe = 7, .Mention = 4, .MoyenneJ = 12.01, .Niveau = Niveau.SI1, .Section = "B"}
-        notes = New Dictionary(Of Matiere, Note)()
-        mat = New Matiere With {.CodMat = "Sys", .Coef = 5, .LibeMat = "Systeme", .NiveauM = Niveau.SI1}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "Archi", .Coef = 5, .LibeMat = "Architecture", .NiveauM = Niveau.SI1}
-        note = New Note With {.Eliminatoire = False, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        mat = New Matiere With {.CodMat = "THP", .Coef = 5, .LibeMat = "Theorie de programmation", .NiveauM = Niveau.SI1}
-        note = New Note With {.Eliminatoire = True, .Noju = 15, .Nora = 0, .Nosy = 0, .Ratrapage = 0}
-        notes.Add(mat, note)
-        anneEtude.Notes = notes
-        parcours.Add(anneEtude)
+                cmd.CommandText = sqlCommand
+                MessageBox.Show(sqlCommand)
+                dr = cmd.ExecuteReader
+
+                If (dr.Read()) Then
+                    Util.dbNullToDouble(dr.Item("MoyeRa"))
+                    Util.dbNullToInteger(dr.Item("MentRa"))
+                    Util.dbNullToInteger(dr.Item("ElimRa"))
+                    a.Rattrap = New AnneeEtude.Rattrapage With {.MoyenneR = Util.dbNullToDouble(dr.Item("MoyeRa")),
+                                                            .MentionR = Util.dbNullToInteger(dr.Item("MentRa")),
+                                                            .Elim = Util.dbNullToInteger(dr.Item("ElimRa"))}
+                    MessageBox.Show(i)
+                End If
+
+
+                dr.Close()
+            End If
+
+            i += 1
+        Next
 
         etudiant.Parcours = parcours
 
@@ -201,29 +261,6 @@
         Dim promo As Promotion = New Promotion With {.Annee = 2000, .ListeEtudiants = etudiants, .ListeMatiere = moyenneMatiere, .NiveauP = Projet2CP.Niveau.TRC1, .NbDoublants = 1, .NbInscrits = 4, .NbRattrap = 0}
         Dim promos As List(Of Promotion) = New List(Of Promotion)(promo)
         Return promos
-    End Function
-
-    ''Fonction utilitaire pour recuperer le niveau a partir du cycle et de l'année
-    Private Shared Function GetNiveau(ByVal Cycle As String, ByVal Annee As Integer) As Niveau
-        If Cycle = "TRC" Then
-            If Annee = 1 Then
-                Return Niveau.TRC1
-            Else
-                Return Niveau.TRC2
-            End If
-        ElseIf Cycle = "SI" Then
-            If Annee = 3 Then
-                Return Niveau.SI1
-            Else
-                Return Niveau.SI2
-            End If
-        Else
-            If Annee = 3 Then
-                Return Niveau.SIQ1
-            Else
-                Return Niveau.SIQ2
-            End If
-        End If
     End Function
 
 End Class

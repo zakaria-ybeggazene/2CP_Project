@@ -14,7 +14,7 @@
     <MyType>Custom</MyType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -115,6 +115,7 @@
     <Compile Include="Model\Note.vb" />
     <Compile Include="Model\Promotion.vb" />
     <Compile Include="Repository.vb" />
+    <Compile Include="Util.vb" />
     <Compile Include="ViewModel\CommandViewModel.vb" />
     <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />

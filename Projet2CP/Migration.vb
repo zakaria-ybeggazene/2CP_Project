@@ -153,7 +153,7 @@ Public Class Migration
                                 & "max(WILAYA) as 'WILAYA',max(CODPOST) as 'CODPOST' ,max(SEXE) as 'SEXE',max(FILS_DE) as 'FILS_DE',max(ET_DE) as 'ET_DE',max(ANNEEBAC) as 'ANNEEBAC'," _
                                 & "max(SERIEBAC) as 'SERIEBAC' ,max(MOYBAC) as 'MOYBAC',max(WILBAC) as 'WILBAC' FROM inscrits GROUP BY MATRIN order by MATRIN;"
         cmdAccess.ExecuteNonQuery()
-        cmdAccess.CommandText = "INSERT INTO PROMO (ANNEE ,OPTIIN , ANETIN ) SELECT ANSCIN ,OPTIIN ,ANETIN " _
+        cmdAccess.CommandText = "INSERT INTO PROMO (ANNEE ,OPTIIN , ANETIN, NbInscrits) SELECT ANSCIN ,OPTIIN ,ANETIN, COUNT(*) AS 'NbInscrits' " _
                                 & "FROM inscrits GROUP BY ANSCIN, OPTIIN,ANETIN ORDER BY ANSCIN;"
         cmdAccess.ExecuteNonQuery()
         cmdAccess.CommandText = "INSERT INTO ETUDE (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,DECIIN,ADM)" _
@@ -177,10 +177,10 @@ Public Class Migration
         cmdAccess.ExecuteNonQuery()
         connAccess.Close()
 
-        ''set database password
+        'set database password
         db = CreateObject("Access.Application")
         db.OpenCurrentDatabase(dbPath, True)
-        db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & dbPassword & " NULL")
+        db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(dbPassword).Substring(0, 14) & " NULL")
         db.CloseCurrentDatabase()
         db.Quit()
         MsgBox("Successfully done !" & vbCrLf & "Excecution time : " & Timer - start & " seconds")
