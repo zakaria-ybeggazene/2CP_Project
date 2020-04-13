@@ -47,28 +47,27 @@
         </Border>
         <Label Content="Select Inscrits : " FontSize="20"  Height="46" HorizontalAlignment="Left" Margin="568,118,0,0" Name="file" VerticalAlignment="Top" Width="241" Foreground="#FF123456" FontFamily="Montserrat" FontWeight="Normal" />
 
-
-        <Button Opacity="0.5" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="889,468,0,0" Name="terminerButton" VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" IsTabStop="True">
+        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="889,468,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand">
 
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.5" />
             </Button.BitmapEffect>
         </Button>
         <Grid Margin="600,338,332,65" >
-            <Image Height="112" HorizontalAlignment="Left"  Name="RattrapageImage" Stretch="Fill" Opacity="0.5" VerticalAlignment="Top" Width="96"  />
+            <Image Height="112" HorizontalAlignment="Left"  Name="RattrapageImage" Stretch="Fill" Opacity="0.5" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png" />
             <!--Source="/Projet2CP;component/Images/Capa%2011.png"-->
             <Label Content="Rattrapage" Height="32" HorizontalAlignment="Left"  Name="Rattrapage"  VerticalAlignment="Top" Width="68" FontFamily="Montserrat" Foreground="White" Margin="-1,28,0,0" FontSize="10" />
         </Grid>
         <Grid Margin="789,338,143,65">
-            <Image Height="112" HorizontalAlignment="Left" Name="MatieresImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96" />
+            <Image Height="112" HorizontalAlignment="Left" Name="MatieresImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png"/>
             <Label Content="Matieres" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Matieres" VerticalAlignment="Top" Width="63" />
         </Grid>
         <Grid Margin="789,222,143,186">
-            <Image Height="107" HorizontalAlignment="Left" Name="NoteImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96" />
+            <Image Height="107" HorizontalAlignment="Left" Name="NoteImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png" />
             <Label Content="Note" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Note" VerticalAlignment="Top" Width="63" />
         </Grid>
         <Grid Margin="599,222,332,186">
-            <Image Height="107" HorizontalAlignment="Left" Name="InscritsImage" Opacity="0.5"  Stretch="Fill" VerticalAlignment="Top" Width="97" IsHitTestVisible="True"  />
+            <Image Height="107" HorizontalAlignment="Left" Name="InscritsImage" Opacity="0.5"  Stretch="Fill" VerticalAlignment="Top" Width="97" IsHitTestVisible="True" Source="/Projet2CP;component/Images/Capa%201.png" />
             <Label Content="Inscrits" Name="Inscrits" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0"  VerticalAlignment="Top" Width="63" />
         </Grid>
     </Grid>

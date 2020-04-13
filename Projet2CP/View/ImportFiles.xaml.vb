@@ -115,15 +115,16 @@ Public Class ImportFiles
                         And (ws.Cells(1, 35).value = "SERIEBAC") And (ws.Cells(1, 36).value = "MOYBAC") _
                         And (ws.Cells(1, 37).value = "ANNEEBAC") And (ws.Cells(1, 38).value = "FILS_DE") _
                         And (ws.Cells(1, 39).value = "ET_DE") And (ws.Cells(1, 40).value = "ADM"))) Then
-                        MsgBox("valid")
+                        MsgBox("Votre fichier est Valide", MsgBoxStyle.Information)
+                        InscritsImage.Opacity = 1
                         inscritPath = filePath
                         ins = True
                     Else : Fichier.Content = ("Nom du fichier")
-                        MsgBox("erreur dans un des champs , réessayer")
+                        MsgBox("Erreur dans un des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                     End If
                 Else : Fichier.Content = ("Nom du fichier")
-                    MsgBox("erreur dans le nombre de champs, réessayer")
+                    MsgBox("Erreur dans le nombre des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                 End If
             Case 2 'fichier note
@@ -134,15 +135,16 @@ Public Class ImportFiles
                         And (ws.Cells(1, 7).value = "NOJUNO") And (ws.Cells(1, 8).value = "NOSYNO") _
                         And (ws.Cells(1, 9).value = "NORANO") And (ws.Cells(1, 10).value = "ELIMNO") _
                         And (ws.Cells(1, 11).value = "RATRNO")) Then
-                        MsgBox("valid")
+                        MsgBox("Votre fichier est Valide", MsgBoxStyle.Information)
+                        NoteImage.Opacity = 1
                         notePath = filePath
                         notes = True
                     Else : Fichier.Content = ("Nom du fichier")
-                        MsgBox("erreur dans un des champs , réessayer")
+                        MsgBox("Erreur dans un des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                     End If
                 Else : Fichier.Content = ("Nom du fichier")
-                    MsgBox("erreur dans le nombre de champs, réessayer")
+                    MsgBox("Erreur dans le nombre des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                 End If
             Case 3 'fichier matiere
@@ -152,15 +154,16 @@ Public Class ImportFiles
                         And (ws.Cells(1, 5).value = "COMAMA") And (ws.Cells(1, 6).value = "LIBEMA") _
                         And (ws.Cells(1, 7).value = "TYPEMA") And (ws.Cells(1, 8).value = "COEFMA") _
                         And (ws.Cells(1, 9).value = "MOYMAT")) Then
-                        MsgBox("valid")
+                        MsgBox("Votre fichier est Valide", MsgBoxStyle.Information)
+                        MatieresImage.Opacity = 1
                         matPath = filePath
                         mat = True
                     Else : Fichier.Content = ("Nom du fichier")
-                        MsgBox("erreur dans un des champs , réessayer")
+                        MsgBox("Erreur dans un des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                     End If
                 Else : Fichier.Content = ("Nom du fichier")
-                    MsgBox("erreur dans le nombre de champs, réessayer")
+                    MsgBox("Erreur dans le nombre des champs , Veuillez réessayer", MsgBoxStyle.Critical)
 
                 End If
 
@@ -171,14 +174,15 @@ Public Class ImportFiles
                         And (ws.Cells(1, 5).value = "MATRRA") And (ws.Cells(1, 6).value = "MOYERA") _
                         And (ws.Cells(1, 7).value = "MENTRA") And (ws.Cells(1, 8).value = "ELIMRA") _
                         And (ws.Cells(1, 9).value = "RATRRA")) Then
-                        MsgBox("valid")
+                        MsgBox("Votre fichier est Valide", MsgBoxStyle.Information)
+                        RattrapageImage.Opacity = 1
                         ratPath = filePath
                         rattrap = True
                     Else : Fichier.Content = ("Nom du fichier")
-                        MsgBox("erreur dans un des champs , réessayer")
+                        MsgBox("Erreur dans un des champs , Veuillez réessayer", MsgBoxStyle.Critical)
                     End If
                 Else : Fichier.Content = ("Nom du fichier")
-                    MsgBox("erreur dans le nombre de champs, réessayer")
+                    MsgBox("Erreur dans le nombre des champs , Veuillez réessayer", MsgBoxStyle.Critical)
                 End If
         End Select
         wb.Close()
