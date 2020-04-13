@@ -1,14 +1,14 @@
 ﻿Public Class Window1
-
-    Private Sub Image1_ImageFailed(sender As System.Object, e As System.Windows.ExceptionRoutedEventArgs)
-
-    End Sub
-
-    Private Sub Image1_ImageFailed_1(sender As System.Object, e As System.Windows.ExceptionRoutedEventArgs)
+    '' a revoir
+    Private Sub Image1_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
 
     End Sub
-    Private Sub adminPassword_PasswordChanged(sender As System.Object, e As RoutedEventArgs)
-        If adminPassword.Password.Length = 0 Then
+
+    Private Sub Image1_ImageFailed_1(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
+
+    End Sub
+    Private Sub adminPassword_PasswordChanged(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
+        If UserPassword.Password.Length = 0 Then
             adminPasswordHint.Visibility = Windows.Visibility.Visible
         Else
             adminPasswordHint.Visibility = Windows.Visibility.Hidden
@@ -16,14 +16,30 @@
 
     End Sub
 
-    Private Sub Image1_ImageFailed_2(sender As System.Object, e As System.Windows.ExceptionRoutedEventArgs) Handles Image1.ImageFailed
+    Private Sub Image1_ImageFailed_2(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs) Handles Image1.ImageFailed
 
     End Sub
 
 
-    Private Sub Login_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles Login.Click
-        Dim mainWindow As New MainWindow
-        Me.Close()
-        mainWindow.Show()
+
+    Private Sub tb_KeyDown(ByVal sender As System.Object, ByVal e As KeyEventArgs) Handles UserPassword.PreviewKeyDown
+
+        If (e.Key = Key.Enter) Then
+            If Migration.login(1, UserPassword.Password) Then
+                Dim mainWindow As New MainWindow
+                Me.Close()
+                mainWindow.Show()
+            Else : UserPassword.Password = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Login.Click
+        If Migration.login(1, UserPassword.Password) Then
+            Dim mainWindow As New MainWindow
+            Me.Close()
+            mainWindow.Show()
+        Else : UserPassword.Password = ""
+        End If
     End Sub
 End Class
