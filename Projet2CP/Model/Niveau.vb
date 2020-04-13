@@ -5,5 +5,7 @@
     SI2
     SIQ1
     SIQ2
+    SI3
+    SIQ3
 End Enum
 

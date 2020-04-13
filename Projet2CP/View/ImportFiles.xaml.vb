@@ -9,6 +9,9 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Parcourir.Click
-
+        Migration.Migration()
+        Dim mainWindow As Window1 = New Window1()
+        Me.Close()
+        mainWindow.Show()
     End Sub
 End Class

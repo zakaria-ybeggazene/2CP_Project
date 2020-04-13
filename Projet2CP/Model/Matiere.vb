@@ -3,17 +3,26 @@ Public Class Matiere
     Private _codMat, _libeMat As String
     Private _niveau As Niveau
     Private _coef As Integer
-    'constructeur
-    Public Sub New()
 
+    'ensemble des matieres chargé a chaque lancement du programme afin d'eviter les requetes a la base de donnée
+    Private Shared _matieres As List(Of Matiere)
+
+    Public Shared Sub initialiserMatieres(ByVal matieres As List(Of Matiere))
+        _matieres = matieres
     End Sub
 
-    Public Sub New(ByVal codMat As String, ByVal libeMat As String, ByVal niveau As Niveau, ByVal coef As Integer)
-        _codMat = codMat
-        _libeMat = libeMat
-        _niveau = niveau
-        _coef = coef
-    End Sub
+    Public Shared Function getMatiere(ByVal codeMat As String, ByVal niveau As String) As Matiere
+
+        Dim result As Matiere = New Matiere With {.CodMat = codeMat, .NiveauM = niveau}
+        For Each m As Matiere In _matieres
+            If m.Equals(result) Then
+                result = m
+                Exit For
+            End If
+        Next
+
+        Return result
+    End Function
 
 
     'Properties
@@ -54,7 +63,7 @@ Public Class Matiere
     End Property
 
     Public Overrides Function Equals(ByVal obj As Object) As Boolean
-        If CType(obj, Matiere)._codMat.CompareTo(Me._codMat) = 0 Then
+        If CType(obj, Matiere)._codMat.CompareTo(Me._codMat) = 0 And CType(obj, Matiere).NiveauM = _niveau Then
             Return True
         Else
             Return False
@@ -62,7 +71,7 @@ Public Class Matiere
 
     End Function
     Public Overrides Function GetHashCode() As Integer
-        Return _codMat.GetHashCode()
+        Return Util.GetHash(_codMat.GetHashCode() & _niveau.ToString.GetHashCode()).GetHashCode()
     End Function
 
 

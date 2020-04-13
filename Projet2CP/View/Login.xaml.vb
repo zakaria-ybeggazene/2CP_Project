@@ -22,8 +22,13 @@
 
 
     Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Login.Click
-        Dim mainWindow As New MainWindow
-        Me.Close()
-        mainWindow.Show()
+        Try
+            Repository.initialiser(adminPassword.Password)
+            Dim mainWindow As New MainWindow
+            Me.Close()
+            mainWindow.Show()
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
