@@ -5,9 +5,9 @@
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
-        Dim path As String = "C:\Users\user\Documents\Programmation\Visual Basic\Excel\bdd.accdb"
-        path = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+        Dim path As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
         dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path & ";Jet OLEDB:Database Password=" & Util.GetHash(password).Substring(0, 14) & ";"
+
 
         'MsgBox(My.Computer.FileSystem.CurrentDirectory)
         _connection.ConnectionString = dbConnString
