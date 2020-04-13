@@ -1,21 +1,19 @@
 ﻿Imports System.Data.OleDb
 
 Public Class Migration
-    'enter the full path where access database will be created here
-    Public Shared dbPath As String = "C:\Users\asus\Desktop\2CPI\S2\PRJP\Database.accdb"
-
     Public Shared done As Boolean = False
 
-    'enter the database password here
-    Public Shared dbPassword As String = "123"
-
     Shared Sub migration(ByVal inscrit As String, ByVal note As String, ByVal matiere As String, ByVal rattrap As String)
-        'Shared Sub migration()
 
         Dim start As Single
         start = Timer
 
-        ''access database 
+        'enter the full path where access database will be created here
+        Dim dbPath As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+        'enter the database password here
+        Dim dbPassword As String = "123"
+
+        'access database 
         Dim dbConnString As String
         Dim db As Object
 
@@ -187,129 +185,59 @@ Public Class Migration
         done = True
     End Sub
 
-    Public Shared Function login(ByVal type As Short, ByVal password As String)
-        Dim check As Boolean = False
-        'Dim app As New Excel.Application
-        'app.Wait(DateAdd("s", 5, Now))
-        Dim dbConnString As String
-        Dim curpwd As String
-        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & dbPath & "; Jet OLEDB:Database Password=" & dbPassword & ""
-        Dim connAccess As New System.Data.OleDb.OleDbConnection(dbConnString)
-        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
-        cmdAccess.Connection = connAccess
-        connAccess.Open()
+    'Public Shared Function login(ByVal type As Short, ByVal password As String)
+    '    Dim check As Boolean = False
 
-        Select Case type
-            Case 1 'login as user
-                cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='user';"
-                Try
-                    cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
-                    Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
-                    oledbReader.Read()
-                    curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
-                    If StrComp(curpwd, password) = 0 Then
-                        check = True
-                        MsgBox("done")
-                    Else
-                        MsgBox("wrong password try again")
-                    End If
-                    oledbReader.Close()
-                    cmdAccess.Dispose()
-                Catch ex As Exception
-                    MsgBox("Can not open connection ! ")
-                End Try
-            Case 2 'login as admin
-                cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='admin';"
-                Try
-                    cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
-                    Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
-                    oledbReader.Read()
-                    curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
-                    If StrComp(curpwd, password) = 0 Then
-                        check = True
-                        MsgBox("authenticated")
-                    Else
-                        MsgBox("wrong password try again")
-                    End If
-                    oledbReader.Close()
-                    cmdAccess.Dispose()
-                Catch ex As Exception
-                    MsgBox("Can not open connection ! ")
-                End Try
-        End Select
-        connAccess.Close()
-        Return check
-    End Function
+    '    Dim dbConnString As String
+    '    Dim curpwd As String
+    '    Dim dbPath As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+    '    Dim dbPassword As String = "123"
+    '    dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & dbPath & "; Jet OLEDB:Database Password=" & dbPassword & ""
+    '    Dim connAccess As New System.Data.OleDb.OleDbConnection(dbConnString)
+    '    Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+    '    cmdAccess.Connection = connAccess
+    '    connAccess.Open()
 
-    Public Shared Function changePassword(ByVal oldpwd As String, ByVal newpwd As String, ByVal a As Short)
-        Dim check As Boolean = False
-        Dim dbConnString As String
-        Dim curpwd As String = ""
-        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & dbPath & "; Jet OLEDB:Database Password=" & dbPassword & ""
-        Dim connAccess As New System.Data.OleDb.OleDbConnection(dbConnString)
-        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
-        cmdAccess.Connection = connAccess
-        connAccess.Open()
-        Select Case a
-            Case 1 'Change user password
-                cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='user';"
-                Try
-                    cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
-                    Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
-                    oledbReader.Read()
-                    curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
-                    If StrComp(curpwd, oldpwd) = 0 Then
-                        check = True
-                        If (newpwd.Length <= 8 And newpwd.Length <= 3) Then
-                            cmdAccess.CommandText = "insert into authentic (MotDePasse) values() where Utilisateur='user';"
-                        End If
-                        MsgBox("done")
-                    Else
-                        MsgBox("wrong password try again")
-                    End If
-                    oledbReader.Close()
-                    cmdAccess.Dispose()
-                Catch ex As Exception
-                    MsgBox("Can not open connection ! ")
-                End Try
-            Case 2 'Change admin password
-                cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='admin';"
-                Try
-                    cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
-                    Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
-                    oledbReader.Read()
-                    curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
-                    If StrComp(curpwd, password) = 0 Then
-                        check = True
-                        MsgBox("authenticated")
-                    Else
-                        MsgBox("wrong password try again")
-                    End If
-                    oledbReader.Close()
-                    cmdAccess.Dispose()
-                Catch ex As Exception
-                    MsgBox("Can not open connection ! ")
-                End Try
-        End Select
-        connAccess.Close()
-        Return check
-    End Function
-
+    '    Select Case type
+    '        Case 1 'login as user
+    '            cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='user';"
+    '            Try
+    '                cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
+    '                Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
+    '                oledbReader.Read()
+    '                curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
+    '                If StrComp(curpwd, password) = 0 Then
+    '                    check = True
+    '                    MsgBox("done")
+    '                Else
+    '                    MsgBox("wrong password try again")
+    '                End If
+    '                oledbReader.Close()
+    '                cmdAccess.Dispose()
+    '            Catch ex As Exception
+    '                MsgBox("Can not open connection ! ")
+    '            End Try
+    '        Case 2 'login as admin
+    '            cmdAccess.CommandText = "select (MotDePasse) from authentic where Utilisateur='admin';"
+    '            Try
+    '                cmdAccess = New OleDbCommand(cmdAccess.CommandText, connAccess)
+    '                Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
+    '                oledbReader.Read()
+    '                curpwd = Trim(oledbReader.Item("MotDePasse").ToString)
+    '                If StrComp(curpwd, password) = 0 Then
+    '                    check = True
+    '                    MsgBox("authenticated")
+    '                Else
+    '                    MsgBox("wrong password try again")
+    '                End If
+    '                oledbReader.Close()
+    '                cmdAccess.Dispose()
+    '            Catch ex As Exception
+    '                MsgBox("Can not open connection ! ")
+    '            End Try
+    '    End Select
+    '    connAccess.Close()
+    '    Return check
+    'End Function
 
 End Class
-
-'INSERT INTO [MS Access;Database=" & dbPath & "].[ETUDNOTE] (MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, nombre)" _
-'                       & "  SELECT MATRNO ,ANSCNO,OPTINO,ANETNO,COMANO, COUNT(*) AS nombre FROM [NOTE$] WHERE MATRNO IS NOT NULL AND ANSCNO IS NOT NULL AND ANETNO IS NOT NULL AND OPTINO IS NOT NULL And COMANO IS NOT NULL" _
-'                       & " GROUP BY MATRNO,ANSCNO,OPTINO,ANETNO,COMANO HAVING COUNT(*) > 1;"
-
-
-
-''enter your excel files paths here
-'Dim inscrit As String = "C:\Users\asus\Desktop\2CPI\S2\PRJP\Données_client\INSCRIT_00_04.xlsx"
-'Dim note As String = "C:\Users\asus\Desktop\2CPI\S2\PRJP\Données_client\NOTE_00_04.xlsx"
-'Dim matiere As String = "C:\Users\asus\Desktop\2CPI\S2\PRJP\Données_client\MATIERE_00_04.xlsx"
-'Dim rattrap As String = "C:\Users\asus\Desktop\2CPI\S2\PRJP\Données_client\RATRAP_00_04.xlsx"
-
-
-'Dim app As New Excel.Application
-'app.Wait(DateAdd("s", 5, Now))

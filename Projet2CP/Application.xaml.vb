@@ -12,7 +12,7 @@
             Dim window As Window1 = New Window1()
             window.Show()
         Else
-            Dim window As importerfichier = New importerfichier()
+            Dim window As ImportFiles = New ImportFiles()
             window.Show()
         End If
 

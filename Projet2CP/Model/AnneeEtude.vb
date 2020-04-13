@@ -1,7 +1,7 @@
 ﻿
 Public Class AnneeEtude
     Private _annee As String
-    Private _groupe, _mention, _rang, _nbrEtudiants As Integer
+    Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn As Integer
     Private _niveau As Niveau
     Private _section, _adm As Char
     Private _moyenneJ As Decimal
@@ -152,6 +152,14 @@ Public Class AnneeEtude
         End Get
         Set(ByVal value As Integer)
             Me._nbrEtudiants = value
+        End Set
+    End Property
+    Public Property RatrIn() As Integer
+        Get
+            Return _ratrIn
+        End Get
+        Set(ByVal value As Integer)
+            Me._ratrIn = value
         End Set
     End Property
 

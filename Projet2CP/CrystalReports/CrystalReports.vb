@@ -19,7 +19,13 @@ Public Class CrystalReports
         row = Nothing
         For Each annee As AnneeEtude In etudiant.Parcours
             row = parcoursTable.NewParcoursRow()
-            row("Annee") = annee.Annee & "/" & annee.Annee + 1
+            If annee.Annee = 99 Then
+                row("Annee") = "19" & annee.Annee & " / 2000"
+            ElseIf annee.Annee > 60 Then
+                row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+            Else
+                row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
+            End If
             Select Case annee.Niveau
                 Case Niveau.TRC1
                     row("Niveau") = "1ère année Tronc Commun"
@@ -33,6 +39,10 @@ Public Class CrystalReports
                     row("Niveau") = "4ème année Ingénieur option Systèmes d'Information"
                 Case Niveau.SIQ2
                     row("Niveau") = "4ème année Ingénieur option Systèmes Informatiques"
+                Case Niveau.SI3
+                    row("Niveau") = "5ème année Ingénieur option Systèmes d'Information"
+                Case Niveau.SIQ3
+                    row("Niveau") = "5ème année Ingénieur option Systèmes Informatiques"
                 Case Else
             End Select
             row("Decision") = annee.Adm 'REVENIR ICI APRES AVOIR EU LES PRECISIONS DU CHAMP ADM'
@@ -65,7 +75,13 @@ Public Class CrystalReports
         Dim annee As AnneeEtude = etudiant.Parcours.Find(Function(p) p.Niveau = niveau)
         row = parcoursTable.NewParcoursRow()
         row("Matricule") = etudiant.Matricule
-        row("Annee") = annee.Annee & "/" & annee.Annee + 1
+        If annee.Annee = 99 Then
+            row("Annee") = "19" & annee.Annee & " / 2000"
+        ElseIf annee.Annee > 60 Then
+            row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+        Else
+            row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
+        End If
         Select Case annee.Niveau
             Case niveau.TRC1
                 row("Niveau") = "1ère année INGENIEUR   Option : TRONC COMMUN"
@@ -82,7 +98,7 @@ Public Class CrystalReports
             Case Else
         End Select
         row("MoyenneJ") = annee.MoyenneJ
-        row("Rang") = annee.Rang
+        row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
         row("Decision") = annee.Adm
         parcoursTable.Rows.Add(row)
         ds.Tables.Add(parcoursTable)
@@ -91,15 +107,17 @@ Public Class CrystalReports
 
         Dim notes As Dictionary(Of Matiere, Note) = annee.Notes
         For Each matNotPair As KeyValuePair(Of Matiere, Note) In notes
-            row = notesTable.NewNotesRow()
-            row("Annee") = annee.Annee & "/" & annee.Annee + 1
-            row("Matiere") = matNotPair.Key.CodMat
-            row("Libelle") = matNotPair.Key.LibeMat
-            row("Coefficient") = matNotPair.Key.Coef
-            row("Noju") = matNotPair.Value.Noju
-            row("Nosy") = matNotPair.Value.Nosy
-            row("Nora") = matNotPair.Value.Nora
-            notesTable.Rows.Add(row)
+            If matNotPair.Key.NiveauM = niveau Then
+                row = notesTable.NewNotesRow()
+                row("Annee") = annee.Annee & "/" & annee.Annee + 1
+                row("Matiere") = matNotPair.Key.LibeMat
+                row("Libelle") = matNotPair.Key.CodMat
+                row("Coefficient") = matNotPair.Key.Coef
+                row("Noju") = matNotPair.Value.Noju
+                row("Nosy") = matNotPair.Value.Nosy
+                row("Nora") = matNotPair.Value.Nora
+                notesTable.Rows.Add(row)
+            End If
         Next
         ds.Tables.Add(notesTable)
 

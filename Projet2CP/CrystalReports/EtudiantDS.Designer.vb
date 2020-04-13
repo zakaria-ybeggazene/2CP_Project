@@ -835,7 +835,7 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As Double, ByVal MentionJ As Decimal, ByVal MoyenneRa As Double, ByVal MentionRa As Decimal, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow, ByVal Rang As Long) As ParcoursRow
+        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As Double, ByVal MentionJ As Decimal, ByVal MoyenneRa As Double, ByVal MentionRa As Decimal, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow, ByVal Rang As String) As ParcoursRow
             Dim rowParcoursRow As ParcoursRow = CType(Me.NewRow,ParcoursRow)
             Dim columnValuesArray() As Object = New Object() {Annee, Niveau, Decision, MoyenneJ, MentionJ, MoyenneRa, MentionRa, Elim, Nothing, Rang}
             If (Not (parentEtudiantRowByEtudiant_Parcours) Is Nothing) Then
@@ -896,7 +896,7 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnElim)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
-            Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRang)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnAnnee}, false))
             Me.columnAnnee.Unique = true
@@ -1660,10 +1660,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Rang() As Long
+        Public Property Rang() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableParcours.RangColumn),Long)
+                    Return CType(Me(Me.tableParcours.RangColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'Parcours' is DBNull.", e)
                 End Try

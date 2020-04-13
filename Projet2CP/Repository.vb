@@ -5,9 +5,8 @@
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
-        'Dim path As String = "C:/Users/dell/Desktop/db.accdb"
-        'dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & Migration.dbPath
-        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & Migration.dbPath & "; Jet OLEDB:Database Password=" & Migration.dbPassword & ""
+        Dim path As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path & ";Jet OLEDB:Database Password=" & Util.GetHash(password).Substring(0, 14) & ";"
         _connection.ConnectionString = dbConnString
         _connection.Open()
 
@@ -172,9 +171,7 @@
         dr = cmd.ExecuteReader()
 
         Dim anneEtude As AnneeEtude
-        Dim ratrapage As List(Of Integer) = New List(Of Integer)
         Do While dr.Read()
-            ratrapage.Add(dr.Item("RatIN"))
             anneEtude = New AnneeEtude With {.Adm = Util.dbNullToString(dr.Item("ADM")),
                                              .Annee = Util.dbNullToString(dr.Item("ANNEE")).Trim(),
                                              .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
@@ -183,14 +180,14 @@
                                              .Niveau = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIIN")).Trim(), Util.dbNullToString(dr.Item("ANETIN")).Trim()),
                                              .Section = Util.dbNullToString(dr.Item("NumScn")),
                                              .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
-                                             .NbrEtudiants = Util.dbNullToInteger(dr.Item("NbInscrits"))}
+                                             .NbrEtudiants = Util.dbNullToInteger(dr.Item("NbInscrits")),
+                                             .RatrIn = Util.dbNullToInteger(dr.Item("RatIn"))}
 
             parcours.Add(anneEtude)
         Loop
         dr.Close()
 
         Dim notes As Dictionary(Of Matiere, Note) = New Dictionary(Of Matiere, Note)()
-        Dim i As Integer = 0
         For Each a As AnneeEtude In parcours
             cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
                             & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
@@ -206,13 +203,12 @@
             Loop
             dr.Close()
 
-            If ratrapage(i) > 0 Then
+            If a.RatrIn > 0 Then
                 sqlCommand = "SELECT MoyeRa,MentRa,ElimRa " _
                             & "FROM RATTRAP " _
                             & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIRA = '" & Util.GetOption(a.Niveau) & "' AND ANETRA = '" & Util.GetAnneEt(a.Niveau) & "';"
 
                 cmd.CommandText = sqlCommand
-                MessageBox.Show(sqlCommand)
                 dr = cmd.ExecuteReader
 
                 If (dr.Read()) Then
@@ -222,14 +218,13 @@
                     a.Rattrap = New AnneeEtude.Rattrapage With {.MoyenneR = Util.dbNullToDouble(dr.Item("MoyeRa")),
                                                             .MentionR = Util.dbNullToInteger(dr.Item("MentRa")),
                                                             .Elim = Util.dbNullToInteger(dr.Item("ElimRa"))}
-                    MessageBox.Show(i)
                 End If
 
 
                 dr.Close()
             End If
 
-            i += 1
+            a.Notes = notes
         Next
 
         etudiant.Parcours = parcours

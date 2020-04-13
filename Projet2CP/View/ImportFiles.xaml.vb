@@ -31,7 +31,6 @@ Public Class ImportFiles
             If ins = False Then
                 verify(filePath, 1)
                 If ins = True Then
-                    'app.Wait(DateAdd("s", 5, Now))
                     Fichier.Content = "Nom du fichier"
                     file.Content = "Select NOTE File"
                 End If
@@ -46,6 +45,7 @@ Public Class ImportFiles
                 If mat = True Then
                     Fichier.Content = "Nom du fichier"
                     file.Content = "Select RATTRAPAGE File"
+                    file.FontSize = 16
                 End If
             ElseIf rattrap = False Then
                 verify(filePath, 4)
@@ -65,10 +65,13 @@ Public Class ImportFiles
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
         Migration.migration(inscritPath, notePath, matPath, ratPath)
+        Dim mainWindow As Window1 = New Window1()
+        Me.Close()
+        mainWindow.Show()
     End Sub
 
     Function ParcourirButtonClicked()
-        ''open the file dialog
+        'open the file dialog
         Dim fd As New OpenFileDialog
         Dim filePath As String
         'setup the file dialog
@@ -78,7 +81,6 @@ Public Class ImportFiles
         If fd.ShowDialog() = True Then
             filePath = fd.FileName
         Else
-            'MsgBox("You have canceled your selection")
             filePath = ""
         End If
         ParcourirButtonClicked = filePath
@@ -92,25 +94,27 @@ Public Class ImportFiles
         ws = wb.Worksheets(1)
         Select Case a
             Case 1 'fichier inscrit
-                If ws.UsedRange.Columns.Count() = 36 Then
+                If ws.UsedRange.Columns.Count() = 40 Then
                     If ((ws.Cells(1, 1).value = "NomEtud") And (ws.Cells(1, 2).value = "Prenoms") _
                         And (ws.Cells(1, 3).value = "NomEtudA") And (ws.Cells(1, 4).value = "PrenomsA") _
-                        And (ws.Cells(1, 5).value = "MATRIC_INS") And (ws.Cells(1, 6).value = "ANSCIN") _
-                        And (ws.Cells(1, 7).value = "MATRIN") And (ws.Cells(1, 8).value = "DATENAIS") _
-                        And (ws.Cells(1, 9).value = "LIEUNAISA") And (ws.Cells(1, 10).value = "WILNAISA" _
-                        And (ws.Cells(1, 11).value = "LIEUNAIS") And (ws.Cells(1, 12).value = "WILNAIS") _
-                        And (ws.Cells(1, 13).value = "ADRESSE") And (ws.Cells(1, 14).value = "VILLE") _
-                        And (ws.Cells(1, 15).value = "WILAYA") And (ws.Cells(1, 16).value = "CODPOST") _
-                        And (ws.Cells(1, 17).value = "ANETIN") And (ws.Cells(1, 18).value = "CYCLIN") _
-                        And (ws.Cells(1, 19).value = "OPTIIN") And (ws.Cells(1, 20).value = "NS") _
-                        And (ws.Cells(1, 21).value = "NG") And (ws.Cells(1, 22).value = "MOYEIN") _
-                        And (ws.Cells(1, 23).value = "RANGIN") And (ws.Cells(1, 24).value = "MENTIN") _
-                        And (ws.Cells(1, 25).value = "ELIMIN") And (ws.Cells(1, 26).value = "RATRIN") _
-                        And (ws.Cells(1, 27).value = "DECIIN") And (ws.Cells(1, 29).value = "WILBAC") _
-                        And (ws.Cells(1, 30).value = "SEXE") And (ws.Cells(1, 31).value = "SERIEBAC") _
-                        And (ws.Cells(1, 32).value = "MOYBAC") And (ws.Cells(1, 33).value = "ANNEEBAC") _
-                        And (ws.Cells(1, 34).value = "FILS_DE") And (ws.Cells(1, 35).value = "ET_DE") _
-                        And (ws.Cells(1, 36).value = "ADM"))) Then
+                        And (ws.Cells(1, 5).value = "MATRIC_INS") And (ws.Cells(1, 6).value = "MATRICULE") _
+                        And (ws.Cells(1, 7).value = "ANSCIN") And (ws.Cells(1, 8).value = "MATRIN") _
+                        And (ws.Cells(1, 9).value = "DATENAIS") And (ws.Cells(1, 10).value = "LIEUNAISA") _
+                        And (ws.Cells(1, 11).value = "WILNAISA" And (ws.Cells(1, 12).value = "LIEUNAIS") _
+                        And (ws.Cells(1, 13).value = "WILNAIS") And (ws.Cells(1, 14).value = "ADRESSE") _
+                        And (ws.Cells(1, 15).value = "VILLE") And (ws.Cells(1, 16).value = "WILAYA") _
+                        And (ws.Cells(1, 17).value = "CODPOST") And (ws.Cells(1, 18).value = "ANETIN") _
+                        And (ws.Cells(1, 19).value = "CYCLIN") And (ws.Cells(1, 20).value = "OPTIIN") _
+                        And (ws.Cells(1, 21).value = "NUSEIN") And (ws.Cells(1, 22).value = "NS") _
+                        And (ws.Cells(1, 23).value = "NUGRIN") And (ws.Cells(1, 24).value = "NG") _
+                        And (ws.Cells(1, 25).value = "MOYEIN") And (ws.Cells(1, 26).value = "RANGIN") _
+                        And (ws.Cells(1, 27).value = "MENTIN") And (ws.Cells(1, 28).value = "ELIMIN") _
+                        And (ws.Cells(1, 29).value = "RATRIN") And (ws.Cells(1, 30).value = "DECIIN") _
+                        And (ws.Cells(1, 31).value = "DEC") And (ws.Cells(1, 32).value = "SA") _
+                        And (ws.Cells(1, 33).value = "WILBAC") And (ws.Cells(1, 34).value = "SEXE") _
+                        And (ws.Cells(1, 35).value = "SERIEBAC") And (ws.Cells(1, 36).value = "MOYBAC") _
+                        And (ws.Cells(1, 37).value = "ANNEEBAC") And (ws.Cells(1, 38).value = "FILS_DE") _
+                        And (ws.Cells(1, 39).value = "ET_DE") And (ws.Cells(1, 40).value = "ADM"))) Then
                         MsgBox("valid")
                         inscritPath = filePath
                         ins = True
@@ -124,11 +128,11 @@ Public Class ImportFiles
                 End If
             Case 2 'fichier note
                 If ws.UsedRange.Columns.Count() = 11 Then
-                    If ((ws.Cells(1, 1).value = "ANETNO") And (ws.Cells(1, 2).value = "ANSCNO") _
-                        And (ws.Cells(1, 3).value = "COMANO") And (ws.Cells(1, 4).value = "CYCLNO") _
-                        And (ws.Cells(1, 5).value = "ELIMNO") And (ws.Cells(1, 6).value = "MATRNO") _
-                        And (ws.Cells(1, 7).value = "NOJUNO") And (ws.Cells(1, 8).value = "NORANO") _
-                        And (ws.Cells(1, 9).value = "NOSYNO") And (ws.Cells(1, 10).value = "OPTINO") _
+                    If ((ws.Cells(1, 1).value = "ANSCNO") And (ws.Cells(1, 2).value = "ANETNO") _
+                        And (ws.Cells(1, 3).value = "CYCLNO") And (ws.Cells(1, 4).value = "OPTINO") _
+                        And (ws.Cells(1, 5).value = "MATRNO") And (ws.Cells(1, 6).value = "COMANO") _
+                        And (ws.Cells(1, 7).value = "NOJUNO") And (ws.Cells(1, 8).value = "NOSYNO") _
+                        And (ws.Cells(1, 9).value = "NORANO") And (ws.Cells(1, 10).value = "ELIMNO") _
                         And (ws.Cells(1, 11).value = "RATRNO")) Then
                         MsgBox("valid")
                         notePath = filePath

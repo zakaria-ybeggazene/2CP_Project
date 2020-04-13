@@ -48,7 +48,7 @@
         <Label Content="Select Inscrits : " FontSize="20"  Height="46" HorizontalAlignment="Left" Margin="568,118,0,0" Name="file" VerticalAlignment="Top" Width="241" Foreground="#FF123456" FontFamily="Montserrat" FontWeight="Normal" />
 
 
-        <Button Style="" Opacity="0.5" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="889,468,0,0" Name="terminerButton" VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" IsTabStop="True">
+        <Button Opacity="0.5" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="889,468,0,0" Name="terminerButton" VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" IsTabStop="True">
 
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.5" />
