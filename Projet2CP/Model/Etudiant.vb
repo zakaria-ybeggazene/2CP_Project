@@ -1,8 +1,48 @@
-﻿Public Class Etudiant
-    Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere As String
-    Private _wilayaNaisCode, _annIns, _codePostal As Integer
-    Private _dateNais As Date
+﻿Imports System.Collections
 
+Public Class Etudiant
+    Enum SerieBAC
+        G04
+        G05
+        G07
+        G08
+    End Enum
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
+    Private _wilayaNaisCode, _annIns, _anneeBac As Integer
+    Private _moyenneBAC As Double
+    Private _parcours As List(Of AnneeEtude)
+
+    'Constructeur
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal adresse As String, ByVal lieuNais As String, ByVal lieuNaisA As String, ByVal wilayaNaisA As String, ByVal ville As String, ByVal wilaya As String, ByVal prenomPere As String, ByVal nomMere As String, ByVal wilayaNaisCode As Integer, ByVal annIns As Integer, ByVal codePostal As String, ByVal anneeBac As Integer, ByVal moyenneBAC As Double, ByVal dateNais As String, ByVal parcours As List(Of AnneeEtude))
+        _matricule = matricule
+        _nom = nom
+        _prenom = prenom
+        _nomA = nomA
+        _prenomA = prenomA
+        _adresse = adresse
+        _lieuNais = lieuNais
+        _lieuNaisA = lieuNaisA
+        _wilayaNaisA = wilayaNaisA
+        _ville = ville
+        _wilaya = wilaya
+        _prenomPere = prenomPere
+        _nomMere = nomMere
+        _wilayaNaisCode = wilayaNaisCode
+        _annIns = annIns
+        _codePostal = codePostal
+        _anneeBac = anneeBac
+        _moyenneBAC = moyenneBAC
+        _dateNais = dateNais
+        _parcours = parcours
+    End Sub
+
+
+
+    'Properties
     Public Property Matricule() As String
         Get
             Return _matricule
@@ -123,20 +163,28 @@
             _annIns = value
         End Set
     End Property
-    Public Property CodePostal() As Integer
+    Public Property CodePostal() As String
         Get
-            Return _nom
+            Return _codePostal
         End Get
-        Set(ByVal value As Integer)
-            _nom = value
+        Set(ByVal value As String)
+            _codePostal = value
         End Set
     End Property
-    Public Property DateNais() As Date
+    Public Property DateNais() As String
         Get
             Return _dateNais
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             _dateNais = value
+        End Set
+    End Property
+    Public Property Parcours As List(Of AnneeEtude)
+        Get
+            Return _parcours
+        End Get
+        Set(ByVal value As List(Of AnneeEtude))
+            _parcours = value
         End Set
     End Property
 End Class

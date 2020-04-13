@@ -3,7 +3,11 @@
 Public Class RechercheEtudiantViewModel
     Inherits WorkspaceViewModel
 
-    Public Sub New(ByVal displayName As String)
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _dateNais, _lieuNais, _annee, _sexe, _wilayaNais As String
+    Private _resultats As List(Of Etudiant)
+    Private v As RechercheEtudiantView
+
+    Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object))
         MyBase.New(displayName)
         v = New RechercheEtudiant()
        

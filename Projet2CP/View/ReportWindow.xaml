@@ -1,0 +1,14 @@
+﻿<Window x:Class="ReportWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+    Title="ReportWindow" Height="500" Width="800" WindowState="Maximized">
+    <Grid>
+        <my:CrystalReportsViewer HorizontalAlignment="Stretch" Name="CrystalReportsViewer"
+                                 VerticalAlignment="Top" Grid.ColumnSpan="2" ShowToolbar="True" ShowToggleSidePanelButton="False" 
+                                 ShowStatusbar="True" ShowSearchTextButton="True" ShowRefreshButton="True" ShowPrintButton="True" 
+                                 ShowPrevPageButton="True" ShowOpenFileButton="False" ShowNextPageButton="True" ShowLogo="True" 
+                                 ShowGoToPageButton="True" ShowExportButton="True" ShowCopyButton="True" />
+
+    </Grid>
+</Window>

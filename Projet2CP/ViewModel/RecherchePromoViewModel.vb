@@ -3,7 +3,7 @@
 
     Public Sub New(ByVal displayName As String)
         MyBase.New(displayName)
-        v = New RecherchePromo()
+        v = New RecherchePromoView()
     End Sub
 
     Private v As RecherchePromo
