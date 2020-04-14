@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <TabControl ItemsSource="{Binding Workspaces}" Name="WorkspaceList"  >
+        <TabControl ItemsSource="{Binding Workspaces}" Name="WorkspaceList" SelectedIndex="{Binding selectedIndex}">
             <TabControl.ItemTemplate >
                 <DataTemplate >
                     <DockPanel Width="150" Height="30">
