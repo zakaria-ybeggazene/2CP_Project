@@ -176,11 +176,11 @@ Public Class Migration
         connAccess.Close()
 
         'set database password
-        db = CreateObject("Access.Application")
-        db.OpenCurrentDatabase(dbPath, True)
-        db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(dbPassword).Substring(0, 14) & " NULL")
-        db.CloseCurrentDatabase()
-        db.Quit()
+        'db = CreateObject("Access.Application")
+        'db.OpenCurrentDatabase(dbPath, True)
+        'db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(dbPassword).Substring(0, 14) & " NULL")
+        'db.CloseCurrentDatabase()
+        'db.Quit()
         MsgBox("Successfully done !" & vbCrLf & "Excecution time : " & Timer - start & " seconds")
         done = True
     End Sub
