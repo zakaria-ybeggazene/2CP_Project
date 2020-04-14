@@ -37,12 +37,16 @@
 
     Private Sub Login_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Login.Click
         Try
+            Me.ForceCursor = True
+            Me.Cursor = Cursors.Wait
             Repository.initialiser(userPassword.Password)
             Dim mainWindow As New MainWindow
             Me.Close()
             mainWindow.Show()
         Catch ex As Exception
             userPassword.Password = ""
+        Finally
+            Me.Cursor = Cursors.Arrow
         End Try
     End Sub
 End Class

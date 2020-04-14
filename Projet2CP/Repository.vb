@@ -24,10 +24,10 @@
 
         Dim m As Matiere
         Do While dr.Read
-            m = New Matiere With {.CodMat = dr.Item("COMAMA"),
+            m = New Matiere With {.CodMat = Util.dbNullToString(dr.Item("COMAMA")),
                                   .Coef = dr.Item("CoefMA"),
-                                  .LibeMat = dr.Item("LibeMA"),
-                                  .NiveauM = Util.GetNiveau(dr.Item("OPTIMA"), dr.Item("ANETMA"))}
+                                  .LibeMat = Util.dbNullToString(dr.Item("LibeMA")),
+                                  .NiveauM = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIMA")), Util.dbNullToString(dr.Item("ANETMA")))}
             matieres.Add(m)
         Loop
 
@@ -199,7 +199,8 @@
                                       .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
                                       .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
                                       .Eliminatoire = Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
-                notes.Add(Matiere.getMatiere(dr.Item("ComaMa"), a.Niveau), n)
+
+                notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), a.Niveau), n)
             Loop
             dr.Close()
 

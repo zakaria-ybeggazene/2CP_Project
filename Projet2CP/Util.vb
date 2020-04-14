@@ -60,7 +60,7 @@ Public Class Util
         If IsDBNull(o) Then
             Return ""
         Else
-            Return o
+            Return o.ToString.Trim
         End If
     End Function
     Public Shared Function dbNullToInteger(ByVal o As Object) As Integer
