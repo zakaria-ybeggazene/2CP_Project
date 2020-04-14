@@ -45,8 +45,8 @@ Public Class Migration
         cmdAccess.CommandText = "create table PROMO(ANNEE char,OPTIIN char, ANETIN char,NbInscrits int,NbDoublant int,NbRattrap int, primary key(ANNEE,OPTIIN, ANETIN));"
         cmdAccess.ExecuteNonQuery()
 
-        cmdAccess.CommandText = "create table ETUDE (MATRICULE char(15),ANNEE char,OPTIIN char,ANETIN char(5),CycIN char(5),NumGrp char(5),NumScn char(5)," _
-                                & "Moyenne decimal(4,2),RangIN char(20),MentIN char(10),ElimIN char(15),RatIN char(10),DECIIN char(5),ADM char(5), primary key(MATRICULE,ANNEE,OPTIIN,ANETIN));"
+        cmdAccess.CommandText = "create table ETUDE (MATRICULE char(15),ANNEE char,OPTIIN char,ANETIN char(5),CycIN char(5),NumGrp char(5),NumScn char(5),Moyenne decimal(4,2),RangIN char(20)," _
+                               & "MentIN char(10),ElimIN char(15),RatIN char(10),DECIIN char(5),ADM char(5),ANNEEBAC char(10),SERIEBAC char(10),MOYBAC char(15),WILBAC char(5), primary key(MATRICULE,ANNEE,OPTIIN,ANETIN));"
         cmdAccess.ExecuteNonQuery()
 
         cmdAccess.CommandText = "create table  ETUDNOTE(MATRICULE char(15),ANNEE char,OPTIN char,ANETIN char(5),ComaMa char(10),CycNO char(5),NoJuNo char(10),NoSyNo char(10)," _
@@ -154,10 +154,10 @@ Public Class Migration
         cmdAccess.CommandText = "INSERT INTO PROMO (ANNEE ,OPTIIN , ANETIN, NbInscrits) SELECT ANSCIN ,OPTIIN ,ANETIN, COUNT(*) AS 'NbInscrits' " _
                                 & "FROM inscrits GROUP BY ANSCIN, OPTIIN,ANETIN ORDER BY ANSCIN;"
         cmdAccess.ExecuteNonQuery()
-        cmdAccess.CommandText = "INSERT INTO ETUDE (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,DECIIN,ADM)" _
+        cmdAccess.CommandText = "INSERT INTO ETUDE (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,DECIIN,ADM,ANNEEBAC,SERIEBAC,MOYBAC,WILBAC)" _
                                  & " SELECT MATRIN, ANSCIN,OPTIIN,ANETIN,max(CYCLIN) as 'CYCLIN',max(NumG) as 'NumG' , max(NumS) as 'NumS', max(MOYEIN) as 'MOYEIN',  " _
-                                 & "max(RANGIN) as 'RANGIN',max(MENTIN) as 'MENTIN' , max(ELIMIN) as 'ELIMIN',max(RATRIN) as 'RATRIN' ,max(DECIIN) as 'DECIIN',max(ADM) as 'ADM'  " _
-                                 & "from inscrits GROUP BY MATRIN, ANSCIN,OPTIIN,ANETIN;"
+                                 & "max(RANGIN) as 'RANGIN',max(MENTIN) as 'MENTIN' , max(ELIMIN) as 'ELIMIN',max(RATRIN) as 'RATRIN' ,max(DECIIN) as 'DECIIN',max(ADM) as 'ADM' ," _
+                                 & "max(ANNEEBAC) as 'ANNEEBAC',max(SERIEBAC) as 'SERIEBAC' ,max(MOYBAC) as 'MOYBAC',max(WILBAC) as 'WILBAC' FROM inscrits GROUP BY MATRIN, ANSCIN,OPTIIN,ANETIN;"
         cmdAccess.ExecuteNonQuery()
 
         cmdAccess.CommandText = "INSERT INTO MATIERE (COMAMA,OPTIMA,ANETMA,LibeMA ,CoefMA)" _
