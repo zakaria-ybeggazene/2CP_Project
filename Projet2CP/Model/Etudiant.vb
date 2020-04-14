@@ -8,7 +8,7 @@ Public Class Etudiant
         G08
     End Enum
     Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
-    Private _wilayaNaisCode, _annIns, _anneeBac As Integer
+    Private _wilayaNaisCode, _annIns, _anneeBac, _sexe As Integer
     Private _moyenneBAC As Double
     Private _parcours As List(Of AnneeEtude)
 
@@ -17,7 +17,7 @@ Public Class Etudiant
 
     End Sub
 
-    Public Sub New(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal adresse As String, ByVal lieuNais As String, ByVal lieuNaisA As String, ByVal wilayaNaisA As String, ByVal ville As String, ByVal wilaya As String, ByVal prenomPere As String, ByVal nomMere As String, ByVal wilayaNaisCode As Integer, ByVal annIns As Integer, ByVal codePostal As String, ByVal anneeBac As Integer, ByVal moyenneBAC As Double, ByVal dateNais As String, ByVal parcours As List(Of AnneeEtude))
+    Public Sub New(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal adresse As String, ByVal lieuNais As String, ByVal lieuNaisA As String, ByVal wilayaNaisA As String, ByVal ville As String, ByVal wilaya As String, ByVal prenomPere As String, ByVal nomMere As String, ByVal wilayaNaisCode As Integer, ByVal annIns As Integer, ByVal codePostal As String, ByVal anneeBac As Integer, ByVal moyenneBAC As Double, ByVal dateNais As String, ByVal sexe As Integer, ByVal parcours As List(Of AnneeEtude))
         _matricule = matricule
         _nom = nom
         _prenom = prenom
@@ -38,6 +38,7 @@ Public Class Etudiant
         _moyenneBAC = moyenneBAC
         _dateNais = dateNais
         _parcours = parcours
+        _sexe = sexe
     End Sub
 
 
@@ -147,6 +148,14 @@ Public Class Etudiant
             _nomMere = value
         End Set
     End Property
+    Public Property Sexe() As Integer
+        Get
+            Return _sexe
+        End Get
+        Set(ByVal value As Integer)
+            _sexe = value
+        End Set
+    End Property
     Public Property WilayaNaisCode() As Integer
         Get
             Return _wilayaNaisCode
@@ -185,6 +194,24 @@ Public Class Etudiant
         End Get
         Set(ByVal value As List(Of AnneeEtude))
             _parcours = value
+        End Set
+    End Property
+
+    Public Property MoyenneBAC As Double
+        Get
+            Return _moyenneBAC
+        End Get
+        Set(value As Double)
+            _moyenneBAC = value
+        End Set
+    End Property
+
+    Public Property AnneeBac As Integer
+        Get
+            Return _anneeBac
+        End Get
+        Set(value As Integer)
+            _anneeBac = value
         End Set
     End Property
 End Class
