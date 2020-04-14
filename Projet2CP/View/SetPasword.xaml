@@ -1,0 +1,18 @@
+﻿<Window x:Class="SetPasword"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SetPasword"   Height="554" Width="1050" ResizeMode="noResize">
+    <Grid>
+        <Image Height="390" HorizontalAlignment="Left" Margin="519,41,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="484" Source="/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png" />
+        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="Importbar" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%203.png"  />
+        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="ImportbarVerified" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%204.png" Visibility="Hidden"  />
+        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="12,436,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="True" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
+
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.5" />
+            </Button.BitmapEffect>
+        </Button>
+        <Label Content="Importer Fichier" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF757583" Height="25" HorizontalAlignment="Left" Margin="287,478,0,0" Name="Label1" VerticalAlignment="Top" Width="120" />
+        <Label Content="Mot de passe" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF1161B1" Height="25" HorizontalAlignment="Left" Margin="631,478,0,0" Name="Label2" VerticalAlignment="Top" Width="101" />
+    </Grid>
+</Window>
