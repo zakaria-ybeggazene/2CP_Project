@@ -3,9 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="importerfichier" Height="554" Width="1050" ResizeMode="noResize">
+      mc:Ignorable="d" Title="importerfichier" ResizeMode="noResize" Height="554" Width="1050">
     <Grid Background="White" Visibility="Visible" Name="Grid" >
         <Label  Height="64" HorizontalAlignment="Left" Margin="633,19,0,0" Content ="Importer Fichiers " VerticalAlignment="Top" Width="359" FontFamily="Montserrat" FontSize="38" FontWeight="SemiBold">
             <Label.Foreground>
@@ -47,7 +45,7 @@
         </Border>
         <Label Content="Select Inscrits : " FontSize="20"  Height="46" HorizontalAlignment="Left" Margin="568,84,0,0" Name="file" VerticalAlignment="Top" Width="241" Foreground="#FF123456" FontFamily="Montserrat" FontWeight="Normal" />
 
-        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Suivant" Height="35" HorizontalAlignment="Left" Margin="894,440,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="True" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
+        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Suivant" Height="35" HorizontalAlignment="Left" Margin="894,440,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
 
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.5" />
