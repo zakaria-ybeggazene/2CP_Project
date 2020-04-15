@@ -15,4 +15,8 @@
 
     End Sub
 
+    Protected Overrides Sub OnClosed(ByVal e As System.EventArgs)
+        MyBase.OnClosed(e)
+        Application.Current.Shutdown()
+    End Sub
 End Class

@@ -11,7 +11,15 @@ Public Class CrystalReports
         row = etudiantTable.NewEtudiantRow()
         row("Matricule") = etudiant.Matricule
         row("NomPrenom") = etudiant.Nom.Trim & " " & etudiant.Prenom.Trim
-        row("DateNais") = etudiant.DateNais
+        Dim _dateNais As String = etudiant.DateNais
+        If _dateNais <> "" Then
+            If CType(_dateNais.Trim.Substring(6), Integer) > 60 Then
+                _dateNais = _dateNais.Trim.Insert(6, "19")
+            Else
+                _dateNais = _dateNais.Trim.Insert(6, "20")
+            End If
+        End If
+        row("DateNais") = _dateNais
         row("LieuNais") = etudiant.LieuNais
         etudiantTable.Rows.Add(row)
         ds.Tables.Add(etudiantTable)
@@ -20,9 +28,11 @@ Public Class CrystalReports
         For Each annee As AnneeEtude In etudiant.Parcours
             row = parcoursTable.NewParcoursRow()
             If annee.Annee = 99 Then
-                row("Annee") = "19" & annee.Annee & " / 2000"
+                row("Annee") = "1999 / 2000"
             ElseIf annee.Annee > 60 Then
                 row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+            ElseIf annee.Annee >= 0 And annee.Annee < 9 Then
+                row("Annee") = "20" & annee.Annee & " /200" & annee.Annee + 1
             Else
                 row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
             End If
@@ -45,7 +55,20 @@ Public Class CrystalReports
                     row("Niveau") = "5ème année Ingénieur option Systèmes Informatiques"
                 Case Else
             End Select
-            row("Decision") = annee.Adm 'REVENIR ICI APRES AVOIR EU LES PRECISIONS DU CHAMP ADM'
+            Select Case annee.Adm
+                Case "J"c
+                    row("Decision") = "Admis"
+                Case "S"
+                    row("Decision") = "Admis"
+                Case "R"c
+                    row("Decision") = "Redouble"
+                Case "M"c
+                    row("Decision") = "Maladie"
+                Case "X"c
+                    row("Decision") = "Exclu"
+                Case Else
+                    row("Decision") = ""
+            End Select
             row("Matricule") = etudiant.Matricule
             parcoursTable.Rows.Add(row)
         Next
@@ -67,6 +90,16 @@ Public Class CrystalReports
         row = etudiantTable.NewEtudiantRow()
         row("Matricule") = etudiant.Matricule
         row("NomPrenom") = etudiant.Nom.Trim & " " & etudiant.Prenom.Trim
+        Dim _dateNais As String = etudiant.DateNais
+        If _dateNais <> "" Then
+            If CType(_dateNais.Trim.Substring(6), Integer) > 60 Then
+                _dateNais = _dateNais.Trim.Insert(6, "19")
+            Else
+                _dateNais = _dateNais.Trim.Insert(6, "20")
+            End If
+        End If
+        row("DateNais") = _dateNais
+        row("LieuNais") = etudiant.LieuNais
         etudiantTable.Rows.Add(row)
         ds.Tables.Add(etudiantTable)
 
@@ -76,9 +109,11 @@ Public Class CrystalReports
         row = parcoursTable.NewParcoursRow()
         row("Matricule") = etudiant.Matricule
         If annee.Annee = 99 Then
-            row("Annee") = "19" & annee.Annee & " / 2000"
+            row("Annee") = "1999 / 2000"
         ElseIf annee.Annee > 60 Then
             row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+        ElseIf annee.Annee >= 0 And annee.Annee < 9 Then
+            row("Annee") = "20" & annee.Annee & " /200" & annee.Annee + 1
         Else
             row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
         End If
@@ -99,7 +134,20 @@ Public Class CrystalReports
         End Select
         row("MoyenneJ") = annee.MoyenneJ
         row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
-        row("Decision") = annee.Adm
+        Select Case annee.Adm
+            Case "J"c
+                row("Decision") = "Admis"
+            Case "S"c
+                row("Decision") = "Admis"
+            Case "R"c
+                row("Decision") = "Redouble"
+            Case "M"c
+                row("Decision") = "Maladie"
+            Case "X"c
+                row("Decision") = "Exclu"
+            Case Else
+                row("Decision") = ""
+        End Select
         parcoursTable.Rows.Add(row)
         ds.Tables.Add(parcoursTable)
 
@@ -109,13 +157,18 @@ Public Class CrystalReports
         For Each matNotPair As KeyValuePair(Of Matiere, Note) In notes
             If matNotPair.Key.NiveauM = niveau Then
                 row = notesTable.NewNotesRow()
-                row("Annee") = annee.Annee & "/" & annee.Annee + 1
-                row("Matiere") = matNotPair.Key.LibeMat
-                row("Libelle") = matNotPair.Key.CodMat
+                row("Annee") = annee.Annee
+                row("Matiere") = matNotPair.Key.CodMat
+                row("Libelle") = matNotPair.Key.LibeMat
                 row("Coefficient") = matNotPair.Key.Coef
                 row("Noju") = matNotPair.Value.Noju
-                row("Nosy") = matNotPair.Value.Nosy
-                row("Nora") = matNotPair.Value.Nora
+                If matNotPair.Value.Nora > matNotPair.Value.Noju Then
+                    Dim s As String = matNotPair.Value.Nora
+                    If s.Trim.Length = 2 Then
+                        s = s.Trim & ",00"
+                    End If
+                    row("Nora") = s
+                End If
                 notesTable.Rows.Add(row)
             End If
         Next

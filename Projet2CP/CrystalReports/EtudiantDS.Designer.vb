@@ -1199,7 +1199,7 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddNotesRow(ByVal Matiere As String, ByVal Noju As Decimal, ByVal Nosy As Decimal, ByVal Nora As Decimal, ByVal Elim As Boolean, ByVal NbRatrap As Long, ByVal parentParcoursRowByParcours_Notes As ParcoursRow, ByVal Libelle As String, ByVal Coefficient As Short) As NotesRow
+        Public Overloads Function AddNotesRow(ByVal Matiere As String, ByVal Noju As Decimal, ByVal Nosy As Decimal, ByVal Nora As String, ByVal Elim As Boolean, ByVal NbRatrap As Long, ByVal parentParcoursRowByParcours_Notes As ParcoursRow, ByVal Libelle As String, ByVal Coefficient As Short) As NotesRow
             Dim rowNotesRow As NotesRow = CType(Me.NewRow,NotesRow)
             Dim columnValuesArray() As Object = New Object() {Matiere, Noju, Nosy, Nora, Elim, NbRatrap, Nothing, Libelle, Coefficient}
             If (Not (parentParcoursRowByParcours_Notes) Is Nothing) Then
@@ -1247,7 +1247,7 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnNoju)
             Me.columnNosy = New Global.System.Data.DataColumn("Nosy", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNosy)
-            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNora)
             Me.columnElim = New Global.System.Data.DataColumn("Elim", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnElim)
@@ -1877,10 +1877,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nora() As Decimal
+        Public Property Nora() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableNotes.NoraColumn),Decimal)
+                    Return CType(Me(Me.tableNotes.NoraColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Nora' in table 'Notes' is DBNull.", e)
                 End Try

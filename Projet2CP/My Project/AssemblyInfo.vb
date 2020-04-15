@@ -11,10 +11,10 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("WpfApplication1")> 
+<Assembly: AssemblyTitle("GestionHistoriqueESI")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("WpfApplication1")> 
+<Assembly: AssemblyProduct("GestionHistoriqueESI")> 
 <Assembly: AssemblyCopyright("Copyright @  2020")> 
 <Assembly: AssemblyTrademark("")> 
 <Assembly: ComVisible(false)>

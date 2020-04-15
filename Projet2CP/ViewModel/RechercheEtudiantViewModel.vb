@@ -3,7 +3,8 @@
 Public Class RechercheEtudiantViewModel
     Inherits WorkspaceViewModel
 
-    Private _matricule, _nom, _prenom, _nomA, _prenomA, _dateNais, _lieuNais, _annee, _sexe, _wilayaNais As String
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _lieuNais, _annee, _sexe, _wilayaNais As String
+    Private _dateNais As DateTime? = Nothing
     Private _resultats As List(Of Etudiant)
     Private v As RechercheEtudiantView
 
@@ -30,7 +31,14 @@ Public Class RechercheEtudiantViewModel
         Else
             _sexe = ""
         End If
-        Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, DateNais, Sexe, Annee, WilayaNais, LieuNais)
+        Dim _strDate As String
+        If DateNais.Equals(Nothing) Then
+            _strDate = ""
+        Else
+            _strDate = DateNais.Value.ToString("dd/MM/yyyy").Trim
+            _strDate = _strDate.Remove(6, 2)
+        End If
+        Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
     End Sub
 
     'Recherche Properties
@@ -75,11 +83,11 @@ Public Class RechercheEtudiantViewModel
         End Set
     End Property
 
-    Public Property DateNais() As String
+    Public Property DateNais() As DateTime?
         Get
             Return _dateNais
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As DateTime?)
             _dateNais = value
         End Set
     End Property

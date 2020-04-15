@@ -7,11 +7,17 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <ItemsControl Width="230" >
-            <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
+            <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="Gray">
                 <TextBlock Text="Générer Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
             </Button>
-            <Span></Span>
-            <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Segoe UI" FontSize="16" Foreground="#ffffff" Background="Gray">
+            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"  HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Width="175" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#F0F0F0" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="Gray">
                 <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
             </Button>
         </ItemsControl>
