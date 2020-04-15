@@ -9,7 +9,7 @@
         dbExists = System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
 
         If dbExists Then
-            Dim window As Window1 = New Window1()
+            Dim window As LoginWindow = New LoginWindow()
             window.Show()
         Else
             Dim window As ImportFiles = New ImportFiles()
@@ -22,7 +22,6 @@
     Protected Overrides Sub OnExit(ByVal e As System.Windows.ExitEventArgs)
         MyBase.OnExit(e)
         Repository.disposer()
-
     End Sub
 
 End Class

@@ -1,4 +1,4 @@
-﻿Public Class Window1
+﻿Public Class LoginWindow
     Private Sub Image1_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
 
     End Sub
@@ -25,6 +25,8 @@
 
         If (e.Key = Key.Enter) Then
             Try
+                Me.ForceCursor = True
+                Me.Cursor = Cursors.Wait
                 Repository.initialiser(userPassword.Password)
                 Dim mainWindow As New MainWindow
                 Me.Close()

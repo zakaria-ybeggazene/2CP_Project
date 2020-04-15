@@ -26,6 +26,15 @@
             _reportCommand = value
         End Set
     End Property
+    Private _niveau As String
+    Public Property Niveau As String
+        Get
+            Return _niveau
+        End Get
+        Set(ByVal value As String)
+            _niveau = value
+        End Set
+    End Property
 
     Private Sub ReportWindow(ByVal o As Object)
         Dim reportWindow As ReportWindow = New ReportWindow
@@ -33,7 +42,11 @@
         If s = "Attestation" Then
             reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.Attestation(_etudiant)
         ElseIf s = "ReleveNotes" Then
-            reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.ReleveNotes(_etudiant, Niveau.TRC1)
+            Try
+                reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.ReleveNotes(_etudiant, _etudiant.Parcours(CType(Niveau.Trim, Integer) - 1).Niveau)
+            Catch e As Exception
+
+            End Try
         End If
         reportWindow.Show()
     End Sub

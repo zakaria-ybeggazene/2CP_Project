@@ -187,8 +187,9 @@
         Loop
         dr.Close()
 
-        Dim notes As Dictionary(Of Matiere, Note) = New Dictionary(Of Matiere, Note)()
+        Dim notes As Dictionary(Of Matiere, Note)
         For Each a As AnneeEtude In parcours
+            notes = New Dictionary(Of Matiere, Note)
             cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
                             & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
             dr = cmd.ExecuteReader()

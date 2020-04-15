@@ -75,5 +75,9 @@
         End If
     End Sub
 
-  
+    Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
+        Dim mainWindow As MainWindow = New MainWindow()
+        Me.Close()
+        mainWindow.Show()
+    End Sub
 End Class
