@@ -143,6 +143,9 @@
     <Compile Include="View\ReportWindow.xaml.vb">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SetPasword.xaml.vb">
+      <DependentUpon>SetPasword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StatisticsView.xaml.vb">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,10 @@
     <Page Include="View\ReportWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SetPasword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StatisticsView.xaml">
       <SubType>Designer</SubType>
@@ -309,6 +316,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Capa 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe 12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\undraw_two_factor_authentication_namy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe 4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

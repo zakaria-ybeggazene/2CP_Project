@@ -57,6 +57,7 @@ Public Class ImportFiles
                     ParcourirButton.IsEnabled = False
                     terminerButton.Opacity = "10"
                     terminerButton.IsEnabled = True
+                    ImportbarVerified.Visibility = System.Windows.Visibility.Visible
                 End If
             End If
         Catch ex As Exception
@@ -67,9 +68,9 @@ Public Class ImportFiles
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
         Migration.migration(inscritPath, notePath, matPath, ratPath)
-        Dim loginWindow As LoginWindow = New LoginWindow()
+        Dim setPasswordWindow As SetPasword = New SetPasword()
         Me.Close()
-        loginWindow.Show()
+        setPasswordWindow.Show()
     End Sub
 
     Function ParcourirButtonClicked()
@@ -189,5 +190,9 @@ Public Class ImportFiles
         End Select
         wb.Close()
         xlApp.Quit()
+    End Sub
+
+    Private Sub Importbar_ImageFailed(sender As System.Object, e As System.Windows.ExceptionRoutedEventArgs) Handles Importbar.ImageFailed
+
     End Sub
 End Class
