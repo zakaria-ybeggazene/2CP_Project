@@ -107,7 +107,7 @@
       <DependentUpon>ReleveNotesReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Migration.vb" />
+    <Compile Include="ViewModel\MigrationViewModel.vb" />
     <Compile Include="Model\AnneeEtude.vb" />
     <Compile Include="Model\Etudiant.vb" />
     <Compile Include="Model\Matiere.vb" />

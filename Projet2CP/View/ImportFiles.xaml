@@ -73,6 +73,5 @@
         <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="ImportbarVerified" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%202.png" Visibility="Hidden"  />
         <Label Content="Importer Fichier" Height="25" HorizontalAlignment="Left" Margin="287,478,0,0" Name="Label1" VerticalAlignment="Top" Width="120" Foreground="#FF1168BF" FontSize="13" FontFamily="Montserrat" FontWeight="SemiBold" />
         <Label Content="Mot de passe" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF757583" Height="25" HorizontalAlignment="Left" Margin="631,478,0,0" Name="Label2" VerticalAlignment="Top" Width="101" />
-        
-        </Grid>
+    </Grid>
 </Window>

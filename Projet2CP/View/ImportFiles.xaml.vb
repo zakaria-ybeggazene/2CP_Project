@@ -67,8 +67,9 @@ Public Class ImportFiles
     End Sub
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
-        Migration.migration(inscritPath, notePath, matPath, ratPath)
-        Dim setPasswordWindow As SetPasword = New SetPasword()
+        Dim setPasswordWindow As SetPasword = New SetPasword(inscritPath, notePath, matPath, ratPath)
+        Dim migration As MigrationViewModel = New MigrationViewModel("Migration", inscritPath, notePath, matPath, ratPath)
+        setPasswordWindow.DataContext = migration
         Me.Close()
         setPasswordWindow.Show()
     End Sub

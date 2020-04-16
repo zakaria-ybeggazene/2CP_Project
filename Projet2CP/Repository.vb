@@ -1,7 +1,9 @@
-﻿Public Class Repository
+﻿Imports System.Data.OleDb
+
+Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
-
+    Private Shared admin As Boolean = False
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
@@ -187,9 +189,8 @@
         Loop
         dr.Close()
 
-        Dim notes As Dictionary(Of Matiere, Note)
+        Dim notes As Dictionary(Of Matiere, Note) = New Dictionary(Of Matiere, Note)()
         For Each a As AnneeEtude In parcours
-            notes = New Dictionary(Of Matiere, Note)
             cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
                             & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
             dr = cmd.ExecuteReader()
@@ -260,4 +261,32 @@
         Return promos
     End Function
 
+    Public Shared Sub setAdminPassword(ByVal password As String)
+        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+        cmdAccess.Connection = _connection
+        cmdAccess.CommandText = "INSERT INTO authentic(MotDePasse)" _
+                              & "VALUES ('" & password & "') ;"
+        cmdAccess.ExecuteNonQuery()
+        MsgBox("done")
+    End Sub
+
+    Public Shared Function adminLogin(ByVal password As String)
+        Dim check As Boolean = False
+        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+        cmdAccess.Connection = _connection
+        cmdAccess.CommandText = "select * from AUTHENTIC;"
+        cmdAccess = New OleDbCommand(cmdAccess.CommandText, _connection)
+        Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
+        oledbReader.Read()
+        MsgBox(Trim(oledbReader.Item("MotDePasse").ToString))
+        If StrComp(Trim(oledbReader.Item("MotDePasse").ToString), password) = 0 Then
+            check = True
+            MsgBox("authenticated")
+        Else
+            MsgBox("wrong password try again")
+        End If
+        oledbReader.Close()
+        cmdAccess.Dispose()
+        Return check
+    End Function
 End Class
