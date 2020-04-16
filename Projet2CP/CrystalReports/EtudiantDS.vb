@@ -1,9 +1,2 @@
-﻿
-
-
-Partial Public Class EtudiantDS
-End Class
-
-
-Partial Public Class EtudiantDS
+﻿Partial Public Class EtudiantDS
 End Class

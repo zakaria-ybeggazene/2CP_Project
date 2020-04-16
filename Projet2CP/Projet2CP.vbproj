@@ -101,6 +101,14 @@
     <Compile Include="CrystalReports\EtudiantDS.vb">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReports\ReleveGlobDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReleveGlobDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\ReleveGlobDS.vb">
+      <DependentUpon>ReleveGlobDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReports\ReleveNotesReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,6 +266,17 @@
     </None>
     <None Include="CrystalReports\EtudiantDS.xss">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReports\ReleveGlobDS.xsc">
+      <DependentUpon>ReleveGlobDS.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReports\ReleveGlobDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReleveGlobDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ReleveGlobDS.xss">
+      <DependentUpon>ReleveGlobDS.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">

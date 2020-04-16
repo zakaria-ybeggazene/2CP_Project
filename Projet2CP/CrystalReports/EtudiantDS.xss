@@ -7,11 +7,11 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="85" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Etudiant" ZOrder="5" X="156" Y="142" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
-    <Shape ID="DesignTable:Parcours" ZOrder="4" X="340" Y="361" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
-    <Shape ID="DesignTable:Notes" ZOrder="3" X="548" Y="181" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
+    <Shape ID="DesignTable:Parcours" ZOrder="1" X="340" Y="361" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
+    <Shape ID="DesignTable:Notes" ZOrder="2" X="548" Y="181" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:Etudiant_Parcours" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_Parcours" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>289</X>
@@ -27,7 +27,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Parcours_Notes" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:Parcours_Notes" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>473</X>
