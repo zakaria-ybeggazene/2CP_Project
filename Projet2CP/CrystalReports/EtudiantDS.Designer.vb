@@ -835,7 +835,7 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As Double, ByVal MentionJ As Decimal, ByVal MoyenneRa As Double, ByVal MentionRa As Decimal, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow, ByVal Rang As String) As ParcoursRow
+        Public Overloads Function AddParcoursRow(ByVal Annee As String, ByVal Niveau As String, ByVal Decision As String, ByVal MoyenneJ As String, ByVal MentionJ As Decimal, ByVal MoyenneRa As Double, ByVal MentionRa As Decimal, ByVal Elim As Long, ByVal parentEtudiantRowByEtudiant_Parcours As EtudiantRow, ByVal Rang As String) As ParcoursRow
             Dim rowParcoursRow As ParcoursRow = CType(Me.NewRow,ParcoursRow)
             Dim columnValuesArray() As Object = New Object() {Annee, Niveau, Decision, MoyenneJ, MentionJ, MoyenneRa, MentionRa, Elim, Nothing, Rang}
             If (Not (parentEtudiantRowByEtudiant_Parcours) Is Nothing) Then
@@ -884,7 +884,7 @@ Partial Public Class EtudiantDS
             MyBase.Columns.Add(Me.columnNiveau)
             Me.columnDecision = New Global.System.Data.DataColumn("Decision", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDecision)
-            Me.columnMoyenneJ = New Global.System.Data.DataColumn("MoyenneJ", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnMoyenneJ = New Global.System.Data.DataColumn("MoyenneJ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMoyenneJ)
             Me.columnMentionJ = New Global.System.Data.DataColumn("MentionJ", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMentionJ)
@@ -1570,10 +1570,10 @@ Partial Public Class EtudiantDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property MoyenneJ() As Double
+        Public Property MoyenneJ() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableParcours.MoyenneJColumn),Double)
+                    Return CType(Me(Me.tableParcours.MoyenneJColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneJ' in table 'Parcours' is DBNull.", e)
                 End Try
