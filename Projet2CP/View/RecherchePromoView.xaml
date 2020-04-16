@@ -3,9 +3,150 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d" d:DesignWidth="1072">
+
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="../Dictionary.xaml"/>
+
+    </UserControl.Resources>
+
     <Grid>
+        
+        <Grid Margin="571,247,56,24"  Height="392">
+
+            <Border CornerRadius=" 15" BorderThickness="3">
+                <Border.Effect>
+                    <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                </Border.Effect>
+                <DataGrid BorderThickness=" 0" Height="371" Width="480" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  Header="Matricule" Width="120" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="120" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Prenoms" Width="120" Binding="{Binding Prenom}" FontFamily="Montserrat" />
+                        <DataGridTemplateColumn Header="Details" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Details"  Width="*" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="30" />
+
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <Style TargetType = "DataGridColumnHeader">
+                            <Setter Property = "Foreground" Value = "#123456" />
+                            <Setter Property = "FontWeight" Value = "SemiBold"  />
+
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+        </Grid>
+        <Button Style="{DynamicResource Terminer}" Opacity="1" Name="Statistiques" Content="Statistiques" Height="35" HorizontalAlignment="Right" Margin="0,28,193,0"  VerticalAlignment="Top" Width="117" IsEnabled="True" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
+
             
+        </Button>
+        <Button Style="{DynamicResource Terminer}" Opacity="1" Name="PV" Content="Generer PV" Height="35" HorizontalAlignment="Right" Margin="0,28,47,0"  VerticalAlignment="Top" Width="117" IsEnabled="True" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
+
+           
+        </Button>
+        <Image Height="30" HorizontalAlignment="Left"  Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" Margin="25,33,0,0" />
+        
+        <Grid Height="35" Margin="533,77,363,0" Name="Grid1" VerticalAlignment="Top" Width="175"  Background="#F0F0F0">
+            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Width="175" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#F0F0F0" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
+        </Grid>
+        <Grid Height="35"  Name="Grid" Width="175"  Background="#F0F0F0" Margin="169,78,728,550">
+            <ComboBox Text="Année" SelectedItem="{Binding Path=Annee}" Background="#F0F0F0" Height="34" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.CanContentScroll="True"  FontFamily="Montserrat" FontSize="14"  Width="175" Name="AnneeCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded"  IsReadOnly="True" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#F0F0F0" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
+        </Grid>
+        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechercheCommand}" Margin="510,128,462,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True"  Width="100" />
+        <Border Margin="298,128,0,0"   HorizontalAlignment="Left" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="30" Width="100">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Command="{Binding Path=RechercheCommand}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                        <GradientStop Color="#FE11375D" Offset="0.39" />
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF123456" Offset="0" />
+                    <GradientStop Color="#FF1168BF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+        <Label Content="Liste des Etudiants:" Height="41" HorizontalAlignment="Left" Margin="571,201,0,0" Name="Label1" VerticalAlignment="Top" Width="239" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3">
+           
+        </Label>
+        <Button Content="Filters" Height="30" HorizontalAlignment="Left" Margin="62,33,0,0" Name="Button1" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" Foreground="#FF435E78" />
+        <Border  BorderThickness="2" Height="290" HorizontalAlignment="Left" Margin="465,304,0,0" Name="Border1" VerticalAlignment="Top" Width="3" >
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF123456" Offset="0" />
+                    <GradientStop Color="#FF1168BF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+        <Grid Margin="26,247,712,27"  Height="389" Width="330" HorizontalAlignment="Left" >
+        <Border CornerRadius=" 15" BorderThickness="3" Margin="6,2,0,0">
+            <Border.Effect>
+                <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+            </Border.Effect>
+            <DataGrid BorderThickness=" 0" Height="372" Width="310" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Module" Width="230" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                    <DataGridTextColumn Header="Moyenne" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="30" />
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Foreground" Value="#123456" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF123456" Offset="0" />
+                    <GradientStop Color="#FF1168BF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+        </Grid>
+        <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="41" HorizontalAlignment="Left" Margin="32,201,0,0" Name="Label2" VerticalAlignment="Top" Width="285" />
+        <Label Content="Le nombre d'inscrits :" Height="32" HorizontalAlignment="Left" Margin="32,159,0,0" Name="Label3" VerticalAlignment="Top" Width="185" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" />
     </Grid>
 </UserControl>
