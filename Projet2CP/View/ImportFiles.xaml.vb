@@ -24,8 +24,6 @@ Public Class ImportFiles
     Public Sub ParcourirButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ParcourirButton.Click
         Dim app As New Excel.Application
         Try
-            Me.ForceCursor = True
-            Me.Cursor = Cursors.Wait
             filePath = ParcourirButtonClicked()
             If filePath <> "" Then
                 Fichier.Content = filePath
@@ -67,7 +65,6 @@ Public Class ImportFiles
     End Sub
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
-        Migration.migration(inscritPath, notePath, matPath, ratPath)
         Dim setPasswordWindow As SetPasword = New SetPasword()
         Me.Close()
         setPasswordWindow.Show()

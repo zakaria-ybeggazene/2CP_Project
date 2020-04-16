@@ -76,6 +76,9 @@
     End Sub
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
+        Me.ForceCursor = True
+        Me.Cursor = Cursors.Wait
+        Repository.initialiser(userPassword.Password)
         Dim mainWindow As MainWindow = New MainWindow()
         Me.Close()
         mainWindow.Show()

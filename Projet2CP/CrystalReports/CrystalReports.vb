@@ -106,58 +106,69 @@ Public Class CrystalReports
         row = Nothing
 
         Dim annee As AnneeEtude = etudiant.Parcours.Find(Function(p) p.Niveau = niveau)
-        row = parcoursTable.NewParcoursRow()
-        row("Matricule") = etudiant.Matricule
-        If annee.Annee = 99 Then
-            row("Annee") = "1999 / 2000"
-        ElseIf annee.Annee > 60 Then
-            row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
-        ElseIf annee.Annee >= 0 And annee.Annee < 9 Then
-            row("Annee") = "20" & annee.Annee & " /200" & annee.Annee + 1
-        Else
-            row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
-        End If
-        Select Case annee.Niveau
-            Case niveau.TRC1
-                row("Niveau") = "1ère année INGENIEUR   Option : TRONC COMMUN"
-            Case niveau.TRC2
-                row("Niveau") = "2ème année INGENIEUR   Option : TRONC COMMUN"
-            Case niveau.SI1
-                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
-            Case niveau.SIQ1
-                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
-            Case niveau.SI2
-                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
-            Case niveau.SIQ2
-                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
-            Case Else
-        End Select
-        row("MoyenneJ") = annee.MoyenneJ
-        row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
-        Select Case annee.Adm
-            Case "J"c
-                row("Decision") = "Admis"
-            Case "S"c
-                row("Decision") = "Admis"
-            Case "R"c
-                row("Decision") = "Redouble"
-            Case "M"c
-                row("Decision") = "Maladie"
-            Case "X"c
-                row("Decision") = "Exclu"
-            Case Else
-                row("Decision") = ""
-        End Select
-        parcoursTable.Rows.Add(row)
-        ds.Tables.Add(parcoursTable)
+            row = parcoursTable.NewParcoursRow()
+            row("Matricule") = etudiant.Matricule
+            If annee.Annee = 99 Then
+                row("Annee") = "1999 / 2000"
+            ElseIf annee.Annee > 60 Then
+                row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+            ElseIf annee.Annee >= 0 And annee.Annee < 9 Then
+                row("Annee") = "20" & annee.Annee & " /200" & annee.Annee + 1
+            Else
+                row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
+            End If
+            Select Case annee.Niveau
+                Case niveau.TRC1
+                    row("Niveau") = "1ère année INGENIEUR   Option : TRONC COMMUN"
+                Case niveau.TRC2
+                    row("Niveau") = "2ème année INGENIEUR   Option : TRONC COMMUN"
+                Case niveau.SI1
+                    row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+                Case niveau.SIQ1
+                    row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+                Case niveau.SI2
+                    row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+                Case niveau.SIQ2
+                    row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+                Case Else
+            End Select
+            If annee.Rattrap Is Nothing Then
+                row("MoyenneJ") = annee.MoyenneJ
+            Else
+                row("MoyenneJ") = annee.MoyenneJ & "    Moyenne de septembre : " & annee.Rattrap.MoyenneR
+            End If
+            row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
+            Select Case annee.Adm
+                Case "J"c
+                    row("Decision") = "Admis"
+                Case "S"c
+                    row("Decision") = "Admis"
+                Case "R"c
+                    row("Decision") = "Redouble"
+                Case "M"c
+                    row("Decision") = "Maladie"
+                Case "X"c
+                    row("Decision") = "Exclu"
+                Case Else
+                    row("Decision") = ""
+            End Select
+            parcoursTable.Rows.Add(row)
+            ds.Tables.Add(parcoursTable)
 
-        row = Nothing
+            row = Nothing
 
-        Dim notes As Dictionary(Of Matiere, Note) = annee.Notes
-        For Each matNotPair As KeyValuePair(Of Matiere, Note) In notes
-            If matNotPair.Key.NiveauM = niveau Then
+            Dim notes As Dictionary(Of Matiere, Note) = annee.Notes
+            For Each matNotPair As KeyValuePair(Of Matiere, Note) In notes
                 row = notesTable.NewNotesRow()
-                row("Annee") = annee.Annee
+                If annee.Annee = 99 Then
+                    row("Annee") = "1999 / 2000"
+                ElseIf annee.Annee > 60 Then
+                    row("Annee") = "19" & annee.Annee & " / 19" & annee.Annee + 1
+                ElseIf annee.Annee >= 0 And annee.Annee < 9 Then
+                    row("Annee") = "20" & annee.Annee & " /200" & annee.Annee + 1
+                Else
+                    row("Annee") = "20" & annee.Annee & " /20" & annee.Annee + 1
+                End If
                 row("Matiere") = matNotPair.Key.CodMat
                 row("Libelle") = matNotPair.Key.LibeMat
                 row("Coefficient") = matNotPair.Key.Coef
@@ -170,8 +181,7 @@ Public Class CrystalReports
                     row("Nora") = s
                 End If
                 notesTable.Rows.Add(row)
-            End If
-        Next
+            Next
         ds.Tables.Add(notesTable)
 
         Dim releveNotesAttestation As New ReleveNotesReport
