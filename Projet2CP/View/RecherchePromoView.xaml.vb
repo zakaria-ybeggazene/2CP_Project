@@ -42,4 +42,12 @@
     Private Sub Openbutton_Click(sender As System.Object, e As System.Windows.RoutedEventArgs)
 
     End Sub
+
+    Private Sub Filter_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Filter.Click
+
+    End Sub
+
+    Private Sub AnneeCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles AnneeCB.SelectionChanged
+
+    End Sub
 End Class

@@ -19,7 +19,7 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Height="371" Width="480" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <DataGrid BorderThickness=" 0" Height="371" Width="480" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" >
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="120" Binding="{Binding Matricule}" FontFamily="Montserrat" />
@@ -86,9 +86,9 @@
             </ComboBox>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
-        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechercheCommand}" Margin="510,128,462,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True"  Width="100" />
+        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechCommand}" Margin="510,128,462,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True"  Width="100" />
         <Border Margin="298,128,0,0"   HorizontalAlignment="Left" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="30" Width="100">
-            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Command="{Binding Path=RechercheCommand}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Command="{Binding Path=RechCommand}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />
@@ -121,10 +121,10 @@
             <Border.Effect>
                 <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
             </Border.Effect>
-            <DataGrid BorderThickness=" 0" Height="372" Width="310" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Height="372" Width="310" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Module" Width="230" Binding="{Binding Matricule}" FontFamily="Montserrat" />
-                    <DataGridTextColumn Header="Moyenne" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                    <DataGridTextColumn Header="Module" Width="230"  FontFamily="Montserrat" />
+                    <DataGridTextColumn Header="Moyenne" Width="*"  FontFamily="Montserrat" />
                 </DataGrid.Columns>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
