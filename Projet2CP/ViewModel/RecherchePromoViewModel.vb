@@ -8,12 +8,9 @@
     Private _listMats As Dictionary(Of Matiere, Decimal)
     'Recherche sub
     Public Sub recherche()
-        Try
-            Resultat = Repository.recherche_promo(Niveau, Annee)
-            ListeEtuds = Resultat.ListeEtudiants
-            ListeMatieres = Resultat.ListeMatiere
-        Catch e As Exception
-        End Try
+        Resultat = Repository.recherche_promo(Niveau, Annee)
+        ListeEtuds = Resultat.ListeEtudiants
+        ListeMatieres = Resultat.ListeMatiere
     End Sub
 
     'Recherche command
@@ -70,14 +67,21 @@
         End Set
     End Property
 
-
-
-
+    Private _etudiantTab As ICommand
+    Public Property EtudiantTab As ICommand
+        Get
+            Return _etudiantTab
+        End Get
+        Set(ByVal value As ICommand)
+            _etudiantTab = value
+        End Set
+    End Property
 
     'NEW SUB
-    Public Sub New(ByVal displayName As String)
+    Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object))
         MyBase.New(displayName)
         v = New RecherchePromoView()
+        Me.EtudiantTab = New RelayCommand(addEtudiantView)
     End Sub
 
     Private v As RecherchePromoView

@@ -28,7 +28,7 @@
                         <DataGridTemplateColumn Header="Details" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Details"  Width="*" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
+                                    <Button Content="Details" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -121,10 +121,10 @@
             <Border.Effect>
                 <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
             </Border.Effect>
-                <DataGrid BorderThickness=" 0" Height="372" Width="310" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Height="372" Width="310" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" ItemsSource="{Binding Path=ListeMatieres}" FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Module" Width="230"  FontFamily="Montserrat" />
-                    <DataGridTextColumn Header="Moyenne" Width="*"  FontFamily="Montserrat" />
+                    <DataGridTextColumn Header="Module" Width="230" Binding="{Binding Key.LibeMat}" FontFamily="Montserrat" />
+                    <DataGridTextColumn Header="Moyenne" Width="*" Binding="{Binding Value}" FontFamily="Montserrat" />
                 </DataGrid.Columns>
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
