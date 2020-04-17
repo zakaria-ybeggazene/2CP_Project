@@ -234,7 +234,7 @@
         Return etudiant
     End Function
 
-    Public Shared Function recherche_promo(ByVal niveau As String, ByVal annee As Integer) As List(Of Promotion)
+    Public Shared Function recherche_promo(ByVal niveau As String, ByVal annee As String) As Promotion
         Dim etudiants As List(Of Etudiant) = New List(Of Etudiant)()
         etudiants.Add(New Etudiant With {.Adresse = "Moscou", .CodePostal = 1500, .DateNais = New Date(), .LieuNais = "Bejaia", .LieuNaisA = "Bejaia arabe", .Matricule = "18/0225", .Nom = "Mohamed", .NomA = "Mohamed Arabe", .NomMere = "Nom mere", .Prenom = "prenom", .PrenomA = "prenom arabe", .PrenomPere = "prenom pere", .Ville = "alger", .Wilaya = "alger", .WilayaNaisA = "Baghdad", .WilayaNaisCode = 12})
 
@@ -256,8 +256,8 @@
         moyenneMatiere.Add(mat, note)
 
         Dim promo As Promotion = New Promotion With {.Annee = 2000, .ListeEtudiants = etudiants, .ListeMatiere = moyenneMatiere, .NiveauP = Projet2CP.Niveau.TRC1, .NbDoublants = 1, .NbInscrits = 4, .NbRattrap = 0}
-        Dim promos As List(Of Promotion) = New List(Of Promotion)(promo)
-        Return promos
+
+        Return promo
     End Function
 
 End Class

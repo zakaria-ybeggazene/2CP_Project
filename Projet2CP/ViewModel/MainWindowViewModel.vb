@@ -52,7 +52,7 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub AddRecherchePromoView(ByVal o As Object)
-        Dim workspace As WorkspaceViewModel = New RecherchePromoViewModel("Recherche Promotion")
+        Dim workspace As WorkspaceViewModel = New RecherchePromoViewModel("Recherche Promotion", AddressOf Me.AddEtudiantView)
         AddWorkspace(workspace)
     End Sub
 
