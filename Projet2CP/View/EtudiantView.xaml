@@ -20,6 +20,10 @@
             <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="Gray">
                 <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
             </Button>
+            <Span></Span>
+            <Button Width="230" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveGlobal" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="Gray">
+                <TextBlock Text="Générer relevé global" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
+            </Button>
         </ItemsControl>
     </Grid>
 </UserControl>
