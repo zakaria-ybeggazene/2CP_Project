@@ -18,7 +18,7 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="460" Width="1087" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="460" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
@@ -28,7 +28,7 @@
                         <DataGridTextColumn Header="Date de Naissance" Width=" 160" Binding="{Binding DateNais}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Ville" Width="100" Binding="{Binding Ville}" FontFamily="Montserrat">
                         </DataGridTextColumn>
-                        <DataGridTemplateColumn Header="Details">
+                        <DataGridTemplateColumn Header="Details" Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Details" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
@@ -129,7 +129,7 @@
             <ComboBox Text="Sexe" SelectedItem="{Binding Path=Sexe}" Background="#F0F0F0" Height="34" BorderThickness="0"  HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Width="175" Name="SexeCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="#F0F0F0" />
+                        <Setter Property="Background" Value="#E7EFF6" />
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
