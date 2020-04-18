@@ -10,7 +10,6 @@ Public Class MigrationViewModel
         Me.matiere = matiere
         Me.rattrap = rattrap
     End Sub
-
     Private _percent As Integer = 0
     Public Property percent
         Get

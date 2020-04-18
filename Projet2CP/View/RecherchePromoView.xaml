@@ -20,7 +20,6 @@
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
                 <DataGrid BorderThickness=" 0" Height="370" Width="Auto" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" >
-
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="*" Binding="{Binding Matricule}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
@@ -131,7 +130,7 @@
         </Grid>
         <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="41" HorizontalAlignment="Left" Margin="25,197,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Bottom" />
         <Label Content="Le nombre d'inscrits :" Height="32" HorizontalAlignment="Left" Margin="36,159,0,0" Name="Label3" VerticalAlignment="Top" Width="185" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" />
-        <Grid Background="#F0F0F0" Height="35" Margin="162,76,0,0" Name="Grid2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175">
+        <Grid Background="#F0F0F0" Height="35" Margin="181,76,716,0" Name="Grid2" VerticalAlignment="Top">
             <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="175">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
