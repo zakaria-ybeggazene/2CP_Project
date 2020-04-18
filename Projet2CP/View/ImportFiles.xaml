@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" Title="importerfichier" ResizeMode="noResize" Height="554" Width="1050">
+      mc:Ignorable="d" Title="Historique ESI" ResizeMode="noResize" Height="554" Width="1050">
     <Grid Background="White" Visibility="Visible" Name="Grid" >
         <Label  Height="64" HorizontalAlignment="Left" Margin="633,19,0,0" Content ="Importer Fichiers " VerticalAlignment="Top" Width="359" FontFamily="Montserrat" FontSize="38" FontWeight="SemiBold">
             <Label.Foreground>

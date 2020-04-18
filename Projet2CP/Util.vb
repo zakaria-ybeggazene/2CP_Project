@@ -55,6 +55,60 @@ Public Class Util
                 Return 5
         End Select
     End Function
+    Public Shared Function stringToNiveau(ByVal strNiv As String) As Niveau
+        Dim niv As Niveau
+        Select Case strNiv
+            Case "TRC1"
+                niv = Projet2CP.Niveau.TRC1
+            Case "TRC2"
+                niv = Projet2CP.Niveau.TRC2
+            Case "SI1"
+                niv = Projet2CP.Niveau.SI1
+            Case "SIQ1"
+                niv = Projet2CP.Niveau.SIQ1
+            Case "SI2"
+                niv = Projet2CP.Niveau.SI2
+            Case "SIQ2"
+                niv = Projet2CP.Niveau.SIQ2
+            Case "SI3"
+                niv = Projet2CP.Niveau.SI3
+            Case "SIQ3"
+                niv = Projet2CP.Niveau.SIQ3
+            Case Else
+        End Select
+        Return niv
+    End Function
+    Public Shared Function GetAnneeUniv(ByVal annee As String) As String
+        Dim anneeUnivStr As String
+        If annee = 99 Then
+            anneeUnivStr = "1999 / 2000"
+        ElseIf annee > 60 Then
+            anneeUnivStr = "19" & annee & " / 19" & annee + 1
+        ElseIf annee >= 0 And annee < 9 Then
+            anneeUnivStr = "20" & annee & " /200" & annee + 1
+        Else
+            anneeUnivStr = "20" & annee & " /20" & annee + 1
+        End If
+        Return anneeUnivStr
+    End Function
+    Public Shared Function GetDecisionCR(ByVal dec As String) As String
+        Dim decStr As String
+        Select Case dec
+            Case "J"c
+                decStr = "Admis"
+            Case "S"
+                decStr = "Admis"
+            Case "R"c
+                decStr = "Redouble"
+            Case "M"c
+                decStr = "Maladie"
+            Case "X"c
+                decStr = "Exclu"
+            Case Else
+                decStr = ""
+        End Select
+        Return decStr
+    End Function
 
     Public Shared Function dbNullToString(ByVal o As Object) As String
         If IsDBNull(o) Then
@@ -81,7 +135,7 @@ Public Class Util
     'Fonction de hachage //Source du code est une solution dans le site stack overflow
     Public Shared Function GetHash(ByVal theInput As String) As String
 
-        Using hasher As MD5 = MD5.Create()    ' create hash object
+        Using hasher As SHA256 = SHA256.Create()    ' create hash object
 
             ' Convert to byte array and get hash
             Dim dbytes As Byte() =

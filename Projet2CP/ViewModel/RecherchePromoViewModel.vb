@@ -4,13 +4,19 @@
     'Fields
     Private _niveau, _annee As String
     Private _resultat As Promotion
-    Private _listEtuds As List(Of Etudiant)
+    Private _listEtuds As List(Of EtudiantAnnee)
     Private _listMats As Dictionary(Of Matiere, Decimal)
     'Recherche sub
     Public Sub recherche()
-        Resultat = Repository.recherche_promo(Niveau, Annee)
-        ListeEtuds = Resultat.ListeEtudiants
-        ListeMatieres = Resultat.ListeMatiere
+        If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
+            MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
+        Else
+            Dim niv As Niveau = Util.stringToNiveau(Niveau)
+            Dim anneeCut As String = Annee.Substring(2)
+            Resultat = Repository.recherche_promo(niv, anneeCut)
+            ListeEtuds = Resultat.ListeEtudiants
+            ListeMatieres = Resultat.ListeMatiere
+        End If
     End Sub
 
     'Recherche command
@@ -46,12 +52,12 @@
             _resultat = value
         End Set
     End Property
-    Public Property ListeEtuds As List(Of Etudiant)
+    Public Property ListeEtuds As List(Of EtudiantAnnee)
         Get
             Return _listEtuds
 
         End Get
-        Set(ByVal value As List(Of Etudiant))
+        Set(ByVal value As List(Of EtudiantAnnee))
             _listEtuds = value
             OnPropertyChanged("ListeEtuds")
         End Set

@@ -7,14 +7,14 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Etudiant" ZOrder="11" X="86" Y="61" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
-    <Shape ID="DesignTable:TRC1" ZOrder="7" X="87" Y="201" Height="277" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="273" />
-    <Shape ID="DesignTable:TRC2" ZOrder="8" X="264" Y="203" Height="277" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="273" />
-    <Shape ID="DesignTable:CS1" ZOrder="10" X="448" Y="201" Height="277" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="273" />
-    <Shape ID="DesignTable:CS2" ZOrder="9" X="629" Y="201" Height="277" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="273" />
-    <Shape ID="DesignTable:CS3" ZOrder="6" X="808" Y="200" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
+    <Shape ID="DesignTable:TRC1" ZOrder="1" X="87" Y="201" Height="219" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="215" />
+    <Shape ID="DesignTable:TRC2" ZOrder="8" X="264" Y="203" Height="219" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="215" />
+    <Shape ID="DesignTable:CS1" ZOrder="10" X="448" Y="201" Height="238" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
+    <Shape ID="DesignTable:CS2" ZOrder="9" X="629" Y="201" Height="238" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
+    <Shape ID="DesignTable:CS3" ZOrder="7" X="808" Y="200" Height="124" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:Etudiant_TRC1" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_TRC1" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>161</X>
@@ -26,7 +26,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Etudiant_TRC2" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_TRC2" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>236</X>
@@ -42,7 +42,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Etudiant_CS1" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_CS1" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>237</X>
@@ -58,7 +58,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Etudiant_CS2" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_CS2" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>236</X>
@@ -74,7 +74,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Etudiant_CS3" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:Etudiant_CS3" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>236</X>

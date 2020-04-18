@@ -801,12 +801,6 @@ Partial Public Class ReleveGlobDS
         
         Private columnRang As Global.System.Data.DataColumn
         
-        Private columnNoju As Global.System.Data.DataColumn
-        
-        Private columnNosy As Global.System.Data.DataColumn
-        
-        Private columnNora As Global.System.Data.DataColumn
-        
         Private columnMatricule As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -918,30 +912,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NojuColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNoju
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NosyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNosy
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NoraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNora
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MatriculeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMatricule
@@ -985,11 +955,11 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTRC1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As String, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal Noju As String, ByVal Nosy As String, ByVal Nora As String, ByVal parentEtudiantRowByEtudiant_TRC1 As EtudiantRow) As TRC1Row
+        Public Overloads Function AddTRC1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC1 As EtudiantRow) As TRC1Row
             Dim rowTRC1Row As TRC1Row = CType(Me.NewRow,TRC1Row)
-            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Noju, Nosy, Nora, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing}
             If (Not (parentEtudiantRowByEtudiant_TRC1) Is Nothing) Then
-                columnValuesArray(12) = parentEtudiantRowByEtudiant_TRC1(0)
+                columnValuesArray(9) = parentEtudiantRowByEtudiant_TRC1(0)
             End If
             rowTRC1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowTRC1Row)
@@ -1028,9 +998,6 @@ Partial Public Class ReleveGlobDS
             Me.columnMoyenneR = MyBase.Columns("MoyenneR")
             Me.columnDecision = MyBase.Columns("Decision")
             Me.columnRang = MyBase.Columns("Rang")
-            Me.columnNoju = MyBase.Columns("Noju")
-            Me.columnNosy = MyBase.Columns("Nosy")
-            Me.columnNora = MyBase.Columns("Nora")
             Me.columnMatricule = MyBase.Columns("Matricule")
         End Sub
         
@@ -1041,9 +1008,9 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnAnnee)
             Me.columnMatiere = New Global.System.Data.DataColumn("Matiere", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatiere)
-            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -1055,18 +1022,18 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnDecision)
             Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRang)
-            Me.columnNoju = New Global.System.Data.DataColumn("Noju", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNoju)
-            Me.columnNosy = New Global.System.Data.DataColumn("Nosy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNosy)
-            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNora)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMatiere}, true))
             Me.columnAnnee.AllowDBNull = false
+            Me.columnAnnee.DefaultValue = CType("",String)
             Me.columnMatiere.AllowDBNull = false
             Me.columnMatiere.Unique = true
+            Me.columnMoyenneJ.DefaultValue = CType("",String)
+            Me.columnMoyenneR.DefaultValue = CType("",String)
+            Me.columnDecision.DefaultValue = CType("",String)
+            Me.columnRang.DefaultValue = CType("",String)
+            Me.columnMatricule.DefaultValue = CType("",String)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1222,12 +1189,6 @@ Partial Public Class ReleveGlobDS
         
         Private columnRang As Global.System.Data.DataColumn
         
-        Private columnNoju As Global.System.Data.DataColumn
-        
-        Private columnNosy As Global.System.Data.DataColumn
-        
-        Private columnNora As Global.System.Data.DataColumn
-        
         Private columnMatricule As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1339,30 +1300,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NojuColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNoju
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NosyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNosy
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NoraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNora
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MatriculeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMatricule
@@ -1406,11 +1343,11 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTRC2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As String, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal Noju As String, ByVal Nosy As String, ByVal Nora As String, ByVal parentEtudiantRowByEtudiant_TRC2 As EtudiantRow) As TRC2Row
+        Public Overloads Function AddTRC2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC2 As EtudiantRow) As TRC2Row
             Dim rowTRC2Row As TRC2Row = CType(Me.NewRow,TRC2Row)
-            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Noju, Nosy, Nora, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing}
             If (Not (parentEtudiantRowByEtudiant_TRC2) Is Nothing) Then
-                columnValuesArray(12) = parentEtudiantRowByEtudiant_TRC2(0)
+                columnValuesArray(9) = parentEtudiantRowByEtudiant_TRC2(0)
             End If
             rowTRC2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowTRC2Row)
@@ -1449,9 +1386,6 @@ Partial Public Class ReleveGlobDS
             Me.columnMoyenneR = MyBase.Columns("MoyenneR")
             Me.columnDecision = MyBase.Columns("Decision")
             Me.columnRang = MyBase.Columns("Rang")
-            Me.columnNoju = MyBase.Columns("Noju")
-            Me.columnNosy = MyBase.Columns("Nosy")
-            Me.columnNora = MyBase.Columns("Nora")
             Me.columnMatricule = MyBase.Columns("Matricule")
         End Sub
         
@@ -1462,9 +1396,9 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnAnnee)
             Me.columnMatiere = New Global.System.Data.DataColumn("Matiere", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatiere)
-            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -1476,17 +1410,17 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnDecision)
             Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRang)
-            Me.columnNoju = New Global.System.Data.DataColumn("Noju", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNoju)
-            Me.columnNosy = New Global.System.Data.DataColumn("Nosy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNosy)
-            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNora)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMatiere}, true))
+            Me.columnAnnee.DefaultValue = CType("",String)
             Me.columnMatiere.AllowDBNull = false
             Me.columnMatiere.Unique = true
+            Me.columnMoyenneJ.DefaultValue = CType("",String)
+            Me.columnMoyenneR.DefaultValue = CType("",String)
+            Me.columnDecision.DefaultValue = CType("",String)
+            Me.columnRang.DefaultValue = CType("",String)
+            Me.columnMatricule.DefaultValue = CType("",String)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1642,13 +1576,9 @@ Partial Public Class ReleveGlobDS
         
         Private columnRang As Global.System.Data.DataColumn
         
-        Private columnNoju As Global.System.Data.DataColumn
-        
-        Private columnNosy As Global.System.Data.DataColumn
-        
-        Private columnNora As Global.System.Data.DataColumn
-        
         Private columnMatricule As Global.System.Data.DataColumn
+        
+        Private columnOption As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1759,33 +1689,17 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NojuColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNoju
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NosyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNosy
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NoraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNora
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MatriculeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMatricule
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property OptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOption
             End Get
         End Property
         
@@ -1826,11 +1740,11 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As String, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal Noju As String, ByVal Nosy As String, ByVal Nora As String, ByVal parentEtudiantRowByEtudiant_CS1 As EtudiantRow) As CS1Row
+        Public Overloads Function AddCS1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS1 As EtudiantRow, ByVal _Option As String) As CS1Row
             Dim rowCS1Row As CS1Row = CType(Me.NewRow,CS1Row)
-            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Noju, Nosy, Nora, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS1) Is Nothing) Then
-                columnValuesArray(12) = parentEtudiantRowByEtudiant_CS1(0)
+                columnValuesArray(9) = parentEtudiantRowByEtudiant_CS1(0)
             End If
             rowCS1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowCS1Row)
@@ -1869,10 +1783,8 @@ Partial Public Class ReleveGlobDS
             Me.columnMoyenneR = MyBase.Columns("MoyenneR")
             Me.columnDecision = MyBase.Columns("Decision")
             Me.columnRang = MyBase.Columns("Rang")
-            Me.columnNoju = MyBase.Columns("Noju")
-            Me.columnNosy = MyBase.Columns("Nosy")
-            Me.columnNora = MyBase.Columns("Nora")
             Me.columnMatricule = MyBase.Columns("Matricule")
+            Me.columnOption = MyBase.Columns("Option")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1882,9 +1794,9 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnAnnee)
             Me.columnMatiere = New Global.System.Data.DataColumn("Matiere", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatiere)
-            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -1896,17 +1808,23 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnDecision)
             Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRang)
-            Me.columnNoju = New Global.System.Data.DataColumn("Noju", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNoju)
-            Me.columnNosy = New Global.System.Data.DataColumn("Nosy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNosy)
-            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNora)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
+            Me.columnOption = New Global.System.Data.DataColumn("Option", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "OptionColumn")
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnOption")
+            Me.columnOption.ExtendedProperties.Add("Generator_UserColumnName", "Option")
+            MyBase.Columns.Add(Me.columnOption)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMatiere}, true))
+            Me.columnAnnee.DefaultValue = CType("",String)
             Me.columnMatiere.AllowDBNull = false
             Me.columnMatiere.Unique = true
+            Me.columnMoyenneJ.DefaultValue = CType("",String)
+            Me.columnMoyenneR.DefaultValue = CType("",String)
+            Me.columnDecision.DefaultValue = CType("",String)
+            Me.columnRang.DefaultValue = CType("",String)
+            Me.columnMatricule.DefaultValue = CType("",String)
+            Me.columnOption.DefaultValue = CType("",String)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2062,13 +1980,9 @@ Partial Public Class ReleveGlobDS
         
         Private columnRang As Global.System.Data.DataColumn
         
-        Private columnNoju As Global.System.Data.DataColumn
-        
-        Private columnNosy As Global.System.Data.DataColumn
-        
-        Private columnNora As Global.System.Data.DataColumn
-        
         Private columnMatricule As Global.System.Data.DataColumn
+        
+        Private columnOption As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2179,33 +2093,17 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NojuColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNoju
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NosyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNosy
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NoraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNora
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property MatriculeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMatricule
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property OptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOption
             End Get
         End Property
         
@@ -2246,11 +2144,11 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As String, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal Noju As String, ByVal Nosy As String, ByVal Nora As String, ByVal parentEtudiantRowByEtudiant_CS2 As EtudiantRow) As CS2Row
+        Public Overloads Function AddCS2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS2 As EtudiantRow, ByVal _Option As String) As CS2Row
             Dim rowCS2Row As CS2Row = CType(Me.NewRow,CS2Row)
-            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Noju, Nosy, Nora, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS2) Is Nothing) Then
-                columnValuesArray(12) = parentEtudiantRowByEtudiant_CS2(0)
+                columnValuesArray(9) = parentEtudiantRowByEtudiant_CS2(0)
             End If
             rowCS2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowCS2Row)
@@ -2289,10 +2187,8 @@ Partial Public Class ReleveGlobDS
             Me.columnMoyenneR = MyBase.Columns("MoyenneR")
             Me.columnDecision = MyBase.Columns("Decision")
             Me.columnRang = MyBase.Columns("Rang")
-            Me.columnNoju = MyBase.Columns("Noju")
-            Me.columnNosy = MyBase.Columns("Nosy")
-            Me.columnNora = MyBase.Columns("Nora")
             Me.columnMatricule = MyBase.Columns("Matricule")
+            Me.columnOption = MyBase.Columns("Option")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2302,9 +2198,9 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnAnnee)
             Me.columnMatiere = New Global.System.Data.DataColumn("Matiere", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatiere)
-            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -2316,17 +2212,23 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnDecision)
             Me.columnRang = New Global.System.Data.DataColumn("Rang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRang)
-            Me.columnNoju = New Global.System.Data.DataColumn("Noju", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNoju)
-            Me.columnNosy = New Global.System.Data.DataColumn("Nosy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNosy)
-            Me.columnNora = New Global.System.Data.DataColumn("Nora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNora)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
+            Me.columnOption = New Global.System.Data.DataColumn("Option", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "OptionColumn")
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnOption")
+            Me.columnOption.ExtendedProperties.Add("Generator_UserColumnName", "Option")
+            MyBase.Columns.Add(Me.columnOption)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMatiere}, true))
+            Me.columnAnnee.DefaultValue = CType("",String)
             Me.columnMatiere.AllowDBNull = false
             Me.columnMatiere.Unique = true
+            Me.columnMoyenneJ.DefaultValue = CType("",String)
+            Me.columnMoyenneR.DefaultValue = CType("",String)
+            Me.columnDecision.DefaultValue = CType("",String)
+            Me.columnRang.DefaultValue = CType("",String)
+            Me.columnMatricule.DefaultValue = CType("",String)
+            Me.columnOption.DefaultValue = CType("",String)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2472,6 +2374,8 @@ Partial Public Class ReleveGlobDS
         
         Private columnMatricule As Global.System.Data.DataColumn
         
+        Private columnOption As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2540,6 +2444,14 @@ Partial Public Class ReleveGlobDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property OptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOption
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2576,9 +2488,9 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS3Row(ByVal Annee As String, ByVal Note As String, ByVal Mention As String, ByVal parentEtudiantRowByEtudiant_CS3 As EtudiantRow) As CS3Row
+        Public Overloads Function AddCS3Row(ByVal Annee As String, ByVal Note As Decimal, ByVal Mention As String, ByVal parentEtudiantRowByEtudiant_CS3 As EtudiantRow, ByVal _Option As String) As CS3Row
             Dim rowCS3Row As CS3Row = CType(Me.NewRow,CS3Row)
-            Dim columnValuesArray() As Object = New Object() {Annee, Note, Mention, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Annee, Note, Mention, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS3) Is Nothing) Then
                 columnValuesArray(3) = parentEtudiantRowByEtudiant_CS3(0)
             End If
@@ -2608,6 +2520,7 @@ Partial Public Class ReleveGlobDS
             Me.columnNote = MyBase.Columns("Note")
             Me.columnMention = MyBase.Columns("Mention")
             Me.columnMatricule = MyBase.Columns("Matricule")
+            Me.columnOption = MyBase.Columns("Option")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2615,12 +2528,19 @@ Partial Public Class ReleveGlobDS
         Private Sub InitClass()
             Me.columnAnnee = New Global.System.Data.DataColumn("Annee", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnnee)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnMention = New Global.System.Data.DataColumn("Mention", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMention)
             Me.columnMatricule = New Global.System.Data.DataColumn("Matricule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMatricule)
+            Me.columnOption = New Global.System.Data.DataColumn("Option", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "OptionColumn")
+            Me.columnOption.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnOption")
+            Me.columnOption.ExtendedProperties.Add("Generator_UserColumnName", "Option")
+            MyBase.Columns.Add(Me.columnOption)
+            Me.columnAnnee.DefaultValue = CType("",String)
+            Me.columnNote.DefaultValue = CType(0D,Decimal)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2947,10 +2867,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Coef() As String
+        Public Property Coef() As Short
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC1.CoefColumn),String)
+                    Return CType(Me(Me.tableTRC1.CoefColumn),Short)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Coef' in table 'TRC1' is DBNull.", e)
                 End Try
@@ -2962,10 +2882,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As String
+        Public Property Note() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC1.NoteColumn),String)
+                    Return CType(Me(Me.tableTRC1.NoteColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'TRC1' is DBNull.", e)
                 End Try
@@ -2994,11 +2914,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneJ() As String
             Get
-                Try 
+                If Me.IsMoyenneJNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC1.MoyenneJColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneJ' in table 'TRC1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC1.MoyenneJColumn) = value
@@ -3009,11 +2929,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneR() As String
             Get
-                Try 
+                If Me.IsMoyenneRNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC1.MoyenneRColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneR' in table 'TRC1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC1.MoyenneRColumn) = value
@@ -3024,11 +2944,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Decision() As String
             Get
-                Try 
+                If Me.IsDecisionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC1.DecisionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Decision' in table 'TRC1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC1.DecisionColumn) = value
@@ -3039,11 +2959,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Rang() As String
             Get
-                Try 
+                If Me.IsRangNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC1.RangColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'TRC1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC1.RangColumn) = value
@@ -3052,58 +2972,13 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Noju() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC1.NojuColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Noju' in table 'TRC1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC1.NojuColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nosy() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC1.NosyColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nosy' in table 'TRC1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC1.NosyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nora() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC1.NoraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nora' in table 'TRC1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC1.NoraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Matricule() As String
             Get
-                Try 
+                If Me.IsMatriculeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC1.MatriculeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Matricule' in table 'TRC1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC1.MatriculeColumn) = value
@@ -3207,42 +3082,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNojuNull() As Boolean
-            Return Me.IsNull(Me.tableTRC1.NojuColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNojuNull()
-            Me(Me.tableTRC1.NojuColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNosyNull() As Boolean
-            Return Me.IsNull(Me.tableTRC1.NosyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNosyNull()
-            Me(Me.tableTRC1.NosyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNoraNull() As Boolean
-            Return Me.IsNull(Me.tableTRC1.NoraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNoraNull()
-            Me(Me.tableTRC1.NoraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsMatriculeNull() As Boolean
             Return Me.IsNull(Me.tableTRC1.MatriculeColumn)
         End Function
@@ -3273,11 +3112,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Annee() As String
             Get
-                Try 
+                If Me.IsAnneeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.AnneeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Annee' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.AnneeColumn) = value
@@ -3297,10 +3136,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Coef() As String
+        Public Property Coef() As Short
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC2.CoefColumn),String)
+                    Return CType(Me(Me.tableTRC2.CoefColumn),Short)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Coef' in table 'TRC2' is DBNull.", e)
                 End Try
@@ -3312,10 +3151,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As String
+        Public Property Note() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC2.NoteColumn),String)
+                    Return CType(Me(Me.tableTRC2.NoteColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'TRC2' is DBNull.", e)
                 End Try
@@ -3344,11 +3183,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneJ() As String
             Get
-                Try 
+                If Me.IsMoyenneJNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.MoyenneJColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneJ' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.MoyenneJColumn) = value
@@ -3359,11 +3198,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneR() As String
             Get
-                Try 
+                If Me.IsMoyenneRNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.MoyenneRColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneR' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.MoyenneRColumn) = value
@@ -3374,11 +3213,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Decision() As String
             Get
-                Try 
+                If Me.IsDecisionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.DecisionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Decision' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.DecisionColumn) = value
@@ -3389,11 +3228,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Rang() As String
             Get
-                Try 
+                If Me.IsRangNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.RangColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.RangColumn) = value
@@ -3402,58 +3241,13 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Noju() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC2.NojuColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Noju' in table 'TRC2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC2.NojuColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nosy() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC2.NosyColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nosy' in table 'TRC2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC2.NosyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nora() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTRC2.NoraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nora' in table 'TRC2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTRC2.NoraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Matricule() As String
             Get
-                Try 
+                If Me.IsMatriculeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTRC2.MatriculeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Matricule' in table 'TRC2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTRC2.MatriculeColumn) = value
@@ -3569,42 +3363,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNojuNull() As Boolean
-            Return Me.IsNull(Me.tableTRC2.NojuColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNojuNull()
-            Me(Me.tableTRC2.NojuColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNosyNull() As Boolean
-            Return Me.IsNull(Me.tableTRC2.NosyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNosyNull()
-            Me(Me.tableTRC2.NosyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNoraNull() As Boolean
-            Return Me.IsNull(Me.tableTRC2.NoraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNoraNull()
-            Me(Me.tableTRC2.NoraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsMatriculeNull() As Boolean
             Return Me.IsNull(Me.tableTRC2.MatriculeColumn)
         End Function
@@ -3635,11 +3393,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Annee() As String
             Get
-                Try 
+                If Me.IsAnneeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.AnneeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Annee' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.AnneeColumn) = value
@@ -3659,10 +3417,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Coef() As String
+        Public Property Coef() As Short
             Get
                 Try 
-                    Return CType(Me(Me.tableCS1.CoefColumn),String)
+                    Return CType(Me(Me.tableCS1.CoefColumn),Short)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Coef' in table 'CS1' is DBNull.", e)
                 End Try
@@ -3674,10 +3432,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As String
+        Public Property Note() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableCS1.NoteColumn),String)
+                    Return CType(Me(Me.tableCS1.NoteColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS1' is DBNull.", e)
                 End Try
@@ -3706,11 +3464,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneJ() As String
             Get
-                Try 
+                If Me.IsMoyenneJNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.MoyenneJColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneJ' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.MoyenneJColumn) = value
@@ -3721,11 +3479,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneR() As String
             Get
-                Try 
+                If Me.IsMoyenneRNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.MoyenneRColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneR' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.MoyenneRColumn) = value
@@ -3736,11 +3494,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Decision() As String
             Get
-                Try 
+                If Me.IsDecisionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.DecisionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Decision' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.DecisionColumn) = value
@@ -3751,11 +3509,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Rang() As String
             Get
-                Try 
+                If Me.IsRangNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.RangColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.RangColumn) = value
@@ -3764,61 +3522,31 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Noju() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS1.NojuColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Noju' in table 'CS1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS1.NojuColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nosy() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS1.NosyColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nosy' in table 'CS1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS1.NosyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nora() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS1.NoraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nora' in table 'CS1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS1.NoraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Matricule() As String
             Get
-                Try 
+                If Me.IsMatriculeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS1.MatriculeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Matricule' in table 'CS1' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS1.MatriculeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property _Option() As String
+            Get
+                If Me.Is_OptionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableCS1.OptionColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tableCS1.OptionColumn) = value
             End Set
         End Property
         
@@ -3931,42 +3659,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNojuNull() As Boolean
-            Return Me.IsNull(Me.tableCS1.NojuColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNojuNull()
-            Me(Me.tableCS1.NojuColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNosyNull() As Boolean
-            Return Me.IsNull(Me.tableCS1.NosyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNosyNull()
-            Me(Me.tableCS1.NosyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNoraNull() As Boolean
-            Return Me.IsNull(Me.tableCS1.NoraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNoraNull()
-            Me(Me.tableCS1.NoraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsMatriculeNull() As Boolean
             Return Me.IsNull(Me.tableCS1.MatriculeColumn)
         End Function
@@ -3975,6 +3667,18 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetMatriculeNull()
             Me(Me.tableCS1.MatriculeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Is_OptionNull() As Boolean
+            Return Me.IsNull(Me.tableCS1.OptionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Set_OptionNull()
+            Me(Me.tableCS1.OptionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3997,11 +3701,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Annee() As String
             Get
-                Try 
+                If Me.IsAnneeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.AnneeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Annee' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.AnneeColumn) = value
@@ -4021,10 +3725,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Coef() As String
+        Public Property Coef() As Short
             Get
                 Try 
-                    Return CType(Me(Me.tableCS2.CoefColumn),String)
+                    Return CType(Me(Me.tableCS2.CoefColumn),Short)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Coef' in table 'CS2' is DBNull.", e)
                 End Try
@@ -4036,10 +3740,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As String
+        Public Property Note() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableCS2.NoteColumn),String)
+                    Return CType(Me(Me.tableCS2.NoteColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS2' is DBNull.", e)
                 End Try
@@ -4068,11 +3772,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneJ() As String
             Get
-                Try 
+                If Me.IsMoyenneJNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.MoyenneJColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneJ' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.MoyenneJColumn) = value
@@ -4083,11 +3787,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property MoyenneR() As String
             Get
-                Try 
+                If Me.IsMoyenneRNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.MoyenneRColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MoyenneR' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.MoyenneRColumn) = value
@@ -4098,11 +3802,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Decision() As String
             Get
-                Try 
+                If Me.IsDecisionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.DecisionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Decision' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.DecisionColumn) = value
@@ -4113,11 +3817,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Rang() As String
             Get
-                Try 
+                If Me.IsRangNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.RangColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rang' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.RangColumn) = value
@@ -4126,61 +3830,31 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Noju() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS2.NojuColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Noju' in table 'CS2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS2.NojuColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nosy() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS2.NosyColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nosy' in table 'CS2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS2.NosyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Nora() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCS2.NoraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nora' in table 'CS2' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCS2.NoraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Matricule() As String
             Get
-                Try 
+                If Me.IsMatriculeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS2.MatriculeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Matricule' in table 'CS2' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS2.MatriculeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property _Option() As String
+            Get
+                If Me.Is_OptionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableCS2.OptionColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tableCS2.OptionColumn) = value
             End Set
         End Property
         
@@ -4293,42 +3967,6 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNojuNull() As Boolean
-            Return Me.IsNull(Me.tableCS2.NojuColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNojuNull()
-            Me(Me.tableCS2.NojuColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNosyNull() As Boolean
-            Return Me.IsNull(Me.tableCS2.NosyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNosyNull()
-            Me(Me.tableCS2.NosyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNoraNull() As Boolean
-            Return Me.IsNull(Me.tableCS2.NoraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNoraNull()
-            Me(Me.tableCS2.NoraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsMatriculeNull() As Boolean
             Return Me.IsNull(Me.tableCS2.MatriculeColumn)
         End Function
@@ -4337,6 +3975,18 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetMatriculeNull()
             Me(Me.tableCS2.MatriculeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Is_OptionNull() As Boolean
+            Return Me.IsNull(Me.tableCS2.OptionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Set_OptionNull()
+            Me(Me.tableCS2.OptionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4359,11 +4009,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Annee() As String
             Get
-                Try 
+                If Me.IsAnneeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS3.AnneeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Annee' in table 'CS3' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS3.AnneeColumn) = value
@@ -4372,10 +4022,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As String
+        Public Property Note() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableCS3.NoteColumn),String)
+                    Return CType(Me(Me.tableCS3.NoteColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS3' is DBNull.", e)
                 End Try
@@ -4389,11 +4039,11 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Mention() As String
             Get
-                Try 
+                If Me.IsMentionNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS3.MentionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Mention' in table 'CS3' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS3.MentionColumn) = value
@@ -4404,14 +4054,29 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Matricule() As String
             Get
-                Try 
+                If Me.IsMatriculeNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableCS3.MatriculeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Matricule' in table 'CS3' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableCS3.MatriculeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property _Option() As String
+            Get
+                If Me.Is_OptionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableCS3.OptionColumn),String)
+                End If
+            End Get
+            Set
+                Me(Me.tableCS3.OptionColumn) = value
             End Set
         End Property
         
@@ -4472,6 +4137,18 @@ Partial Public Class ReleveGlobDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetMatriculeNull()
             Me(Me.tableCS3.MatriculeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Is_OptionNull() As Boolean
+            Return Me.IsNull(Me.tableCS3.OptionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Set_OptionNull()
+            Me(Me.tableCS3.OptionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

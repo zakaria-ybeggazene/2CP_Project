@@ -129,7 +129,7 @@
             <ComboBox Text="Sexe" SelectedItem="{Binding Path=Sexe}" Background="#F0F0F0" Height="34" BorderThickness="0"  HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Width="175" Name="SexeCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="#F0F0F0" />
+                        <Setter Property="Background" Value="#E7EFF6" />
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
