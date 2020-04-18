@@ -3,7 +3,7 @@
 Public Class Promotion
     Private _annee, _nbInscrits, _nbDoublants, _nbRattrap As Integer
     Private _niveau As Niveau
-    Private _listeEtudiants As List(Of Etudiant)
+    Private _listeEtudiants As List(Of EtudiantAnnee)
     Private _listeMatieres As Dictionary(Of Matiere, Decimal)
 
 
@@ -55,11 +55,11 @@ Public Class Promotion
         End Set
     End Property
 
-    Public Property ListeEtudiants() As List(Of Etudiant)
+    Public Property ListeEtudiants() As List(Of EtudiantAnnee)
         Get
             Return _listeEtudiants
         End Get
-        Set(ByVal value As List(Of Etudiant))
+        Set(ByVal value As List(Of EtudiantAnnee))
             Me._listeEtudiants = value
         End Set
     End Property

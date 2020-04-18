@@ -8,12 +8,12 @@
         Me.ReportCommand = New RelayCommand(AddressOf ReportWindow)
     End Sub
 
-    Private _etudiant As Etudiant
-    Public Property Etudiant As Etudiant
+    Private _etudiant As EtudiantParcours
+    Public Property Etudiant As EtudiantParcours
         Get
             Return _etudiant
         End Get
-        Set(ByVal value As Etudiant)
+        Set(ByVal value As EtudiantParcours)
             _etudiant = value
         End Set
     End Property

@@ -22,11 +22,13 @@ Public Class ImportFiles
 
 
     Public Sub ParcourirButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ParcourirButton.Click
-        Dim app As New Excel.Application
+
         Try
             Me.ForceCursor = True
             Me.Cursor = Cursors.Wait
+
             filePath = ParcourirButtonClicked()
+            Mouse.SetCursor(Cursors.Wait)
             If filePath <> "" Then
                 Fichier.Content = filePath
             End If
@@ -62,8 +64,10 @@ Public Class ImportFiles
             End If
         Catch ex As Exception
             MsgBox("Enter a valid path")
+        Finally
+            Me.Cursor = Cursors.Arrow
+            Mouse.SetCursor(Cursors.Arrow)
         End Try
-        app.Quit()
     End Sub
 
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click

@@ -62,8 +62,9 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub AddEtudiantView(ByVal o As Etudiant)
-        o = Repository.paracours_etudiant(o)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(o.Nom.Trim & " " & o.Prenom.Trim, o)
+        Dim e As EtudiantParcours
+        e = Repository.paracours_etudiant(o)
+        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
         AddWorkspace(workspace)
     End Sub
 
