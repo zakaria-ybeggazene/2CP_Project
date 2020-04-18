@@ -10,37 +10,6 @@ Public Class Etudiant
     Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
     Private _wilayaNaisCode, _annIns, _anneeBac As Integer
     Private _moyenneBAC As Double
-    Private _parcours As List(Of AnneeEtude)
-
-    'Constructeur
-    Public Sub New()
-
-    End Sub
-
-    Public Sub New(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal adresse As String, ByVal lieuNais As String, ByVal lieuNaisA As String, ByVal wilayaNaisA As String, ByVal ville As String, ByVal wilaya As String, ByVal prenomPere As String, ByVal nomMere As String, ByVal wilayaNaisCode As Integer, ByVal annIns As Integer, ByVal codePostal As String, ByVal anneeBac As Integer, ByVal moyenneBAC As Double, ByVal dateNais As String, ByVal parcours As List(Of AnneeEtude))
-        _matricule = matricule
-        _nom = nom
-        _prenom = prenom
-        _nomA = nomA
-        _prenomA = prenomA
-        _adresse = adresse
-        _lieuNais = lieuNais
-        _lieuNaisA = lieuNaisA
-        _wilayaNaisA = wilayaNaisA
-        _ville = ville
-        _wilaya = wilaya
-        _prenomPere = prenomPere
-        _nomMere = nomMere
-        _wilayaNaisCode = wilayaNaisCode
-        _annIns = annIns
-        _codePostal = codePostal
-        _anneeBac = anneeBac
-        _moyenneBAC = moyenneBAC
-        _dateNais = dateNais
-        _parcours = parcours
-    End Sub
-
-
 
     'Properties
     Public Property Matricule() As String
@@ -179,12 +148,33 @@ Public Class Etudiant
             _dateNais = value
         End Set
     End Property
+
+End Class
+
+Public Class EtudiantParcours
+    Inherits Etudiant
+    Private _parcours As List(Of AnneeEtude)
+
     Public Property Parcours As List(Of AnneeEtude)
         Get
             Return _parcours
         End Get
         Set(ByVal value As List(Of AnneeEtude))
             _parcours = value
+        End Set
+    End Property
+End Class
+
+Public Class EtudiantAnnee
+    Inherits Etudiant
+    Private _annee As AnneeEtude
+
+    Public Property Annee As AnneeEtude
+        Get
+            Return _annee
+        End Get
+        Set(ByVal value As AnneeEtude)
+            _annee = value
         End Set
     End Property
 End Class

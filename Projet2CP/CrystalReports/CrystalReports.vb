@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 
 Public Class CrystalReports
-    Public Shared Function Attestation(ByVal etudiant As Etudiant) As AttestationReport
+    Public Shared Function Attestation(ByVal etudiant As EtudiantParcours) As AttestationReport
 
         Dim ds As New DataSet
         Dim etudiantTable As New EtudiantDS.EtudiantDataTable
@@ -79,7 +79,7 @@ Public Class CrystalReports
         Return attestationReport
     End Function
 
-    Public Shared Function ReleveNotes(ByVal etudiant As Etudiant, ByVal niveau As Niveau) As ReleveNotesReport
+    Public Shared Function ReleveNotes(ByVal etudiant As EtudiantParcours, ByVal niveau As Niveau)
         Dim ds As New DataSet
         Dim etudiantTable As New EtudiantDS.EtudiantDataTable
         Dim parcoursTable As New EtudiantDS.ParcoursDataTable
@@ -189,7 +189,7 @@ Public Class CrystalReports
         Return releveNotesAttestation
     End Function
 
-    Public Shared Function ReleveNotesGlobal(ByVal etudiant As Etudiant) As ReleveGlobalReport
+    Public Shared Function ReleveNotesGlobal(ByVal etudiant As EtudiantParcours) As ReleveGlobalReport
         Dim ds As New DataSet
         Dim etudiantTable As New ReleveGlobDS.EtudiantDataTable
         Dim trc1Table As New ReleveGlobDS.TRC1DataTable

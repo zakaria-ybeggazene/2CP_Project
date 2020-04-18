@@ -4,7 +4,7 @@
     'Fields
     Private _niveau, _annee As String
     Private _resultat As Promotion
-    Private _listEtuds As List(Of Etudiant)
+    Private _listEtuds As List(Of EtudiantAnnee)
     Private _listMats As Dictionary(Of Matiere, Decimal)
     'Recherche sub
     Public Sub recherche()
@@ -46,12 +46,12 @@
             _resultat = value
         End Set
     End Property
-    Public Property ListeEtuds As List(Of Etudiant)
+    Public Property ListeEtuds As List(Of EtudiantAnnee)
         Get
             Return _listEtuds
 
         End Get
-        Set(ByVal value As List(Of Etudiant))
+        Set(ByVal value As List(Of EtudiantAnnee))
             _listEtuds = value
             OnPropertyChanged("ListeEtuds")
         End Set
