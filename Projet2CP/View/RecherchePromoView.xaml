@@ -19,7 +19,7 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Height="370" Width="Auto" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <DataGrid BorderThickness=" 0" Height="370"  Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="435">
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="*" Binding="{Binding Matricule}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
