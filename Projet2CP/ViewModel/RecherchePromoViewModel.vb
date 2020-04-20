@@ -6,6 +6,7 @@
     Private _resultat As Promotion
     Private _listEtuds As List(Of EtudiantAnnee)
     Private _listMats As Dictionary(Of Matiere, Decimal)
+    Private _nbIns As Integer
     'Recherche sub
     Public Sub recherche()
         If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
@@ -14,8 +15,13 @@
             Dim niv As Niveau = Util.stringToNiveau(Niveau)
             Dim anneeCut As String = Annee.Substring(2)
             Resultat = Repository.recherche_promo(niv, anneeCut)
-            ListeEtuds = Resultat.ListeEtudiants
-            ListeMatieres = Resultat.ListeMatiere
+            If Resultat Is Nothing Then
+                MsgBox("Promotion introuvable", MsgBoxStyle.Information)
+            Else
+                ListeEtuds = Resultat.ListeEtudiants
+                ListeMatieres = Resultat.ListeMatiere
+                NombreInscrits = Resultat.NbInscrits
+            End If
         End If
     End Sub
 
@@ -70,6 +76,15 @@
         Set(ByVal value As Dictionary(Of Matiere, Decimal))
             _listMats = value
             OnPropertyChanged("ListeMatieres")
+        End Set
+    End Property
+    Public Property NombreInscrits As Integer
+        Get
+            Return _nbIns
+        End Get
+        Set(ByVal value As Integer)
+            _nbIns = value
+            OnPropertyChanged("NombreInscrits")
         End Set
     End Property
 

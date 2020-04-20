@@ -3,7 +3,7 @@ Public Class AnneeEtude
     Private _annee As String
     Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn As Integer
     Private _niveau As Niveau
-    Private _section, _adm As Char
+    Private _section, _decision As Char
     Private _moyenneJ As Decimal
     Private _notes As Dictionary(Of Matiere, Note)
     Public Class Rattrapage
@@ -50,7 +50,7 @@ Public Class AnneeEtude
         _mention = mention
         _niveau = niveau
         _section = section
-        _adm = adm
+        _decision = adm
         _moyenneJ = moyenneJ
         _rattrapage = rattrapage
     End Sub
@@ -103,12 +103,12 @@ Public Class AnneeEtude
         End Set
     End Property
 
-    Public Property Adm() As Char
+    Public Property Decision() As Char
         Get
-            Return _adm
+            Return _decision
         End Get
         Set(ByVal value As Char)
-            Me._adm = value
+            Me._decision = value
         End Set
     End Property
 

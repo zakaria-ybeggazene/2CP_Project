@@ -130,8 +130,8 @@
         </Grid>
         <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="41" HorizontalAlignment="Left" Margin="25,197,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Bottom" />
         <Label Content="Le nombre d'inscrits :" Height="32" HorizontalAlignment="Left" Margin="36,159,0,0" Name="Label3" VerticalAlignment="Top" Width="185" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" />
-        <Grid Background="#F0F0F0" Height="35" Margin="181,76,716,0" Name="Grid2" VerticalAlignment="Top">
-            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="175">
+        <Grid Background="#F0F0F0" Height="35" Margin="151,76,746,0" Name="Grid2" VerticalAlignment="Top">
+            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="135">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Control.Background" Value="#E7EFF6" />
@@ -142,5 +142,6 @@
         </Grid>
         <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Genere PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,44,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" />
         <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,202,0" Name="Button4" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" />
+        <Label Content="{Binding Path=NombreInscrits}" FontFamily="Montserrat" FontSize="16" Foreground="#FF12375C" Height="32" HorizontalAlignment="Left" Margin="227,159,0,0" Name="Label4" VerticalAlignment="Top" Width="50" />
     </Grid>
 </UserControl>

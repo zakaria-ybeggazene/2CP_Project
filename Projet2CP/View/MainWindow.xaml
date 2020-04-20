@@ -14,9 +14,9 @@
                     <DataTemplate >
                         <TextBlock Margin="2,6" > 
                           <StackPanel >
-                            <Button  Command="{Binding Command}"  Width="230" Height="35" BorderThickness="0" FontFamily="Montserrat"  FontSize="16" Foreground="#ffffff" Background="{x:Null}"  Padding="5,1,1,1" Cursor="Hand" DataContext="{Binding}"> 
+                            <Button  Command="{Binding Command}"  Width="230" Height="40" BorderThickness="0" FontFamily="Montserrat"  FontSize="16" Foreground="#ffffff" Background="{x:Null}"  Padding="5,1,1,1" Cursor="Hand" DataContext="{Binding}"> 
      
-                                  <TextBlock Text="{Binding Path=DisplayName}"  />
+                                  <TextBlock Text="{Binding Path=DisplayName}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                             </Button >
                              
                          </StackPanel>                                  
@@ -24,7 +24,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
+            <!-- Label Content="Copyrights © 2019 - 2020" Height="32" HorizontalAlignment="Left" Margin="32,613,0,0" Name="Label" VerticalAlignment="Top" Width="166" FontSize="12" Foreground="White" FontFamily="Montserrat"-->
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF135CA7" Offset="0" />

@@ -176,7 +176,7 @@ Public Class Repository
 
         Dim sqlCommand As String
 
-        sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, ADM, NbInscrits " _
+        sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN, NbInscrits " _
                     & "FROM ETUDE INNER JOIN PROMO ON PROMO.ANNEE = ETUDE.ANNEE AND PROMO.OPTIIN = ETUDE.OPTIIN AND PROMO.ANETIN = ETUDE.ANETIN " _
                     & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN ASC;"
 
@@ -188,7 +188,7 @@ Public Class Repository
 
         Dim anneEtude As AnneeEtude
         Do While dr.Read()
-            anneEtude = New AnneeEtude With {.Adm = Util.dbNullToString(dr.Item("ADM")),
+            anneEtude = New AnneeEtude With {.Decision = Util.dbNullToString(dr.Item("DECIIN")),
                                              .Annee = Util.dbNullToString(dr.Item("ANNEE")).Trim(),
                                              .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
                                              .Mention = Util.dbNullToString(dr.Item("MentIN")),
@@ -198,7 +198,6 @@ Public Class Repository
                                              .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
                                              .NbrEtudiants = Util.dbNullToInteger(dr.Item("NbInscrits")),
                                              .RatrIn = Util.dbNullToInteger(dr.Item("RatIn"))}
-
             parcours.Add(anneEtude)
         Loop
         dr.Close()
@@ -287,9 +286,9 @@ Public Class Repository
 
             sqlCommand = "SELECT ETUDIANT.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
                                         & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, " _
-                                        & "ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, ADM " _
+                                        & "ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN " _
                                         & "FROM ETUDE INNER JOIN ETUDIANT ON ETUDE.MATRICULE = ETUDIANT.MATRICULE " _
-                & "WHERE ANNEE LIKE '%" & annee & "%' AND OPTIIN LIKE '%" & Util.GetOption(niveau) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(niveau) & "%';"
+                & "WHERE ANNEE LIKE '%" & annee & "%' AND OPTIIN LIKE '%" & Util.GetOption(niveau) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(niveau) & "%' ORDER BY ETUDE.Moyenne DESC;"
             Dim etudiants As List(Of EtudiantAnnee) = New List(Of EtudiantAnnee)()
 
             cmd.CommandText = sqlCommand
@@ -298,7 +297,7 @@ Public Class Repository
             Dim etudiant As EtudiantAnnee
             Dim anneEtude As AnneeEtude
             Do While dr.Read()
-                anneEtude = New AnneeEtude With {.Adm = Util.dbNullToString(dr.Item("ADM")),
+                anneEtude = New AnneeEtude With {.Decision = Util.dbNullToString(dr.Item("DECIIN")),
                                  .Annee = Util.dbNullToString(dr.Item("ANNEE")).Trim(),
                                  .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
                                  .Mention = Util.dbNullToString(dr.Item("MentIN")),
@@ -382,6 +381,7 @@ Public Class Repository
             Do While dr.Read
                 Dim matiere As Matiere = matiere.getMatiere(Util.dbNullToString(dr.Item("COMAMA")), niveau)
 
+                'Zakaria : I got an exception here when I searched for Promo 2011 SI2 (item already exists)
                 moyenneMatiere.Add(matiere, Util.dbNullToDouble(dr.Item("MoyenneMA")))
             Loop
             dr.Close()

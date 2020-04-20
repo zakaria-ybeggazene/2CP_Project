@@ -37,7 +37,9 @@ Public Class MainWindowViewModel
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView))})
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.AddStatisticsView))})
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1

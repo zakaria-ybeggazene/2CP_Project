@@ -47,7 +47,7 @@ Public Class CrystalReports
                     row("Niveau") = "5ème année Ingénieur option Systèmes Informatiques"
                 Case Else
             End Select
-            row("Decision") = Util.GetDecisionCR(annee.Adm)
+            row("Decision") = Util.GetDecisionCR(annee.Decision)
             row("Matricule") = etudiant.Matricule
             parcoursTable.Rows.Add(row)
         Next
@@ -109,7 +109,7 @@ Public Class CrystalReports
             row("MoyenneJ") = annee.MoyenneJ & "    Moyenne de septembre : " & annee.Rattrap.MoyenneR
         End If
         row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
-        row("Decision") = Util.GetDecisionCR(annee.Adm)
+        row("Decision") = Util.GetDecisionCR(annee.Decision)
         parcoursTable.Rows.Add(row)
         ds.Tables.Add(parcoursTable)
 
@@ -179,7 +179,7 @@ Public Class CrystalReports
                 row("MoyenneR") = trc1.Rattrap.MoyenneR
             End If
             row("Rang") = trc1.Rang & " sur " & trc1.NbrEtudiants
-            row("Decision") = Util.GetDecisionCR(trc1.Adm)
+            row("Decision") = Util.GetDecisionCR(trc1.Decision)
             row("Matiere") = matNotPair.Key.LibeMat
             row("Coef") = matNotPair.Key.Coef
             row("Note") = matNotPair.Value.Noju
@@ -208,7 +208,7 @@ Public Class CrystalReports
                 row("MoyenneR") = trc2.Rattrap.MoyenneR
             End If
             row("Rang") = trc2.Rang & " sur " & trc2.NbrEtudiants
-            row("Decision") = Util.GetDecisionCR(trc2.Adm)
+            row("Decision") = Util.GetDecisionCR(trc2.Decision)
             row("Matiere") = matNotPair.Key.LibeMat
             row("Coef") = matNotPair.Key.Coef
             row("Note") = matNotPair.Value.Noju
@@ -242,7 +242,7 @@ Public Class CrystalReports
                 row("MoyenneR") = cs1.Rattrap.MoyenneR
             End If
             row("Rang") = cs1.Rang & " sur " & cs1.NbrEtudiants
-            row("Decision") = Util.GetDecisionCR(cs1.Adm)
+            row("Decision") = Util.GetDecisionCR(cs1.Decision)
             row("Matiere") = matNotPair.Key.LibeMat
             row("Coef") = matNotPair.Key.Coef
             row("Note") = matNotPair.Value.Noju
@@ -276,7 +276,7 @@ Public Class CrystalReports
                 row("MoyenneR") = cs2.Rattrap.MoyenneR
             End If
             row("Rang") = cs2.Rang & " sur " & cs2.NbrEtudiants
-            row("Decision") = Util.GetDecisionCR(cs2.Adm)
+            row("Decision") = Util.GetDecisionCR(cs2.Decision)
             row("Matiere") = matNotPair.Key.LibeMat
             row("Coef") = matNotPair.Key.Coef
             row("Note") = matNotPair.Value.Noju
@@ -304,7 +304,9 @@ Public Class CrystalReports
             row("Option") = "Systèmes Informatiques"
         End If
         row("Note") = cs3.MoyenneJ
-        row("Mention") = cs3.Mention 'COME BACK HERE
+        row("Mention") = Util.GetMention(cs3.Mention)
+
+        cs3Table.Rows.Add(row)
 
         ds.Tables.Add(cs3Table)
 

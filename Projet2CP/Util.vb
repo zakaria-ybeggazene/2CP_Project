@@ -94,20 +94,44 @@ Public Class Util
     Public Shared Function GetDecisionCR(ByVal dec As String) As String
         Dim decStr As String
         Select Case dec
-            Case "J"c
+            Case 1
                 decStr = "Admis"
-            Case "S"
-                decStr = "Admis"
-            Case "R"c
+            Case 2
+                decStr = "Admis avec rachat"
+            Case 3
                 decStr = "Redouble"
-            Case "M"c
+            Case 4
+                decStr = "Non Admis"
+            Case 5
                 decStr = "Maladie"
-            Case "X"c
-                decStr = "Exclu"
+            Case 6
+                decStr = "Abandon"
             Case Else
                 decStr = ""
         End Select
         Return decStr
+    End Function
+    Public Shared Function GetMention(ByVal mention As Integer) As String
+        Dim menStr As String
+        Select Case mention
+            Case 1
+                menStr = "Très Bien"
+            Case 2
+                menStr = "Bien"
+            Case 3
+                menStr = "Assez Bien"
+            Case 4
+                menStr = "Passable"
+            Case 6
+                menStr = "Passe au Rattrapage"
+            Case 7
+                menStr = "Abandon"
+            Case 8
+                menStr = "Redouble"
+            Case Else
+                menStr = ""
+        End Select
+        Return menStr
     End Function
 
     Public Shared Function dbNullToString(ByVal o As Object) As String
