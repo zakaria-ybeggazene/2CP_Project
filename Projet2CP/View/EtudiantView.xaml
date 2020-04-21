@@ -54,14 +54,25 @@
         </Border>
         <Label Content="Wilaya de Naissance" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="718,228,0,0" Name="WilayaNaisAHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="149" />
         <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="510,572,0,60" Opacity="1" HorizontalAlignment="Left" Height="Auto" Width="165">
+<<<<<<< HEAD
             <TextBox Background="Transparent" Text="{Binding Etudiant.WilayaNaisCode}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="WilayaNaisCode" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="161" HorizontalAlignment="Left" />
+=======
+            <TextBox Background="Transparent" Text="{Binding Etudiant.SerieBac}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding ModeModification}" Name="SerieBac" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="161" HorizontalAlignment="Left" />
+>>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
         </Border>
-        <Label Content="Code Wilaya" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="511,544,0,0" Name="CodeWilayaHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="106" />
+        <Label Content="Série du Bac" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="511,544,0,0" Name="SerieBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="106" />
         <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="509,490,0,142" Opacity="1" HorizontalAlignment="Left" Height="Auto">
+<<<<<<< HEAD
             <TextBox Background="{x:Null}" Text="{Binding Etudiant.PrenomPere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsReadOnly="true" Name="nomPere" SelectionBrush="#FF123456"  VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Border>
         <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,490,44,142" Opacity="1" HorizontalAlignment="Right" Height="Auto">
             <TextBox Background="Transparent" Text="{Binding Etudiant.NomMere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="nomMere" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Right" />
+=======
+            <TextBox Background="{x:Null}" Text="{Binding Etudiant.PrenomPere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsReadOnly="{Binding ModeModification}" Name="nomPere" SelectionBrush="#FF123456"  VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </Border>
+        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,490,44,142" Opacity="1" HorizontalAlignment="Right" Height="Auto">
+            <TextBox Background="Transparent" Text="{Binding Etudiant.NomMere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding ModeModification}" Name="nomMere" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Right" />
+>>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
         </Border>
         <Label Content="Prenom Pere " FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" HorizontalAlignment="Left" Margin="510,466,0,180" Name="NomPereHint" VerticalContentAlignment="Center" Width="104" Height="Auto" />
         <Label Content="Nom Mere" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,466,148,0" Name="NomMereHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="88" />
@@ -202,8 +213,13 @@
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
+<<<<<<< HEAD
         <Button BorderThickness="0" IsEnabled="{Binding SaveVisibility}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,620,367,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" Opacity="1" />
         <ComboBox IsEnabled="False" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="42" Loaded="Sexecb_Loaded" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Margin="917,568,0,0" Name="Sexecb" SelectedItem="{Binding Etudiant.Sexe}" Text="Sexe" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165">
+=======
+        <Button BorderThickness="0" Visibility ="{Binding SaveVisibility}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,620,367,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" />
+        <ComboBox Text="{Binding Etudiant.Sexe}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="42" Loaded="Sexecb_Loaded" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Margin="917,568,0,0" Name="Sexecb" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165">
+>>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
                     <Setter Property="Control.Background" Value="#F0F0F0" />

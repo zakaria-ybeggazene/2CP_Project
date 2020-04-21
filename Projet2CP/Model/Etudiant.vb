@@ -1,15 +1,10 @@
 ﻿Imports System.Collections
 
 Public Class Etudiant
-    Enum SerieBAC
-        G04
-        G05
-        G07
-        G08
-    End Enum
-    Private _matricule, _nom, _prenom, _nomA, _prenomA, _sexe, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
-    Private _wilayaNaisCode, _annIns, _anneeBac As Integer
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal, _serieBac, _wilayaBac, _anneeBac As String
+    Private _wilayaNaisCode, _annIns As Integer
     Private _moyenneBAC As Double
+    Private _sexe As Short
 
     'Properties
     Public Property Matricule() As String
@@ -140,11 +135,11 @@ Public Class Etudiant
             _codePostal = value
         End Set
     End Property
-    Public Property Sexe() As String
+    Public Property Sexe() As Short
         Get
             Return _sexe
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Short)
             _sexe = value
         End Set
     End Property
@@ -164,12 +159,28 @@ Public Class Etudiant
             _moyenneBAC = value
         End Set
     End Property
-    Public Property AnneeBac() As Integer
+    Public Property AnneeBac() As String
         Get
             Return _anneeBac
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _anneeBac = value
+        End Set
+    End Property
+    Public Property SerieBac() As String
+        Get
+            Return _serieBac
+        End Get
+        Set(ByVal value As String)
+            _serieBac = value
+        End Set
+    End Property
+    Public Property WilayaBac() As String
+        Get
+            Return _wilayaBac
+        End Get
+        Set(ByVal value As String)
+            _wilayaBac = value
         End Set
     End Property
 
