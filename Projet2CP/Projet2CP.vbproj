@@ -113,11 +113,6 @@
     <Compile Include="CrystalReports\EtudiantDS.vb">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReports\PvDelibDS.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PvDelibDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="CrystalReports\ReleveGlobalReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -321,17 +316,6 @@
     </None>
     <None Include="CrystalReports\EtudiantDS.xss">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
-    </None>
-    <None Include="CrystalReports\PvDelibDS.xsc">
-      <DependentUpon>PvDelibDS.xsd</DependentUpon>
-    </None>
-    <None Include="CrystalReports\PvDelibDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PvDelibDS.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="CrystalReports\PvDelibDS.xss">
-      <DependentUpon>PvDelibDS.xsd</DependentUpon>
     </None>
     <None Include="CrystalReports\ReleveGlobDS.xsc">
       <DependentUpon>ReleveGlobDS.xsd</DependentUpon>

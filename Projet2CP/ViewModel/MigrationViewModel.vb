@@ -63,7 +63,7 @@ Public Class MigrationViewModel
         cmdAccess.ExecuteNonQuery()
 
         cmdAccess.CommandText = "create table ETUDE (MATRICULE char(7),ANNEE char(2),OPTIIN char(3),ANETIN char(2),CycIN TEXT,NumGrp TEXT,NumScn TEXT,Moyenne decimal(4,2),RangIN TEXT," _
-                               & "MentIN TEXT,ElimIN TEXT,RatIN TEXT,DECIIN TEXT,ADM TEXT,ANNEEBAC TEXT,SERIEBAC TEXT,MOYBAC TEXT,WILBAC TEXT, primary key(MATRICULE,ANNEE,OPTIIN,ANETIN));"
+                               & "MentIN TEXT,ElimIN TEXT,RatIN TEXT,DECIIN TEXT,ADM TEXT, primary key(MATRICULE,ANNEE,OPTIIN,ANETIN));"
         cmdAccess.ExecuteNonQuery()
 
         cmdAccess.CommandText = "create table ETUDNOTE(MATRICULE TEXT,ANNEE TEXT,OPTIN TEXT,ANETIN TEXT,ComaMa TEXT,CycNO TEXT,NoJuNo TEXT,NoSyNo TEXT," _
@@ -115,10 +115,10 @@ Public Class MigrationViewModel
         cmd.CommandText = "INSERT INTO [MS Access;Database=" & dbPath & "].[PROMO] (ANNEE ,OPTIIN , ANETIN, NbInscrits) SELECT ANSCIN ,OPTIIN ,ANETIN, COUNT(*) AS 'NbInscrits' " _
                                 & "FROM [INSCRIT$] where ANSCIN IS NOT NULL AND OPTIIN IS NOT NULL AND ANETIN IS NOT NULL GROUP BY ANSCIN, OPTIIN,ANETIN ORDER BY ANSCIN;"
         cmd.ExecuteNonQuery()
-        cmd.CommandText = "INSERT INTO [MS Access;Database=" & dbPath & "].[ETUDE] (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,DECIIN,ADM,ANNEEBAC,SERIEBAC,MOYBAC,WILBAC)" _
+        cmd.CommandText = "INSERT INTO [MS Access;Database=" & dbPath & "].[ETUDE] (MATRICULE,ANNEE,OPTIIN ,ANETIN,CycIN ,NumGrp ,NumScn,Moyenne,RangIN ,MentIN,ElimIN,RatIN ,DECIIN,ADM)" _
                                  & " SELECT MATRIN, ANSCIN,OPTIIN,ANETIN,max(CYCLIN) as 'CYCLIN',max(NG) as 'NumG' , max(NS) as 'NS', max(MOYEIN) as 'MOYEIN',  " _
-                                 & "max(RANGIN) as 'RANGIN',max(MENTIN) as 'MENTIN' , max(ELIMIN) as 'ELIMIN',max(RATRIN) as 'RATRIN' ,max(DECIIN) as 'DECIIN',max(ADM) as 'ADM' ," _
-                                 & "max(ANNEEBAC) as 'ANNEEBAC',max(SERIEBAC) as 'SERIEBAC' ,max(MOYBAC) as 'MOYBAC',max(WILBAC) as 'WILBAC' FROM [INSCRIT$] WHERE MATRIN IS NOT NULL AND ANSCIN IS NOT NULL AND OPTIIN IS NOT NULL AND ANETIN IS NOT NULL " _
+                                 & "max(RANGIN) as 'RANGIN',max(MENTIN) as 'MENTIN' , max(ELIMIN) as 'ELIMIN',max(RATRIN) as 'RATRIN' ,max(DECIIN) as 'DECIIN',max(ADM) as 'ADM' " _
+                                 & " FROM [INSCRIT$] WHERE MATRIN IS NOT NULL AND ANSCIN IS NOT NULL AND OPTIIN IS NOT NULL AND ANETIN IS NOT NULL " _
                                  & " GROUP BY MATRIN, ANSCIN,OPTIIN,ANETIN;"
         cmd.ExecuteNonQuery()
         conn.Close()

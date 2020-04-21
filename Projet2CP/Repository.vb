@@ -57,14 +57,14 @@ Public Class Repository
 
         If Not contientAnnee Or matricule <> "" Then
 
-            sqlCommand = "SELECT MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
-                                    & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de " _
-                                    & "FROM ETUDIANT "
+            sqlCommand = "SELECT MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais, LieuNaisA, " _
+                                    & "Lieunais, WilayaNaisA, Adresse, Ville, Wilaya, CodPost, Sexe, Fils_de, Et_de, " _
+                                    & "ANNEEBAC, SERIEBAC, MOYBAC, WILBAC FROM ETUDIANT "
 
         Else
             sqlCommand = "SELECT ETUDIANT.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
-                                           & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ETUDE.ANNEE " _
-                                           & "FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
+                                           & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ANNEEBAC, " _
+                                           & "SERIEBAC, MOYBAC, WILBAC, ETUDE.ANNEE FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
         End If
 
         If matricule <> "" Then
@@ -161,7 +161,11 @@ Public Class Repository
                                               .Ville = Util.dbNullToString(dr.Item("Ville")),
                                               .Wilaya = Util.dbNullToString(dr.Item("Wilaya")),
                                               .Sexe = Util.dbNullToString(dr.Item("Sexe")),
-                                              .WilayaNaisA = Util.dbNullToString(dr.Item("WilayaNaisA"))}
+                                              .WilayaNaisA = Util.dbNullToString(dr.Item("WilayaNaisA")),
+                                              .AnneeBac = Util.dbNullToString(dr.Item("ANNEEBAC")),
+                                              .MoyenneBac = Util.dbNullToDouble(dr.Item("MOYBAC")),
+                                              .SerieBac = Util.dbNullToString(dr.Item("SERIEBAC")),
+                                              .WilayaBac = Util.dbNullToString(dr.Item("WILBAC"))}
             If Not etudiants.Contains(etudiant) Then
                 etudiants.Add(etudiant)
             End If
