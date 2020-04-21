@@ -501,4 +501,14 @@ Public Class Repository
         cmdAccess.Dispose()
         Return check
     End Function
+
+    Public Shared Sub modifierEtudiant(ByVal etudiant As EtudiantParcours)
+        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+        cmdAccess.Connection = _connection
+        cmdAccess.CommandText = "UPDATE ETUDIANT " _
+                                & "SET NomEtud = '" & etudiant.Nom & "', Prenoms = '" & etudiant.Prenom & "', NomEtudA = '" & etudiant.NomA & "', PrenomsA = '" & etudiant.PrenomA & "', Sexe = " & etudiant.Sexe _
+                                & ", DateNais = '" & etudiant.DateNais & "', LieuNaisA = '" & etudiant.LieuNaisA & "', Lieunais = '" & etudiant.LieuNais & "', WilayaNaisA = '" & etudiant.WilayaNaisA & "', Adresse = '" & etudiant.Adresse & "', Ville = '" & etudiant.Ville & "', Wilaya = '" & etudiant.Wilaya & "', Fils_de = '" & etudiant.PrenomPere & "', Et_de = '" & etudiant.NomMere & "' " _
+                                & "WHERE MATRICULE = '" & etudiant.Matricule & "';"
+        cmdAccess.ExecuteNonQuery()
+    End Sub
 End Class
