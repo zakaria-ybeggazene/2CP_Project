@@ -13,6 +13,15 @@
     <DataTemplate DataType="{x:Type local:EtudiantViewModel}">
         <local:EtudiantView></local:EtudiantView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type local:GeneralStatisticsViewModel}">
+        <local:GeneralStatisticsView></local:GeneralStatisticsView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:PromoStatisticsViewModel}">
+        <local:PromoStatisticsView></local:PromoStatisticsView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:MatiereStatisticsViewModel}">
+        <local:MatiereStatisticsView></local:MatiereStatisticsView>
+    </DataTemplate>
 
     <Style x:Key="Mystyle" TargetType="DataGrid">
         <!-- Make the border and grid lines a little less -->

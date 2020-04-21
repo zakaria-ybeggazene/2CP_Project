@@ -59,6 +59,14 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net40\LiveCharts.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\SAPBusinessObjects.WPF.Viewer\v4.0_13.0.4000.0__692fbea5521e1304\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
@@ -130,6 +138,12 @@
       <DependentUpon>ReleveNotesReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\GeneralStatistics.vb" />
+    <Compile Include="Model\IMatiereStatistics.vb" />
+    <Compile Include="Model\IPromoStatistics.vb" />
+    <Compile Include="Model\IStatistics.vb" />
+    <Compile Include="ViewModel\GeneralStatisticsViewModel.vb" />
+    <Compile Include="ViewModel\MatiereStatisticsViewModel.vb" />
     <Compile Include="ViewModel\MigrationViewModel.vb" />
     <Compile Include="Model\AnneeEtude.vb" />
     <Compile Include="Model\Etudiant.vb" />
@@ -142,6 +156,7 @@
     <Compile Include="ViewModel\CommandViewModel.vb" />
     <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />
+    <Compile Include="ViewModel\PromoStatisticsViewModel.vb" />
     <Compile Include="ViewModel\RechercheEtudiantViewModel.vb" />
     <Compile Include="ViewModel\RecherchePromoViewModel.vb" />
     <Compile Include="ViewModel\RelayCommand.vb" />
@@ -151,11 +166,20 @@
     <Compile Include="View\EtudiantView.xaml.vb">
       <DependentUpon>EtudiantView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GeneralStatisticsView.xaml.vb">
+      <DependentUpon>GeneralStatisticsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ImportFiles.xaml.vb">
       <DependentUpon>ImportFiles.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.vb">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MatiereStatisticsView.xaml.vb">
+      <DependentUpon>MatiereStatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromoStatisticsView.xaml.vb">
+      <DependentUpon>PromoStatisticsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RechercheEtudiantView.xaml.vb">
       <DependentUpon>RechercheEtudiantView.xaml</DependentUpon>
@@ -173,6 +197,10 @@
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralStatisticsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +225,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MatiereStatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PromoStatisticsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,6 +350,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

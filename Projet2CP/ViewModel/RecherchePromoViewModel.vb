@@ -9,20 +9,28 @@
     Private _nbIns As Integer
     'Recherche sub
     Public Sub recherche()
-        If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
-            MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
-        Else
-            Dim niv As Niveau = Util.stringToNiveau(Niveau)
-            Dim anneeCut As String = Annee.Substring(2)
-            Resultat = Repository.recherche_promo(niv, anneeCut)
-            If Resultat Is Nothing Then
-                MsgBox("Promotion introuvable", MsgBoxStyle.Information)
+        Try
+            If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
+                MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
             Else
-                ListeEtuds = Resultat.ListeEtudiants
-                ListeMatieres = Resultat.ListeMatiere
-                NombreInscrits = Resultat.NbInscrits
+                Dim niv As Niveau = Util.stringToNiveau(Niveau)
+                Dim anneeCut As String = Annee.Substring(2)
+                Cursor = Cursors.Wait
+
+                Resultat = Repository.recherche_promo(niv, anneeCut)
+                If Resultat Is Nothing Then
+                    MsgBox("Promotion introuvable", MsgBoxStyle.Information)
+                Else
+                    ListeEtuds = Resultat.ListeEtudiants
+                    ListeMatieres = Resultat.ListeMatiere
+                    NombreInscrits = Resultat.NbInscrits
+                End If
             End If
-        End If
+        Catch Ex As Exception
+            MsgBox("Une erreur s'est produite", MsgBoxStyle.Critical)
+        Finally
+            Cursor = Cursors.Wait
+        End Try
     End Sub
 
     'Recherche command
@@ -56,6 +64,7 @@
         End Get
         Set(ByVal value As Promotion)
             _resultat = value
+            OnPropertyChanged("Resultat")
         End Set
     End Property
     Public Property ListeEtuds As List(Of EtudiantAnnee)
@@ -99,11 +108,31 @@
     End Property
 
     'NEW SUB
-    Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object))
+    Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object), ByVal addStatisticsView As Action(Of Object))
         MyBase.New(displayName)
-        v = New RecherchePromoView()
         Me.EtudiantTab = New RelayCommand(addEtudiantView)
+        Me.ViewStatistics = New RelayCommand(addStatisticsView)
     End Sub
+    Private _viewStatistics As RelayCommand
+    Public Property ViewStatistics As RelayCommand
+        Get
+            Return _viewStatistics
+        End Get
+        Set(ByVal value As RelayCommand)
+            _viewStatistics = value
+        End Set
 
-    Private v As RecherchePromoView
+    End Property
+
+    Private _cursor As Cursor
+    Public Property Cursor As Cursor
+        Get
+            Return _cursor
+        End Get
+        Set(ByVal value As Cursor)
+            _cursor = value
+            OnPropertyChanged("Cursor")
+        End Set
+    End Property
+    Public Property ForceCursor As Boolean = True
 End Class

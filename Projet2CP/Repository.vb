@@ -3,7 +3,7 @@
 Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
-    Private Shared admin As Boolean = False
+    Public Shared admin As Boolean = False
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
@@ -160,6 +160,7 @@ Public Class Repository
                                               .PrenomPere = Util.dbNullToString(dr.Item("Fils_de")),
                                               .Ville = Util.dbNullToString(dr.Item("Ville")),
                                               .Wilaya = Util.dbNullToString(dr.Item("Wilaya")),
+                                              .Sexe = Util.dbNullToString(dr.Item("Sexe")),
                                               .WilayaNaisA = Util.dbNullToString(dr.Item("WilayaNaisA"))}
             If Not etudiants.Contains(etudiant) Then
                 etudiants.Add(etudiant)
@@ -258,6 +259,7 @@ Public Class Repository
                                               .PrenomPere = etudiant.PrenomPere,
                                               .Ville = etudiant.Ville,
                                               .Wilaya = etudiant.Wilaya,
+                                              .Sexe = etudiant.Sexe,
                                               .WilayaNaisA = etudiant.WilayaNaisA}
         etudiantP.Parcours = parcours
 
@@ -322,6 +324,7 @@ Public Class Repository
                                               .PrenomPere = Util.dbNullToString(dr.Item("Fils_de")),
                                               .Ville = Util.dbNullToString(dr.Item("Ville")),
                                               .Wilaya = Util.dbNullToString(dr.Item("Wilaya")),
+                                              .Sexe = Util.dbNullToString(dr.Item("Sexe")),
                                               .WilayaNaisA = Util.dbNullToString(dr.Item("WilayaNaisA")),
                                                    .Annee = anneEtude}
                 If Not etudiants.Contains(etudiant) Then
@@ -393,6 +396,81 @@ Public Class Repository
         Else
             Return Nothing
         End If
+    End Function
+    Public Shared Function moyennesMatiere(ByVal matiere As Matiere) As List(Of Double)
+        Dim resultat As List(Of Double) = New List(Of Double)
+
+        Dim i As Integer
+        For i = 0 To 22
+            resultat.Add(0.0)
+        Next
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT ANNEE, MoyenneMA FROM MOYMAT " _
+                    & "WHERE COMAMA = '" & matiere.CodMat & "' AND OPTIMA LIKE '%" & Util.GetOption(matiere.NiveauM) & "%' AND ANETMA LIKE '%" & Util.GetAnneEt(matiere.NiveauM) & "%';"
+
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+
+        While dr.Read
+            i = Util.dbNullToInteger(dr.Item("ANNEE")) - 89
+            If i < 0 Then
+                i += 100
+            End If
+            resultat(i) = Util.dbNullToDouble(dr.Item("MoyenneMA"))
+
+        End While
+
+        Return resultat
+    End Function
+
+    Public Shared Function tauxReussiteMatiere(ByVal matiere As Matiere) As List(Of Object)
+        Dim resultat As List(Of Object) = New List(Of Object)
+
+        Dim i As Integer
+        For i = 0 To 22
+            resultat.Add(New With {.nbrReussite = 0, .nbrEchec = 0})
+        Next
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT ANNEE, NoJuNo, NoRaNo FROM ETUDNOTE " _
+                    & "WHERE ComaMa = '" & matiere.CodMat & "' AND OPTIN LIKE '%" & Util.GetOption(matiere.NiveauM) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(matiere.NiveauM) & "%';"
+
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        Dim j As Integer = 0
+        While dr.Read
+            i = Util.dbNullToInteger(dr.Item("ANNEE")) - 89
+            If i < 0 Then
+                i += 100
+            End If
+            Dim m, r As Double
+            m = Util.dbNullToDouble(dr.Item("NoJuNo"))
+            r = Util.dbNullToDouble(dr.Item("NoRaNo"))
+
+            If j = 0 Then
+                MessageBox.Show(m, r)
+                j = 1
+            End If
+            If m >= 10 Or r >= 10 Then
+                resultat(i).nbrReussite += 1
+            Else
+                resultat(i).nbrEchec += 1
+            End If
+
+        End While
+
+        Return resultat
     End Function
 
     Public Shared Sub setAdminPassword(ByVal password As String)

@@ -1,6 +1,7 @@
 ﻿Imports System.Collections
 
 Public Class Promotion
+    Implements IPromoStatistics
     Private _annee, _nbInscrits, _nbDoublants, _nbRattrap As Integer
     Private _niveau As Niveau
     Private _listeEtudiants As List(Of EtudiantAnnee)
@@ -74,4 +75,59 @@ Public Class Promotion
     End Property
     'Fin des Properties
 
+    Public Function getEtudiantDistribution() As List(Of Double) Implements IPromoStatistics.getEtudiantDistribution
+        Dim resultat As List(Of Double) = New List(Of Double)()
+
+        For i = 1 To 20
+            resultat.Add(0)
+        Next
+
+        For Each Etudiant As EtudiantAnnee In ListeEtudiants
+            Dim i As Integer
+
+            i = Math.Floor(Etudiant.Annee.MoyenneJ)
+            Try
+                resultat(i) += 1
+            Catch ex As Exception
+                MessageBox.Show(i)
+            End Try
+
+        Next
+
+        Return resultat
+    End Function
+
+    Public Function getTauxReussite() As Object Implements IPromoStatistics.getTauxReussite
+        Dim i As Integer = 0
+        For Each Etudiant As EtudiantAnnee In ListeEtudiants
+            If Math.Max(Etudiant.Annee.MoyenneJ, Etudiant.Annee.RatrIn) >= 10 Then
+                i += 1
+            End If
+        Next
+
+        Return New With {.NbrReussite = i, .NbrEchec = NbInscrits - i}
+    End Function
+
+    Public Function getTauxReussiteParSexe() As Object Implements IPromoStatistics.getTauxReussiteParSexe
+        Dim M, F, MT, FT As Integer
+        M = 0
+        F = 0
+        MT = 0
+        For Each Etudiant As EtudiantAnnee In ListeEtudiants
+            If Etudiant.Sexe = "1" Then
+                MT += 1
+            End If
+
+            If Math.Max(Etudiant.Annee.MoyenneJ, Etudiant.Annee.RatrIn) >= 10 Then
+                If Etudiant.Sexe = "1" Then
+                    M += 1
+                Else
+                    F += 1
+                End If
+            End If
+        Next
+        FT = Me.NbInscrits - MT
+
+        Return New With {.NbrReussiteMasculin = M, .NbrEchecMasculin = MT - M, .NbrReussiteFeminin = F, .NbrEchecFeminin = FT - F}
+    End Function
 End Class

@@ -3,9 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet2CP"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="300" d:DesignWidth="450">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Dictionary.xaml"/>
+    </UserControl.Resources>
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center" >
+            <Button Command="{Binding LeftCommand}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Left Button" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="14" FontWeight="Light" Foreground="White" Height="25" HorizontalAlignment="Right" Name="Button1" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="100" />
+            <TextBlock Height="23" HorizontalAlignment="Center" Name="TextBlock1" Text="{Binding Path=SelectedViewModel.DisplayName}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="14" FontWeight="Bold" Margin="50, 0, 50, 0"/>
+
+            <Button Command="{Binding RightCommand}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Right Button" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="14" FontWeight="Light" Foreground="White" Height="25" HorizontalAlignment="Left" Name="Button2" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="100" />
+        </WrapPanel>
+        <ContentPresenter Content="{Binding SelectedViewModel}" Margin="0, 20, 0, 0"></ContentPresenter>
+    </DockPanel>
 </UserControl>

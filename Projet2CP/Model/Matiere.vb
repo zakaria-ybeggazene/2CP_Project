@@ -1,5 +1,7 @@
 ﻿
 Public Class Matiere
+    Implements IMatiereStatistics
+
     Private _codMat, _libeMat As String
     Private _niveau As Niveau
     Private _coef As Integer
@@ -11,18 +13,29 @@ Public Class Matiere
         _matieres = matieres
     End Sub
 
-    Public Shared Function getMatiere(ByVal codeMat As String, ByVal niveau As String) As Matiere
+    Public Shared Function getMatiere(ByVal codeMat As String, ByVal niveau As Niveau) As Matiere
 
         Dim result As Matiere = New Matiere With {.CodMat = codeMat, .NiveauM = niveau}
+        Dim trouve As Boolean = False
         For Each m As Matiere In _matieres
             If m.Equals(result) Then
                 result = m
+                trouve = True
                 Exit For
             End If
         Next
-
-        Return result
+        If trouve Then
+            Return result
+        Else
+            Return Nothing
+        End If
     End Function
+
+    Shared ReadOnly Property Matieres As List(Of Matiere)
+        Get
+            Return _matieres
+        End Get
+    End Property
 
 
     'Properties
@@ -74,6 +87,12 @@ Public Class Matiere
         Return Util.GetHash(_codMat.GetHashCode() & _niveau.ToString.GetHashCode()).GetHashCode()
     End Function
 
+    Public Function moyennes() As List(Of Double) Implements IMatiereStatistics.MoyennesMatiere
+        Return Repository.moyennesMatiere(Me)
+    End Function
 
+    Public Function tauxReussite() As List(Of Object) Implements IMatiereStatistics.tauxReussiteMatiere
+        Return Repository.tauxReussiteMatiere(Me)
+    End Function
 
 End Class

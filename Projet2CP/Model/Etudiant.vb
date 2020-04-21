@@ -7,7 +7,7 @@ Public Class Etudiant
         G07
         G08
     End Enum
-    Private _matricule, _nom, _prenom, _nomA, _prenomA, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
+    Private _matricule, _nom, _prenom, _nomA, _prenomA, _sexe, _adresse, _dateNais, _lieuNais, _lieuNaisA, _wilayaNaisA, _ville, _wilaya, _prenomPere, _nomMere, _codePostal As String
     Private _wilayaNaisCode, _annIns, _anneeBac As Integer
     Private _moyenneBAC As Double
 
@@ -140,12 +140,36 @@ Public Class Etudiant
             _codePostal = value
         End Set
     End Property
+    Public Property Sexe() As String
+        Get
+            Return _sexe
+        End Get
+        Set(ByVal value As String)
+            _sexe = value
+        End Set
+    End Property
     Public Property DateNais() As String
         Get
             Return _dateNais
         End Get
         Set(ByVal value As String)
             _dateNais = value
+        End Set
+    End Property
+    Public Property MoyenneBac() As Double
+        Get
+            Return _moyenneBAC
+        End Get
+        Set(ByVal value As Double)
+            _moyenneBAC = value
+        End Set
+    End Property
+    Public Property AnneeBac() As Integer
+        Get
+            Return _anneeBac
+        End Get
+        Set(ByVal value As Integer)
+            _anneeBac = value
         End Set
     End Property
 
