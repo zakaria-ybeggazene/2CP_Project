@@ -4,8 +4,6 @@
 
         InitializeComponent()
 
-
-
     End Sub
 
     Private Sub PrenomChangedfr(ByVal sender As System.Object, ByVal e As RoutedEventArgs)
