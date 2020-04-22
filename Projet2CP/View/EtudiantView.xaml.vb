@@ -146,6 +146,7 @@
         Catch ex As Exception
             codePF.Visibility = Windows.Visibility.Visible
         End Try
+        Validite()
     End Sub
 
     Private Sub PrenomATB_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles PrenomATB.TextChanged

@@ -69,6 +69,8 @@
         ElseIf _sexe = "Féminin" Then
             sexe = 2
         End If
+        _etudiant.Sexe = sexe
+
         'Dim sexe As Integer
         'Me._etudiant.Nom = _nom
         'Me._etudiant.Prenom = _prenom
