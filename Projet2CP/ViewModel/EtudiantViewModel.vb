@@ -6,6 +6,11 @@
         v = New EtudiantView()
         Me.Etudiant = e
         Me.ReportCommand = New RelayCommand(AddressOf ReportWindow)
+        If e.Sexe = 1 Then
+            Me._sexe = "Masculin"
+        ElseIf e.Sexe = 2 Then
+            Me._sexe = "Féminin"
+        End If
     End Sub
 
     Private _etudiant As EtudiantParcours
@@ -17,6 +22,77 @@
             _etudiant = value
         End Set
     End Property
+
+
+    'Attributs Modifiables
+
+    Private _sexe As String
+
+    Private _parcours As List(Of AnneeEtude)
+
+
+    'Proprietes
+
+    Public Property Parcours() As List(Of AnneeEtude)
+        Get
+            Return _parcours
+        End Get
+        Set(ByVal value As List(Of AnneeEtude))
+            _parcours = value
+        End Set
+    End Property
+
+    
+    Public Property Sexe() As String
+        Get
+            Return _sexe
+        End Get
+        Set(ByVal value As String)
+            _sexe = value
+        End Set
+    End Property
+
+
+    Public _saveCommand As New RelayCommand(AddressOf Sauvegarder)
+    Public ReadOnly Property SaveCommand As ICommand
+        Get
+            Return _saveCommand
+        End Get
+    End Property
+
+
+    Public Sub Sauvegarder()
+        MsgBox("Sauvegarde réussie")
+        Dim sexe As Short
+        If _sexe = "Masculin" Then
+            sexe = 1
+        ElseIf _sexe = "Féminin" Then
+            sexe = 2
+        End If
+        'Dim sexe As Integer
+        'Me._etudiant.Nom = _nom
+        'Me._etudiant.Prenom = _prenom
+        'Me._etudiant.NomA = _nomA
+        'Me._etudiant.PrenomA = _prenomA
+        'Me._etudiant.DateNais = _dateNais
+        'Me._etudiant.LieuNais = _lieuNais
+        'If _sexe = "Masculin" Then
+        ' Sexe = 1
+        ' ElseIf _sexe = "Feminin" Then
+        ' Sexe = 2
+        ' End If
+        ' Me._etudiant.Wilaya = _wilayaNais
+        ' Me._etudiant.WilayaNaisCode = Integer.Parse(WilayaNaisCode)
+        ' Me._etudiant.WilayaNaisA = WilayaNaisA
+        ' Me._etudiant.Adresse = Adresse
+        ' Repository.modifierEtudiant(_etudiant)
+        ' Try
+        'MsgBox("validé")
+        'Catch ex As Exception
+        ' MsgBox("réglez les erreurs")
+        'End Try
+    End Sub
+
     Private _reportCommand As ICommand
     Public Property ReportCommand As ICommand
         Get

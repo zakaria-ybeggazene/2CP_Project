@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             >
+             mc:Ignorable="d">
 
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Dictionary.xaml"/>
 
     </UserControl.Resources>
-    <Grid Height="672" Width="1125">
+    <Grid Height="672">
 
         <Button Height="Auto"  Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="21,503,903,134" Cursor="Hand">
             <TextBlock Text="Générer Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
@@ -19,111 +18,30 @@
         <Button Height="Auto" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveGlobal" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="257,503,667,134" Cursor="Hand">
             <TextBlock Text="Générer relevé global" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
         </Button>
-
-        <Border Margin="506,98,0,534" Background="#80F8FCFF" CornerRadius="7" BorderThickness="1" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Left" Height="Auto">
-
-            <TextBox  BorderThickness="0"  Text="{Binding Etudiant.Nom}"  x:Name="NomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsReadOnly="true" Width="190" Background="{x:Null}" VerticalAlignment="Center" BorderBrush="#FFABADB3" />
-
-        </Border>
-
-        <Border Margin="507,178,0,454" Background="#80F8FCFF" CornerRadius="7" BorderThickness="1" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Left" Height="Auto">
-
-            <TextBox  BorderThickness="0" Background="Transparent" Text="{Binding Etudiant.Prenom}" x:Name="PrenomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="True" VerticalAlignment="Center" Width="190" HorizontalAlignment="Left" />
-        </Border>
-        <Border Margin="508,254,0,378" Background="#80F8FCFF" CornerRadius="7" BorderThickness="1" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Left" Height="Auto">
-
-            <TextBox  BorderThickness="0" Background="Transparent" Text="{Binding Etudiant.LieuNais}" x:Name="LieuNais" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" VerticalAlignment="Center" Width="164" HorizontalAlignment="Left" />
-        </Border>
-        <Border Margin="0,179,45,457" Background="#80F8FCFF" CornerRadius="7" BorderThickness="1" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Center">
-
-            <TextBox  BorderThickness="0" Background="Transparent" Text="{Binding Etudiant.PrenomA}" x:Name="PrenomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="true" VerticalAlignment="Top" Width="190" />
-        </Border>
-
-        <Border Margin="0,100,46,536" Background="#80F8FCFF" CornerRadius="7" BorderThickness="1" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Center">
-
-
-            <TextBox  BorderThickness="0" Background="Transparent" Text="{Binding Etudiant.NomA}"  x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="True" VerticalAlignment="Top" Width="190" />
-        </Border>
-        <Label Content="Nom " Height="25" HorizontalAlignment="Left" Margin="507,73,0,0" Name="NomHint" VerticalAlignment="Top" Width="52" FontSize="13" FontFamily="Montserrat" FontWeight="Light" Foreground="#FF123456" VerticalContentAlignment="Center" />
-        <Label Content="Prenom " FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="508,150,0,0" Name="PrenomHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" />
-        <Label Content="اللقب" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Name="NomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="70" Margin="0,72,46,0" HorizontalContentAlignment="Right" />
-        <Label Content="الاسم" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Name="PreomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="70" Margin="0,150,45,0" HorizontalContentAlignment="Right" />
-        <Label Content="Lieu de Naissance" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="509,228,0,0" Name="lieuNaisHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="136" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="715,256,245,380" Opacity="1" Height="Auto" VerticalAlignment="Center">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.WilayaNais}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="wilayaNais" SelectionBrush="#FF123456"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" />
-        </Border>
-        <Label Content="Wilaya de Naissance" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="718,228,0,0" Name="WilayaNaisAHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="149" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="510,572,0,60" Opacity="1" HorizontalAlignment="Left" Height="Auto" Width="165">
-<<<<<<< HEAD
-            <TextBox Background="Transparent" Text="{Binding Etudiant.WilayaNaisCode}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="WilayaNaisCode" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="161" HorizontalAlignment="Left" />
-=======
-            <TextBox Background="Transparent" Text="{Binding Etudiant.SerieBac}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding ModeModification}" Name="SerieBac" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="161" HorizontalAlignment="Left" />
->>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
-        </Border>
-        <Label Content="Série du Bac" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="511,544,0,0" Name="SerieBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="106" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="509,490,0,142" Opacity="1" HorizontalAlignment="Left" Height="Auto">
-<<<<<<< HEAD
-            <TextBox Background="{x:Null}" Text="{Binding Etudiant.PrenomPere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsReadOnly="true" Name="nomPere" SelectionBrush="#FF123456"  VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        </Border>
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,490,44,142" Opacity="1" HorizontalAlignment="Right" Height="Auto">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.NomMere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="nomMere" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Right" />
-=======
-            <TextBox Background="{x:Null}" Text="{Binding Etudiant.PrenomPere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsReadOnly="{Binding ModeModification}" Name="nomPere" SelectionBrush="#FF123456"  VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        </Border>
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,490,44,142" Opacity="1" HorizontalAlignment="Right" Height="Auto">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.NomMere}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding ModeModification}" Name="nomMere" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="190" HorizontalAlignment="Right" />
->>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
-        </Border>
-        <Label Content="Prenom Pere " FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" HorizontalAlignment="Left" Margin="510,466,0,180" Name="NomPereHint" VerticalContentAlignment="Center" Width="104" Height="Auto" />
-        <Label Content="Nom Mere" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,466,148,0" Name="NomMereHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="88" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="508,339,0,297" Opacity="1" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Center">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.Adresse}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Adresse" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="162" HorizontalAlignment="Left" />
-        </Border>
-        <Label Content="Adresse" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="509,310,0,0" Name="adresseHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="136" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="714,340,246,296" Opacity="1" Height="Auto" VerticalAlignment="Center">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.Ville}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Ville" SelectionBrush="#FF123456"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" />
-        </Border>
-        <Label Content="Ville" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="713,310,0,0" Name="VilleHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="136" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,338,44,298" Opacity="1" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Center">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.Wilaya}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Wilaya" SelectionBrush="#FF123456"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" />
-        </Border>
-        <Label Content=" Wilaya" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="916,310,0,0" Name="WilayaHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="85" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,570,246,62" Opacity="1" HorizontalAlignment="Right" Height="Auto" Width="166">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.CodePostal}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="codePostale" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="163" HorizontalAlignment="Right" />
-        </Border>
-        <Label Content="Code Postale" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="713,544,0,0" Name="codePostaleHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="102" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,257,47,375" Opacity="1" HorizontalAlignment="Right" Height="Auto">
-
-            <DatePicker IsEnabled="False"  SelectedDateFormat="Short" Text="{Binding Etudiant.DateNais}" SelectedDate="{Binding Etudiant.DateNais}" Height="Auto" HorizontalAlignment="Right" Margin="0,0,0,0" Name="DateNaissance" VerticalAlignment="Center" Width="164" BorderThickness="0" Foreground="#FF123456" VerticalContentAlignment="Center" Background="{x:Null}" OpacityMask="{x:Null}" FontFamily="Montserrat" FontSize="12">
-                <DatePicker.Resources>
-                    <Style TargetType="{x:Type DatePicker}">
-                        <Style.Resources>
-                            <Style TargetType="DatePickerTextBox">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush"   Value="Transparent" />
-                            </Style>
-                        </Style.Resources>
-                    </Style>
-                </DatePicker.Resources>
-            </DatePicker>
-
-        </Border>
-        <Label Content="Date de naissance" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="913,228,0,0" Name="Label2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="149" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="508,416,0,216" Opacity="1" HorizontalAlignment="Left" Height="Auto">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.AnnIns}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="anneeIns" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="162" HorizontalAlignment="Left" />
-        </Border>
-        <Label Content="Année d'inscription" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="509,388,0,0" Name="Label3" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="136" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="715,418,245,218" Opacity="1" Height="Auto" VerticalAlignment="Center">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.AnneeBac}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="anneeBac" SelectionBrush="#FF123456"  VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" />
-        </Border>
-        <Label Content="Année Bac" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="715,388,0,0" Name="aneeBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="136" />
-        <Border Background="#80F8FCFF" BorderBrush=" #123456" BorderThickness="1" CornerRadius="7" Margin="0,414,43,218" Opacity="1" HorizontalAlignment="Right" Height="Auto">
-            <TextBox Background="Transparent" Text="{Binding Etudiant.MoyenneBac}" BorderThickness="0" FontFamily="Montserrat" FontSize="16" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="moyenneBac" SelectionBrush="#FF123456"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" />
-        </Border>
-        <Label Content="Moyenne Bac" FontFamily="Montserrat" FontSize="13" FontWeight="Light" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,388,104,0" Name="moyenneBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="104" />
-        <Button Command="{Binding Path=Modification}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,620,85,0" Name="Modifierbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" />
-        <TabControl Height="412" HorizontalAlignment="Left" Margin="18,83,0,0" Name="TabControl1" VerticalAlignment="Top" Width="467">
+        <Border Margin="0,220,30,450" Background="#80F8FCFF" CornerRadius="7" BorderThickness="0" BorderBrush=" #123456" Opacity="1" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Center"></Border>
+        <Label Content="Nom " Height="29" HorizontalAlignment="Left" Margin="510,179,0,0" Name="NomHint" VerticalAlignment="Top" Width="50" FontSize="15" FontFamily="Montserrat" FontWeight="Light" Foreground="#FF123456" VerticalContentAlignment="Bottom" />
+        <Label Content="Prenom " FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="864,179,0,0" Name="PrenomHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="70" />
+        <Label Content="اللقب" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Right" Name="NomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="43" Margin="0,79,15,0" HorizontalContentAlignment="Right" />
+        <Label Content="الاسم" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Right" Name="PreomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="41" Margin="0,81,286,0" HorizontalContentAlignment="Right" />
+        <Label Content="Lieu de Naissance" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="510,339,0,0" Name="lieuNaisHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="144" />
+        <Label Content="Wilaya de Naissance" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="510,393,0,0" Name="WilayaNaisAHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="160" />
+        <Label FontFamily="Montserrat" FontSize="14" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="859,392,0,0" Name="CodeWilayaHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="85" Content="Wilaya Bac" />
+        <Label Content="Prenom Pere " FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" HorizontalAlignment="Left" Margin="510,231,0,412" Name="NomPereHint" VerticalContentAlignment="Center" Width="90" Height="29" />
+        <Label Content="Nom Mere" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Right" Margin="0,285,526,0" Name="NomMereHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="90" />
+        <Label Content="Adresse" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="864,231,0,0" Name="adresseHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="75" />
+        <Label Content="Ville" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="864,285,0,0" Name="VilleHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="63" />
+        <Label Content="Wilaya" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="864,339,0,0" Name="WilayaHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="63" Background="{x:Null}" HorizontalContentAlignment="Left" />
+        <Label Content="Code Postal" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="510,500,0,0" Name="codePostaleHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="113" />
+        <Label Content="Date de naissance" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="510,446,0,0" Name="Label2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="151" />
+        <Label Content="Serie Bac" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="861,447,0,0" Name="Label3" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="80" />
+        <Label Content="Année Bac" FontFamily="Montserrat" FontSize="14" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="859,501,0,0" Name="aneeBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="85" />
+        <Label Content="Moyenne Bac" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Right" Margin="0,554,503,0" Name="moyenneBacHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="113" />
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,607,83,0" Name="Modifierbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" />
+        <TabControl Height="412" HorizontalAlignment="Left" Margin="18,83,0,0" Name="TabControl1" VerticalAlignment="Top" Width="464">
             <TabItem Header="TRC1" Width="92" Height="30" Name="TabItem1" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
+                <Grid></Grid>
+            </TabItem>
+            <TabItem Header="TRC2" Width="92" Height="30" Name="TabItem2" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
                 <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="263">
                     <Border CornerRadius=" 15" BorderThickness="3" Margin="-1,2,0,0">
                         <Border.Effect>
@@ -171,10 +89,6 @@
                     <Label Content="Value" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-50,78,0" Name="Label16" VerticalAlignment="Top" Width="61" />
                 </Grid>
             </TabItem>
-            <TabItem Header="TRC2" Width="92" Height="30" Name="TabItem2" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid>
-                </Grid>
-            </TabItem>
             <TabItem Header="SIQ1" Width="92" Height="30" Name="TabItem3" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
                 <Grid />
             </TabItem>
@@ -185,7 +99,7 @@
                 <Grid />
             </TabItem>
         </TabControl>
-        <Label Content="Historique " Height="Auto" HorizontalAlignment="Left" Margin="21,37,0,0" Name="Label1" VerticalAlignment="Top" Width="172" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" >
+        <Label Content="Historique " Height="Auto" HorizontalAlignment="Left" Margin="21,21,0,0" Name="Label1" VerticalAlignment="Top" Width="172" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="#FF123456" Offset="0" />
@@ -194,7 +108,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Informations" FontFamily="Montserrat" FontSize="26" FontWeight="SemiBold" Height="Auto" HorizontalAlignment="Center" Margin="507,37,426,0" Name="Label4" VerticalAlignment="Top" Width="192">
+        <Label Content="Informations" FontFamily="Montserrat" FontSize="26" FontWeight="SemiBold" Height="Auto" HorizontalAlignment="Center" Margin="508,21,426,0" Name="Label4" VerticalAlignment="Top" Width="192">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="#FF123456" Offset="0" />
@@ -203,29 +117,67 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Button Height="Auto" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="256,574,0,62" HorizontalAlignment="Left" Width="201" Cursor="Hand">
-            <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" Width="Auto" />
+        <Button Height="Auto" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="257,584,0,52" HorizontalAlignment="Left" Width="201" Cursor="Hand">
+            <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" />
         </Button>
-        <ComboBox Text="Niveau" Width="201" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="18,576,0,0">
+        <ComboBox Text="Niveau" Width="201" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="21,586,0,0">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
-                    <Setter Property="Background" Value="#F0F0F0" />
+                    <Setter Property="Background" Value="#B9EBEFF3" />
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-<<<<<<< HEAD
-        <Button BorderThickness="0" IsEnabled="{Binding SaveVisibility}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,620,367,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" Opacity="1" />
-        <ComboBox IsEnabled="False" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="42" Loaded="Sexecb_Loaded" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Margin="917,568,0,0" Name="Sexecb" SelectedItem="{Binding Etudiant.Sexe}" Text="Sexe" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165">
-=======
-        <Button BorderThickness="0" Visibility ="{Binding SaveVisibility}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,620,367,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" />
-        <ComboBox Text="{Binding Etudiant.Sexe}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="42" Loaded="Sexecb_Loaded" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Margin="917,568,0,0" Name="Sexecb" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165">
->>>>>>> a8f3021cd6317c67d5133a05e6fddf171d1df1d7
+        <Button IsEnabled="False" BorderThickness="0" Command="{Binding Path=SaveCommand}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,607,377,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" />
+        <ComboBox Text="{Binding Sexe}" IsEnabled="False" Background="#FFEBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="29" Loaded="Sexecb_Loaded" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Margin="864,131,0,0" Name="Sexecb" SelectedItem="{Binding Path=Niveau}" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165" Foreground="#FF123456">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
-                    <Setter Property="Control.Background" Value="#F0F0F0" />
+                    <Setter Property="Control.Background" Value="#B9EBEFF3" />
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="510,135,0,0" Name="Label17" VerticalAlignment="Top" />
+        <TextBox BorderThickness="0" x:Name="NomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="15" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsReadOnly="true" Width="165" Background="#B9EBEFF3" VerticalAlignment="Center" Margin="675,177,0,466" HorizontalAlignment="Left" Text="{Binding Etudiant.Nom}" TextChanged="NomfrTB_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.Prenom}" BorderThickness="0" Background="#B9EBEFF3" x:Name="PrenomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="15" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" VerticalAlignment="Center" Width="164" HorizontalAlignment="Left" Margin="950,179,0,464" TextChanged="PrenomfrTB_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.LieuNais}" BorderThickness="0" Background="#B9EBEFF3" x:Name="LieuNais" FontFamily="Montserrat" FontWeight="Light" FontSize="15" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" VerticalAlignment="Center" Width="164" HorizontalAlignment="Left" Margin="676,339,0,304" BorderBrush="#FFEBEFF3" TextChanged="LieuNais_TextChanged" />
+        <TextBox Text="{Binding Etudiant.WilayaNais}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="wilayaNais" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" Margin="676,393,286,0" TextChanged="wilayaNais_TextChanged" />
+        <DatePicker Text="{Binding Etudiant.DateNais}" SelectedDate="{Binding Etudiant.DateNais}" IsEnabled="False" SelectedDateFormat="Short"  Height="29" HorizontalAlignment="Right" Margin="0,446,286,197" Name="DateNais" VerticalAlignment="Center" Width="164" BorderThickness="0" Foreground="#FF123456" VerticalContentAlignment="Center" Background="#B9EBEFF3" OpacityMask="{x:Null}" FontFamily="Montserrat" FontSize="15" BorderBrush="{x:Null}">
+
+            <DatePicker.Resources>
+                <Style TargetType="{x:Type DatePicker}">
+                    <Style.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Background" Value="#FFEBEFF3" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                        </Style>
+                    </Style.Resources>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <TextBox Text="{Binding Etudiant.Ville}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Ville" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" Margin="949,285,13,0" TextChanged="Ville_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.Adresse}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Adresse" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Left" Margin="951,231,0,0" TextChanged="Adresse_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.Wilaya}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="Wilaya" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" Margin="0,339,13,0" TextChanged="Wilaya_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.CodePostal}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="codePostale" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" Margin="0,500,286,143" TextChanged="codePostale_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.PrenomPere}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsReadOnly="true" Name="nomPere" SelectionBrush="#FF123456" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="676,231,0,412" TextChanged="nomPere_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.NomMere}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="nomMere" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" Margin="0,285,286,358" TextChanged="nomMere_TextChanged"/>
+        <TextBox BorderThickness="0" Background="#B9EBEFF3" x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="true" VerticalAlignment="Top" Width="165" Margin="864,80,97,0" TextChanged="NomATB_TextChanged"/>
+        <TextBox BorderThickness="0" Background="#B9EBEFF3" x:Name="PrenomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="true" VerticalAlignment="Top" Width="165" Margin="594,80,367,0" TextChanged="PrenomATB_TextChanged"/>
+        <TextBox Text="{Binding Etudiant.AnneeBac}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="aneeBac" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="164" Margin="947,501,15,0" />
+        <TextBox Text="{Binding Etudiant.SerieBac}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="anneeIns" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Left" Margin="947,447,0,196" />
+        <TextBox Text="{Binding Etudiant.WilayaBac}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="WilayaNaisCode" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Left" Margin="947,393,0,250" />
+        <TextBox Text="{Binding Etudiant.MoyenneBac}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="true" Name="moyenneBac" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="164" HorizontalAlignment="Right" Margin="0,554,286,89" />
+        <Label Content="Matricule" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="510,130,0,0" Name="label17" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="100" />
+        <TextBox Text="{Binding Etudiant.Matricule}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" IsReadOnly="true" Margin="675,130,0,513" Name="textBox1" SelectionBrush="#FF123456" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="165" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="667,202,0,0" Name="nomV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="667,257,0,0" Name="nomPereV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="667,312,0,0" Name="nomMomV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="667,367,0,0" Name="lieuNV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="667,420,0,0" Name="wilayaNV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="942,202,0,0" Name="prenomV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="942,257,0,0" Name="adresseV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="942,312,0,0" Name="VilleV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="942,367,0,0" Name="wilayaV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="858,149,0,0" Name="sexeV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="586,105,0,0" Name="nomAV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left" Margin="855,105,0,0" Name="prenomAV" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
+        <Label Content="*Le code postal est invalide" Height="28" HorizontalAlignment="Left" Margin="680,527,0,0" Name="codePF" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" />
     </Grid>
 </UserControl>
