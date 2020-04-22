@@ -40,23 +40,23 @@
         </WrapPanel>
         <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Bottom" Margin="25,29,21,10" Grid.Column="1" Grid.Row="1">
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Size" Labels="{Binding Labels}">
+                <lvc:Axis Title="Années" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>
                         <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Frequency" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                <lvc:Axis Title="Pourcentages" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
         <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding PieCollection}" Grid.Column="0" Grid.Row="1">
         </lvc:PieChart>
-        <lvc:CartesianChart Series="{Binding SexeCollection}" LegendLocation="Left" Margin="25,29,21,10" Grid.Row="2" Grid.ColumnSpan="2">
+        <lvc:CartesianChart Series="{Binding SexeCollection}" LegendLocation="Left" Margin="25,16,21,0" Grid.Row="2" Grid.ColumnSpan="2">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis>
                     <lvc:Axis.Separator>
-                        <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                        <lvc:Separator IsEnabled="False" Step="10"></lvc:Separator>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>

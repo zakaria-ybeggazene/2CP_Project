@@ -463,7 +463,6 @@ Public Class Repository
             r = Util.dbNullToDouble(dr.Item("NoRaNo"))
 
             If j = 0 Then
-                MessageBox.Show(m, r)
                 j = 1
             End If
             If m >= 10 Or r >= 10 Then
@@ -472,6 +471,98 @@ Public Class Repository
                 resultat(i).nbrEchec += 1
             End If
 
+        End While
+
+        Return resultat
+    End Function
+
+    Public Shared Function nombreEtudiantsGeneral() As List(Of Object)
+        Dim resultat As List(Of Object) = New List(Of Object)
+
+        Dim i As Integer
+        For i = 0 To 22
+            resultat.Add(New With {.nbEtudiants = 0, .nbMasculin = 0, .nbFeminin = 0})
+        Next
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT ANNEE, Count(*) AS c, Sum(IIF(Sexe = 1, 1, 0)) AS s FROM ETUDE INNER JOIN ETUDIANT " _
+                   & "ON ETUDE.MATRICULE = ETUDIANT.MATRICULE GROUP BY ANNEE;"
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        While dr.Read()
+            i = Util.dbNullToInteger(dr.Item("ANNEE")) - 89
+
+            If i < 0 Then
+                i += 100
+            End If
+
+            If i >= 0 And i <= 22 Then
+                resultat(i).nbEtudiants = Util.dbNullToInteger(dr.Item("c"))
+                resultat(i).nbMasculin = Util.dbNullToInteger(dr.Item("s"))
+                resultat(i).nbFeminin = resultat(i).nbEtudiants - resultat(i).nbMasculin
+            End If
+        End While
+
+        Return resultat
+    End Function
+
+    Public Shared Function nombreReussiteGeneral(ByVal niv As Niveau) As List(Of Object)
+        Dim resultat As List(Of Object) = New List(Of Object)
+
+        Dim i As Integer
+        For i = 0 To 22
+            resultat.Add(New With {.nbReussite = 0, .nbEchec = 0})
+        Next
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT ANNEE, Count(*) AS c, Sum(IIF(DECIIN = '1' OR DECIIN = '2', 1, 0)) AS d " _
+                   & "FROM ETUDE WHERE OPTIIN = '" & Util.GetOption(niv) & "' AND ANETIN = '" & Util.GetAnneEt(niv) & "' GROUP BY ANNEE;"
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        Dim nbEtudiants As Integer
+        While dr.Read()
+            i = Util.dbNullToInteger(dr.Item("ANNEE")) - 89
+
+            If i < 0 Then
+                i += 100
+            End If
+
+            If i >= 0 And i <= 22 Then
+                nbEtudiants = Util.dbNullToInteger(dr.Item("c"))
+                resultat(i).nbReussite = Util.dbNullToInteger(dr.Item("d"))
+                resultat(i).nbEchec = nbEtudiants - resultat(i).nbReussite
+            End If
+        End While
+
+        Return resultat
+    End Function
+
+    Public Shared Function distributionBacheliers(ByVal annee As String) As Dictionary(Of String, Integer)
+        Dim resultat As Dictionary(Of String, Integer) = New Dictionary(Of String, Integer)
+
+        Dim sqlCommand As String
+
+        sqlCommand = "SELECT ETUDIANT.SERIEBAC AS s, Count(*) AS c FROM ETUDE INNER JOIN ETUDIANT ON " _
+                   & "ETUDE.MATRICULE = ETUDIANT.MATRICULE WHERE ANNEE = '" & annee & "' AND OPTIIN = 'TRC' " _
+                   & "AND ANETIN = '1' GROUP BY ETUDIANT.SERIEBAC;"
+
+        Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+        Dim dr As System.Data.OleDb.OleDbDataReader
+
+        dr = cmd.ExecuteReader()
+
+        While dr.Read()
+            resultat.Add(Util.dbNullToString(dr.Item("s")), Util.dbNullToInteger(dr.Item("c")))
         End While
 
         Return resultat
