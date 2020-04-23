@@ -37,67 +37,62 @@
         <Label Content="Année Bac" FontFamily="Montserrat" FontSize="14" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="859,501,0,0" Name="aneeBacHint" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="85" />
         <Label Content="Moyenne Bac" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Right" Margin="0,554,503,0" Name="moyenneBacHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="113" />
         <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,607,83,0" Name="Modifierbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" />
-        <TabControl Height="412" HorizontalAlignment="Left" Margin="18,83,0,0" Name="TabControl1" VerticalAlignment="Top" Width="464">
-            <TabItem Header="TRC1" Width="92" Height="30" Name="TabItem1" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid></Grid>
-            </TabItem>
-            <TabItem Header="TRC2" Width="92" Height="30" Name="TabItem2" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="263">
-                    <Border CornerRadius=" 15" BorderThickness="3" Margin="-1,2,0,0">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
-                        </Border.Effect>
-                        <DataGrid BorderThickness=" 0" Height="262" Width="Auto" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None"  FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Module" Width="*" FontFamily="Montserrat" />
-                                <DataGridTextColumn Header="Moy-Juin" Width="80"  FontFamily="Montserrat" />
-                                <DataGridTextColumn Header="Moy-Septembre" Width="100" FontFamily="Montserrat" />
-                                <DataGridTextColumn Header="Note Synthese" Width="100"  FontFamily="Montserrat" />
-                                <DataGridTextColumn Header="Eliminatoire" Width="100"  FontFamily="Montserrat" />
+        <TabControl ItemsSource="{Binding Parcours}" Height="412" HorizontalAlignment="Left" Margin="18,83,0,0" Name="TabControl1" VerticalAlignment="Top" Width="464">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Niveau}" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="263">
+                        <Border CornerRadius=" 15" BorderThickness="3" Margin="-1,2,0,0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                            </Border.Effect>
+                            <DataGrid ItemsSource="{Binding Notes}" BorderThickness=" 0" Height="262" Width="Auto" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None"  FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Module" Width="*" FontFamily="Montserrat" Binding="{Binding Key.CodMat}"/>
+                                    <DataGridTextColumn Header="Moy-Juin" Width="80"  FontFamily="Montserrat" Binding="{Binding Value.Noju}" />
+                                    <DataGridTextColumn Header="Moy-Septembre" Width="100" FontFamily="Montserrat" Binding="{Binding Value.Nora}" />
+                                    <DataGridTextColumn Header="Note Synthese" Width="100"  FontFamily="Montserrat" Binding="{Binding Value.Nosy}"/>
+                                    <DataGridTextColumn Header="Eliminatoire" Width="100"  FontFamily="Montserrat" Binding="{Binding Value.Eliminatoire}"/>
 
-                            </DataGrid.Columns>
-                            <DataGrid.RowStyle>
-                                <Style TargetType="DataGridRow">
-                                    <Setter Property="Height" Value="30" />
-                                </Style>
-                            </DataGrid.RowStyle>
-                            <DataGrid.Resources>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Foreground" Value="#123456" />
-                                    <Setter Property="FontWeight" Value="SemiBold" />
-                                </Style>
-                            </DataGrid.Resources>
-                        </DataGrid>
-                        <Border.BorderBrush>
-                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                <GradientStop Color="#FF123456" Offset="0" />
-                                <GradientStop Color="#FF1168BF" Offset="1" />
-                            </LinearGradientBrush>
-                        </Border.BorderBrush>
-                    </Border>
-                    <Label Content="Année :" Height="24" HorizontalAlignment="Left" Margin="40,-98,0,0" Name="Label5" VerticalAlignment="Top" Width="62" Foreground="#FF123456" FontSize="14" />
-                    <Label Content="Value" Height="24" HorizontalAlignment="Right" Margin="0,-98,292,0" Name="Label6" VerticalAlignment="Top" Width="61" Foreground="#FF1165B8" FontSize="14" />
-                    <Label Content="Séction:" Foreground="#FF123456" Height="24" HorizontalAlignment="Left" Margin="40,-74,0,0" Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
-                    <Label Content="Value" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Left" Margin="108,-74,0,0" Name="Label8" VerticalAlignment="Top" Width="61" FontSize="14" />
-                    <Label Content="N° groupe:" Foreground="#FF123456" HorizontalAlignment="Left" Margin="40,-50,0,284" Name="Label9" Width="86" FontSize="14" />
-                    <Label Content="Value" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Left" Margin="121,-50,0,0" Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" />
-                    <Label Content="Moyenne:" FontSize="14" Foreground="#FF123456" Height="27" HorizontalAlignment="Right" Margin="0,-101,131,0" Name="Label11" VerticalAlignment="Top" Width="78" />
-                    <Label Content="Value" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-101,68,0" Name="Label12" VerticalAlignment="Top" Width="61" />
-                    <Label Content="Décision:" FontSize="14" Foreground="#FF123456" Height="24" HorizontalAlignment="Right" Margin="0,-74,136,0" Name="Label13" VerticalAlignment="Top" Width="73" />
-                    <Label Content="Value" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-74,74,0" Name="Label14" VerticalAlignment="Top" Width="61" />
-                    <Label Content="Rang:" FontSize="14" Foreground="#FF123456" HorizontalAlignment="Right" Margin="0,-50,157,284" Name="Label15" Width="52" />
-                    <Label Content="Value" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-50,78,0" Name="Label16" VerticalAlignment="Top" Width="61" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="SIQ1" Width="92" Height="30" Name="TabItem3" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid />
-            </TabItem>
-            <TabItem Header="SIQ2" Width="92" Height="30" Name="TabItem4" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid />
-            </TabItem>
-            <TabItem Header="SIQ3" Width="92" Height="30" Name="TabItem5" Background="#FFDEEFFF" Foreground="#FF123456" FontFamily="Montserrat">
-                <Grid />
-            </TabItem>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Height" Value="30" />
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.Resources>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Foreground" Value="#123456" />
+                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                    </Style>
+                                </DataGrid.Resources>
+                            </DataGrid>
+                            <Border.BorderBrush>
+                                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                    <GradientStop Color="#FF123456" Offset="0" />
+                                    <GradientStop Color="#FF1168BF" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                        </Border>
+                        <Label Content="Année :" Height="24" HorizontalAlignment="Left" Margin="40,-98,0,0" Name="Label5" VerticalAlignment="Top" Width="62" Foreground="#FF123456" FontSize="14" />
+                        <Label Content="{Binding Annee}" Height="24" HorizontalAlignment="Right" Margin="0,-98,292,0" Name="Label6" VerticalAlignment="Top" Width="61" Foreground="#FF1165B8" FontSize="14" />
+                        <Label Content="Séction:" Foreground="#FF123456" Height="24" HorizontalAlignment="Left" Margin="40,-74,0,0" Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
+                        <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Left" Margin="108,-74,0,0" Name="Label8" VerticalAlignment="Top" Width="61" FontSize="14" />
+                        <Label Content="N° groupe:" Foreground="#FF123456" HorizontalAlignment="Left" Margin="40,-50,0,284" Name="Label9" Width="86" FontSize="14" />
+                        <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Left" Margin="121,-50,0,0" Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" />
+                        <Label Content="Moyenne:" FontSize="14" Foreground="#FF123456" Height="27" HorizontalAlignment="Right" Margin="0,-101,131,0" Name="Label11" VerticalAlignment="Top" Width="78" />
+                        <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-101,68,0" Name="Label12" VerticalAlignment="Top" Width="61" />
+                        <Label Content="Décision:" FontSize="14" Foreground="#FF123456" Height="24" HorizontalAlignment="Right" Margin="0,-74,136,0" Name="Label13" VerticalAlignment="Top" Width="73" />
+                        <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-74,74,0" Name="Label14" VerticalAlignment="Top" Width="61" />
+                        <Label Content="Rang:" FontSize="14" Foreground="#FF123456" HorizontalAlignment="Right" Margin="0,-50,157,284" Name="Label15" Width="52" />
+                        <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="24" HorizontalAlignment="Right" Margin="0,-50,78,0" Name="Label16" VerticalAlignment="Top" Width="61" />
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
         <Label Content="Historique " Height="Auto" HorizontalAlignment="Left" Margin="21,21,0,0" Name="Label1" VerticalAlignment="Top" Width="172" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" >
             <Label.Foreground>

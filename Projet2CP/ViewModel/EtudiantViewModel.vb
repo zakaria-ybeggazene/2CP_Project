@@ -11,6 +11,7 @@
         ElseIf e.Sexe = 2 Then
             Me._sexe = "Féminin"
         End If
+        _parcours = _etudiant.Parcours
     End Sub
 
     Private _etudiant As EtudiantParcours
@@ -25,12 +26,10 @@
 
 
     'Attributs Modifiables
+    Private _parcours As List(Of AnneeEtude)
 
     Private _dateNais As DateTime? = Nothing
     Private _sexe As String
-
-    Private _parcours As List(Of AnneeEtude)
-
 
     'Proprietes
 
@@ -80,7 +79,7 @@
         End If
         _etudiant.Sexe = sexe
         _etudiant.DateNais = _etudiant.DateNais.Remove(6, 2)
-        Repository.modifierEtudiant(_etudiant)
+        'Repository.modifierEtudiant(_etudiant)
     End Sub
 
     Private _reportCommand As ICommand
