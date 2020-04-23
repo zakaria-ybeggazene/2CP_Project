@@ -39,13 +39,11 @@
         Sexecb.IsEnabled = True
         modeModif = True
         Validite()
-        MsgBox("bouton cliqué, modeModif = " & modeModif)
     End Sub
 
 
     Private Sub NomfrTB_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles NomfrTB.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans nom")
             If modeModif = True Then
                 If NomfrTB.Text.Length <> 0 Then
                     nomV.Visibility = Windows.Visibility.Hidden
@@ -59,7 +57,6 @@
 
     Private Sub nomPere_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles nomPere.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans nompere")
             If modeModif = True Then
                 If nomPere.Text.Length <> 0 Then
                     nomPereV.Visibility = Windows.Visibility.Hidden
@@ -74,7 +71,6 @@
 
     Private Sub nomMere_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles nomMere.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans nomere")
             If modeModif = True Then
                 If nomMere.Text.Length <> 0 Then
                     nomMomV.Visibility = Windows.Visibility.Hidden
@@ -88,7 +84,6 @@
 
     Private Sub LieuNais_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles LieuNais.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans lieunais")
             If modeModif = True Then
                 If LieuNais.Text.Length <> 0 Then
                     lieuNV.Visibility = Windows.Visibility.Hidden
@@ -102,7 +97,6 @@
 
     Private Sub wilayaNais_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles wilayaNais.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans wilayanais")
             If modeModif = True Then
                 If wilayaNais.Text.Length <> 0 Then
                     wilayaNV.Visibility = Windows.Visibility.Hidden
@@ -116,7 +110,6 @@
 
     Private Sub PrenomfrTB_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles PrenomfrTB.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans prénom")
             If modeModif = True Then
                 If PrenomfrTB.Text.Length <> 0 Then
                     prenomV.Visibility = Windows.Visibility.Hidden
@@ -130,7 +123,6 @@
 
     Private Sub Adresse_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles Adresse.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans adresse")
             If modeModif = True Then
                 If Adresse.Text.Length <> 0 Then
                     adresseV.Visibility = Windows.Visibility.Hidden
@@ -144,7 +136,6 @@
 
     Private Sub Ville_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles Ville.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans ville")
             If modeModif = True Then
                 If Ville.Text.Length <> 0 Then
                     VilleV.Visibility = Windows.Visibility.Hidden
@@ -158,7 +149,6 @@
 
     Private Sub Wilaya_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles Wilaya.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans wilaya")
             If modeModif = True Then
                 If Wilaya.Text.Length <> 0 Then
                     wilayaV.Visibility = Windows.Visibility.Hidden
@@ -172,7 +162,6 @@
 
     Private Sub codePostale_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles codePostale.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans codepostal")
             Try
                 Integer.Parse(codePostale.Text)
                 If codePostale.Text.Length <> 5 Then Throw New Exception()
@@ -186,7 +175,6 @@
 
     Private Sub PrenomATB_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles PrenomATB.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans prénomA")
             If modeModif = True Then
                 If PrenomATB.Text.Length <> 0 Then
                     prenomAV.Visibility = Windows.Visibility.Hidden
@@ -200,7 +188,6 @@
 
     Private Sub NomATB_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.TextChangedEventArgs) Handles NomATB.TextChanged
         If modeModif = True Then
-            'MsgBox("suis dans nomA")
             If modeModif = True Then
                 If NomATB.Text.Length <> 0 Then
                     nomAV.Visibility = Windows.Visibility.Hidden
@@ -216,20 +203,30 @@
         If modeModif = True Then
             If nomV.IsVisible Or prenomV.IsVisible Or adresseV.IsVisible Then
                 Savebutton.IsEnabled = False
-                MsgBox("il y a un label rouge ")
             ElseIf nomAV.IsVisible Or prenomAV.IsVisible Or wilayaV.IsVisible Then
                 Savebutton.IsEnabled = False
-                MsgBox("il y a un label rouge ")
             ElseIf lieuNV.IsVisible Or wilayaNV.IsVisible Or codePF.IsVisible Then
                 Savebutton.IsEnabled = False
-                MsgBox("il y a un label rouge ")
             ElseIf nomMomV.IsVisible Or nomPereV.IsVisible Or VilleV.IsVisible Then
                 Savebutton.IsEnabled = False
-                MsgBox("il y a un label rouge ")
+            ElseIf DateNV.IsVisible Then
+                Savebutton.IsEnabled = False
             Else
                 Savebutton.IsEnabled = True
-                MsgBox("il n'y a pas de label rouge: ")
             End If
+        End If
+    End Sub
+
+    Private Sub DateNais_SelectedDateChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles DateNais.SelectedDateChanged
+        If modeModif = True Then
+            If modeModif = True Then
+                If DateNais.Text.Length <> 0 Then
+                    DateNV.Visibility = Windows.Visibility.Hidden
+                Else
+                    DateNV.Visibility = Windows.Visibility.Visible
+                End If
+            End If
+            Validite()
         End If
     End Sub
 End Class

@@ -26,6 +26,7 @@
 
     'Attributs Modifiables
 
+    Private _dateNais As DateTime? = Nothing
     Private _sexe As String
 
     Private _parcours As List(Of AnneeEtude)
@@ -42,6 +43,14 @@
         End Set
     End Property
 
+    Public Property DateNais() As DateTime?
+        Get
+            Return _dateNais
+        End Get
+        Set(ByVal value As DateTime?)
+            _dateNais = value
+        End Set
+    End Property
     
     Public Property Sexe() As String
         Get
@@ -70,29 +79,8 @@
             sexe = 2
         End If
         _etudiant.Sexe = sexe
-
-        'Dim sexe As Integer
-        'Me._etudiant.Nom = _nom
-        'Me._etudiant.Prenom = _prenom
-        'Me._etudiant.NomA = _nomA
-        'Me._etudiant.PrenomA = _prenomA
-        'Me._etudiant.DateNais = _dateNais
-        'Me._etudiant.LieuNais = _lieuNais
-        'If _sexe = "Masculin" Then
-        ' Sexe = 1
-        ' ElseIf _sexe = "Feminin" Then
-        ' Sexe = 2
-        ' End If
-        ' Me._etudiant.Wilaya = _wilayaNais
-        ' Me._etudiant.WilayaNaisCode = Integer.Parse(WilayaNaisCode)
-        ' Me._etudiant.WilayaNaisA = WilayaNaisA
-        ' Me._etudiant.Adresse = Adresse
-        ' Repository.modifierEtudiant(_etudiant)
-        ' Try
-        'MsgBox("validé")
-        'Catch ex As Exception
-        ' MsgBox("réglez les erreurs")
-        'End Try
+        _etudiant.DateNais = _etudiant.DateNais.Remove(6, 2)
+        Repository.modifierEtudiant(_etudiant)
     End Sub
 
     Private _reportCommand As ICommand
