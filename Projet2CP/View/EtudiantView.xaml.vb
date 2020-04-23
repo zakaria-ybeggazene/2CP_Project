@@ -6,6 +6,7 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        Modifierbutton.IsEnabled = Repository.admin
     End Sub
     Private Sub ComboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
         Dim list As New List(Of String)
