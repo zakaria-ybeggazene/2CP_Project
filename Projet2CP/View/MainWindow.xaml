@@ -24,6 +24,11 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <Button Command="{Binding HelpCommand}" Height="40" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="0, 5, 0, 0" Width="40" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
+                <StackPanel>
+                    <Image Source="/Projet2CP;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Center" HorizontalAlignment="Center" Name="Image1" />
+                </StackPanel>
+            </Button>
             <!-- Label Content="Copyrights © 2019 - 2020" Height="32" HorizontalAlignment="Left" Margin="32,613,0,0" Name="Label" VerticalAlignment="Top" Width="166" FontSize="12" Foreground="White" FontFamily="Montserrat"-->
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

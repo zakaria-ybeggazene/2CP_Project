@@ -2,10 +2,71 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="450"          
+             Cursor="{Binding Cursor}"
+             ForceCursor="{Binding ForceCursor}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Dictionary.xaml"/>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="General Statistics"></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalContentAlignment="Center">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Control.Background" Value="#E7EFF6" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Button Style="{DynamicResource RoundCorner}" Content="Recherche" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+        </WrapPanel>
+        <WrapPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Grid.Column="4" HorizontalContentAlignment="Center">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#E7EFF6" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Button Style="{DynamicResource RoundCorner}" Content="Afficher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+        </WrapPanel>
+        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></lvc:PieChart>
+        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Années" Labels="{Binding Labels2}">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter2}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Années" Labels="{Binding Labels1}">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter1}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>
+
