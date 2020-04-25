@@ -39,7 +39,7 @@ Public Class MainWindowViewModel
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
             New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.AddStatisticsView))})
     End Sub
 
@@ -69,6 +69,11 @@ Public Class MainWindowViewModel
         e = Repository.paracours_etudiant(o)
         Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
         AddWorkspace(workspace)
+    End Sub
+
+    Private Sub OpenSettings(ByVal o As Object)
+        Dim settingsWindow As Settings = New Settings
+        settingsWindow.Show()
     End Sub
 
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
