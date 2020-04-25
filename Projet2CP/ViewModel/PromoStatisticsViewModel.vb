@@ -10,7 +10,7 @@ Public Class PromoStatisticsViewModel
     Public Property PieCollection As SeriesCollection
     Public Property SexeCollection As SeriesCollection
     Public Property Labels As New List(Of String)
-    Public Property Sexes As New List(Of String) From {"Masculin", "Feminin"}
+    Public Property Sexes As New List(Of String) From {"Masculin", "Féminin"}
     Public Property Formatter As Func(Of Double, String)
     Public Property PointLabel As Func(Of ChartPoint, String)
 

@@ -34,6 +34,7 @@ Public Class MainWindowViewModel
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
 
+        _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
@@ -75,6 +76,19 @@ Public Class MainWindowViewModel
 
         selectedIndex = Workspaces.Count
         _workspaces.Add(workspace)
+    End Sub
+
+    Private _helpCommand As ICommand
+    Public Property HelpCommand As ICommand
+        Get
+            Return _helpCommand
+        End Get
+        Set(ByVal value As ICommand)
+            _helpCommand = value
+        End Set
+    End Property
+    Private Sub OpenHelp()
+        Process.Start("file:///" & IO.Path.GetFullPath("..\..\index.html"))
     End Sub
 
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)
