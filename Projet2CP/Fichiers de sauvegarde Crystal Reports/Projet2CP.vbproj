@@ -188,9 +188,6 @@
     <Compile Include="View\SetPasword.xaml.vb">
       <DependentUpon>SetPasword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Settings.xaml.vb">
-      <DependentUpon>Settings.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\StatisticsView.xaml.vb">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
@@ -247,10 +244,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\SetPasword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,38 +404,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Groupe 4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_expand_more_24px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_expand_more_24px1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_arrow_back_24px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_arrow_back_24px1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_arrow_forward_24px2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\ic_arrow_forward_24px3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\adjust.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\settings1.png" />
-    <Resource Include="Images\help_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\leftarrow.png" />
-    <Resource Include="Images\rightarrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
