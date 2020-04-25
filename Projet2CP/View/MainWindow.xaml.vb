@@ -5,7 +5,7 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        DataContext = New MainWindowViewModel()
+        DataContext = New MainWindowViewModel(AddressOf Me.Close)
     End Sub
 
     Private Sub Window_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
@@ -17,6 +17,6 @@
 
     Protected Overrides Sub OnClosed(ByVal e As System.EventArgs)
         MyBase.OnClosed(e)
-        Application.Current.Shutdown()
+        'Application.Current.Shutdown()
     End Sub
 End Class

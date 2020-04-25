@@ -6,7 +6,7 @@
         <Image Height="390" HorizontalAlignment="Left" Margin="519,41,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="484" Source="/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png" />
         <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="Importbar" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%203.png"  />
         <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="ImportbarVerified" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%204.png" Visibility="Hidden"  />
-        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="239,374,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
+        <Button Style="{DynamicResource Terminer}" Opacity="0.5" Name="terminerButton" Content="Terminer" Height="35" HorizontalAlignment="Left" Margin="239,395,0,0"  VerticalAlignment="Top" Width="117" IsEnabled="False" Foreground="White" FontFamily="Montserrat" FontSize="14" Cursor="Hand" IsManipulationEnabled="False">
 
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.5" />
@@ -14,12 +14,12 @@
         </Button>
         <Label Content="Importer Fichier" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF757583" Height="25" HorizontalAlignment="Left" Margin="287,478,0,0" Name="Label1" VerticalAlignment="Top" Width="120" />
         <Label Content="Mot de passe" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF1161B1" Height="25" HorizontalAlignment="Left" Margin="631,478,0,0" Name="Label2" VerticalAlignment="Top" Width="101" />
-        <Grid  HorizontalAlignment="right" VerticalAlignment="top"  Height="35" Background="White" Margin="0,113,672,0" Width="256" >
+        <Grid  HorizontalAlignment="right" VerticalAlignment="top"  Height="35" Background="White" Margin="0,100,672,0" Width="256" >
             <Label FontFamily="Montserrat" HorizontalAlignment="right" BorderThickness="0" VerticalAlignment="top" Name="userPasswordHint" Foreground="#123456" Opacity="0.5" FontSize="15" Width="256" Height="35" VerticalContentAlignment="Center" Background="#00000000">Mot de passe</Label>
             <PasswordBox HorizontalAlignment="right" BorderThickness="1" VerticalAlignment="top" Background="Transparent" PasswordChanged="userPassword_PasswordChanged" x:Name="userPassword" FontFamily="Helvetica" FontWeight="Light" FontSize="20" FontStyle="Normal" Width="256" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" MaxLength="10" />
             <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Name="Border1" VerticalAlignment="Bottom" Width="256" />
         </Grid>
-       
+
         <Grid Background="White" Height="35" HorizontalAlignment="right" Margin="0,161,672,0" VerticalAlignment="top" Width="256">
             <Label Background="#00000000" BorderThickness="0" Content="Confirmer Mot de passe" FontFamily="Montserrat" FontSize="15" Foreground="#123456" Height="35" HorizontalAlignment="right" Name="ConfirmUserPasswordHint" Opacity="0.5" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" />
             <PasswordBox Background="Transparent" BorderThickness="1" FontFamily="Helvetica" FontSize="20" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" HorizontalAlignment="right" Name="ConfirmUserPassword" PasswordChanged="ConfirmUserPassword_PasswordChanged" SelectionBrush="#FF123456" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" MaxLength="8" />
@@ -30,8 +30,8 @@
             <PasswordBox Background="Transparent" BorderThickness="1" FontFamily="Helvetica" FontSize="20" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" HorizontalAlignment="right" Name="AdminPassword" PasswordChanged="AdminPassword_PasswordChanged" SelectionBrush="#FF123456" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" MaxLength="8" />
             <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Name="Border3" VerticalAlignment="Bottom" Width="256" />
         </Grid>
-     
-        <Grid Background="White" Height="35" HorizontalAlignment="right" Margin="0,310,672,0" VerticalAlignment="top" Width="256">
+
+        <Grid Background="White" Height="35" HorizontalAlignment="right" Margin="0,328,672,0" VerticalAlignment="top" Width="256">
             <Label Background="#00000000" BorderThickness="0" Content="Confirmer Mot de passe" FontFamily="Montserrat" FontSize="15" Foreground="#123456" Height="35" HorizontalAlignment="right" Name="ConfirmAdminPasswordHint" Opacity="0.5" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" />
             <PasswordBox Background="Transparent" BorderThickness="1" FontFamily="Montserrat" FontSize="20" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" HorizontalAlignment="right" Name="ConfirmAdminPassword" PasswordChanged="ConfirmAdminPassword_PasswordChanged" SelectionBrush="#FF123456" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" MaxLength="8" />
             <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Name="Border4" VerticalAlignment="Bottom" Width="256" />
@@ -45,13 +45,13 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Utilisateur:" Height="29" HorizontalAlignment="Left" Margin="38,78,0,0" Name="Label7" VerticalAlignment="Top" Width="108" Foreground="#FF1161B1" FontFamily="Montserrat" FontWeight="Normal" FontSize="16" />
-        <Label Content="Admin:" FontFamily="Montserrat" FontSize="16" FontWeight="Normal" Foreground="#FF1161B1" Height="27" HorizontalAlignment="Left" Margin="38,229,0,0" Name="Label8" VerticalAlignment="Top" Width="71" />
+        <Label Content="Utilisateur:" Height="29" HorizontalAlignment="Left" Margin="38,67,0,0" Name="Label7" VerticalAlignment="Top" Width="108" Foreground="#FF1161B1" FontFamily="Montserrat" FontWeight="Normal" FontSize="16" />
+        <Label Content="Admin:" FontFamily="Montserrat" FontSize="16" FontWeight="Normal" Foreground="#FF1161B1" Height="27" HorizontalAlignment="Left" Margin="38,234,0,0" Name="Label8" VerticalAlignment="Top" Width="71" />
         <Label Content="*Les Mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="UserPasswordLabel" Visibility="Hidden"       VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
-        <Label Content="*Les Mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,344,0,0" Name="AdminPasswordLabel" Visibility="Hidden"        VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
-        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="shortpwdlabel1" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
-        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,344,0,0" Name="shortpwdlabel2" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="*Les Mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="AdminPasswordLabel" Visibility="Hidden"        VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
+        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,134,0,0" Name="shortpwdlabel1" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,299,0,0" Name="shortpwdlabel2" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
         <Label Content="validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="userValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
-        <Label Content="validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,344,0,0" Name="adminValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="adminValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
     </Grid>
 </Window>

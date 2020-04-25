@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Public Class MainWindowViewModel
     Inherits ViewModelBase
+    Private _closeWindow As Action
     Private _workspaces As ObservableCollection(Of WorkspaceViewModel)
     Property Workspaces As ObservableCollection(Of WorkspaceViewModel)
         Get
@@ -30,10 +31,10 @@ Public Class MainWindowViewModel
         End Set
     End Property
 
-    Public Sub New()
+    Public Sub New(ByVal closeWindow As Action)
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
-
+        _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
@@ -73,6 +74,7 @@ Public Class MainWindowViewModel
 
     Private Sub OpenSettings(ByVal o As Object)
         Dim settingsWindow As Settings = New Settings
+        Settings._closeWindow = _closeWindow
         settingsWindow.Show()
     End Sub
 
