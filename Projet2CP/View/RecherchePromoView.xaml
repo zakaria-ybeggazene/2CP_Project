@@ -145,6 +145,6 @@
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
         <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Generer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" />
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="Button4" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" />
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" />
     </Grid>
 </UserControl>

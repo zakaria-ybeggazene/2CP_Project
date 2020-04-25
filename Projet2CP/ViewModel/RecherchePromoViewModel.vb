@@ -123,6 +123,12 @@
         End Set
 
     End Property
+    'Sub from recherche promotion to stats
+
+
+
+
+
 
     Private _cursor As Cursor
     Public Property Cursor As Cursor
