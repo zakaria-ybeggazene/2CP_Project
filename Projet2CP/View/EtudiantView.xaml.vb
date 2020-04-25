@@ -6,7 +6,8 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Modifierbutton.IsEnabled = Repository.admin
+        'Modifierbutton.IsEnabled = Repository.admin
+        Savebutton.Visibility = Windows.Visibility.Hidden
     End Sub
     Private Sub ComboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
         Dim list As New List(Of String)
@@ -39,6 +40,11 @@
         nomMere.IsReadOnly = False
         Sexecb.IsEnabled = True
         modeModif = True
+        Savebutton.Visibility = Windows.Visibility.Visible
+        Modifierbutton.Visibility = Windows.Visibility.Hidden
+        releve.IsEnabled = False
+        releve_glob.IsEnabled = False
+        Attestation.IsEnabled = False
         Validite()
     End Sub
 
@@ -230,4 +236,28 @@
             Validite()
         End If
     End Sub
+
+    Private Sub Savebutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Savebutton.Click
+        modeModif = False
+        Modifierbutton.Visibility = Windows.Visibility.Visible
+        Savebutton.Visibility = Windows.Visibility.Hidden
+        releve.IsEnabled = True
+        releve_glob.IsEnabled = True
+        Attestation.IsEnabled = True
+        NomfrTB.IsReadOnly = True
+        NomATB.IsReadOnly = True
+        PrenomfrTB.IsReadOnly = True
+        PrenomATB.IsReadOnly = True
+        LieuNais.IsReadOnly = True
+        Wilaya.IsReadOnly = True
+        DateNais.IsEnabled = False
+        Adresse.IsReadOnly = True
+        Ville.IsReadOnly = True
+        wilayaNais.IsReadOnly = True
+        codePostale.IsReadOnly = True
+        nomPere.IsReadOnly = True
+        nomMere.IsReadOnly = True
+        Sexecb.IsEnabled = False
+    End Sub
+
 End Class
