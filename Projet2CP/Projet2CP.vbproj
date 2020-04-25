@@ -405,5 +405,12 @@
   <ItemGroup>
     <Resource Include="Images\Groupe 4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\help_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\leftarrow.png" />
+    <Resource Include="Images\rightarrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
