@@ -32,7 +32,10 @@
                 Me.Close()
                 mainWindow.Show()
             Catch ex As Exception
+                wrongPasswordLabel.Visibility = Windows.Visibility.Visible
                 userPassword.Password = ""
+            Finally
+                Me.Cursor = Cursors.Arrow
             End Try
         End If
     End Sub
@@ -46,6 +49,7 @@
             Me.Close()
             mainWindow.Show()
         Catch ex As Exception
+            wrongPasswordLabel.Visibility = Windows.Visibility.Visible
             userPassword.Password = ""
         Finally
             Me.Cursor = Cursors.Arrow

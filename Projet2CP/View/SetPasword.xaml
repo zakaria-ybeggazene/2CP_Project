@@ -36,7 +36,7 @@
             <PasswordBox Background="Transparent" BorderThickness="1" FontFamily="Montserrat" FontSize="20" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" HorizontalAlignment="right" Name="ConfirmAdminPassword" PasswordChanged="ConfirmAdminPassword_PasswordChanged" SelectionBrush="#FF123456" VerticalAlignment="top" VerticalContentAlignment="Center" Width="256" MaxLength="8" />
             <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Name="Border4" VerticalAlignment="Bottom" Width="256" />
         </Grid>
-        <Label Content="Reglage Mot de passe" Height="48" HorizontalAlignment="Left" Margin="38,12,0,0" Name="Label6" VerticalAlignment="Top" Width="334" FontFamily="Montserrat" FontSize="28" FontWeight="SemiBold" >
+        <Label Content="Initialiser les mots de passe" Height="48" HorizontalAlignment="Left" Margin="38,12,0,0" Name="Label6" VerticalAlignment="Top" Width="Auto" FontFamily="Montserrat" FontSize="28" FontWeight="SemiBold" >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="#FF123456" Offset="0" />
@@ -45,13 +45,13 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Utilisateur:" Height="29" HorizontalAlignment="Left" Margin="38,67,0,0" Name="Label7" VerticalAlignment="Top" Width="108" Foreground="#FF1161B1" FontFamily="Montserrat" FontWeight="Normal" FontSize="16" />
-        <Label Content="Admin:" FontFamily="Montserrat" FontSize="16" FontWeight="Normal" Foreground="#FF1161B1" Height="27" HorizontalAlignment="Left" Margin="38,234,0,0" Name="Label8" VerticalAlignment="Top" Width="71" />
-        <Label Content="*Les Mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="UserPasswordLabel" Visibility="Hidden"       VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
-        <Label Content="*Les Mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="AdminPasswordLabel" Visibility="Hidden"        VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
-        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,134,0,0" Name="shortpwdlabel1" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
-        <Label Content="*le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,299,0,0" Name="shortpwdlabel2" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
-        <Label Content="validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="userValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
-        <Label Content="validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="adminValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="Utilisateur:" Height="29" HorizontalAlignment="Left" Margin="38,67,0,0" Name="Label7" VerticalAlignment="Top" Width="Auto" Foreground="#FF1161B1" FontFamily="Montserrat" FontWeight="Normal" FontSize="16" />
+        <Label Content="Administrateur:" FontFamily="Montserrat" FontSize="16" FontWeight="Normal" Foreground="#FF1161B1" Height="27" HorizontalAlignment="Left" Margin="38,234,0,0" Name="Label8" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="*Les mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="UserPasswordLabel" Visibility="Hidden"       VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
+        <Label Content="*Les mots de passe doivent être similaires" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="AdminPasswordLabel" Visibility="Hidden"        VerticalAlignment="Top" Width="234" Foreground="Red" FontSize="12" />
+        <Label Content="*Le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,134,0,0" Name="shortpwdlabel1" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="*Le mot de passe est très court" FontSize="12" Foreground="Red" Height="26" HorizontalAlignment="Left" Margin="75,299,0,0" Name="shortpwdlabel2" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="Validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,202,0,0" Name="userValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
+        <Label Content="Validé avec succès" FontSize="12" Foreground="#FF0FBE1C" Height="26" HorizontalAlignment="Left" Margin="75,363,0,0" Name="adminValidLabel" VerticalAlignment="Top" Visibility="Hidden" Width="234" />
     </Grid>
 </Window>

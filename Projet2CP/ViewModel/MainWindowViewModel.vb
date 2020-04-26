@@ -73,9 +73,13 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub OpenSettings(ByVal o As Object)
-        Dim settingsWindow As Settings = New Settings
-        Settings._closeWindow = _closeWindow
-        settingsWindow.Show()
+        If Repository.admin = True Then
+            Dim settingsWindow As Settings = New Settings
+            Settings._closeWindow = _closeWindow
+            settingsWindow.Show()
+        Else
+            MsgBox("Connectez-vous en tant qu'administrateur pour accéder aux Réglages", MsgBoxStyle.Information)
+        End If
     End Sub
 
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)

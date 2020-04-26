@@ -96,7 +96,7 @@
             dbPassword.Text = Repository.userpwd
             showHide.Content = "Hide"
         Else
-            dbPassword.Text = "password here"
+            dbPassword.Text = "Password here"
             showHide.Content = "Show"
         End If
     End Sub
@@ -117,7 +117,7 @@
             _closeWindow()
             importerfichiers.Show()
         Catch ex As Exception
-            MsgBox("close the database first", MsgBoxStyle.Critical)
+            MsgBox("Close the database first", MsgBoxStyle.Critical)
         End Try    
     End Sub
 End Class
