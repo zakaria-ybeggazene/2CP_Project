@@ -59,4 +59,9 @@
         statButton.IsEnabled = False
         statButton.Opacity = 0.5
     End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles Button2.Click
+        AnneeCB.SelectedIndex = 0
+        NiveauCB.SelectedIndex = 0
+    End Sub
 End Class

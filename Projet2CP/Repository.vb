@@ -3,7 +3,7 @@
 Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
-    Public Shared admin As Boolean = False
+    Public Shared admin As Boolean = True
     Public Shared userpwd As String
 
     Public Shared Sub initialiser(ByVal password As String)
@@ -404,7 +404,7 @@ Public Class Repository
 
                 Dim moyenneMatiere As Dictionary(Of Matiere, Decimal) = New Dictionary(Of Matiere, Decimal)()
                 cmd.CommandText = "SELECT COMAMA, MoyenneMA FROM MOYMAT " _
-                                & "WHERE ANNEE LIKE '%" & annee & "%' AND OPTIMA LIKE '%" & Util.GetOption(niveau) & "%' AND ANETMA LIKE '%" & Util.GetAnneEt(niveau) & "%';"
+                                & "WHERE ANNEE LIKE '%" & annee & "' AND OPTIMA = '" & Util.GetOption(niveau) & "' AND ANETMA = '" & Util.GetAnneEt(niveau) & "';"
                 dr = cmd.ExecuteReader()
                 Do While dr.Read
                     Dim matiere As Matiere = matiere.getMatiere(Util.dbNullToString(dr.Item("COMAMA")), niveau)
@@ -425,7 +425,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
     Public Shared Function moyennesMatiere(ByVal matiere As Matiere) As List(Of Double)
         Dim resultat As List(Of Double) = New List(Of Double)

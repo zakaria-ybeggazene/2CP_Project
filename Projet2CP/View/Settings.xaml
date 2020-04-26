@@ -135,8 +135,8 @@
             </Button>
             <TextBox Height="33" Text="password here" IsReadOnly ="true" HorizontalAlignment="Left" Margin="300,154,0,0" Name="dbPassword" VerticalAlignment="Top" Width="270" Foreground="#FF123456" FontFamily="Montserrat" FontSize="18" VerticalContentAlignment="Center" Padding="5,0,0,0" />
             <Label Content="Mot de passe de la BDD" Height="33" HorizontalAlignment="Left" Margin="100,155,0,0" Name="Label3" VerticalAlignment="Top" Width="194" FontSize="16" Foreground="White" />
-            <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Ouvrir" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Left"  Name="Ouvrir" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="Auto" Margin="393,239,0,0" />
-            <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Supprimer" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Left"  Name="Supprimer" Style="{DynamicResource Delete}" VerticalAlignment="Top" Width="Auto" Margin="167,239,0,0" />
+            <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Ouvrir" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Right"  Name="Ouvrir" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="111" Margin="0,239,160,0" />
+            <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Supprimer" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Left"  Name="Supprimer" Style="{DynamicResource Delete}" VerticalAlignment="Top" Width="111" Margin="167,239,0,0" />
             <Button Content="Show" Height="34" HorizontalAlignment="Left" Margin="576,154,0,0" Name="showHide" VerticalAlignment="Top" Width="71" />
         </Grid>
 
