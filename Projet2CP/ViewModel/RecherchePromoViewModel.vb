@@ -112,6 +112,7 @@
         MyBase.New(displayName)
         Me.EtudiantTab = New RelayCommand(addEtudiantView)
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
+        Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
     End Sub
     Private _viewStatistics As RelayCommand
     Public Property ViewStatistics As RelayCommand
@@ -123,13 +124,28 @@
         End Set
 
     End Property
-    'Sub from recherche promotion to stats
 
+    Private _pvDelibCommand As ICommand
+    Public Property PvDelibCommand As ICommand
+        Get
+            Return _pvDelibCommand
+        End Get
+        Set(ByVal value As ICommand)
+            _pvDelibCommand = value
+        End Set
+    End Property
 
-
-
-
-
+    Public Sub generatePV(ByVal o As Object)
+        Dim reportWindow As ReportWindow = New ReportWindow
+        If Not _resultat Is Nothing Then
+            Try
+                reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.PvDeliberation(_resultat)
+                reportWindow.Show()
+            Catch e As Exception
+                MsgBox("Le rapport n'a pas pu s'ouvrir", MsgBoxStyle.Critical)
+            End Try
+        End If
+    End Sub
     Private _cursor As Cursor
     Public Property Cursor As Cursor
         Get

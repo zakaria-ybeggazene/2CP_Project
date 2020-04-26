@@ -314,4 +314,86 @@ Public Class CrystalReports
         releveGlobalReport.SetDataSource(ds)
         Return releveGlobalReport
     End Function
+
+    Public Shared Function PvDeliberation(ByVal promotion As Promotion) As PvDelibReport
+        Dim ds As New DataSet
+        Dim promoTable As New PvDelibDS.PromotionDataTable
+        Dim etudiantTable As New PvDelibDS.EtudiantDataTable
+        Dim matiereTable As New PvDelibDS.MatiereDataTable
+        Dim notesTable As New PvDelibDS.NotesDataTable
+
+        Dim row As DataRow
+        Dim rowNote As DataRow
+
+        row = promoTable.NewPromotionRow()
+
+        Select Case promotion.NiveauP
+            Case Niveau.TRC1
+                row("Niveau") = "1ère année INGENIEUR   Option : TRONC COMMUN"
+            Case Niveau.TRC2
+                row("Niveau") = "2ème année INGENIEUR   Option : TRONC COMMUN"
+            Case Niveau.SI1
+                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+            Case Niveau.SIQ1
+                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+            Case Niveau.SI2
+                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+            Case Niveau.SIQ2
+                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+            Case Else
+        End Select
+        row("Annee") = Util.GetAnneeUniv(promotion.Annee.ToString)
+
+        promoTable.Rows.Add(row)
+        ds.Tables.Add(promoTable)
+
+        row = Nothing
+
+        For Each m As Matiere In promotion.ListeMatiere.Keys
+            row = matiereTable.NewMatiereRow()
+            row("CodeMat") = m.CodMat
+            row("Coefficient") = m.Coef
+            matiereTable.Rows.Add(row)
+        Next
+        ds.Tables.Add(matiereTable)
+
+        row = Nothing
+
+        For Each e As EtudiantAnnee In promotion.ListeEtudiants
+            row = etudiantTable.NewEtudiantRow()
+            row("Matricule") = e.Matricule
+            row("NomPrenom") = e.Nom.Trim & " " & e.Prenom.Trim
+            row("Moyenne") = e.Annee.MoyenneJ
+            row("Mention") = Util.GetMention(e.Annee.Mention)
+            row("Rang") = e.Annee.Rang & " sur " & e.Annee.NbrEtudiants
+            If Not e.Annee.Rattrap Is Nothing Then
+                row("MoyenneR") = e.Annee.Rattrap.MoyenneR
+            End If
+            row("Decision") = Util.GetDecisionCR(e.Annee.Decision)
+            ' row("Ne") = REVENIR POUR AJOUTER LE NOMBRE DE NOTES ELIMINATOIRES
+            Dim nbElim As Integer
+            For Each kvp As KeyValuePair(Of Matiere, Note) In e.Annee.Notes
+                rowNote = notesTable.NewNotesRow()
+                rowNote("Matricule") = e.Matricule
+                rowNote("CodeMat") = kvp.Key.CodMat
+                If kvp.Value.Noju >= kvp.Value.Nora Then
+                    rowNote("Note") = kvp.Value.Noju
+                Else
+                    rowNote("Note") = kvp.Value.Nora
+                End If
+                If kvp.Value.Eliminatoire = True Then
+                    nbElim += 1
+                End If
+                notesTable.Rows.Add(rowNote)
+            Next
+            row("Ne") = nbElim
+            etudiantTable.Rows.Add(row)
+        Next
+        ds.Tables.Add(etudiantTable)
+        ds.Tables.Add(notesTable)
+
+        Dim pvDelibRapport = New PvDelibReport()
+        pvDelibRapport.SetDataSource(ds)
+        Return pvDelibRapport
+    End Function
 End Class

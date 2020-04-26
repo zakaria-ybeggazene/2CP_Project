@@ -113,6 +113,13 @@
     <Compile Include="CrystalReports\EtudiantDS.vb">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReports\PvDelibDS.Designer.vb" />
+    <Compile Include="CrystalReports\PvDelibReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PvDelibReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\ReleveGlobalReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +306,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AttestationReport.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\PvDelibReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PvDelibReport1.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\ReleveGlobalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReleveGlobalReport.vb</LastGenOutput>
@@ -323,6 +334,13 @@
     </None>
     <None Include="CrystalReports\EtudiantDS.xss">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReports\PvDelibDS.xsc">
+      <DependentUpon>PvDelibDS.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReports\PvDelibDS.xsd" />
+    <None Include="CrystalReports\PvDelibDS.xss">
+      <DependentUpon>PvDelibDS.xsd</DependentUpon>
     </None>
     <None Include="CrystalReports\ReleveGlobDS.xsc">
       <DependentUpon>ReleveGlobDS.xsd</DependentUpon>

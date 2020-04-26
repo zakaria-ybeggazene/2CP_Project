@@ -68,6 +68,8 @@
         End If
         If doPrint Then
             reportWindow.Show()
+        Else
+            MsgBox("Le rapport n'a pas pu s'ouvrir", MsgBoxStyle.Critical)
         End If
     End Sub
     Private v As EtudiantView
