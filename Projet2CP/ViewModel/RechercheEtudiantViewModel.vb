@@ -16,12 +16,17 @@ Public Class RechercheEtudiantViewModel
 
     'Recherche Command Property
     Public _rechercheCommand As New RelayCommand(AddressOf recherche)
+    Public _resetCommand As New RelayCommand(AddressOf Reset)
     Public ReadOnly Property RechercheCommand As ICommand
         Get
             Return _rechercheCommand
         End Get
     End Property
-
+    Public ReadOnly Property ResetCommand As ICommand
+        Get
+            Return _resetCommand
+        End Get
+    End Property
     'Recherche Sub
     Public Sub recherche()
         If Sexe = "Masculin" Then
@@ -40,7 +45,17 @@ Public Class RechercheEtudiantViewModel
         End If
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
     End Sub
-
+    'Reset 
+    Public Sub reset()
+        Matricule = ""
+        Nom = ""
+        NomA = ""
+        Prenom = ""
+        PrenomA = ""
+        LieuNais = ""
+        WilayaNais = ""
+        Annee = ""
+    End Sub
     'Recherche Properties
     Public Property Matricule() As String
         Get
