@@ -41,7 +41,7 @@ Public Class MainWindowViewModel
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
             New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
-            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.AddStatisticsView))})
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
@@ -82,6 +82,11 @@ Public Class MainWindowViewModel
         End If
     End Sub
 
+    Private Sub OpenAdminLogin(ByVal o As Object)
+            Dim AdminWindow As Admin = New Admin
+            Admin._closeWindow = _closeWindow
+            AdminWindow.Show()
+    End Sub
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 

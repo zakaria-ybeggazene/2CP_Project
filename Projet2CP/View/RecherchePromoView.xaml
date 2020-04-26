@@ -74,7 +74,7 @@
             </StackPanel>
         </Button>
         <Border Margin="332,126,0,0" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left">
-            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" Command="{Binding Path=ResetCommand}" HorizontalContentAlignment="Center">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />

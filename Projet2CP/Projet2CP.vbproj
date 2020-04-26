@@ -165,6 +165,9 @@
     <Compile Include="ViewModel\StatisticsViewModel.vb" />
     <Compile Include="ViewModel\ViewModelBase.vb" />
     <Compile Include="ViewModel\WorkspaceViewModel.vb" />
+    <Compile Include="View\Admin.xaml.vb">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EtudiantView.xaml.vb">
       <DependentUpon>EtudiantView.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -461,6 +468,24 @@
   <ItemGroup>
     <Resource Include="Images\leftarrow.png" />
     <Resource Include="Images\rightarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Admin Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Admin Login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Admin Login1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Admin Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Admin Login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2810878%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
