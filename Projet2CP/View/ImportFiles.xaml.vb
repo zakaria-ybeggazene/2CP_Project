@@ -25,7 +25,7 @@ Public Class ImportFiles
 
         Try
             Me.ForceCursor = True
-            Me.Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             filePath = ParcourirButtonClicked()
             Mouse.SetCursor(Cursors.Wait)
             If filePath <> "" Then
@@ -63,8 +63,7 @@ Public Class ImportFiles
         Catch ex As Exception
             MsgBox("Enter a valid path")
         Finally
-            Me.Cursor = Cursors.Arrow
-            Mouse.SetCursor(Cursors.Arrow)
+            Mouse.OverrideCursor = Nothing
         End Try
     End Sub
 

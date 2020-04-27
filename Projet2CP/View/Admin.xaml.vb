@@ -23,4 +23,17 @@ Public Class Admin
             Me.Close()
         End If
     End Sub
+
+    Private Sub tb_KeyDown(ByVal sender As System.Object, ByVal e As KeyEventArgs) Handles adminPassword.PreviewKeyDown
+
+        If (e.Key = Key.Enter) Then
+            Repository.adminLogin(adminPassword.Password)
+            If Repository.admin = False Then
+                wrongPassword.Visibility = Windows.Visibility.Visible
+            Else
+                connectedLabel.Visibility = Windows.Visibility.Visible
+                Me.Close()
+            End If
+        End If
+    End Sub
 End Class

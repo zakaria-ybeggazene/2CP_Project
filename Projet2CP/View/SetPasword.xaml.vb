@@ -137,11 +137,12 @@
         If (e.Key = Key.Enter) Then
             If userValidLabel.Visibility = Windows.Visibility.Visible And adminValidLabel.Visibility = Windows.Visibility.Visible Then
                 Me.ForceCursor = True
-                Me.Cursor = Cursors.Wait
+                Mouse.OverrideCursor = Cursors.Wait
                 CType(DataContext, MigrationViewModel).userpwd = userPassword.Password
                 CType(DataContext, MigrationViewModel).adminpwd = AdminPassword.Password
                 CType(DataContext, MigrationViewModel).migration(Nothing)
                 Dim loginWindow As LoginWindow = New LoginWindow()
+                Mouse.OverrideCursor = Nothing
                 Me.Close()
                 loginWindow.Show()
             End If
@@ -151,11 +152,12 @@
     Private Sub terminerButton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles terminerButton.Click
         If userValidLabel.Visibility = Windows.Visibility.Visible And adminValidLabel.Visibility = Windows.Visibility.Visible Then
             Me.ForceCursor = True
-            Me.Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             CType(DataContext, MigrationViewModel).userpwd = userPassword.Password
             CType(DataContext, MigrationViewModel).adminpwd = AdminPassword.Password
             CType(DataContext, MigrationViewModel).migration(Nothing)
             Dim loginWindow As LoginWindow = New LoginWindow()
+            Mouse.OverrideCursor = Nothing
             Me.Close()
             loginWindow.Show()
         End If

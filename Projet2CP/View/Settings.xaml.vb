@@ -123,11 +123,14 @@
 
     Private Sub Supprimer_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Supprimer.Click
         Try
-            Repository.deleteDB()
-            Dim importerfichiers As New ImportFiles
-            Me.Close()
-            _closeWindow()
-            importerfichiers.Show()
+            Dim msgBoxResult As MessageBoxResult = MsgBox("Êtes-vous sûr de vouloir supprimer la BDD ? Vous serez redérigé vers l'écran de l'importation des fichiers Excel", MsgBoxStyle.YesNoCancel, "Supprimer la base de données")
+            If msgBoxResult = MessageBoxResult.Yes
+                Repository.deleteDB()
+                Dim importerfichiers As New ImportFiles
+                Me.Close()
+                _closeWindow()
+                importerfichiers.Show()
+            End If
         Catch ex As Exception
             MsgBox("Close the database first", MsgBoxStyle.Critical)
         End Try    
