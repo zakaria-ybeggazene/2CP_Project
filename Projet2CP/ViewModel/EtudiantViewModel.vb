@@ -12,7 +12,7 @@
         ElseIf e.Sexe = 2 Then
             Me._sexe = "Féminin"
         End If
-        _parcours = New List(Of AnneeEtude)
+        Dim _parcours As New List(Of AnneeEtude)
         For Each a As AnneeEtude In _etudiant.Parcours
             If a.Annee >= 88 Then
                 _parcours.Add(a)
@@ -36,7 +36,7 @@
         _lieuNais = _etudiant.LieuNais
         _wilayaNais = _etudiant.WilayaNaisA
         _codePostal = _etudiant.CodePostal
-
+        _dateNais = _etudiant.DateNais
     End Sub
 
     Private _etudiant As EtudiantParcours
@@ -51,16 +51,7 @@
 
     Private _nom, _prenom, _nomA, _prenomA, _prenomPere, _nomMere, _adresse, _wilaya, _ville, _lieuNais, _wilayaNais, _dateNais, _sexe, _codePostal As String
 
-    Private _parcours As List(Of AnneeEtude)
 
-    Public Property Parcours() As List(Of AnneeEtude)
-        Get
-            Return _parcours
-        End Get
-        Set(ByVal value As List(Of AnneeEtude))
-            _parcours = value
-        End Set
-    End Property
 
 
     Public Property Sexe() As String
