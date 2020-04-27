@@ -14,7 +14,7 @@
     <MyType>Custom</MyType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -137,6 +137,9 @@
     <Compile Include="Model\IMatiereStatistics.vb" />
     <Compile Include="Model\IPromoStatistics.vb" />
     <Compile Include="Model\IStatistics.vb" />
+    <Compile Include="Model\PromotionAnnee.vb" />
+    <Compile Include="Model\PromotionParcours.vb" />
+    <Compile Include="ViewModel\ClassementViewModel.vb" />
     <Compile Include="ViewModel\GeneralStatisticsViewModel.vb" />
     <Compile Include="ViewModel\MatiereStatisticsViewModel.vb" />
     <Compile Include="ViewModel\MigrationViewModel.vb" />
@@ -151,7 +154,9 @@
     <Compile Include="ViewModel\CommandViewModel.vb" />
     <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />
+    <Compile Include="ViewModel\NothingViewModel.vb" />
     <Compile Include="ViewModel\PromoStatisticsViewModel.vb" />
+    <Compile Include="ViewModel\PromotionViewModel.vb" />
     <Compile Include="ViewModel\RechercheEtudiantViewModel.vb" />
     <Compile Include="ViewModel\RecherchePromoViewModel.vb" />
     <Compile Include="ViewModel\RelayCommand.vb" />
@@ -160,6 +165,9 @@
     <Compile Include="ViewModel\WorkspaceViewModel.vb" />
     <Compile Include="View\Admin.xaml.vb">
       <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClassementView.xaml.vb">
+      <DependentUpon>ClassementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EtudiantView.xaml.vb">
       <DependentUpon>EtudiantView.xaml</DependentUpon>
@@ -176,8 +184,14 @@
     <Compile Include="View\MatiereStatisticsView.xaml.vb">
       <DependentUpon>MatiereStatisticsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NothingView.xaml.vb">
+      <DependentUpon>NothingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PromoStatisticsView.xaml.vb">
       <DependentUpon>PromoStatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromotionView.xaml.vb">
+      <DependentUpon>PromotionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RechercheEtudiantView.xaml.vb">
       <DependentUpon>RechercheEtudiantView.xaml</DependentUpon>
@@ -202,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClassementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +255,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\NothingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PromoStatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PromotionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

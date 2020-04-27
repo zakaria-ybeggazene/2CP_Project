@@ -1,21 +1,31 @@
 ﻿Imports System.Data.OleDb
 
 Public Class Repository
+    'connection a la base de donnée s'ouvre au debut de l'application
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
+    'booleen indiquant le mode de connexion, admin ou simple utilisateur
     Public Shared admin As Boolean = True
+    'le mdp du simple utilisateur appliqué a lui la fonction de hachage, qui represente le mdp de la bdd
     Public Shared userpwd As String
 
+    's'execute lors de la connexion de l'utilisateur
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
+        'chemin de la bdd qui est : chemin du dossier courant + nom de la bdd
         Dim path As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
-        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path & ";Jet OLEDB:Database Password=" & Util.GetHash(password).Substring(0, 14) & ";"
+        'initialisation du userpwd
         userpwd = Util.GetHash(password).Substring(0, 14)
+        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path & ";Jet OLEDB:Database Password=" & userpwd & ";"
+
         _connection.ConnectionString = dbConnString
+        'ouverture de la connexion
         _connection.Open()
 
         'initialiser la liste des matieres
+        'Vu que le nombre de matieres est limité, on prefere charger la liste des matiere a la memoire centrale au debut de l'application
+        'ce qui permettra d'eviter des requetes a la bdd si on a besoin d'acceder a des informations d'une certaine matiere
         Dim matieres As List(Of Matiere) = New List(Of Matiere)()
 
         Dim sqlCommand As String
@@ -36,6 +46,7 @@ Public Class Repository
             matieres.Add(m)
         Loop
 
+        'initialiser la liste des matieres dans la classe Matiere
         Matiere.initialiserMatieres(matieres)
 
         dr.Close()
@@ -46,10 +57,12 @@ Public Class Repository
         'fermer la connection base de donnée
         _connection.Close()
     End Sub
-    ''
+
+    'Recherche les etudiants selon les criteres saisies
     Public Shared Function recherche_etudiants(ByVal matricule As String, ByVal nom As String, ByVal prenom As String, ByVal nomA As String, ByVal prenomA As String, ByVal dateNais As String, ByVal sexe As String, ByVal annee As String, ByVal wilayaNaissance As String, ByVal lieuNaissance As String) As List(Of Etudiant)
         Dim etudiants As List(Of Etudiant) = New List(Of Etudiant)()
         Try
+            'verification de l'etat de la connection
             If _connection.State = System.Data.ConnectionState.Closed Then
                 db.quit()
                 _connection.Open()
@@ -62,6 +75,8 @@ Public Class Repository
 
             Dim sqlCommand As String
 
+            'si on a specifié le matricule ou on a pas precisé comme critere l'année ou l'etudiant a etudié on a pas besoin
+            'de faire la jointure avec la table etude
             If Not contientAnnee Or matricule <> "" Then
 
                 sqlCommand = "SELECT MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais, LieuNaisA, " _
@@ -74,6 +89,7 @@ Public Class Repository
                                                & "SERIEBAC, MOYBAC, WILBAC, ETUDE.ANNEE FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
             End If
 
+            'Si on a specifié le matricule on ignore les autres critéres
             If matricule <> "" Then
                 sqlCommand += "WHERE MATRICULE = '" & matricule & "' "
             Else
@@ -173,9 +189,7 @@ Public Class Repository
                                                   .MoyenneBac = Util.dbNullToDouble(dr.Item("MOYBAC")),
                                                   .SerieBac = Util.dbNullToString(dr.Item("SERIEBAC")),
                                                   .WilayaBac = Util.dbNullToString(dr.Item("WILBAC"))}
-                If Not etudiants.Contains(etudiant) Then
-                    etudiants.Add(etudiant)
-                End If
+                etudiants.Add(etudiant)
             Loop
 
             dr.Close()
@@ -183,10 +197,12 @@ Public Class Repository
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
-        End Try   
+        End Try
     End Function
 
-    Public Shared Function paracours_etudiant(ByVal etudiant As Etudiant) As Etudiant
+    'Recupere le parcours d'un etudiant donné
+    'ceci dit toutes les années etudiées a l'etablissement
+    Public Shared Function paracours_etudiant(ByVal etudiant As Etudiant) As EtudiantParcours
         Dim parcours As List(Of AnneeEtude) = New List(Of AnneeEtude)()
         Try
             If _connection.State = System.Data.ConnectionState.Closed Then
@@ -202,7 +218,6 @@ Public Class Repository
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
             Dim dr As System.Data.OleDb.OleDbDataReader
-
             dr = cmd.ExecuteReader()
 
             Dim anneEtude As AnneeEtude
@@ -212,11 +227,12 @@ Public Class Repository
                                                  .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
                                                  .Mention = Util.dbNullToString(dr.Item("MentIN")),
                                                  .MoyenneJ = Util.dbNullToDouble(dr.Item("Moyenne")),
-                                                 .Niveau = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIIN")).Trim(), Util.dbNullToString(dr.Item("ANETIN")).Trim()),
+                                                 .Niveau = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIIN")), Util.dbNullToString(dr.Item("ANETIN"))),
                                                  .Section = Util.dbNullToString(dr.Item("NumScn")),
                                                  .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
                                                  .NbrEtudiants = Util.dbNullToInteger(dr.Item("NbInscrits")),
-                                                 .RatrIn = Util.dbNullToInteger(dr.Item("RatIn"))}
+                                                 .RatrIn = Util.dbNullToInteger(dr.Item("RatIn")),
+                                                 .AnnetIn = Util.dbNullToInteger(dr.Item("ANETIN"))}
                 parcours.Add(anneEtude)
             Loop
             dr.Close()
@@ -279,17 +295,18 @@ Public Class Repository
                                                   .Wilaya = etudiant.Wilaya,
                                                   .Sexe = etudiant.Sexe,
                                                   .WilayaNaisA = etudiant.WilayaNaisA}
+            parcours.Sort(AddressOf Util.compareAnneEtude)
             etudiantP.Parcours = parcours
 
             Return etudiantP
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
-        End Try    
+        End Try
     End Function
 
-    Public Shared Function recherche_promo(ByVal niveau As Niveau, ByVal annee As String) As Promotion
-        Dim promotion As Promotion
+    Public Shared Function recherche_promo(ByVal niveau As Niveau, ByVal annee As String) As PromotionAnnee
+        Dim promotion As PromotionAnnee
         Try
             If _connection.State = System.Data.ConnectionState.Closed Then
                 db.quit()
@@ -298,7 +315,7 @@ Public Class Repository
             Dim sqlCommand As String
 
             sqlCommand = "SELECT ANNEE, OPTIIN, ANETIN, NbInscrits FROM PROMO " _
-                        & "WHERE ANNEE LIKE '%" & annee & "%' AND OPTIIN LIKE '%" & Util.GetOption(niveau) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(niveau) & "%';"
+                        & "WHERE ANNEE = '" & annee & "' AND OPTIIN = '" & Util.GetOption(niveau) & "' AND ANETIN = '" & Util.GetAnneEt(niveau) & "';"
 
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
@@ -306,7 +323,7 @@ Public Class Repository
 
             dr = cmd.ExecuteReader()
             If dr.Read() Then
-                promotion = New Promotion With {.Annee = annee, .NiveauP = niveau, .NbInscrits = Util.dbNullToInteger(dr.Item("NbInscrits"))}
+                promotion = New PromotionAnnee With {.Annee = annee, .NiveauP = niveau, .NbInscrits = Util.dbNullToInteger(dr.Item("NbInscrits"))}
 
 
                 dr.Close()
@@ -315,7 +332,7 @@ Public Class Repository
                                             & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, " _
                                             & "ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN " _
                                             & "FROM ETUDE INNER JOIN ETUDIANT ON ETUDE.MATRICULE = ETUDIANT.MATRICULE " _
-                    & "WHERE ANNEE LIKE '%" & annee & "%' AND OPTIIN LIKE '%" & Util.GetOption(niveau) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(niveau) & "%' ORDER BY ETUDE.Moyenne DESC;"
+                    & "WHERE ANNEE = '" & annee & "' AND OPTIIN = '" & Util.GetOption(niveau) & "' AND ANETIN = '" & Util.GetAnneEt(niveau) & "' ORDER BY ETUDE.Moyenne DESC;"
                 Dim etudiants As List(Of EtudiantAnnee) = New List(Of EtudiantAnnee)()
 
                 cmd.CommandText = sqlCommand
@@ -404,12 +421,11 @@ Public Class Repository
 
                 Dim moyenneMatiere As Dictionary(Of Matiere, Decimal) = New Dictionary(Of Matiere, Decimal)()
                 cmd.CommandText = "SELECT COMAMA, MoyenneMA FROM MOYMAT " _
-                                & "WHERE ANNEE LIKE '%" & annee & "' AND OPTIMA = '" & Util.GetOption(niveau) & "' AND ANETMA = '" & Util.GetAnneEt(niveau) & "';"
+                                & "WHERE ANNEE = '" & annee & "' AND OPTIMA = '" & Util.GetOption(niveau) & "' AND ANETMA = '" & Util.GetAnneEt(niveau) & "';"
                 dr = cmd.ExecuteReader()
                 Do While dr.Read
                     Dim matiere As Matiere = matiere.getMatiere(Util.dbNullToString(dr.Item("COMAMA")), niveau)
 
-                    'Zakaria : I got an exception here when I searched for Promo 2011 SI2 (item already exists)
                     moyenneMatiere.Add(matiere, Util.dbNullToDouble(dr.Item("MoyenneMA")))
                 Loop
                 dr.Close()
@@ -425,8 +441,148 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-
     End Function
+
+    Public Shared Function recherche_promo_parcours(ByVal niveau As Niveau, ByVal annee As String) As PromotionParcours
+        Dim promotion As PromotionParcours
+
+        Try
+            If _connection.State = System.Data.ConnectionState.Closed Then
+                db.quit()
+                _connection.Open()
+            End If
+            Dim sqlCommand As String
+            Dim niveauString As String = ""
+            If niveau <> Projet2CP.Niveau.CS3 Then
+                MessageBox.Show("x")
+                niveauString = "AND OPTIIN = '" & Util.GetOption(niveau) & "' "
+            End If
+
+            sqlCommand = "SELECT ANNEE, OPTIIN, ANETIN, NbInscrits FROM PROMO " _
+                        & "WHERE ANNEE = '" & annee & "' " & niveauString & "AND ANETIN = '5';"
+
+
+            Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
+            Dim dr As System.Data.OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader()
+            If dr.Read() Then
+                promotion = New PromotionParcours With {.Annee = annee, .NiveauP = niveau, .NbInscrits = Util.dbNullToInteger(dr.Item("NbInscrits"))}
+                promotion.ListeEtudiants = New List(Of EtudiantParcours)()
+
+                dr.Close()
+
+                sqlCommand = "SELECT ETUDE.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais, LieuNaisA, " _
+                            & "Lieunais, WilayaNaisA, Adresse, Ville, Wilaya, CodPost, Sexe, Fils_de, Et_de, " _
+                            & "ANNEEBAC, SERIEBAC, MOYBAC, WILBAC FROM ETUDE INNER JOIN ETUDIANT ON ETUDIANT.MATRICULE = ETUDE.MATRICULE WHERE ANNEE = '" & annee & "' " & niveauString & "AND ANETIN = '5';"
+                Dim etudiants As List(Of EtudiantParcours) = New List(Of EtudiantParcours)()
+                cmd.CommandText = sqlCommand
+                dr = cmd.ExecuteReader()
+
+                Dim etudiantP As EtudiantParcours
+                While dr.Read
+                    etudiantP = New EtudiantParcours With {.Adresse = Util.dbNullToString(dr.Item("Adresse")),
+                              .CodePostal = Util.dbNullToString(dr.Item("CodPost")),
+                              .DateNais = Util.dbNullToString(dr.Item("DateNais")),
+                              .LieuNais = Util.dbNullToString(dr.Item("LieuNais")),
+                              .LieuNaisA = Util.dbNullToString(dr.Item("LieuNaisA")),
+                              .Matricule = Util.dbNullToString(dr.Item("MATRICULE")),
+                              .Nom = Util.dbNullToString(dr.Item("NomEtud")),
+                              .NomA = Util.dbNullToString(dr.Item("NomEtudA")),
+                              .NomMere = Util.dbNullToString(dr.Item("Et_de")),
+                              .Prenom = Util.dbNullToString(dr.Item("Prenoms")),
+                              .PrenomA = Util.dbNullToString(dr.Item("PrenomsA")),
+                              .PrenomPere = Util.dbNullToString(dr.Item("Fils_de")),
+                              .Ville = Util.dbNullToString(dr.Item("Ville")),
+                              .Wilaya = Util.dbNullToString(dr.Item("Wilaya")),
+                              .Sexe = Util.dbNullToString(dr.Item("Sexe")),
+                              .WilayaNaisA = Util.dbNullToString(dr.Item("WilayaNaisA"))}
+
+                    promotion.ListeEtudiants.Add(etudiantP)
+                End While
+
+                dr.Close()
+
+                For Each etudiantP In promotion.ListeEtudiants
+                    Dim parcours As List(Of AnneeEtude) = New List(Of AnneeEtude)()
+
+                    sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN " _
+                                & "FROM ETUDE " _
+                                & "WHERE MATRICULE = '" & etudiantP.Matricule & "' ORDER BY ETUDE.ANETIN ASC;"
+
+                    cmd.CommandText = sqlCommand
+                    dr = cmd.ExecuteReader()
+                    Dim anneEtude As AnneeEtude
+                    Do While dr.Read()
+                        anneEtude = New AnneeEtude With {.Decision = Util.dbNullToString(dr.Item("DECIIN")),
+                                                         .Annee = Util.dbNullToString(dr.Item("ANNEE")).Trim(),
+                                                         .Groupe = Util.dbNullToInteger(dr.Item("NumGrp")),
+                                                         .Mention = Util.dbNullToString(dr.Item("MentIN")),
+                                                         .MoyenneJ = Util.dbNullToDouble(dr.Item("Moyenne")),
+                                                         .Niveau = Util.GetNiveau(Util.dbNullToString(dr.Item("OPTIIN")).Trim(), Util.dbNullToString(dr.Item("ANETIN")).Trim()),
+                                                         .Section = Util.dbNullToString(dr.Item("NumScn")),
+                                                         .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
+                                                         .NbrEtudiants = promotion.NbInscrits,
+                                                         .RatrIn = Util.dbNullToInteger(dr.Item("RatIn"))}
+                        parcours.Add(anneEtude)
+                    Loop
+                    dr.Close()
+
+                    Dim notes As Dictionary(Of Matiere, Note)
+                    For Each a As AnneeEtude In parcours
+                        notes = New Dictionary(Of Matiere, Note)()
+                        cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
+                                        & "WHERE MATRICULE = '" & etudiantP.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
+                        dr = cmd.ExecuteReader()
+                        Dim n As Note
+                        Do While dr.Read
+                            n = New Note With {.Noju = Util.dbNullToDouble(dr.Item("NoJuNo")),
+                                                  .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
+                                                  .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
+                                                  .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
+                                                  .Eliminatoire = Not Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
+
+                            notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), a.Niveau), n)
+                        Loop
+                        dr.Close()
+
+                        If a.RatrIn > 0 Then
+                            sqlCommand = "SELECT MoyeRa,MentRa,ElimRa " _
+                                        & "FROM RATTRAP " _
+                                        & "WHERE MATRICULE = '" & etudiantP.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIRA = '" & Util.GetOption(a.Niveau) & "' AND ANETRA = '" & Util.GetAnneEt(a.Niveau) & "';"
+
+                            cmd.CommandText = sqlCommand
+                            dr = cmd.ExecuteReader
+
+                            If (dr.Read()) Then
+                                Util.dbNullToDouble(dr.Item("MoyeRa"))
+                                Util.dbNullToInteger(dr.Item("MentRa"))
+                                Util.dbNullToInteger(dr.Item("ElimRa"))
+                                a.Rattrap = New AnneeEtude.Rattrapage With {.MoyenneR = Util.dbNullToDouble(dr.Item("MoyeRa")),
+                                                                        .MentionR = Util.dbNullToInteger(dr.Item("MentRa")),
+                                                                        .Elim = Util.dbNullToInteger(dr.Item("ElimRa"))}
+                            End If
+
+
+                            dr.Close()
+                        End If
+
+                        a.Notes = notes
+                    Next
+
+                    etudiantP.Parcours = parcours
+                Next
+
+                Return promotion
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
     Public Shared Function moyennesMatiere(ByVal matiere As Matiere) As List(Of Double)
         Dim resultat As List(Of Double) = New List(Of Double)
         Try
@@ -442,7 +598,7 @@ Public Class Repository
             Dim sqlCommand As String
 
             sqlCommand = "SELECT ANNEE, MoyenneMA FROM MOYMAT " _
-                        & "WHERE COMAMA = '" & matiere.CodMat & "' AND OPTIMA LIKE '%" & Util.GetOption(matiere.NiveauM) & "%' AND ANETMA LIKE '%" & Util.GetAnneEt(matiere.NiveauM) & "%';"
+                        & "WHERE COMAMA = '" & matiere.CodMat & "' AND OPTIMA = '" & Util.GetOption(matiere.NiveauM) & "' AND ANETMA = '" & Util.GetAnneEt(matiere.NiveauM) & "';"
 
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
@@ -482,7 +638,7 @@ Public Class Repository
             Dim sqlCommand As String
 
             sqlCommand = "SELECT ANNEE, NoJuNo, NoRaNo FROM ETUDNOTE " _
-                        & "WHERE ComaMa = '" & matiere.CodMat & "' AND OPTIN LIKE '%" & Util.GetOption(matiere.NiveauM) & "%' AND ANETIN LIKE '%" & Util.GetAnneEt(matiere.NiveauM) & "%';"
+                        & "WHERE ComaMa = '" & matiere.CodMat & "' AND OPTIN = '" & Util.GetOption(matiere.NiveauM) & "' AND ANETIN = '" & Util.GetAnneEt(matiere.NiveauM) & "';"
 
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
@@ -516,7 +672,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function nombreEtudiantsGeneral() As List(Of Object)
@@ -560,7 +716,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function nombreReussiteGeneral(ByVal niv As Niveau) As List(Of Object)
@@ -605,7 +761,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function distributionBacheliers(ByVal annee As String) As Dictionary(Of String, Integer)
@@ -635,7 +791,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     'ouvrir la base de données Access
@@ -653,8 +809,8 @@ Public Class Repository
 
     'supprimer la based de données
     Public Shared Sub deleteDB()
-            disposer()
-            Kill(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
+        disposer()
+        Kill(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
     End Sub
 
     'changer le mot de passe de l'utilisateur
@@ -705,7 +861,7 @@ Public Class Repository
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
-        
+
     End Sub
     'se connecter en tant qu'administrateur
     Public Shared Sub adminLogin(ByVal password As String)

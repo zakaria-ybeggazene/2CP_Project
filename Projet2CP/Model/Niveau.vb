@@ -7,5 +7,6 @@
     SIQ2
     SI3
     SIQ3
+    CS3
 End Enum
 

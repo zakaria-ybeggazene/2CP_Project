@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="ClassementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="1072">
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="../Dictionary.xaml"/>
+
+    </UserControl.Resources>
+    <Grid>
+        <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="36,197,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" />
+
+        <Grid Margin="1,239,25,0"  VerticalAlignment="Top" Height="423">
+
+            <Border CornerRadius=" 15" BorderThickness="3" Margin="3,1,-3,6">
+                <Border.Effect>
+                    <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                </Border.Effect>
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="454" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="140" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC1" Width="100" Binding="{Binding TRC1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC2" Width="100" Binding="{Binding TRC2}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS1" Width="100" Binding="{Binding CS1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS2" Width="100" Binding="{Binding CS2}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS3" Width="100" Binding="{Binding CS3}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Max" Width="100" Binding="{Binding MoyMax}" FontFamily="Montserrat" />
+                        <DataGridTemplateColumn Header="Details" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Details" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="30" />
+
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <Style TargetType = "DataGridColumnHeader">
+                            <Setter Property = "Foreground" Value = "#123456" />
+                            <Setter Property = "FontWeight" Value = "SemiBold"  />
+
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

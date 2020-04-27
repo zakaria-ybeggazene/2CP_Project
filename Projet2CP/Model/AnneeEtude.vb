@@ -1,7 +1,8 @@
 ﻿
 Public Class AnneeEtude
+
     Private _annee As String
-    Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn As Integer
+    Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn, _annetIn As Integer
     Private _niveau As Niveau
     Private _section, _decision As Char
     Private _moyenneJ As Decimal
@@ -162,5 +163,21 @@ Public Class AnneeEtude
             Me._ratrIn = value
         End Set
     End Property
+    Public Property AnnetIn() As Integer
+        Get
+            Return _annetIn
+        End Get
+        Set(ByVal value As Integer)
+            Me._annetIn = value
+        End Set
+    End Property
+
+    Public Function moyenneMax() As Double
+        If Rattrap Is Nothing Then
+            Return MoyenneJ
+        Else
+            Return Math.Max(MoyenneJ, Rattrap.MoyenneR)
+        End If
+    End Function
 
 End Class

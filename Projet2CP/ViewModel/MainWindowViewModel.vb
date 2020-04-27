@@ -68,8 +68,10 @@ Public Class MainWindowViewModel
     Private Sub AddEtudiantView(ByVal o As Etudiant)
         Dim e As EtudiantParcours
         e = Repository.paracours_etudiant(o)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
-        AddWorkspace(workspace)
+        If Not e Is Nothing Then
+            Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
+            AddWorkspace(workspace)
+        End If
     End Sub
 
     Private Sub OpenSettings(ByVal o As Object)

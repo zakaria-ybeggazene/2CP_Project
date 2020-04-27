@@ -74,6 +74,8 @@ Public Class Util
                 niv = Projet2CP.Niveau.SI3
             Case "SIQ3"
                 niv = Projet2CP.Niveau.SIQ3
+            Case "CS3"
+                niv = Projet2CP.Niveau.CS3
             Case Else
         End Select
         Return niv
@@ -153,6 +155,27 @@ Public Class Util
             Return 0
         Else
             Return o
+        End If
+    End Function
+
+    Public Shared Function compareAnneEtude(ByVal x As AnneeEtude, ByVal y As AnneeEtude) As Integer
+        If x.Niveau <> y.Niveau Then
+            Return x.AnnetIn.CompareTo(y.AnnetIn)
+        Else
+            Dim a As Integer = x.Annee
+            Dim b As Integer = y.Annee
+            If a > 60 Then
+                a += 1900
+            Else
+                a += 2000
+            End If
+            If b > 60 Then
+                b += 1900
+            Else
+                b += 2000
+            End If
+
+            Return a.CompareTo(b)
         End If
     End Function
 
