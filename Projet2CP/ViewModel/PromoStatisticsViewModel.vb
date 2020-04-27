@@ -21,6 +21,15 @@ Public Class PromoStatisticsViewModel
         _promotion = obj
         If Not obj Is Nothing Then
             'initialiser les combo box
+            Dim a As Integer = CType(obj, Promotion).Annee
+            If a > 60 Then
+                Annee = a.ToString.Insert(0, "19")
+            ElseIf a < 10 Then
+                Annee = a.ToString.Insert(0, "200")
+            Else
+                Annee = a.ToString.Insert(0, "20")
+            End If
+            Niveau = CType(obj, Promotion).NiveauP.ToString
         End If
         displayStatistics()
     End Sub

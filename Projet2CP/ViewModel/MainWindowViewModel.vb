@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Public Class MainWindowViewModel
     Inherits ViewModelBase
+    Private _closeWindow As Action
     Private _workspaces As ObservableCollection(Of WorkspaceViewModel)
     Property Workspaces As ObservableCollection(Of WorkspaceViewModel)
         Get
@@ -30,10 +31,10 @@ Public Class MainWindowViewModel
         End Set
     End Property
 
-    Public Sub New()
+    Public Sub New(ByVal closeWindow As Action)
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
-
+        _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
@@ -72,8 +73,13 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub OpenSettings(ByVal o As Object)
-        Dim settingsWindow As Settings = New Settings
-        settingsWindow.Show()
+        If Repository.admin = True Then
+            Dim settingsWindow As Settings = New Settings
+            Settings._closeWindow = _closeWindow
+            settingsWindow.Show()
+        Else
+            MsgBox("Connectez-vous en tant qu'administrateur pour accéder aux Réglages", MsgBoxStyle.Information)
+        End If
     End Sub
 
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)

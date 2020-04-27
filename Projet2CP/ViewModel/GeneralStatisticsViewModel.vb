@@ -9,9 +9,6 @@ Public Class GeneralStatisticsViewModel
 
         _stats = New GeneralStatistics()
 
-        If Not obj Is Nothing Then
-            'initialiser les combo box
-        End If
         'Nombre Etudiants Stats Initializing
         DistributionCollection = New LiveCharts.SeriesCollection From {
                 New StackedColumnSeries With {
