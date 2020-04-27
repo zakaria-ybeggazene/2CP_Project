@@ -83,4 +83,17 @@
     Private Sub cbTest_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles SexeCB.SelectionChanged
 
     End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles Button2.Click
+        MatriculeTB.Text = ""
+        PrenomfrTB.Text = ""
+        PrenomATB.Text = ""
+        NomfrTB.Text = ""
+        NomATB.Text = ""
+        LieuNaisTB.Text = ""
+        WilayaNaisTB.Text = ""
+        PromoTB.Text = ""
+        SexeCB.SelectedIndex = 0
+        Datenaiss.SelectedDate = Nothing
+    End Sub
 End Class

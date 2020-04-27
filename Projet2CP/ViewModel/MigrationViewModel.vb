@@ -162,30 +162,14 @@ Public Class MigrationViewModel
         cmd.ExecuteNonQuery()
         conn.Close()
         connAccess.Close()
-        setUserPassword("np", userpwd)
+        dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & dbPath & ";Mode=Share Exclusive"
+        connAccess = New System.Data.OleDb.OleDbConnection(dbConnString)
+        cmdAccess.Connection = connAccess
+        connAccess.Open()
+        cmdAccess.CommandText = "ALTER DATABASE PASSWORD " & Util.GetHash(userpwd).Substring(0, 14) & " NULL"
+        cmdAccess.ExecuteNonQuery()
+        connAccess.Close()
         percent = 100
         MsgBox("Successfully done !" & vbCrLf & "Excecution time : " & Timer - start & " seconds")
-    End Sub
-
-    Public Shared Sub setUserPassword(ByVal oldpwd As String, ByVal newpwd As String)
-        Try
-            If oldpwd = "np" Then
-                Dim db As Object
-                db = CreateObject("Access.Application")
-                db.OpenCurrentDatabase(My.Computer.FileSystem.CurrentDirectory & "\db.accdb", True)
-                db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(newpwd).Substring(0, 14) & " NULL")
-                db.CloseCurrentDatabase()
-                db.Quit()
-            Else
-                Dim db As Object
-                db = CreateObject("Access.Application")
-                db.OpenCurrentDatabase(My.Computer.FileSystem.CurrentDirectory & "\db.accdb", True, Util.GetHash(oldpwd).Substring(0, 14))
-                db.CurrentProject.Connection.Execute("ALTER DATABASE PASSWORD " & Util.GetHash(newpwd).Substring(0, 14) & " " & Util.GetHash(oldpwd).Substring(0, 14) & "")
-                db.CloseCurrentDatabase()
-                db.Quit()
-            End If
-        Catch ex As Exception
-            MsgBox("Wrong Password")
-        End Try
     End Sub
 End Class

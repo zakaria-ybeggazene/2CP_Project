@@ -25,27 +25,31 @@
     End Sub
     Private modeModif As Boolean = False
     Private Sub Modifierbutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Modifierbutton.Click
-        NomfrTB.IsReadOnly = False
-        NomATB.IsReadOnly = False
-        PrenomfrTB.IsReadOnly = False
-        PrenomATB.IsReadOnly = False
-        LieuNais.IsReadOnly = False
-        Wilaya.IsReadOnly = False
-        DateNais.IsEnabled = True
-        Adresse.IsReadOnly = False
-        Ville.IsReadOnly = False
-        wilayaNais.IsReadOnly = False
-        codePostale.IsReadOnly = False
-        nomPere.IsReadOnly = False
-        nomMere.IsReadOnly = False
-        Sexecb.IsEnabled = True
-        modeModif = True
-        Savebutton.Visibility = Windows.Visibility.Visible
-        Modifierbutton.Visibility = Windows.Visibility.Hidden
-        releve.IsEnabled = False
-        releve_glob.IsEnabled = False
-        Attestation.IsEnabled = False
-        Validite()
+        If Repository.admin Then
+            NomfrTB.IsReadOnly = False
+            NomATB.IsReadOnly = False
+            PrenomfrTB.IsReadOnly = False
+            PrenomATB.IsReadOnly = False
+            LieuNais.IsReadOnly = False
+            Wilaya.IsReadOnly = False
+            DateNais.IsEnabled = True
+            Adresse.IsReadOnly = False
+            Ville.IsReadOnly = False
+            wilayaNais.IsReadOnly = False
+            codePostale.IsReadOnly = False
+            nomPere.IsReadOnly = False
+            nomMere.IsReadOnly = False
+            Sexecb.IsEnabled = True
+            modeModif = True
+            Savebutton.Visibility = Windows.Visibility.Visible
+            Modifierbutton.Visibility = Windows.Visibility.Hidden
+            releve.IsEnabled = False
+            releve_glob.IsEnabled = False
+            Attestation.IsEnabled = False
+            Validite()
+        Else
+            MsgBox("Connectez-vous en tant qu'administrateur pour pouvoir modifier", MsgBoxStyle.Information)
+        End If
     End Sub
 
 

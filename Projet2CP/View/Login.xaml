@@ -13,5 +13,6 @@
         </Grid>
         <Button Style="{DynamicResource RoundCorner}" Name="Login" Content="Login" Margin="0,262,158,0" Foreground="White" FontSize="28" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="144" VerticalAlignment="Top" Height="40" ClickMode="Release" Cursor="Hand">
         </Button>
+        <Label Content="Le mot de passe saisi est incorrecte" FontSize="12" Foreground="Red" Height="26" HorizontalContentAlignment="Center" Margin="712,308,112,0" Name="wrongPasswordLabel" VerticalAlignment="Top" Visibility="Hidden" Width="Auto" />
     </Grid>
 </Window>

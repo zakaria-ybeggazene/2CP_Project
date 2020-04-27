@@ -41,15 +41,27 @@
         list.Add("2011")
         AnneeCB.ItemsSource = list
     End Sub
-    Private Sub Openbutton_Click(sender As System.Object, e As System.Windows.RoutedEventArgs)
-
-    End Sub
 
     Private Sub Filter_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Filter.Click
-
+        If AnneeCB.SelectedIndex <> 0 Then
+            If NiveauCB.SelectedIndex <> 0 Then
+                statButton.IsEnabled = True
+                statButton.Opacity = 1
+            End If
+        End If
     End Sub
 
     Private Sub AnneeCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles AnneeCB.SelectionChanged
+        statButton.IsEnabled = False
+        statButton.Opacity = 0.5
+    End Sub
+    Private Sub NiveauCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles NiveauCB.SelectionChanged
+        statButton.IsEnabled = False
+        statButton.Opacity = 0.5
+    End Sub
 
+    Private Sub Button2_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles Button2.Click
+        AnneeCB.SelectedIndex = 0
+        NiveauCB.SelectedIndex = 0
     End Sub
 End Class

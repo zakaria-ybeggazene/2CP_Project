@@ -25,7 +25,7 @@ Public Class ImportFiles
 
         Try
             Me.ForceCursor = True
-            Me.Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             filePath = ParcourirButtonClicked()
             Mouse.SetCursor(Cursors.Wait)
             If filePath <> "" Then
@@ -35,20 +35,19 @@ Public Class ImportFiles
                 verify(filePath, 1)
                 If ins = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "Select NOTE File"
+                    file.Content = "SELECT NOTE FILE:"
                 End If
             ElseIf notes = False Then
                 verify(filePath, 2)
                 If notes = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "Select MATIERE File"
+                    file.Content = "SELECT MATIERE FILE:"
                 End If
             ElseIf mat = False Then
                 verify(filePath, 3)
                 If mat = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "Select RATTRAPAGE File"
-                    file.FontSize = 16
+                    file.Content = "SELECT RATTRAPAGE FILE:"
                 End If
             ElseIf rattrap = False Then
                 verify(filePath, 4)
@@ -64,8 +63,7 @@ Public Class ImportFiles
         Catch ex As Exception
             MsgBox("Enter a valid path")
         Finally
-            Me.Cursor = Cursors.Arrow
-            Mouse.SetCursor(Cursors.Arrow)
+            Mouse.OverrideCursor = Nothing
         End Try
     End Sub
 

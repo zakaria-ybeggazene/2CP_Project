@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Public Class MainWindowViewModel
     Inherits ViewModelBase
+    Private _closeWindow As Action
     Private _workspaces As ObservableCollection(Of WorkspaceViewModel)
     Property Workspaces As ObservableCollection(Of WorkspaceViewModel)
         Get
@@ -30,16 +31,17 @@ Public Class MainWindowViewModel
         End Set
     End Property
 
-    Public Sub New()
+    Public Sub New(ByVal closeWindow As Action)
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
-
+        _closeWindow = closeWindow
+        _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         _commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.AddStatisticsView))})
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
@@ -70,11 +72,39 @@ Public Class MainWindowViewModel
         AddWorkspace(workspace)
     End Sub
 
+    Private Sub OpenSettings(ByVal o As Object)
+        If Repository.admin = True Then
+            Dim settingsWindow As Settings = New Settings
+            Settings._closeWindow = _closeWindow
+            settingsWindow.Show()
+        Else
+            MsgBox("Connectez-vous en tant qu'administrateur pour accéder aux Réglages", MsgBoxStyle.Information)
+        End If
+    End Sub
+
+    Private Sub OpenAdminLogin(ByVal o As Object)
+            Dim AdminWindow As Admin = New Admin
+            Admin._closeWindow = _closeWindow
+            AdminWindow.Show()
+    End Sub
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
         selectedIndex = Workspaces.Count
         _workspaces.Add(workspace)
+    End Sub
+
+    Private _helpCommand As ICommand
+    Public Property HelpCommand As ICommand
+        Get
+            Return _helpCommand
+        End Get
+        Set(ByVal value As ICommand)
+            _helpCommand = value
+        End Set
+    End Property
+    Private Sub OpenHelp()
+        Process.Start("file:///" & IO.Path.GetFullPath("..\..\index.html"))
     End Sub
 
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)

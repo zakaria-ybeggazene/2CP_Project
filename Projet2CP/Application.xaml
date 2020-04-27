@@ -39,6 +39,114 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="Delete" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="17"  BorderThickness="0">
+                                <Border.Background>
+
+                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                        <GradientStop Color="#d8031c" Offset="0" />
+
+                                    </LinearGradientBrush>
+
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          >
+                                </ContentPresenter>
+                            </Border>
+
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#1168BF" />
+                    <Setter Property="Opacity" Value="0.5" />
+                    <Setter Property="Foreground" Value="#FF123456" />
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Save" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="17"  BorderThickness="0">
+                                <Border.Background>
+
+                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                        <GradientStop Color="#0FDDAF" Offset="0" />
+
+                                    </LinearGradientBrush>
+
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          >
+                                </ContentPresenter>
+                            </Border>
+
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#1168BF" />
+                    <Setter Property="Opacity" Value="0.5" />
+                    <Setter Property="Foreground" Value="#FF123456" />
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Settings" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="25"  BorderThickness="0">
+                                <Border.Background>
+
+                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                        <GradientStop Color="#00878E" Offset="0" />
+
+                                    </LinearGradientBrush>
+
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          >
+                                </ContentPresenter>
+                            </Border>
+
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#1168BF" />
+                    <Setter Property="Opacity" Value="0.5" />
+                    <Setter Property="Foreground" Value="#FF123456" />
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -115,6 +223,20 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="HelpStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
 
     </Application.Resources>
 </Application>
