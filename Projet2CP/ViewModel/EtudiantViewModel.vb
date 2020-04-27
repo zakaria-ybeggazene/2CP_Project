@@ -12,7 +12,17 @@
         ElseIf e.Sexe = 2 Then
             Me._sexe = "Féminin"
         End If
-        _parcours = _etudiant.Parcours
+        _parcours = New List(Of AnneeEtude)
+        For Each a As AnneeEtude In _etudiant.Parcours
+            If a.Annee >= 88 Then
+                _parcours.Add(a)
+            End If
+        Next
+        For Each a As AnneeEtude In _etudiant.Parcours
+            If a.Annee < 88 Then
+                _parcours.Add(a)
+            End If
+        Next
         _nom = _etudiant.Nom
         _prenom = _etudiant.Prenom
         _nomA = _etudiant.NomA
