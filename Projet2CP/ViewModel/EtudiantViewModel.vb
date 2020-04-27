@@ -23,6 +23,7 @@
                 _parcours.Add(a)
             End If
         Next
+        _etudiant.Parcours = _parcours
         _nom = _etudiant.Nom
         _prenom = _etudiant.Prenom
         _nomA = _etudiant.NomA
