@@ -63,8 +63,8 @@ Public Class Repository
 
         Else
             sqlCommand = "SELECT ETUDIANT.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
-                                           & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ANNEEBAC, " _
-                                           & "SERIEBAC, MOYBAC, WILBAC, ETUDE.ANNEE FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
+                                           & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ETUDIANT.ANNEEBAC, " _
+                                           & "ETUDIANT.SERIEBAC, ETUDIANT.MOYBAC, ETUDIANT.WILBAC, ETUDE.ANNEE FROM ETUDIANT INNER JOIN ETUDE ON ETUDE.MATRICULE = ETUDIANT.MATRICULE "
         End If
 
         If matricule <> "" Then
@@ -170,9 +170,7 @@ Public Class Repository
                 etudiants.Add(etudiant)
             End If
         Loop
-
         dr.Close()
-
         Return etudiants
     End Function
 
@@ -183,7 +181,7 @@ Public Class Repository
 
         sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN, NbInscrits " _
                     & "FROM ETUDE INNER JOIN PROMO ON PROMO.ANNEE = ETUDE.ANNEE AND PROMO.OPTIIN = ETUDE.OPTIIN AND PROMO.ANETIN = ETUDE.ANETIN " _
-                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN ASC;"
+                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN, ETUDE.ANNEE ASC;"
 
 
         Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
@@ -219,7 +217,7 @@ Public Class Repository
                                       .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
                                       .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
                                       .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
-                                      .Eliminatoire = Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
+                                      .Eliminatoire = Util.dbNullToString(Not (dr.Item("ElimNo")).Equals("0"))}
 
                 notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), a.Niveau), n)
             Loop
@@ -264,7 +262,11 @@ Public Class Repository
                                               .Ville = etudiant.Ville,
                                               .Wilaya = etudiant.Wilaya,
                                               .Sexe = etudiant.Sexe,
-                                              .WilayaNaisA = etudiant.WilayaNaisA}
+                                              .WilayaNaisA = etudiant.WilayaNaisA,
+                                              .MoyenneBac = etudiant.MoyenneBac,
+                                              .AnneeBac = etudiant.AnneeBac,
+                                              .SerieBac = etudiant.SerieBac,
+                                              .WilayaBac = etudiant.WilayaBac}
         etudiantP.Parcours = parcours
 
         Return etudiantP
