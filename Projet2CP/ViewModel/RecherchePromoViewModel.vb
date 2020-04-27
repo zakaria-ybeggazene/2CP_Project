@@ -32,7 +32,10 @@
             Cursor = Cursors.Wait
         End Try
     End Sub
-
+    Public Sub reset()
+        ListeEtuds = Nothing
+        ListeMatieres = Nothing
+    End Sub
     'Recherche command
     Public _rechCommand As New RelayCommand(AddressOf recherche)
     Public ReadOnly Property RechCommand As ICommand
@@ -40,7 +43,12 @@
             Return _rechCommand
         End Get
     End Property
-
+    Public _resetCommand As New RelayCommand(AddressOf Reset)
+    Public ReadOnly Property ResetCommand As ICommand
+        Get
+            Return _resetCommand
+        End Get
+    End Property
     'Properties
     Public Property Annee() As String
         Get
