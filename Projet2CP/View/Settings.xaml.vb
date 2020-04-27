@@ -20,6 +20,7 @@
         Else
             shortPassword1.Visibility = Windows.Visibility.Hidden
         End If
+        samePasswordU.Visibility = Windows.Visibility.Hidden
     End Sub
 
     Private Sub NewPassword_PasswordChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles NewPassword.PasswordChanged, NewadPassword.PasswordChanged
@@ -33,6 +34,7 @@
         Else
             shortPassword2.Visibility = Windows.Visibility.Hidden
         End If
+        samePasswordU.Visibility = Windows.Visibility.Hidden
     End Sub
 
     Private Sub UserPasswordClosebutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles UserPasswordClosebutton.Click
@@ -51,6 +53,7 @@
         Else
             shortPassword3.Visibility = Windows.Visibility.Hidden
         End If
+        samePassword.Visibility = Windows.Visibility.Hidden
     End Sub
 
     Private Sub NewadPassword_PasswordChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles NewadPassword.PasswordChanged, NewPassword.PasswordChanged
@@ -64,6 +67,7 @@
         Else
             shortPassword4.Visibility = Windows.Visibility.Hidden
         End If
+        samePassword.Visibility = Windows.Visibility.Hidden
     End Sub
 
     Private Sub AdminPasswordClosebutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles AdminPasswordClosebutton.Click
@@ -74,9 +78,13 @@
     Private Sub Modifier_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Modifier.Click
         If Password.Password.Length <> 0 And NewPassword.Password.Length <> 0 Then
             If shortPassword1.Visibility = Windows.Visibility.Hidden And shortPassword2.Visibility = Windows.Visibility.Hidden Then
-                Repository.setUserPassword(Password.Password, NewPassword.Password)
-                Password.Password = ""
-                NewPassword.Password = ""
+                If Password.Password <> NewPassword.Password Then
+                    Repository.setUserPassword(Password.Password, NewPassword.Password)
+                    Password.Password = ""
+                    NewPassword.Password = ""
+                Else
+                    samePasswordU.Visibility = Windows.Visibility.Visible
+                End If
             End If
         End If
     End Sub
@@ -84,9 +92,13 @@
     Private Sub ModifierAdmin_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ModifierAdmin.Click
         If AdPassword.Password.Length <> 0 And NewadPassword.Password.Length <> 0 Then
             If shortPassword3.Visibility = Windows.Visibility.Hidden And shortPassword4.Visibility = Windows.Visibility.Hidden Then
-                Repository.setAdminPassword(AdPassword.Password, NewadPassword.Password)
-                AdPassword.Password = ""
-                NewadPassword.Password = ""
+                If AdPassword.Password <> NewadPassword.Password Then
+                    Repository.setAdminPassword(AdPassword.Password, NewadPassword.Password)
+                    AdPassword.Password = ""
+                    NewadPassword.Password = ""
+                Else
+                    samePassword.Visibility = Windows.Visibility.Visible
+                End If
             End If
         End If
     End Sub

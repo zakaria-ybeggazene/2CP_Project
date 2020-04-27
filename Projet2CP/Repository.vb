@@ -3,7 +3,7 @@
 Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
-    Public Shared admin As Boolean = True
+    Public Shared admin As Boolean = False
     Public Shared userpwd As String
 
     Public Shared Sub initialiser(ByVal password As String)
@@ -717,9 +717,6 @@ Public Class Repository
         oledbReader.Read()
         If StrComp(Trim(oledbReader.Item("MotDePasse").ToString), password) = 0 Then
             admin = True
-            MsgBox("Authenticated As Admin")
-        Else
-            MsgBox("Wrong Password Try Again")
         End If
         oledbReader.Close()
         cmdAccess.Dispose()
