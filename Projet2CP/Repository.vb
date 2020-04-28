@@ -15,6 +15,7 @@ Public Class Repository
         End Set
     End Property
     Public Shared Event AdminStateChanged(ByVal adminState As Boolean)
+
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String

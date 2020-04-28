@@ -37,12 +37,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
-        _commands = New ObservableCollection(Of CommandViewModel)({
-            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
-            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+        setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
 
@@ -50,19 +45,17 @@ Public Class MainWindowViewModel
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         If isAdmin = True Then
-            MsgBox("done")
-            _commands = New ObservableCollection(Of CommandViewModel)({
+            Commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
             New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
             New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout))})
         Else
-            _commands = New ObservableCollection(Of CommandViewModel)({
+            Commands = New ObservableCollection(Of CommandViewModel)({
             New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
             New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
             New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
         End If
     End Sub
