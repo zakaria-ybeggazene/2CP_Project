@@ -329,17 +329,17 @@ Public Class CrystalReports
 
         Select Case promotion.NiveauP
             Case Niveau.TRC1
-                row("Niveau") = "1ère année INGENIEUR   Option : TRONC COMMUN"
+                row("Niveau") = "1ère année INGENIEUR - TRC"
             Case Niveau.TRC2
-                row("Niveau") = "2ème année INGENIEUR   Option : TRONC COMMUN"
+                row("Niveau") = "2ème année INGENIEUR - TRC"
             Case Niveau.SI1
-                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+                row("Niveau") = "3ème année INGENIEUR - SI"
             Case Niveau.SIQ1
-                row("Niveau") = "3ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+                row("Niveau") = "3ème année INGENIEUR - SIQ"
             Case Niveau.SI2
-                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES D'INFORMATION"
+                row("Niveau") = "4ème année INGENIEUR - SI"
             Case Niveau.SIQ2
-                row("Niveau") = "4ème année INGENIEUR   Option : SYSTÈMES INFORMATIQUES"
+                row("Niveau") = "4ème année INGENIEUR - SIQ"
             Case Else
         End Select
         row("Annee") = Util.GetAnneeUniv(promotion.Annee.ToString)

@@ -113,7 +113,12 @@
     <Compile Include="CrystalReports\EtudiantDS.vb">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReports\PvDelibDS.Designer.vb" />
+    <Compile Include="CrystalReports\PvDelibDS.designer.vb">
+      <DependentUpon>PvDelibDS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\PvDelibDS.vb">
+      <DependentUpon>PvDelibDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReports\PvDelibReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -315,7 +320,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\PvDelibReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PvDelibReport1.vb</LastGenOutput>
+      <LastGenOutput>PvDelibReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\ReleveGlobalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -487,5 +492,6 @@
   <ItemGroup>
     <Resource Include="Images\2810878%402x.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
