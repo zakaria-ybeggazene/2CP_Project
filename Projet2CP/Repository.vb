@@ -2,10 +2,19 @@
 
 Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
-
-    Public Shared admin As Boolean = False
     Public Shared userpwd As String
 
+    Private Shared _admin As Boolean = False
+    Public Shared Property admin
+        Get
+            Return _admin
+        End Get
+        Set(ByVal value)
+            _admin = value
+            RaiseEvent AdminStateChanged(value)
+        End Set
+    End Property
+    Public Shared Event AdminStateChanged(ByVal adminState As Boolean)
     Public Shared Sub initialiser(ByVal password As String)
         'initialiser la connexion avec la bdd
         Dim dbConnString As String

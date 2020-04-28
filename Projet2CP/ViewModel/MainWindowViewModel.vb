@@ -18,6 +18,7 @@ Public Class MainWindowViewModel
         End Get
         Set(ByVal value As ObservableCollection(Of CommandViewModel))
             _commands = value
+            OnPropertyChanged("Commands")
         End Set
     End Property
     Private _selectedIndex As Integer = 0
@@ -42,6 +43,28 @@ Public Class MainWindowViewModel
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
             New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
             New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+        AddHandler Repository.AdminStateChanged, AddressOf Me.setList
+    End Sub
+
+    Public Sub setList(ByVal isAdmin As Boolean)
+        _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
+        _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
+        If isAdmin = True Then
+            MsgBox("done")
+            _commands = New ObservableCollection(Of CommandViewModel)({
+            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
+            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
+            New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout))})
+        Else
+            _commands = New ObservableCollection(Of CommandViewModel)({
+            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
+            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+        End If
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
@@ -83,9 +106,9 @@ Public Class MainWindowViewModel
     End Sub
 
     Private Sub OpenAdminLogin(ByVal o As Object)
-            Dim AdminWindow As Admin = New Admin
-            Admin._closeWindow = _closeWindow
-            AdminWindow.Show()
+        Dim AdminWindow As Admin = New Admin
+        Admin._closeWindow = _closeWindow
+        AdminWindow.Show()
     End Sub
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
