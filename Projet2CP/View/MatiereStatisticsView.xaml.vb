@@ -9,14 +9,12 @@
         list.Add("SIQ1")
         list.Add("SI2")
         list.Add("SIQ2")
-        list.Add("SI3")
-        list.Add("SIQ3")
         NiveauCB.ItemsSource = list
         NiveauCB.SelectedItem = "Niveau"
     End Sub
     Private Sub AnneecomboBox_Loaded()
         Dim list As New List(Of String)
-        list.Add("Matiere")
+        list.Add("Matière")
         If NiveauCB.SelectedItem <> "Niveau" Then
             For Each Mat As Matiere In Matiere.Matieres
                 If Util.stringToNiveau(NiveauCB.SelectedItem) = Mat.NiveauM Then
@@ -24,7 +22,8 @@
                 End If
             Next
         End If
-        Matieres.ItemsSource = list
+        Matieres.ItemsSource = list.Distinct.ToList
+        Matieres.SelectedItem = "Matière"
     End Sub
     Private Sub AnneeCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles NiveauCB.SelectionChanged
         AnneecomboBox_Loaded()
