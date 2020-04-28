@@ -109,6 +109,7 @@
             <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Left"  Name="Modifier" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="127" Margin="260,264,0,0" />
             <Label Content="*Mot de passe très court" Height="28" HorizontalAlignment="Left" Margin="204,153,0,0" Name="shortPassword1" VerticalAlignment="Top" Width="150" Foreground="#FFFF0A0A" Visibility="Hidden" />
             <Label Content="*Mot de passe très court" Foreground="#FFFF0A0A" Height="28" HorizontalAlignment="Left" Margin="204,223,0,0" Name="shortPassword2" VerticalAlignment="Top" Visibility="Hidden" Width="150" />
+            <Label Content="*Le mot de passe n'a pas été changé" Foreground="Red" Height="34" HorizontalAlignment="Left" Margin="204,223,0,0" Name="samePasswordU" VerticalAlignment="Top" Visibility="Hidden" Width="295" />
         </Grid>
         <Grid Height="361" HorizontalAlignment="Right" Name="AdminPassword" VerticalAlignment="Top" Width="0" Background="#030c54" >
             <Button Width="45" Background="{x:Null}" Margin="572,46,39,285" Name="AdminPasswordClosebutton" BorderThickness="0" Cursor="Hand">
@@ -127,6 +128,7 @@
             <Button BorderThickness="0"  ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="31" HorizontalAlignment="Left"  Name="ModifierAdmin" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="127" Margin="260,258,0,0" />
             <Label Content="*Mot de passe trés court" Height="34" HorizontalAlignment="Left" Margin="204,153,0,0" Name="shortPassword3" VerticalAlignment="Top" Width="148" Foreground="Red" Visibility="Hidden" />
             <Label Content="*Mot de passe trés court" Foreground="Red" Height="34" HorizontalAlignment="Left" Margin="204,223,0,0" Name="shortPassword4" VerticalAlignment="Top" Width="148" Visibility="Hidden" />
+            <Label Content="*Le mot de passe n'a pas été changé" Foreground="Red" Height="34" HorizontalAlignment="Left" Margin="204,223,0,0" Name="samePassword" VerticalAlignment="Top" Visibility="Hidden" Width="295" />
         </Grid>
         <Grid Height="0" HorizontalAlignment="Left" Name="Bdd" VerticalAlignment="Bottom" Width="664" Background="#086B88" >
             <Label Content="Base de donées" Height="40" HorizontalAlignment="Left" Margin="37,45,0,0" Name="bddlabel" VerticalAlignment="Top" Width="183" Foreground="White" FontSize="20" FontFamily="Montserrat" FontWeight="SemiBold" />

@@ -3,7 +3,7 @@
 Public Class Repository
     Private Shared _connection As New System.Data.OleDb.OleDbConnection()
 
-    Public Shared admin As Boolean = True
+    Public Shared admin As Boolean = False
     Public Shared userpwd As String
 
     Public Shared Sub initialiser(ByVal password As String)
@@ -67,7 +67,6 @@ Public Class Repository
                 sqlCommand = "SELECT MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais, LieuNaisA, " _
                                         & "Lieunais, WilayaNaisA, Adresse, Ville, Wilaya, CodPost, Sexe, Fils_de, Et_de, " _
                                         & "ANNEEBAC, SERIEBAC, MOYBAC, WILBAC FROM ETUDIANT "
-
             Else
                 sqlCommand = "SELECT ETUDIANT.MATRICULE ,Matric_ins ,NomEtud , Prenoms ,NomEtudA ,PrenomsA ,DateNais,LieuNaisA , " _
                                                & "Lieunais ,WilayaNaisA,Adresse ,Ville ,Wilaya ,CodPost ,Sexe ,Fils_de ,Et_de, ANNEEBAC, " _
@@ -149,6 +148,7 @@ Public Class Repository
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
             Dim dr As System.Data.OleDb.OleDbDataReader
 
+
             dr = cmd.ExecuteReader()
 
             Dim etudiant As Etudiant
@@ -183,7 +183,7 @@ Public Class Repository
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
-        End Try   
+        End Try
     End Function
 
     Public Shared Function paracours_etudiant(ByVal etudiant As Etudiant) As Etudiant
@@ -196,9 +196,8 @@ Public Class Repository
             Dim sqlCommand As String
 
             sqlCommand = "SELECT MATRICULE, ETUDE.ANNEE, ETUDE.OPTIIN, ETUDE.ANETIN, ETUDE.CycIN , NumGrp , NumScn, Moyenne, RangIN , MentIN, ElimIN, RatIN, DECIIN, NbInscrits " _
-                        & "FROM ETUDE INNER JOIN PROMO ON PROMO.ANNEE = ETUDE.ANNEE AND PROMO.OPTIIN = ETUDE.OPTIIN AND PROMO.ANETIN = ETUDE.ANETIN " _
-                        & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN ASC;"
-
+                    & "FROM ETUDE INNER JOIN PROMO ON PROMO.ANNEE = ETUDE.ANNEE AND PROMO.OPTIIN = ETUDE.OPTIIN AND PROMO.ANETIN = ETUDE.ANETIN " _
+                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' ORDER BY ETUDE.ANETIN, ETUDE.ANNEE ASC;"
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
             Dim dr As System.Data.OleDb.OleDbDataReader
@@ -233,7 +232,7 @@ Public Class Repository
                                           .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
                                           .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
                                           .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
-                                          .Eliminatoire = Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
+                                          .Eliminatoire = Util.dbNullToString(Not (dr.Item("ElimNo")).Equals("0"))}
 
                     notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), a.Niveau), n)
                 Loop
@@ -264,28 +263,32 @@ Public Class Repository
             Next
 
             Dim etudiantP As EtudiantParcours = New EtudiantParcours With {.Adresse = etudiant.Adresse,
-                                                  .CodePostal = etudiant.CodePostal,
-                                                  .DateNais = etudiant.DateNais,
-                                                  .LieuNais = etudiant.LieuNais,
-                                                  .LieuNaisA = etudiant.LieuNaisA,
-                                                  .Matricule = etudiant.Matricule,
-                                                  .Nom = etudiant.Nom,
-                                                  .NomA = etudiant.NomA,
-                                                  .NomMere = etudiant.NomMere,
-                                                  .Prenom = etudiant.Prenom,
-                                                  .PrenomA = etudiant.PrenomA,
-                                                  .PrenomPere = etudiant.PrenomPere,
-                                                  .Ville = etudiant.Ville,
-                                                  .Wilaya = etudiant.Wilaya,
-                                                  .Sexe = etudiant.Sexe,
-                                                  .WilayaNaisA = etudiant.WilayaNaisA}
+                                              .CodePostal = etudiant.CodePostal,
+                                              .DateNais = etudiant.DateNais,
+                                              .LieuNais = etudiant.LieuNais,
+                                              .LieuNaisA = etudiant.LieuNaisA,
+                                              .Matricule = etudiant.Matricule,
+                                              .Nom = etudiant.Nom,
+                                              .NomA = etudiant.NomA,
+                                              .NomMere = etudiant.NomMere,
+                                              .Prenom = etudiant.Prenom,
+                                              .PrenomA = etudiant.PrenomA,
+                                              .PrenomPere = etudiant.PrenomPere,
+                                              .Ville = etudiant.Ville,
+                                              .Wilaya = etudiant.Wilaya,
+                                              .Sexe = etudiant.Sexe,
+                                              .WilayaNaisA = etudiant.WilayaNaisA,
+                                              .MoyenneBac = etudiant.MoyenneBac,
+                                              .AnneeBac = etudiant.AnneeBac,
+                                              .SerieBac = etudiant.SerieBac,
+                                              .WilayaBac = etudiant.WilayaBac}
             etudiantP.Parcours = parcours
 
             Return etudiantP
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
-        End Try    
+        End Try
     End Function
 
     Public Shared Function recherche_promo(ByVal niveau As Niveau, ByVal annee As String) As Promotion
@@ -409,7 +412,6 @@ Public Class Repository
                 Do While dr.Read
                     Dim matiere As Matiere = matiere.getMatiere(Util.dbNullToString(dr.Item("COMAMA")), niveau)
 
-                    'Zakaria : I got an exception here when I searched for Promo 2011 SI2 (item already exists)
                     moyenneMatiere.Add(matiere, Util.dbNullToDouble(dr.Item("MoyenneMA")))
                 Loop
                 dr.Close()
@@ -516,7 +518,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function nombreEtudiantsGeneral() As List(Of Object)
@@ -560,7 +562,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function nombreReussiteGeneral(ByVal niv As Niveau) As List(Of Object)
@@ -605,7 +607,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     Public Shared Function distributionBacheliers(ByVal annee As String) As Dictionary(Of String, Integer)
@@ -635,7 +637,7 @@ Public Class Repository
             MsgBox(ex.Message)
             Return Nothing
         End Try
-        
+
     End Function
 
     'ouvrir la base de données Access
@@ -653,8 +655,8 @@ Public Class Repository
 
     'supprimer la based de données
     Public Shared Sub deleteDB()
-            disposer()
-            Kill(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
+        disposer()
+        Kill(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
     End Sub
 
     'changer le mot de passe de l'utilisateur
@@ -705,7 +707,7 @@ Public Class Repository
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
-        
+
     End Sub
     'se connecter en tant qu'administrateur
     Public Shared Sub adminLogin(ByVal password As String)
@@ -717,12 +719,19 @@ Public Class Repository
         oledbReader.Read()
         If StrComp(Trim(oledbReader.Item("MotDePasse").ToString), password) = 0 Then
             admin = True
-            MsgBox("Authenticated As Admin")
-        Else
-            MsgBox("Wrong Password Try Again")
         End If
         oledbReader.Close()
         cmdAccess.Dispose()
+    End Sub
+
+    Public Shared Sub modifierEtudiant(ByVal etudiant As EtudiantParcours)
+        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+        cmdAccess.Connection = _connection
+        cmdAccess.CommandText = "UPDATE ETUDIANT " _
+                                & "SET NomEtud = '" & etudiant.Nom & "', Prenoms = '" & etudiant.Prenom & "', NomEtudA = '" & etudiant.NomA & "', PrenomsA = '" & etudiant.PrenomA & "', Sexe = " & etudiant.Sexe _
+                                & ", DateNais = '" & etudiant.DateNais & "', LieuNaisA = '" & etudiant.LieuNaisA & "', Lieunais = '" & etudiant.LieuNais & "', WilayaNaisA = '" & etudiant.WilayaNaisA & "', Adresse = '" & etudiant.Adresse & "', Ville = '" & etudiant.Ville & "', Wilaya = '" & etudiant.Wilaya & "', Fils_de = '" & etudiant.PrenomPere & "', Et_de = '" & etudiant.NomMere & "' " _
+                                & "WHERE MATRICULE = '" & etudiant.Matricule & "';"
+        cmdAccess.ExecuteNonQuery()
     End Sub
     'se deconnecter du mode administrateur
     Public Shared Sub adminLogout()
