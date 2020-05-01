@@ -10,7 +10,7 @@
         <ResourceDictionary Source="../Dictionary.xaml"/>
 
     </UserControl.Resources>
-
+<!-- view fixed , details icon added-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="66" />
