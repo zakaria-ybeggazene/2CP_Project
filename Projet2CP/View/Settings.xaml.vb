@@ -5,7 +5,7 @@
 
     End Sub
 
-    Private Sub Image4_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs) Handles Image4.ImageFailed
+    Private Sub Image4_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
 
     End Sub
 
@@ -104,12 +104,12 @@
     End Sub
 
     Private Sub showHide_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles showHide.Click
-        If showHide.Content = "Show" Then
+        If showHide.Content = "Afficher" Then
             dbPassword.Text = Repository.userpwd
-            showHide.Content = "Hide"
+            showHide.Content = "masquer"
         Else
-            dbPassword.Text = "Password here"
-            showHide.Content = "Show"
+            dbPassword.Text = "Mot de passe de la base de données"
+            showHide.Content = "Afficher"
         End If
     End Sub
 

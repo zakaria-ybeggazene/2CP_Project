@@ -42,8 +42,8 @@
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Afficher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
         </WrapPanel>
-        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></lvc:PieChart>
-        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+        <lvc:PieChart LegendLocation="Bottom" Hoverable="True" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="12,6,8,6"></lvc:PieChart>
+        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="13,8,12,12">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
                     <lvc:Axis.Separator>
@@ -55,7 +55,7 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter2}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2">
+        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1" Background="White" Margin="7,6,12,6" Tag="fdffffffffffffdfdsf">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels1}">
                     <lvc:Axis.Separator>
@@ -69,4 +69,3 @@
         </lvc:CartesianChart>
     </Grid>
 </UserControl>
-

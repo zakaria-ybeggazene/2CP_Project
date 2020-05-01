@@ -96,4 +96,8 @@
         SexeCB.SelectedIndex = 0
         Datenaiss.SelectedDate = Nothing
     End Sub
+
+    Private Sub Mygrid_SelectionChanged(sender As System.Object, e As System.Windows.Controls.SelectionChangedEventArgs) Handles Mygrid.SelectionChanged
+
+    End Sub
 End Class

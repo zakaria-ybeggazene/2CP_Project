@@ -1,18 +1,17 @@
 ﻿<Window x:Class="LoginWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Historique ESI" Height="554" Width="1080" ResizeMode="noResize">
+    Title="Historique ESI" Height="554" Width="1080" ResizeMode="noResize" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Image Stretch="Fill"  Name="Image1" VerticalAlignment="Top" Source="/Projet2CP;component/Images/Login%20Page.png" />
-        <Label Content="User " Height="60" HorizontalAlignment="Right" Margin="0,121,238,0" Name="Label1" VerticalAlignment="Top" Width="100" Foreground="#FF123456" FontSize="36" FontFamily="Montserrat" FontWeight="SemiBold" HorizontalContentAlignment="Center" />
-        <Label Content="Login" Height="60" HorizontalAlignment="Right" Margin="0,121,137,0" Name="Label2" VerticalAlignment="Top" FontSize="36" FontFamily="Montserrat" Width="114" Foreground="#FF123456" FontWeight="Light" HorizontalContentAlignment="Center" />
-        <Grid  HorizontalAlignment="right" VerticalAlignment="top"  Height="40" Background="White" Margin="0,205,93,0" Width="280" >
-            <Label FontFamily="Montserrat" HorizontalAlignment="right" BorderThickness="0" VerticalAlignment="top" Name="userPasswordHint" Foreground="#123456" Opacity="0.5" FontSize="18" Width="261" Height="40" VerticalContentAlignment="Center" Background="#00000000">User Password</Label>
-            <PasswordBox HorizontalAlignment="right" BorderThickness="0" VerticalAlignment="top" Background="Transparent" PasswordChanged="userPassword_PasswordChanged" x:Name="userPassword" FontFamily="Helvetica" FontWeight="Light" FontSize="20" FontStyle="Normal" Width="261" Height="40" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
-            <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" HorizontalAlignment="Right" Margin="0,39,8,0" Name="Border1" VerticalAlignment="Top" Width="260" />
+        <Label Content="Utilisateur" Height="48" HorizontalAlignment="Right" Margin="0,105,139,0" Name="Label1" VerticalAlignment="Top" Width="190" Foreground="#FF123456" FontSize="32" FontFamily="Montserrat" FontWeight="Normal" HorizontalContentAlignment="Center" />
+        <Grid  HorizontalAlignment="right" VerticalAlignment="top"  Height="40" Background="White" Margin="0,195,88,0" Width="293" >
+            <Label FontFamily="Montserrat" HorizontalAlignment="right" BorderThickness="0" VerticalAlignment="top" Name="userPasswordHint" Foreground="#123456" Opacity="0.5" FontSize="18" Width="293" Height="40" VerticalContentAlignment="Center" Background="#00000000">Mot de passe </Label>
+            <PasswordBox HorizontalAlignment="right" BorderThickness="0" VerticalAlignment="top" Background="Transparent" PasswordChanged="userPassword_PasswordChanged" x:Name="userPassword" FontFamily="Helvetica" FontWeight="Light" FontSize="20" FontStyle="Normal" Width="293" Height="40" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <Border BorderBrush="#FF123456" BorderThickness="1" Height="1" Margin="0,39,0,0" Name="Border1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="354" />
         </Grid>
-        <Button Style="{DynamicResource RoundCorner}" Name="Login" Content="Login" Margin="0,262,158,0" Foreground="White" FontSize="28" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="144" VerticalAlignment="Top" Height="40" ClickMode="Release" Cursor="Hand">
+        <Button Style="{DynamicResource RoundCorner}" Name="Login" Content="Se connecter" Margin="0,275,88,0" Foreground="White" FontSize="16" FontFamily="Montserrat" FontWeight="Light" HorizontalAlignment="Right" Width="131" VerticalAlignment="Top" Height="34" ClickMode="Release" Cursor="Hand">
         </Button>
-        <Label Content="Le mot de passe saisi est incorrecte" FontSize="12" Foreground="Red" Height="26" HorizontalContentAlignment="Center" Margin="712,308,112,0" Name="wrongPasswordLabel" VerticalAlignment="Top" Visibility="Hidden" Width="Auto" />
+        <Label Content="*Le mot de passe saisi est incorrecte" FontSize="12" Foreground="Red" Height="26" HorizontalContentAlignment="Center" Margin="678,234,171,0" Name="wrongPasswordLabel" VerticalAlignment="Top" Visibility="Hidden"  />
     </Grid>
 </Window>
