@@ -11,6 +11,7 @@ Public Class MainWindowViewModel
             _workspaces = value
         End Set
     End Property
+    Public Property Hello As NothingViewModel
     Private _commands As ObservableCollection(Of CommandViewModel)
     Public Property Commands As ObservableCollection(Of CommandViewModel)
         Get
@@ -42,6 +43,7 @@ Public Class MainWindowViewModel
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
             New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
             New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+        Hello = New NothingViewModel("Pas de promotion selectionnee", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
