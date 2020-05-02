@@ -198,7 +198,12 @@ Public Class EtudiantParcours
             _parcours = value
         End Set
     End Property
-
+    ReadOnly Property Opt As String
+        Get
+            Dim s As String = _parcours.FindLast(Function(a) a.Niveau = Niveau.SIQ3 Or a.Niveau = Niveau.SI3).Niveau.ToString()
+            Return s.Remove(s.Length - 1)
+        End Get
+    End Property
     ReadOnly Property TRC1 As Double
         Get
             Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.TRC1)

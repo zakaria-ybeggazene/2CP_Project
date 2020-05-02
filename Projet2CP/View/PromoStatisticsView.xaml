@@ -36,7 +36,7 @@
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
-            <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="82" />
+            <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filtrer" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="82" />
         </WrapPanel>
         <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Bottom" Margin="25,29,21,10" Grid.Column="1" Grid.Row="1">
             <lvc:CartesianChart.AxisX>

@@ -38,7 +38,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
-        Hello = New NothingViewModel("Pas de promotion selectionnee", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+        Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub

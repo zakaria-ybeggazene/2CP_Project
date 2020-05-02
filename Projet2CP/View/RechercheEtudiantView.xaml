@@ -61,7 +61,7 @@
         </Grid>
 
         <Image Height="30" HorizontalAlignment="Left" Margin="10,10,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" />
-        <Button Content="Filters" Height="30" HorizontalAlignment="Left" FontFamily="Montserrat"  Name="Openbutton" VerticalAlignment="Top" Background="{x:Null}" FontSize="20" Margin="46,10,0,0" Foreground="#FF123456" FontStretch="Normal" BorderBrush="{x:Null}" FontWeight="SemiBold" HorizontalContentAlignment="Left"/>
+        <Button Content="Filtres" Height="30" HorizontalAlignment="Left" FontFamily="Montserrat"  Name="Openbutton" VerticalAlignment="Top" Background="{x:Null}" FontSize="20" Margin="46,10,0,0" Foreground="#FF123456" FontStretch="Normal" BorderBrush="{x:Null}" FontWeight="SemiBold" HorizontalContentAlignment="Left"/>
 
         <Grid Background="#F0F0F0" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="175" Height="35">
             <Label Background="#00000000" BorderThickness="0" Content="Matricule" FontFamily="Montserrat" FontSize="14" Foreground="#123456" Height="35" Name="MatriculeHint" Opacity="0.5" VerticalContentAlignment="Center" Width="175" />
@@ -91,8 +91,8 @@
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
 
-        <Grid  Height="35"  Margin="10,100,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Label Content="Année inscription" FontFamily="Montserrat" BorderThickness="0" Name="PromoHint" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
+        <Grid  Height="35"  Margin="10,100,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Ex: pour l'année 2000/2001 saisir '00'">
+            <Label Content="Année universitaire" FontFamily="Montserrat" BorderThickness="0" Name="PromoHint" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
             <TextBox Text="{Binding Path=Annee}" BorderThickness="0" Background="Transparent"  TextChanged="PromoChanged" x:Name="PromoTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
@@ -136,9 +136,9 @@
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
 
-        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filter" Command="{Binding Path=RechercheCommand}" Margin="0,150,50,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Right" Width="100" />
+        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filtrer" Command="{Binding Path=RechercheCommand}" Margin="0,150,50,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Right" Width="100" />
         <Border Margin="0,150,209,0"   HorizontalAlignment="Right" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="30" Width="100">
-            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True"  Command="{Binding Path=ResetCommand}" Style="{DynamicResource Reset}"  Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True"  Command="{Binding Path=ResetCommand}" Style="{DynamicResource Reset}"  Content="Vider" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center" ToolTip="Réinitialiser tous les champs des filtres">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />

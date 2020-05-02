@@ -16,7 +16,7 @@
        
         <Image Height="30" HorizontalAlignment="Left"  Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" Margin="25,33,0,0" />
 
-        <Grid Margin="0,77,351,0" Name="Grid1" VerticalAlignment="Top" Background="#F0F0F0" HorizontalAlignment="Right" Width="179">
+        <Grid Margin="0,77,351,0" Name="Grid1" VerticalAlignment="Top" Background="#F0F0F0" HorizontalAlignment="Right" Width="179" ToolTip="De TR1 à SIQ2 : Matieres et Etudiants&#xA;De SI3 à CS3 : Classement de fin de cursus">
             <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
@@ -29,11 +29,11 @@
 
         <Button Style="{DynamicResource RoundCorner}" Name="Filter" Command="{Binding Path=RechCommand}" Margin="0,122,428,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top"  ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Right"  >
             <StackPanel Width=" 102">
-                <Label Height="33" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White">Filter</Label>
+                <Label Height="33" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White">Filtrer</Label>
             </StackPanel>
         </Button>
-        <Border Margin="332,126,0,0" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left">
-            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
+        <Border Margin="332,126,0,0" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" ToolTip="Réinitialiser le résultat de la recherche">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Vider" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" HorizontalContentAlignment="Center">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />
@@ -50,7 +50,7 @@
             </Border.BorderBrush>
         </Border>
    
-        <Button Content="Filters" Height="30" HorizontalAlignment="Left" Margin="62,33,0,0" Name="Button1" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" Foreground="#FF435E78" />
+        <Button Content="Filtres" Height="30" HorizontalAlignment="Left" Margin="62,33,0,0" Name="Button1" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" Foreground="#FF435E78" />
         <Border  BorderThickness="2" Height="290" Margin="493,322,580,51" Name="Border1" VerticalAlignment="Center" Width="3">
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -59,7 +59,7 @@
                 </LinearGradientBrush>
             </Border.BorderBrush>
         </Border>
-        <Label Content="{Binding NombreInscrits}" Height="Auto" HorizontalAlignment="Left" Margin="36,159,0,0" Name="Label3" VerticalAlignment="Top" Width="185" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" />
+        <Label Content="{Binding NombreInscrits}" Height="35" HorizontalAlignment="Left" Name="Label3" VerticalAlignment="Top" Width="Auto" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" Margin="12,164,0,0" />
 
         <Grid Background="#F0F0F0" Height="Auto" Margin="257,77,0,0" Name="Grid2" VerticalAlignment="Top" HorizontalAlignment="Left">
             <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="179">
@@ -71,8 +71,8 @@
             </ComboBox>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}"/>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" />
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération"/>
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" ToolTip="Afficher les statistiques de la promotion trouvée"/>
         <ContentPresenter Content="{Binding PromotionViewModel}"/>
     </Grid>
 </UserControl>

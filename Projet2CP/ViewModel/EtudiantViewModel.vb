@@ -23,6 +23,14 @@
                 _parcours.Add(a)
             End If
         Next
+        _list = New List(Of String)
+        Dim i As Integer = 1
+        For Each a As AnneeEtude In Etudiant.Parcours
+            If a.Niveau <> Projet2CP.Niveau.SI3 And a.Niveau <> Projet2CP.Niveau.SIQ3 Then
+                _list.Add(i)
+                i += 1
+            End If
+        Next
         _etudiant.Parcours = _parcours
         _nom = _etudiant.Nom
         _prenom = _etudiant.Prenom
@@ -293,4 +301,11 @@
         End If
     End Sub
     Private v As EtudiantView
+
+    Private _list As List(Of String)
+    ReadOnly Property NiveauCBList As List(Of String)
+        Get
+            Return _list
+        End Get
+    End Property
 End Class

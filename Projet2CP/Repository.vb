@@ -482,7 +482,7 @@ Public Class Repository
 
             dr = cmd.ExecuteReader()
             If dr.Read() Then
-                promotion = New PromotionParcours With {.Annee = annee, .NiveauP = niveau, .NbInscrits = Util.dbNullToInteger(dr.Item("NbInscrits"))}
+                promotion = New PromotionParcours With {.Annee = annee, .NiveauP = niveau}
                 promotion.ListeEtudiants = New List(Of EtudiantParcours)()
 
                 dr.Close()
@@ -546,6 +546,7 @@ Public Class Repository
                     etudiantP.Parcours = parcours
                 Next
 
+                promotion.NbInscrits = promotion.ListeEtudiants.Count
                 Return promotion
             Else
                 Return Nothing

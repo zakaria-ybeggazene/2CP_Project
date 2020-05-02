@@ -75,7 +75,7 @@
 
     Public Property NombreInscrits As String
         Get
-            Return "Le nombre d'inscrits : " & _nbIns.ToString
+            Return "Nombre d'inscrits  :  " & _nbIns.ToString
         End Get
         Set(ByVal value As String)
             _nbIns = value
@@ -100,7 +100,7 @@
         _addEtudiantView = addEtudiantView
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
         Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
-        PromotionViewModel = New NothingViewModel("Pas de promotion selectionnee", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
 
     End Sub
     Private _viewStatistics As RelayCommand

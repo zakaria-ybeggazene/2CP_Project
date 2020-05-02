@@ -10,7 +10,7 @@
 
     </UserControl.Resources>
     <Grid>
-        <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="36,197,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" />
+        <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="36,197,0,0" Name="Label2" VerticalAlignment="Top" Width="Auto" VerticalContentAlignment="Center" />
 
         <Grid Margin="1,239,25,0"  VerticalAlignment="Top" Height="423">
 
@@ -18,22 +18,23 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="454" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="Auto" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Nom" Width="140" Binding="{Binding Nom}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="TRC1" Width="100" Binding="{Binding TRC1}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="TRC1 S" Width="100" Binding="{Binding TRC1S}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="TRC2" Width="100" Binding="{Binding TRC2}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="TRC2 S" Width="100" Binding="{Binding TRC2S}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="CS1" Width="100" Binding="{Binding CS1}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="CS1 S" Width="100" Binding="{Binding CS1S}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="CS2" Width="100" Binding="{Binding CS2}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="CS2 S" Width="100" Binding="{Binding CS2S}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="Max" Width="100" Binding="{Binding MoyMax}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="Moy" Width="100" Binding="{Binding Moy}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Matricule" Width="Auto" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="Auto" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Prenoms" Width="3.5*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Option" Width="Auto" Binding="{Binding Opt}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC1" Width="*" Binding="{Binding TRC1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC1 S" Width="*" Binding="{Binding TRC1S}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC2" Width="*" Binding="{Binding TRC2}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC2 S" Width="*" Binding="{Binding TRC2S}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS1" Width="*" Binding="{Binding CS1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS1 S" Width="*" Binding="{Binding CS1S}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS2" Width="*" Binding="{Binding CS2}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS2 S" Width="*" Binding="{Binding CS2S}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Max" Width="*" Binding="{Binding MoyMax}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Moy" Width="*" Binding="{Binding Moy}" FontFamily="Montserrat" />
                         <DataGridTemplateColumn Header="Details" Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
