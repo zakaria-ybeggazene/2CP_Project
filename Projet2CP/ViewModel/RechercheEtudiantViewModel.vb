@@ -43,7 +43,9 @@ Public Class RechercheEtudiantViewModel
             _strDate = DateNais.Value.ToString("dd/MM/yyyy").Trim
             _strDate = _strDate.Remove(6, 2)
         End If
+        Mouse.OverrideCursor = Cursors.Wait
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
+        Mouse.OverrideCursor = Nothing
     End Sub
     'Reset 
     Public Sub reset()

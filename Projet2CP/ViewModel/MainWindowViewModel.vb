@@ -11,6 +11,7 @@ Public Class MainWindowViewModel
             _workspaces = value
         End Set
     End Property
+    Public Property Hello As NothingViewModel
     Private _commands As ObservableCollection(Of CommandViewModel)
     Public Property Commands As ObservableCollection(Of CommandViewModel)
         Get
@@ -37,12 +38,12 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
+        Hello = New NothingViewModel("Pas de promotion selectionnee", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
 
     Public Sub setList(ByVal isAdmin As Boolean)
-        _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         If isAdmin = True Then
             Commands = New ObservableCollection(Of CommandViewModel)({
@@ -58,6 +59,7 @@ Public Class MainWindowViewModel
             New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
             New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
         End If
+
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
@@ -84,8 +86,10 @@ Public Class MainWindowViewModel
     Private Sub AddEtudiantView(ByVal o As Etudiant)
         Dim e As EtudiantParcours
         e = Repository.paracours_etudiant(o)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
-        AddWorkspace(workspace)
+        If Not e Is Nothing Then
+            Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
+            AddWorkspace(workspace)
+        End If
     End Sub
 
     Private Sub OpenSettings(ByVal o As Object)

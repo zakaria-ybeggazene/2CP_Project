@@ -13,6 +13,12 @@
     <DataTemplate DataType="{x:Type local:EtudiantViewModel}">
         <local:EtudiantView></local:EtudiantView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type local:PromotionViewModel}">
+        <local:PromotionView></local:PromotionView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:ClassementViewModel}">
+        <local:ClassementView></local:ClassementView>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type local:GeneralStatisticsViewModel}">
         <local:GeneralStatisticsView></local:GeneralStatisticsView>
     </DataTemplate>
@@ -21,6 +27,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type local:MatiereStatisticsViewModel}">
         <local:MatiereStatisticsView></local:MatiereStatisticsView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:NothingViewModel}">
+        <local:NothingView></local:NothingView>
     </DataTemplate>
 
     <Style x:Key="Mystyle" TargetType="DataGrid">

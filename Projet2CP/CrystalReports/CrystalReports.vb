@@ -315,7 +315,7 @@ Public Class CrystalReports
         Return releveGlobalReport
     End Function
 
-    Public Shared Function PvDeliberation(ByVal promotion As Promotion) As PvDelibReport
+    Public Shared Function PvDeliberation(ByVal promotion As PromotionAnnee) As PvDelibReport
         Dim ds As New DataSet
         Dim promoTable As New PvDelibDS.PromotionDataTable
         Dim etudiantTable As New PvDelibDS.EtudiantDataTable

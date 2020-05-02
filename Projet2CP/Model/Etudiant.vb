@@ -198,6 +198,119 @@ Public Class EtudiantParcours
             _parcours = value
         End Set
     End Property
+
+    ReadOnly Property TRC1 As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.TRC1)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.MoyenneJ
+            End If
+        End Get
+    End Property
+    ReadOnly Property TRC2 As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.TRC2)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.MoyenneJ
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS1 As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI1 Or a.Niveau = Niveau.SIQ1)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.MoyenneJ
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS2 As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI2 Or a.Niveau = Niveau.SIQ2)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.MoyenneJ
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS3 As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI3 Or a.Niveau = Niveau.SIQ3)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.MoyenneJ
+            End If
+        End Get
+    End Property
+    ReadOnly Property TRC1S As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.TRC1)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.NoteRattrap
+            End If
+        End Get
+    End Property
+    ReadOnly Property TRC2S As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.TRC2)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.NoteRattrap
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS1S As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI1 Or a.Niveau = Niveau.SIQ1)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.NoteRattrap
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS2S As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI2 Or a.Niveau = Niveau.SIQ2)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.NoteRattrap
+            End If
+        End Get
+    End Property
+    ReadOnly Property CS3S As Double
+        Get
+            Dim annee As AnneeEtude = _parcours.FindLast(Function(a) a.Niveau = Niveau.SI3 Or a.Niveau = Niveau.SIQ3)
+            If annee Is Nothing Then
+                Return 0.0
+            Else
+                Return annee.NoteRattrap
+            End If
+        End Get
+    End Property
+    ReadOnly Property MoyMax As Double
+        Get
+            Return Parcours.ConvertAll(Function(a) a.moyenneMax).Max
+        End Get
+    End Property
+    ReadOnly Property Moy As Double
+        Get
+            Dim annees As List(Of AnneeEtude) = Parcours.Where(Function(a) (a.Decision.Equals("1") Or a.Decision.Equals("0"))).ToList
+            Return annees.ConvertAll(Function(a) a.moyenneMax).Sum / annees.Count
+        End Get
+    End Property
+
 End Class
 
 Public Class EtudiantAnnee

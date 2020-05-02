@@ -11,6 +11,7 @@
         list.Add("SIQ2")
         list.Add("SI3")
         list.Add("SIQ3")
+        list.Add("CS3")
         NiveauCB.ItemsSource = list
     End Sub
     Private Sub AnneecomboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
@@ -58,10 +59,5 @@
     Private Sub NiveauCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles NiveauCB.SelectionChanged
         statButton.IsEnabled = False
         statButton.Opacity = 0.5
-    End Sub
-
-    Private Sub Button2_Click(sender As System.Object, e As System.Windows.RoutedEventArgs) Handles Button2.Click
-        AnneeCB.SelectedIndex = 0
-        NiveauCB.SelectedIndex = 0
     End Sub
 End Class
