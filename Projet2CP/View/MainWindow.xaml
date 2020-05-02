@@ -53,6 +53,6 @@
 
             </TabControl.ItemTemplate>
         </TabControl>
-        <ContentPresenter Content="{Binding Hello}" />
+        <!--<ContentPresenter Content="{Binding Hello}" />-->
     </DockPanel>
 </Window>

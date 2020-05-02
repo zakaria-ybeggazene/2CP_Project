@@ -9,7 +9,7 @@
     Sub New(ByVal promotion As PromotionParcours, ByRef addEtudiantView As Action(Of Object))
         Me.Promotion = promotion
         Me.ListeEtuds = promotion.ListeEtudiants
-        ListeEtuds.Sort(Function(a, b) b.MoyMax.CompareTo(a.MoyMax))
+        ListeEtuds.Sort(Function(a, b) b.Moy.CompareTo(a.Moy))
         EtudiantTab = New RelayCommand(addEtudiantView)
     End Sub
 End Class

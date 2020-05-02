@@ -4,7 +4,7 @@ Public Class AnneeEtude
     Private _annee As String
     Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn, _annetIn As Integer
     Private _niveau As Niveau
-    Private _section, _decision As Char
+    Private _section, _decision As String
     Private _moyenneJ As Decimal
     Private _notes As Dictionary(Of Matiere, Note)
     Public Class Rattrapage
@@ -104,11 +104,11 @@ Public Class AnneeEtude
         End Set
     End Property
 
-    Public Property Decision() As Char
+    Public Property Decision() As String
         Get
             Return _decision
         End Get
-        Set(ByVal value As Char)
+        Set(ByVal value As String)
             Me._decision = value
         End Set
     End Property
@@ -177,6 +177,13 @@ Public Class AnneeEtude
             Return MoyenneJ
         Else
             Return Math.Max(MoyenneJ, Rattrap.MoyenneR)
+        End If
+    End Function
+    Public Function NoteRattrap() As Double
+        If Rattrap Is Nothing Then
+            Return 0.0
+        Else
+            Return Rattrap.MoyenneR
         End If
     End Function
 

@@ -23,11 +23,30 @@
             resultat.Add(0)
         Next
 
+        For Each Etudiant As EtudiantParcours In ListeEtudiants
+            Dim a As AnneeEtude = Etudiant.Parcours(Etudiant.Parcours.Count - 1)
+            Dim i As Integer
+
+            i = Math.Floor(a.MoyenneJ)
+            Try
+                resultat(i) += 1
+            Catch ex As Exception
+                MessageBox.Show(i)
+            End Try
+
+        Next
+
         Return resultat
     End Function
 
     Public Function getTauxReussite() As Object Implements IPromoStatistics.getTauxReussite
         Dim i As Integer = 0
+        For Each Etudiant As EtudiantParcours In ListeEtudiants
+            Dim a As AnneeEtude = Etudiant.Parcours(Etudiant.Parcours.Count - 1)
+            If Math.Max(a.MoyenneJ, a.RatrIn) >= 10 Then
+                i += 1
+            End If
+        Next
 
         Return New With {.NbrReussite = i, .NbrEchec = NbInscrits - i}
     End Function
@@ -37,7 +56,20 @@
         M = 0
         F = 0
         MT = 0
+        For Each Etudiant As EtudiantParcours In ListeEtudiants
+            Dim a As AnneeEtude = Etudiant.Parcours(Etudiant.Parcours.Count - 1)
+            If Etudiant.Sexe = "1" Then
+                MT += 1
+            End If
 
+            If Math.Max(a.MoyenneJ, a.RatrIn) >= 10 Then
+                If Etudiant.Sexe = "1" Then
+                    M += 1
+                Else
+                    F += 1
+                End If
+            End If
+        Next
         FT = Me.NbInscrits - MT
 
         Return New With {.NbrReussiteMasculin = M, .NbrEchecMasculin = MT - M, .NbrReussiteFeminin = F, .NbrEchecFeminin = FT - F}

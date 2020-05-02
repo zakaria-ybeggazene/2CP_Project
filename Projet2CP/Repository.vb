@@ -454,7 +454,6 @@ Public Class Repository
             Dim sqlCommand As String
             Dim niveauString As String = ""
             If niveau <> Projet2CP.Niveau.CS3 Then
-                MessageBox.Show("x")
                 niveauString = "AND OPTIIN = '" & Util.GetOption(niveau) & "' "
             End If
 
@@ -524,52 +523,10 @@ Public Class Repository
                                                          .Rang = Util.dbNullToInteger(dr.Item("RangIN")),
                                                          .NbrEtudiants = promotion.NbInscrits,
                                                          .RatrIn = Util.dbNullToInteger(dr.Item("RatIn"))}
+                        'MessageBox.Show(anneEtude.Decision.Length)
                         parcours.Add(anneEtude)
                     Loop
                     dr.Close()
-
-                    Dim notes As Dictionary(Of Matiere, Note)
-                    For Each a As AnneeEtude In parcours
-                        notes = New Dictionary(Of Matiere, Note)()
-                        cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
-                                        & "WHERE MATRICULE = '" & etudiantP.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIN = '" & Util.GetOption(a.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(a.Niveau) & "';"
-                        dr = cmd.ExecuteReader()
-                        Dim n As Note
-                        Do While dr.Read
-                            n = New Note With {.Noju = Util.dbNullToDouble(dr.Item("NoJuNo")),
-                                                  .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
-                                                  .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
-                                                  .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
-                                                  .Eliminatoire = Not Util.dbNullToString(dr.Item("ElimNo")).Equals("0")}
-
-                            notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), a.Niveau), n)
-                        Loop
-                        dr.Close()
-
-                        If a.RatrIn > 0 Then
-                            sqlCommand = "SELECT MoyeRa,MentRa,ElimRa " _
-                                        & "FROM RATTRAP " _
-                                        & "WHERE MATRICULE = '" & etudiantP.Matricule & "' AND ANNEE = '" & a.Annee & "' AND OPTIRA = '" & Util.GetOption(a.Niveau) & "' AND ANETRA = '" & Util.GetAnneEt(a.Niveau) & "';"
-
-                            cmd.CommandText = sqlCommand
-                            dr = cmd.ExecuteReader
-
-                            If (dr.Read()) Then
-                                Util.dbNullToDouble(dr.Item("MoyeRa"))
-                                Util.dbNullToInteger(dr.Item("MentRa"))
-                                Util.dbNullToInteger(dr.Item("ElimRa"))
-                                a.Rattrap = New AnneeEtude.Rattrapage With {.MoyenneR = Util.dbNullToDouble(dr.Item("MoyeRa")),
-                                                                        .MentionR = Util.dbNullToInteger(dr.Item("MentRa")),
-                                                                        .Elim = Util.dbNullToInteger(dr.Item("ElimRa"))}
-                            End If
-
-
-                            dr.Close()
-                        End If
-
-                        a.Notes = notes
-                    Next
-
                     etudiantP.Parcours = parcours
                 Next
 

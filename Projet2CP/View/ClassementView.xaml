@@ -25,11 +25,15 @@
                         <DataGridTextColumn Header="Nom" Width="140" Binding="{Binding Nom}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="TRC1" Width="100" Binding="{Binding TRC1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC1 S" Width="100" Binding="{Binding TRC1S}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="TRC2" Width="100" Binding="{Binding TRC2}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="TRC2 S" Width="100" Binding="{Binding TRC2S}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="CS1" Width="100" Binding="{Binding CS1}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS1 S" Width="100" Binding="{Binding CS1S}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="CS2" Width="100" Binding="{Binding CS2}" FontFamily="Montserrat" />
-                        <DataGridTextColumn  Header="CS3" Width="100" Binding="{Binding CS3}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="CS2 S" Width="100" Binding="{Binding CS2S}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="Max" Width="100" Binding="{Binding MoyMax}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Moy" Width="100" Binding="{Binding Moy}" FontFamily="Montserrat" />
                         <DataGridTemplateColumn Header="Details" Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
