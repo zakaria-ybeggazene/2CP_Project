@@ -31,7 +31,7 @@ Public Class MainWindowViewModel
             OnPropertyChanged("selectedIndex")
         End Set
     End Property
-
+   
     Public Sub New(ByVal closeWindow As Action)
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
@@ -130,4 +130,6 @@ Public Class MainWindowViewModel
             _indexRechercheEtudiant = -1
         End If
     End Sub
+
+
 End Class
