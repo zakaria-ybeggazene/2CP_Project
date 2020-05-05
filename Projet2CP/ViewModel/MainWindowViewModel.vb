@@ -31,7 +31,7 @@ Public Class MainWindowViewModel
             OnPropertyChanged("selectedIndex")
         End Set
     End Property
-   
+
     Public Sub New(ByVal closeWindow As Action)
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
@@ -41,23 +41,24 @@ Public Class MainWindowViewModel
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
 
+
     Public Sub setList(ByVal isAdmin As Boolean)
-        _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         If isAdmin = True Then
             Commands = New ObservableCollection(Of CommandViewModel)({
-            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
-            New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout))})
+            New CommandViewModel("Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView), Util.EtudiantIconPath),
+            New CommandViewModel("Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView), Util.PromotionIconPath),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView), Util.StatisticsIconPath),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings), Util.ReglageIconPath),
+            New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout), Util.LogoutIconPath)})
         Else
             Commands = New ObservableCollection(Of CommandViewModel)({
-            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+            New CommandViewModel("Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView), Util.EtudiantIconPath),
+            New CommandViewModel("Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView), Util.PromotionIconPath),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView), Util.StatisticsIconPath),
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin), Util.LoginIconPath)})
         End If
+
     End Sub
 
     Private _indexRechercheEtudiant As Integer = -1
@@ -84,8 +85,10 @@ Public Class MainWindowViewModel
     Private Sub AddEtudiantView(ByVal o As Etudiant)
         Dim e As EtudiantParcours
         e = Repository.paracours_etudiant(o)
-        Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
-        AddWorkspace(workspace)
+        If Not e Is Nothing Then
+            Dim workspace As WorkspaceViewModel = New EtudiantViewModel(e.Nom.Trim & " " & e.Prenom.Trim, e)
+            AddWorkspace(workspace)
+        End If
     End Sub
 
     Private Sub OpenSettings(ByVal o As Object)
@@ -130,6 +133,4 @@ Public Class MainWindowViewModel
             _indexRechercheEtudiant = -1
         End If
     End Sub
-
-
 End Class
