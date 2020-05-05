@@ -105,7 +105,7 @@
         Me.ResetCommand = New RelayCommand(AddressOf reset)
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
         Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
-        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
+        PromotionViewModel = New NothingViewModel("/Projet2CP;component/Images/Groupe 20.png")
     End Sub
     Private _viewStatistics As RelayCommand
     Public Property ViewStatistics As RelayCommand
@@ -141,7 +141,7 @@
     End Sub
 
     Private Sub reset()
-        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
+        PromotionViewModel = New NothingViewModel("/Projet2CP;component/Images/Groupe 20.png")
         Annee = "Année"
         Niveau = "Niveau"
         NombreInscrits = 0

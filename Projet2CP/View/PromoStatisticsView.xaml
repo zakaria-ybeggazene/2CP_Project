@@ -65,6 +65,6 @@
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
         <Label Content="Pourcentage de réussite et d'échec général" Grid.RowSpan="2" Height="28" HorizontalAlignment="Left" Margin="50,13,0,0" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
-        <Label Content="Distribution du nombre de réussites et d'échec classés par sexe" Grid.ColumnSpan="2" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="250,0,0,0" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
+        <Label Content="Distribution du nombre de réussites et d'échecs classés par sexe" Grid.ColumnSpan="2" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="250,0,0,0" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
     </Grid>
 </UserControl>

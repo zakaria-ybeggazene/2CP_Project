@@ -1,7 +1,7 @@
 ﻿Public Interface IPromoStatistics
     Inherits IStatistics
 
-    Function getEtudiantDistribution() As List(Of Double)
+    Function getEtudiantDistribution() As List(Of Integer)
 
     Function getTauxReussite() As Object
 

@@ -51,9 +51,7 @@ Public Class MatiereStatisticsViewModel
     End Property
     'Recherche sub
     Public Sub recherche()
-        'Try
-        Cursor = Cursors.Wait
-        If MatiereLabel = "" Or MatiereLabel = "Matiere" Or Niveau = "" Or Niveau = "Niveau" Then
+        If MatiereLabel = "" Or MatiereLabel = "Matière" Or Niveau = "" Or Niveau = "Niveau" Then
             MsgBox("Vous devez spécifier la matière et l'option", MsgBoxStyle.Information)
         Else
             Dim niv As Niveau = Util.stringToNiveau(Niveau)
@@ -66,45 +64,38 @@ Public Class MatiereStatisticsViewModel
                 displayStatistics()
             End If
         End If
-        'Catch ex As Exception
-        '    MessageBox.Show("Une erreur s'est produite")
-        'Finally
-        Cursor = Cursors.Arrow
-        'End Try
     End Sub
 
     Private Sub displayStatistics()
         SeriesCollection = New LiveCharts.SeriesCollection From {
                 New StackedColumnSeries With {
-                    .Title = "Taux de reussites",
-                    .Values = New LiveCharts.ChartValues(Of Double)(),
+                    .Title = "Nombre de reussites",
+                    .Values = New LiveCharts.ChartValues(Of Integer)(),
                     .DataLabels = True
                 },
                 New StackedColumnSeries With {
-                    .Title = "Taux d'echec",
-                    .Values = New LiveCharts.ChartValues(Of Double)(),
+                    .Title = "Nombre d'échecs",
+                    .Values = New LiveCharts.ChartValues(Of Integer)(),
                     .DataLabels = True
                 }
             }
 
         If _matiere Is Nothing Then
             For i = 0 To 22
-                SeriesCollection(0).Values.Add(Convert.ToDouble(0))
-                SeriesCollection(1).Values.Add(Convert.ToDouble(0))
+                SeriesCollection(0).Values.Add(0)
+                SeriesCollection(1).Values.Add(0)
             Next
         Else
             Dim distribution As List(Of Object) = _matiere.tauxReussiteMatiere()
             For i = 0 To 22
-                SeriesCollection(0).Values.Add(Convert.ToDouble(distribution(i).nbrReussite))
-                SeriesCollection(1).Values.Add(Convert.ToDouble(distribution(i).nbrEchec))
+                SeriesCollection(0).Values.Add(distribution(i).nbrReussite)
+                SeriesCollection(1).Values.Add(distribution(i).nbrEchec)
             Next
         End If
         For i = 0 To 22
             Labels.Add(CStr(1989 + i))
         Next
-        Formatter = Function(value) value.ToString("N")
-
-        PointLabel = Function(value) String.Format("{0} ({1:P})", value.Y, value.Participation)
+        Formatter = Function(value) value.ToString()
 
         MoyennesCollection = New SeriesCollection From {
                 New LineSeries With {

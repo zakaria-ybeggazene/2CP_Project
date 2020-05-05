@@ -47,7 +47,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
-        Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+        Hello = New NothingViewModel("/Projet2CP;component/Images/logo.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
@@ -142,7 +142,7 @@ Public Class MainWindowViewModel
         Workspaces.Remove(sender)
 
         If _workspaces.Count = 0 Then
-            Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+            Hello = New NothingViewModel("/Projet2CP;component/Images/logo.png")
         End If
         If sender.GetType() Is GetType(RechercheEtudiantViewModel) Then
             _indexRechercheEtudiant = -1

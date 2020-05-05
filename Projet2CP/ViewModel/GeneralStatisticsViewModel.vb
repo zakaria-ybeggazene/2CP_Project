@@ -13,24 +13,24 @@ Public Class GeneralStatisticsViewModel
         DistributionCollection = New LiveCharts.SeriesCollection From {
                 New StackedColumnSeries With {
                     .Title = "Masculin",
-                    .Values = New LiveCharts.ChartValues(Of Double)(),
+                    .Values = New LiveCharts.ChartValues(Of Integer)(),
                     .DataLabels = True
                 },
                 New StackedColumnSeries With {
                     .Title = "Féminin",
-                    .Values = New LiveCharts.ChartValues(Of Double)(),
+                    .Values = New LiveCharts.ChartValues(Of Integer)(),
                     .DataLabels = True
                 }
             }
         Dim distributionNbIns As List(Of Object) = _stats.nombreEtudiantsGeneral()
         For i = 0 To 22
-            DistributionCollection(0).Values.Add(Convert.ToDouble(distributionNbIns(i).nbMasculin))
-            DistributionCollection(1).Values.Add(Convert.ToDouble(distributionNbIns(i).nbFeminin))
+            DistributionCollection(0).Values.Add(distributionNbIns(i).nbMasculin)
+            DistributionCollection(1).Values.Add(distributionNbIns(i).nbFeminin)
         Next
         For i = 0 To 22
             Labels1.Add(CStr(1989 + i))
         Next
-        Formatter1 = Function(value) value.ToString("N")
+        Formatter1 = Function(value) value.ToString()
         OnPropertyChanged("DistributionCollection")
 
         displayTaux()
@@ -162,7 +162,7 @@ Public Class GeneralStatisticsViewModel
                     Labels2.Add(CStr(1989 + i))
                 Next
             End If
-            Formatter2 = Function(value) value.ToString("N")
+            Formatter2 = Function(value) value.ToString()
             OnPropertyChanged("DistEchReuCollection")
         End If
     End Sub

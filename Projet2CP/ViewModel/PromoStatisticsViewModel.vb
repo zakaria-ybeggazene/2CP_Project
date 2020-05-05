@@ -11,7 +11,7 @@ Public Class PromoStatisticsViewModel
     Public Property SexeCollection As SeriesCollection
     Public Property Labels As New List(Of String)
     Public Property Sexes As New List(Of String) From {"Masculin", "Féminin"}
-    Public Property Formatter As Func(Of Double, String)
+    Public Property Formatter As Func(Of Integer, String)
     Public Property PointLabel As Func(Of ChartPoint, String)
 
 
@@ -88,16 +88,16 @@ Public Class PromoStatisticsViewModel
         SeriesCollection = New LiveCharts.SeriesCollection From {
                 New LiveCharts.Wpf.ColumnSeries With {
                     .Title = "Distribution des moyennes",
-                    .Values = New LiveCharts.ChartValues(Of Double)()
+                    .Values = New LiveCharts.ChartValues(Of Integer)()
                 }
             }
 
         If _promotion Is Nothing Then
             For i = 0 To 19
-                SeriesCollection(0).Values.Add(Convert.ToDouble(0))
+                SeriesCollection(0).Values.Add(0)
             Next
         Else
-            Dim distribution As List(Of Double) = _promotion.getEtudiantDistribution()
+            Dim distribution As List(Of Integer) = _promotion.getEtudiantDistribution()
             For i = 0 To 19
                 SeriesCollection(0).Values.Add(distribution(i))
             Next
@@ -105,9 +105,9 @@ Public Class PromoStatisticsViewModel
         For i = 0 To 19
             Labels.Add(CStr(i))
         Next
-        Formatter = Function(value) value.ToString("N")
+        Formatter = Function(value) value.ToString()
 
-        PointLabel = Function(value) String.Format("{0} ({1:P})", value.Y, value.Participation)
+        PointLabel = Function(value) String.Format("{1:P} ({0})", value.Y, value.Participation)
 
 
         PieCollection = New SeriesCollection From {
@@ -128,16 +128,20 @@ Public Class PromoStatisticsViewModel
         PieCollection(0).Values.Add(Convert.ToDouble(R))
         PieCollection(1).Values.Add(Convert.ToDouble(E))
 
+        PointLabel = Function(value) String.Format("{1:P} ({0})", value.X, value.Participation)
+
         SexeCollection = New SeriesCollection From {
                 New StackedRowSeries With {
                         .Values = New ChartValues(Of Double)(),
                         .DataLabels = True,
-                        .Title = "Taux de reussite"
+                        .Title = "Taux de reussite",
+                        .LabelPoint = PointLabel
                     },
                   New StackedRowSeries With {
                         .Values = New ChartValues(Of Double)(),
                         .DataLabels = True,
-                        .Title = "Taux d'echec"
+                        .Title = "Taux d'echec",
+                        .LabelPoint = PointLabel
                     }
             }
         Dim MR, FR, MF, FF As Integer 'M : masculin, F: feminin, R:reussite, F: failed

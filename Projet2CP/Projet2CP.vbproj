@@ -532,5 +532,8 @@
   <ItemGroup>
     <Resource Include="Images\Groupe 20.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

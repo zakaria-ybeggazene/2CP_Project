@@ -16,8 +16,8 @@
     End Property
     'Fin des Properties
 
-    Public Function getEtudiantDistribution() As List(Of Double) Implements IPromoStatistics.getEtudiantDistribution
-        Dim resultat As List(Of Double) = New List(Of Double)()
+    Public Function getEtudiantDistribution() As List(Of Integer) Implements IPromoStatistics.getEtudiantDistribution
+        Dim resultat As List(Of Integer) = New List(Of Integer)()
 
         For i = 1 To 20
             resultat.Add(0)
