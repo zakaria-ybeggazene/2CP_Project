@@ -13,28 +13,29 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="118*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="19*" />
         </Grid.RowDefinitions>
-        <WrapPanel Grid.ColumnSpan="2" HorizontalAlignment="Center">
-            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Name="Matieres" Loaded="AnneecomboBox_Loaded" SelectedItem="{Binding Path=MatiereLabel}" Text="Matiere" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="190" Margin="0, 0, 30, 0">
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="Control.Background" Value="#E7EFF6" />
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
-            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="0, 0, 30, 0">
+        <WrapPanel HorizontalAlignment="Center" Width="450">
+            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="0, 0, 30, 0" Width="150">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Background" Value="#E7EFF6" />
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
-            <Button Style="{DynamicResource RoundCorner}" Content="Recherche" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Name="Matieres" Loaded="AnneecomboBox_Loaded" SelectedItem="{Binding Path=MatiereLabel}" Text="Matiere" VerticalContentAlignment="Center" Width="150">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Control.Background" Value="#E7EFF6" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
         </WrapPanel>
-        <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="25,29,21,10" Grid.Column="1" Grid.Row="1">
+        <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="25,16,21,6" Grid.Row="1">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>
@@ -46,7 +47,7 @@
                 <lvc:Axis Title="Pourcentages" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Series="{Binding MoyennesCollection}" LegendLocation="Left" Margin="25,29,21,10" Grid.Row="2">
+        <lvc:CartesianChart Series="{Binding MoyennesCollection}" LegendLocation="Left" Margin="25,35,21,2" Grid.Row="2">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>
@@ -58,5 +59,7 @@
                 <lvc:Axis Title="Pourcentages" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+        <Label Content="Pourcentage de réussite et d'échec au fil des années (1989->2011)" FontSize="12" FontFamily="Montserrat" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="330,0,0,0" Name="Label1" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF123456" />
+        <Label Content="Evolution de la moyenne du module à travers les années (1989->2011)" FontSize="12" FontFamily="Montserrat" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="330,0,0,0" Name="Label2" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF123456" />
     </Grid>
 </UserControl>
