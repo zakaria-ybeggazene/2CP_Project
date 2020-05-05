@@ -11,6 +11,16 @@ Public Class MainWindowViewModel
             _workspaces = value
         End Set
     End Property
+    Private _hello As NothingViewModel
+    Public Property Hello As NothingViewModel
+        Get
+            Return _hello
+        End Get
+        Set(ByVal value As NothingViewModel)
+            _hello = value
+            OnPropertyChanged("Hello")
+        End Set
+    End Property
     Private _commands As ObservableCollection(Of CommandViewModel)
     Public Property Commands As ObservableCollection(Of CommandViewModel)
         Get
@@ -37,6 +47,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
+        Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
@@ -109,6 +120,7 @@ Public Class MainWindowViewModel
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
+        Hello = Nothing
         selectedIndex = Workspaces.Count
         _workspaces.Add(workspace)
     End Sub
@@ -129,6 +141,9 @@ Public Class MainWindowViewModel
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)
         Workspaces.Remove(sender)
 
+        If _workspaces.Count = 0 Then
+            Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+        End If
         If sender.GetType() Is GetType(RechercheEtudiantViewModel) Then
             _indexRechercheEtudiant = -1
         End If

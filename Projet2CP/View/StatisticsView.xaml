@@ -4,12 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projet2CP"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
     </UserControl.Resources>
-    <DockPanel>
+    <DockPanel Width="{Binding Width}">
         <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Button Background="White" Command="{Binding LeftCommand}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Height="37" HorizontalAlignment="Center" Name="Button1" VerticalAlignment="Center">
                 <Image Source="/Projet2CP;component/Images/leftarrow.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>

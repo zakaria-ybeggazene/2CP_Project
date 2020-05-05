@@ -1,7 +1,7 @@
 ﻿Public Class EtudiantViewModel
     Inherits WorkspaceViewModel
 
-    Public Sub New(ByVal displayName As String, ByVal e As Etudiant)
+    Public Sub New(ByVal displayName As String, ByVal e As EtudiantParcours)
 
         MyBase.New(displayName)
         v = New EtudiantView()
@@ -12,17 +12,6 @@
         ElseIf e.Sexe = 2 Then
             Me._sexe = "Féminin"
         End If
-        Dim _parcours As New List(Of AnneeEtude)
-        For Each a As AnneeEtude In _etudiant.Parcours
-            If a.Annee >= 88 Then
-                _parcours.Add(a)
-            End If
-        Next
-        For Each a As AnneeEtude In _etudiant.Parcours
-            If a.Annee < 88 Then
-                _parcours.Add(a)
-            End If
-        Next
         _list = New List(Of String)
         Dim i As Integer = 1
         For Each a As AnneeEtude In Etudiant.Parcours
@@ -31,7 +20,7 @@
                 i += 1
             End If
         Next
-        _etudiant.Parcours = _parcours
+        _etudiant.Parcours = e.Parcours
         _nom = _etudiant.Nom
         _prenom = _etudiant.Prenom
         _nomA = _etudiant.NomA
@@ -726,6 +715,4 @@
             Return _list
         End Get
     End Property
-
-
 End Class

@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="PromotionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="1072">
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="../Dictionary.xaml"/>
+
+    </UserControl.Resources>
+    <Grid Height="450">
+        <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="26,12,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" />
+        <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Right" Margin="0,12,262,0" Name="Label1" VerticalAlignment="Top" Width="239" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center"/>
+        <Grid Margin="0,55,44,0"   Width="454" HorizontalAlignment="right" VerticalAlignment="Top" Height="370">
+
+            <Border CornerRadius=" 15"  BorderThickness="3" Margin="-3,0,3,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
+                <Border.Effect>
+                    <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                </Border.Effect>
+                <DataGrid BorderThickness=" 0"  Height="360" Grid.Column="1" Grid.Row="4" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="435" VerticalAlignment="Stretch">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  Header="Matricule" Width="*" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
+                        <DataGridTemplateColumn Header="Details" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}" Background="{x:Null}" BorderThickness="0" Cursor="Hand">
+                                        <Path Data="M2.2,0c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2S0,3.41,0,2.2S0.98,0,2.2,0z M2.2,6.59
+	c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2S0,10,0,8.79S0.98,6.59,2.2,6.59z M2.2,13.18c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2
+	S0,16.59,0,15.38S0.98,13.18,2.2,13.18z" Fill="#FF123456"></Path>
+                                    </Button> 
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="30" />
+
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <Style TargetType = "DataGridColumnHeader">
+                            <Setter Property = "Foreground" Value = "#123456" />
+                            <Setter Property = "FontWeight" Value = "SemiBold"  />
+
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+        </Grid>
+        <Border  BorderThickness="2" Height="290" Margin="483,106,0,0" Name="Border1" Width="3" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF123456" Offset="0" />
+                    <GradientStop Color="#FF1168BF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+        <Grid Margin="26,55,0,0"   Width="376" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="370">
+            <Border CornerRadius=" 15" BorderThickness="3" Grid.Column="0" Grid.Row="4" VerticalAlignment="Stretch">
+                <Border.Effect>
+                    <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                </Border.Effect>
+                <DataGrid BorderThickness=" 0" Height="360"  Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" ItemsSource="{Binding Path=ListeMatieres}" FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Stretch" HorizontalAlignment="Center" VerticalContentAlignment="Center" Width="360">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Module" Width="230" Binding="{Binding Key.LibeMat}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Moyenne" Width="*" Binding="{Binding Value}" FontFamily="Montserrat" />
+                    </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="30" />
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="#123456" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+        </Grid>
+        <!--<Grid Margin="26,55,0,0"   Width="376" HorizontalAlignment="Left" Height="376" VerticalAlignment="Top">
+            <Border CornerRadius=" 15" BorderThickness="3" Margin="0,0,6,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
+                </Border.Effect>
+                <DataGrid BorderThickness=" 0" Height="370" Width="357" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" ItemsSource="{Binding Path=ListeMatieres}" FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Module" Width="230" Binding="{Binding Key.LibeMat}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Moyenne" Width="*" Binding="{Binding Value}" FontFamily="Montserrat" />
+                    </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="30" />
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="#123456" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF123456" Offset="0" />
+                        <GradientStop Color="#FF1168BF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+        </Grid>-->
+    </Grid>
+</UserControl>

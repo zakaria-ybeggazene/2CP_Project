@@ -1,9 +1,10 @@
 ﻿
 Public Class AnneeEtude
+
     Private _annee As String
-    Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn As Integer
+    Private _groupe, _mention, _rang, _nbrEtudiants, _ratrIn, _annetIn As Integer
     Private _niveau As Niveau
-    Private _section, _decision As Char
+    Private _section, _decision As String
     Private _moyenneJ As Decimal
     Private _notes As Dictionary(Of Matiere, Note)
     Public Class Rattrapage
@@ -43,19 +44,6 @@ Public Class AnneeEtude
     Public Sub New()
 
     End Sub
-
-    Public Sub New(ByVal annee As Integer, ByVal groupe As Integer, ByVal mention As Integer, ByVal niveau As Niveau, ByVal section As Char, ByVal adm As Char, ByVal moyenneJ As Decimal, ByVal rattrapage As Rattrapage)
-        _annee = annee
-        _groupe = groupe
-        _mention = mention
-        _niveau = niveau
-        _section = section
-        _decision = adm
-        _moyenneJ = moyenneJ
-        _rattrapage = rattrapage
-    End Sub
-
-
 
     'Properties
     Public Property Annee() As String
@@ -103,11 +91,11 @@ Public Class AnneeEtude
         End Set
     End Property
 
-    Public Property Decision() As Char
+    Public Property Decision() As String
         Get
             Return _decision
         End Get
-        Set(ByVal value As Char)
+        Set(ByVal value As String)
             Me._decision = value
         End Set
     End Property
@@ -162,5 +150,28 @@ Public Class AnneeEtude
             Me._ratrIn = value
         End Set
     End Property
+    Public Property AnnetIn() As Integer
+        Get
+            Return _annetIn
+        End Get
+        Set(ByVal value As Integer)
+            Me._annetIn = value
+        End Set
+    End Property
+
+    Public Function moyenneMax() As Double
+        If Rattrap Is Nothing Then
+            Return MoyenneJ
+        Else
+            Return Math.Max(MoyenneJ, Rattrap.MoyenneR)
+        End If
+    End Function
+    Public Function NoteRattrap() As Double
+        If Rattrap Is Nothing Then
+            Return 0.0
+        Else
+            Return Rattrap.MoyenneR
+        End If
+    End Function
 
 End Class

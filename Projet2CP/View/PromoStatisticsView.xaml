@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450"
+             mc:Ignorable="d"
              Cursor="{Binding Cursor}"
              ForceCursor="{Binding ForceCursor}">
     <UserControl.Resources>

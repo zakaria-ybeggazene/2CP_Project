@@ -4,51 +4,49 @@
     'Fields
     Private _niveau, _annee As String
     Private _resultat As Promotion
-    Private _listEtuds As List(Of EtudiantAnnee)
-    Private _listMats As Dictionary(Of Matiere, Decimal)
     Private _nbIns As Integer
+    Private _promotionViewModel As ViewModelBase
     'Recherche sub
     Public Sub recherche()
-        Try
-            If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
-                MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
+        If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
+            MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
+        Else
+            Dim niv As Niveau
+            If Niveau = "SI3 & SIQ3" Then
+                niv = Projet2CP.Niveau.CS3
             Else
-                Dim niv As Niveau = Util.stringToNiveau(Niveau)
-                Dim anneeCut As String = Annee.Substring(2)
-                Cursor = Cursors.Wait
-
+                niv = Util.stringToNiveau(Niveau)
+            End If
+            Dim anneeCut As String = Annee.Substring(2)
+            Mouse.OverrideCursor = Cursors.Wait
+            If niv = Projet2CP.Niveau.SI3 Or niv = Projet2CP.Niveau.SIQ3 Or niv = Projet2CP.Niveau.CS3 Then
+                Resultat = Repository.recherche_promo_parcours(niv, anneeCut)
+                If Resultat Is Nothing Then
+                    MsgBox("Promotion introuvable", MsgBoxStyle.Information)
+                Else
+                    NombreInscrits = Resultat.NbInscrits.ToString
+                    PromotionViewModel = New ClassementViewModel(CType(Resultat, PromotionParcours), _addEtudiantView)
+                End If
+            Else
                 Resultat = Repository.recherche_promo(niv, anneeCut)
                 If Resultat Is Nothing Then
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
                 Else
-                    ListeEtuds = Resultat.ListeEtudiants
-                    ListeMatieres = Resultat.ListeMatiere
-                    NombreInscrits = Resultat.NbInscrits
+                    NombreInscrits = Resultat.NbInscrits.ToString
+                    PromotionViewModel = New PromotionViewModel(CType(Resultat, PromotionAnnee), _addEtudiantView)
                 End If
             End If
-        Catch Ex As Exception
-            MsgBox("Une erreur s'est produite", MsgBoxStyle.Critical)
-        Finally
-            Cursor = Cursors.Wait
-        End Try
+
+        End If
+        Mouse.OverrideCursor = Nothing
     End Sub
-    Public Sub reset()
-        ListeEtuds = Nothing
-        ListeMatieres = Nothing
-    End Sub
+
     'Recherche command
-    Public _rechCommand As New RelayCommand(AddressOf recherche)
-    Public ReadOnly Property RechCommand As ICommand
-        Get
-            Return _rechCommand
-        End Get
-    End Property
-    Public _resetCommand As New RelayCommand(AddressOf Reset)
-    Public ReadOnly Property ResetCommand As ICommand
-        Get
-            Return _resetCommand
-        End Get
-    End Property
+    Public Property RechCommand As ICommand
+
+    'Commande de réinitialisation
+    Public Property ResetCommand As ICommand
+
     'Properties
     Public Property Annee() As String
         Get
@@ -56,6 +54,7 @@
         End Get
         Set(ByVal value As String)
             _annee = value
+            OnPropertyChanged("Annee")
         End Set
     End Property
     Public Property Niveau() As String
@@ -64,6 +63,7 @@
         End Get
         Set(ByVal value As String)
             _niveau = value
+            OnPropertyChanged("Niveau")
         End Set
     End Property
     Public Property Resultat() As Promotion
@@ -75,52 +75,37 @@
             OnPropertyChanged("Resultat")
         End Set
     End Property
-    Public Property ListeEtuds As List(Of EtudiantAnnee)
-        Get
-            Return _listEtuds
 
-        End Get
-        Set(ByVal value As List(Of EtudiantAnnee))
-            _listEtuds = value
-            OnPropertyChanged("ListeEtuds")
-        End Set
-    End Property
-    Public Property ListeMatieres As Dictionary(Of Matiere, Decimal)
+    Public Property NombreInscrits As String
         Get
-            Return _listMats
-
+            Return "Nombre d'inscrits  :  " & _nbIns.ToString
         End Get
-        Set(ByVal value As Dictionary(Of Matiere, Decimal))
-            _listMats = value
-            OnPropertyChanged("ListeMatieres")
-        End Set
-    End Property
-    Public Property NombreInscrits As Integer
-        Get
-            Return _nbIns
-        End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _nbIns = value
             OnPropertyChanged("NombreInscrits")
         End Set
     End Property
-
-    Private _etudiantTab As ICommand
-    Public Property EtudiantTab As ICommand
+    Public Property PromotionViewModel As ViewModelBase
         Get
-            Return _etudiantTab
+            Return _promotionViewModel
         End Get
-        Set(ByVal value As ICommand)
-            _etudiantTab = value
+        Set(ByVal value As ViewModelBase)
+            _promotionViewModel = value
+            OnPropertyChanged("PromotionViewModel")
         End Set
     End Property
+
+    Private _addEtudiantView As Action(Of Object)
 
     'NEW SUB
     Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object), ByVal addStatisticsView As Action(Of Object))
         MyBase.New(displayName)
-        Me.EtudiantTab = New RelayCommand(addEtudiantView)
+        _addEtudiantView = addEtudiantView
+        Me.RechCommand = New RelayCommand(AddressOf recherche)
+        Me.ResetCommand = New RelayCommand(AddressOf reset)
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
         Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
+        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
     End Sub
     Private _viewStatistics As RelayCommand
     Public Property ViewStatistics As RelayCommand
@@ -132,7 +117,6 @@
         End Set
 
     End Property
-
     Private _pvDelibCommand As ICommand
     Public Property PvDelibCommand As ICommand
         Get
@@ -143,6 +127,7 @@
         End Set
     End Property
 
+    'Procedure pour génerer le PV de délibération
     Public Sub generatePV(ByVal o As Object)
         Dim reportWindow As ReportWindow = New ReportWindow
         If Not _resultat Is Nothing Then
@@ -154,15 +139,13 @@
             End Try
         End If
     End Sub
-    Private _cursor As Cursor
-    Public Property Cursor As Cursor
-        Get
-            Return _cursor
-        End Get
-        Set(ByVal value As Cursor)
-            _cursor = value
-            OnPropertyChanged("Cursor")
-        End Set
-    End Property
-    Public Property ForceCursor As Boolean = True
+
+    Private Sub reset()
+        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
+        Annee = "Année"
+        Niveau = "Niveau"
+        NombreInscrits = 0
+        Resultat = Nothing
+    End Sub
+
 End Class

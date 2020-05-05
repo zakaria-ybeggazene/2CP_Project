@@ -11,19 +11,18 @@
 
     </UserControl.Resources>
 <!-- view fixed , details icon added-->
-    <Grid>
+    <Grid Width="{Binding Width}">
         <Grid.RowDefinitions>
             <RowDefinition Height="66" />
             <RowDefinition Height="56" />
             <RowDefinition Height="67" />
-            <RowDefinition Height="55" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="496*" />
             <ColumnDefinition Width="576*" />
         </Grid.ColumnDefinitions>
-        <Grid Margin="0,0,44,27"   Width="454" HorizontalAlignment="right" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
+        <!--<Grid Margin="0,0,44,27"   Width="454" HorizontalAlignment="right" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
 
             <Border CornerRadius=" 15"  BorderThickness="3" Margin="-3,0,3,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
                 <Border.Effect>
@@ -68,7 +67,7 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
             </Border>
-        </Grid>
+        </Grid>-->
         <Image Height="30" HorizontalAlignment="Left"  Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" Margin="25,33,0,0" />
 
         <Grid Margin="0,11,351,0" Name="Grid1" VerticalAlignment="Top" Background="#F0F0F0" HorizontalAlignment="Right" Width="179" Grid.Column="1" Grid.Row="1">
@@ -83,12 +82,12 @@
         </Grid>
 
         <Button Style="{DynamicResource RoundCorner}" Name="Filter" Command="{Binding Path=RechCommand}" Margin="0,6,428,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top"  ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2">
-            <StackPanel Width=" 102">
-                <Label Height="33" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White">Filter</Label>
+            <StackPanel Width="120">
+                <Label Height="33" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White">Filtrer</Label>
             </StackPanel>
         </Button>
         <Border Margin="332,6,0,0" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="33" HorizontalAlignment="Left" Grid.Row="2">
-            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Reset" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="100" Background="White" Command="{Binding Path=ResetCommand}" HorizontalContentAlignment="Center">
+            <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Style="{DynamicResource Reset}" Content="Réinitialiser" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="Auto" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="120" Background="White" Command="{Binding Path=ResetCommand}" HorizontalContentAlignment="Center">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF123456" Offset="0" />
@@ -104,19 +103,19 @@
                 </LinearGradientBrush>
             </Border.BorderBrush>
         </Border>
-        <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Right" Margin="0,8,262,0" Name="Label1" VerticalAlignment="Top" Width="239" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3">
 
-        </Label>
-        <Button Content="Filters" Height="30" HorizontalAlignment="Left" Margin="62,33,0,0" Name="Button1" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" Foreground="#FF435E78" />
-        <Border  BorderThickness="2" Height="290" Margin="493,78,0,51" Name="Border1" VerticalAlignment="Stretch" Width="3" Grid.Row="4">
+        <!--<Label Content="liste des etudiants:" Height="auto" HorizontalAlignment="right" Margin="0,8,262,0" Name="label1" VerticalAlignment="top" Width="239" FontFamily="montserrat" FontSize="22" FontWeight="semibold" Foreground="#ff115aa3" VerticalContentAlignment="center" Grid.Column="1" Grid.Row="3"/>-->
+
+        <Button Content="Filtres" Height="30" HorizontalAlignment="Left" Margin="62,33,0,0" Name="Button1" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" Foreground="#FF435E78" />
+        <!--<Border  BorderThickness="2" Height="290" Margin="493,78,0,51" Name="Border1" VerticalAlignment="Stretch" Width="3" Grid.Row="4">
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF123456" Offset="0" />
                     <GradientStop Color="#FF1168BF" Offset="1" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
-        </Border>
-        <Grid Margin="25,0,0,27"   Width="376" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Grid.Row="4">
+        </Border>-->
+        <!--<Grid Margin="25,0,0,27"   Width="376" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Grid.Row="4">
             <Border CornerRadius=" 15" BorderThickness="3" Grid.Column="0" Grid.Row="4" VerticalAlignment="Stretch">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
@@ -146,9 +145,9 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
             </Border>
-        </Grid>
-        <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="36,8,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" Grid.Row="3" />
-        <Label Content="Le nombre d'inscrits :" Height="Auto" HorizontalAlignment="Left" Margin="36,37,0,0" Name="Label3" VerticalAlignment="Top" Width="185" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" Grid.Row="2" />
+        </Grid>-->
+        <!--<Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="36,8,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" Grid.Row="3"/>-->
+        <Label Content="{Binding NombreInscrits}" Height="Auto" HorizontalAlignment="Left" Margin="36,37,0,0" Name="Label3" VerticalAlignment="Top" Width="Auto" FontSize="16" Foreground="#FF12375C" FontFamily="Montserrat" Grid.Row="2" />
         <Grid Background="#F0F0F0" Height="Auto" Margin="257,11,0,0" Name="Grid2" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1">
             <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="179" Grid.Row="1">
                 <ComboBox.ItemContainerStyle>
@@ -159,7 +158,8 @@
             </ComboBox>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Génerer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Grid.Column="1" />
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" Grid.Column="1" />
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération" Grid.Column="1"/>
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" ToolTip="Afficher les statistiques de la promotion trouvée" Grid.Column="1"/>
+        <ContentPresenter Content="{Binding PromotionViewModel}" Grid.Row="3" Grid.ColumnSpan="2"/>
     </Grid>
 </UserControl>

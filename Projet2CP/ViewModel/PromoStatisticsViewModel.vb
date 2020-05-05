@@ -102,7 +102,7 @@ Public Class PromoStatisticsViewModel
                 SeriesCollection(0).Values.Add(distribution(i))
             Next
         End If
-        For i = 1 To 20
+        For i = 0 To 19
             Labels.Add(CStr(i))
         Next
         Formatter = Function(value) value.ToString("N")

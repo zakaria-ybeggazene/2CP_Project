@@ -1,7 +1,9 @@
-﻿Imports System.Security.Cryptography
+Imports System.Security.Cryptography
 Imports System.Text
 
 Public Class Util
+    ''Attribut designant la largeur de l'écran
+    Public Shared width As Double = System.Windows.SystemParameters.WorkArea.Width - 218
     ''Fonction utilitaire pour recuperer le niveau a partir du cycle et de l'année
     Public Shared Function GetNiveau(ByVal Cycle As String, ByVal Annee As Integer) As Niveau
         If Cycle = "TRC" Then
@@ -156,6 +158,27 @@ Public Class Util
         End If
     End Function
 
+    Public Shared Function compareAnneEtude(ByVal x As AnneeEtude, ByVal y As AnneeEtude) As Integer
+        If x.Niveau <> y.Niveau Then
+            Return x.AnnetIn.CompareTo(y.AnnetIn)
+        Else
+            Dim a As Integer = x.Annee
+            Dim b As Integer = y.Annee
+            If a > 60 Then
+                a += 1900
+            Else
+                a += 2000
+            End If
+            If b > 60 Then
+                b += 1900
+            Else
+                b += 2000
+            End If
+
+            Return a.CompareTo(b)
+        End If
+    End Function
+
     'Fonction de hachage //Source du code est une solution dans le site stack overflow
     Public Shared Function GetHash(ByVal theInput As String) As String
 
@@ -177,7 +200,7 @@ Public Class Util
         End Using
 
     End Function
- 
+
     Public Shared ReglageIconPath As String = "M1.39,7.02H0.9C0.4,7.02,0,7.45,0,7.95v2.69c0,0.51,0.4,0.87,0.9,0.87H1.4c0.81,0,1.3,1.18,0.72,1.76" &
     "l-0.33,0.33c-0.36,0.34-0.36,0.93,0,1.27l1.88,1.9c0.34,0.34,0.91,0.34,1.27,0l0.55-0.55c0.57-0.57,1.52-0.16,1.52,0.64v0.81" &
     "c0,0.49,0.4,0.87,0.9,0.87h2.69c0.49,0,0.9-0.36,0.9-0.87v-0.81c0-0.79,0.97-1.19,1.52-0.63l0.55,0.55c0.34,0.34,0.91,0.34,1.27,0" &
@@ -187,7 +210,8 @@ Public Class Util
     "c-0.49,0-0.9,0.43-0.9,0.93v0.45c0,0.82-1.17,1.3-1.73,0.72L4.94,1.75c-0.34-0.36-0.93-0.36-1.27,0l-1.9,1.9" &
     "c-0.34,0.34-0.34,0.91,0,1.27l0.36,0.33C2.7,5.81,2.2,7.02,1.39,7.02z M9.29,5.71c1.99,0,3.58,1.6,3.58,3.58s-1.6,3.58-3.58,3.58" &
     "s-3.58-1.6-3.58-3.58C5.71,7.3,7.32,5.71,9.29,5.71z"
-
+
+
 
 
 
