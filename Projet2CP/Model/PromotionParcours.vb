@@ -24,14 +24,12 @@
         Next
 
         For Each Etudiant As EtudiantParcours In ListeEtudiants
-            Dim a As AnneeEtude = Etudiant.Parcours(Etudiant.Parcours.Count - 1)
             Dim i As Integer
-
-            i = Math.Floor(a.MoyenneJ)
             Try
+                i = Math.Floor(Etudiant.Moy)
                 resultat(i) += 1
             Catch ex As Exception
-                MessageBox.Show(i)
+                MsgBox("L'étudiant au matricule " & Etudiant.Matricule & " n'a aucun champs décision (DECIIN dans la bdd) au cours de ses 4 années égal à 1 ou à 2 (1 = Admis, 2 = Admis avec rachat)", MsgBoxStyle.Exclamation)
             End Try
 
         Next
@@ -43,7 +41,7 @@
         Dim i As Integer = 0
         For Each Etudiant As EtudiantParcours In ListeEtudiants
             Dim a As AnneeEtude = Etudiant.Parcours(Etudiant.Parcours.Count - 1)
-            If Math.Max(a.MoyenneJ, a.RatrIn) >= 10 Then
+            If a.Decision = "1" Or a.Decision = "2" Then
                 i += 1
             End If
         Next
@@ -62,7 +60,7 @@
                 MT += 1
             End If
 
-            If Math.Max(a.MoyenneJ, a.RatrIn) >= 10 Then
+            If a.Decision = "1" Or a.Decision = "2" Then
                 If Etudiant.Sexe = "1" Then
                     M += 1
                 Else

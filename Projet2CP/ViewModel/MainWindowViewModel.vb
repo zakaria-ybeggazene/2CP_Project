@@ -11,7 +11,16 @@ Public Class MainWindowViewModel
             _workspaces = value
         End Set
     End Property
+    Private _hello As NothingViewModel
     Public Property Hello As NothingViewModel
+        Get
+            Return _hello
+        End Get
+        Set(ByVal value As NothingViewModel)
+            _hello = value
+            OnPropertyChanged("Hello")
+        End Set
+    End Property
     Private _commands As ObservableCollection(Of CommandViewModel)
     Public Property Commands As ObservableCollection(Of CommandViewModel)
         Get
@@ -43,21 +52,22 @@ Public Class MainWindowViewModel
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
 
+
     Public Sub setList(ByVal isAdmin As Boolean)
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
         If isAdmin = True Then
             Commands = New ObservableCollection(Of CommandViewModel)({
-            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings)),
-            New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout))})
+            New CommandViewModel("Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView), Util.EtudiantIconPath),
+            New CommandViewModel("Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView), Util.PromotionIconPath),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView), Util.StatisticsIconPath),
+            New CommandViewModel("Réglages", New RelayCommand(AddressOf Me.OpenSettings), Util.ReglageIconPath),
+            New CommandViewModel("Se Déconnecter", New RelayCommand(AddressOf Repository.adminLogout), Util.LogoutIconPath)})
         Else
             Commands = New ObservableCollection(Of CommandViewModel)({
-            New CommandViewModel("Recherche Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView)),
-            New CommandViewModel("Recherche Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView)),
-            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView)),
-            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin))})
+            New CommandViewModel("Etudiant", New RelayCommand(AddressOf Me.AddRechercheEtudiantView), Util.EtudiantIconPath),
+            New CommandViewModel("Promotion", New RelayCommand(AddressOf Me.AddRecherchePromoView), Util.PromotionIconPath),
+            New CommandViewModel("Statistiques", New RelayCommand(AddressOf Me.AddStatisticsView), Util.StatisticsIconPath),
+            New CommandViewModel("Mode Administrateur", New RelayCommand(AddressOf Me.OpenAdminLogin), Util.LoginIconPath)})
         End If
 
     End Sub
@@ -110,6 +120,7 @@ Public Class MainWindowViewModel
     Private Sub AddWorkspace(ByVal workspace As WorkspaceViewModel)
         AddHandler workspace.Close, AddressOf Me.OnWorkspaceClose
 
+        Hello = Nothing
         selectedIndex = Workspaces.Count
         _workspaces.Add(workspace)
     End Sub
@@ -130,6 +141,9 @@ Public Class MainWindowViewModel
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)
         Workspaces.Remove(sender)
 
+        If _workspaces.Count = 0 Then
+            Hello = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
+        End If
         If sender.GetType() Is GetType(RechercheEtudiantViewModel) Then
             _indexRechercheEtudiant = -1
         End If

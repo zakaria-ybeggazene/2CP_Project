@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450"          
+             mc:Ignorable="d"          
              Cursor="{Binding Cursor}"
              ForceCursor="{Binding ForceCursor}">
     <UserControl.Resources>
@@ -22,7 +21,7 @@
             <RowDefinition Height="4*" />
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
-        <WrapPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        <WrapPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="30,30,19,114" Grid.RowSpan="2">
             <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalContentAlignment="Center">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
@@ -42,7 +41,7 @@
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
         </WrapPanel>
-        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></lvc:PieChart>
+        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="PieChart1"></lvc:PieChart>
         <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
@@ -67,6 +66,8 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter1}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+        <Label Content="Distribution des séries de bac des étudiants : " Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Grid.ColumnSpan="3" Width="295" Foreground="#FF123456" />
+        <Label Content="Distribution du sexe des étudiants à travers les années :" Grid.Column="2" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
+        <Label Content="Nombres de réussites et d'échec général :" Grid.ColumnSpan="3" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="0,160,0,0" Name="Label3" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="273" Foreground="#FF123456" />
     </Grid>
 </UserControl>
-

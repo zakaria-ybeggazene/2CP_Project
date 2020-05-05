@@ -11,7 +11,7 @@
         list.Add("SIQ2")
         list.Add("SI3")
         list.Add("SIQ3")
-        list.Add("CS3")
+        list.Add("SI3 & SIQ3")
         NiveauCB.ItemsSource = list
     End Sub
     Private Sub AnneecomboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)

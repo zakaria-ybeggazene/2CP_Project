@@ -520,5 +520,17 @@
   <ItemGroup>
     <Resource Include="HistoESI.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fichier 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fichier 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fichier 31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Groupe 20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

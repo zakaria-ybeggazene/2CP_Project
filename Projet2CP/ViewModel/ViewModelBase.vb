@@ -4,6 +4,7 @@ Public Class ViewModelBase
 
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
+    Public Property Width As Double = Util.width
 
     Protected Sub OnPropertyChanged(ByVal name As String)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(name))

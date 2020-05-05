@@ -35,19 +35,19 @@ Public Class ImportFiles
                 verify(filePath, 1)
                 If ins = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "SELECT NOTE FILE:"
+                    file.Content = "Sélectionner le fichier NOTE:"
                 End If
             ElseIf notes = False Then
                 verify(filePath, 2)
                 If notes = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "SELECT MATIERE FILE:"
+                    file.Content = "Sélectionner le fichier MATIERE:"
                 End If
             ElseIf mat = False Then
                 verify(filePath, 3)
                 If mat = True Then
                     Fichier.Content = "Nom du fichier"
-                    file.Content = "SELECT RATTRAPAGE FILE:"
+                    file.Content = "Sélectionner le fichier RATTRAPAGE:"
                 End If
             ElseIf rattrap = False Then
                 verify(filePath, 4)

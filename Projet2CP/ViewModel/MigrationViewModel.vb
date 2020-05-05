@@ -109,7 +109,7 @@ Public Class MigrationViewModel
                         & "CodPost ,Sexe ,Fils_de ,Et_de,ANNEEBAC,SERIEBAC,MOYBAC,WILBAC) SELECT MATRIN,max(MATRIC_INS) as 'MATRIC_INS'," _
                         & " max(NomEtud) as 'NomEtud',max(Prenoms) as 'Prenoms',max(NomEtudA) as 'NomEtudA' ,max(PrenomsA) as 'PrenomsA',max(DATENAIS) as 'DATENAIS'," _
                         & " max(LIEUNAISA) as 'LIEUNAISA',max(LIEUNAIS) as 'LIEUNAIS' ,max(WILNAISA) as 'WILNAISA',max(ADRESSE) as 'ADRESSE',max(VILLE) as 'VILLE', " _
-                        & "max(WILAYA) as 'WILAYA',max(CODPOST) as 'CODPOST' ,max(SEXE) as 'SEXE',max(FILS_DE) as 'FILS_DE',max(ET_DE) as 'ET_DE',max(ANNEEBAC) as 'ANNEEBAC'," _
+                        & "max(WILAYA) as 'WILAYA',max(CODPOST) as 'CODPOST' ,IIF(MATRIN LIKE '0%' OR MATRIN LIKE '1%', min(SEXE), min(SEXE) + 1) as 'SEXE',max(FILS_DE) as 'FILS_DE',max(ET_DE) as 'ET_DE',max(ANNEEBAC) as 'ANNEEBAC'," _
                         & "max(SERIEBAC) as 'SERIEBAC' ,max(MOYBAC) as 'MOYBAC',max(WILBAC) as 'WILBAC' FROM [INSCRIT$] WHERE MATRIN IS NOT NULL GROUP BY MATRIN;"
         cmd.ExecuteNonQuery()
         cmd.CommandText = "INSERT INTO [MS Access;Database=" & dbPath & "].[PROMO] (ANNEE ,OPTIIN , ANETIN, NbInscrits) SELECT ANSCIN ,OPTIIN ,ANETIN, COUNT(*) AS 'NbInscrits' " _

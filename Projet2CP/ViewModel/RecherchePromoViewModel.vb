@@ -11,9 +11,13 @@
         If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
             MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
         Else
-            Dim niv As Niveau = Util.stringToNiveau(Niveau)
+            Dim niv As Niveau
+            If Niveau = "SI3 & SIQ3" Then
+                niv = Projet2CP.Niveau.CS3
+            Else
+                niv = Util.stringToNiveau(Niveau)
+            End If
             Dim anneeCut As String = Annee.Substring(2)
-            'Cursor = Cursors.Wait
             Mouse.OverrideCursor = Cursors.Wait
             If niv = Projet2CP.Niveau.SI3 Or niv = Projet2CP.Niveau.SIQ3 Or niv = Projet2CP.Niveau.CS3 Then
                 Resultat = Repository.recherche_promo_parcours(niv, anneeCut)
@@ -35,16 +39,13 @@
 
         End If
         Mouse.OverrideCursor = Nothing
-        'Cursor = Cursors.Arrow
     End Sub
 
     'Recherche command
-    Public _rechCommand As New RelayCommand(AddressOf recherche)
-    Public ReadOnly Property RechCommand As ICommand
-        Get
-            Return _rechCommand
-        End Get
-    End Property
+    Public Property RechCommand As ICommand
+
+    'Commande de réinitialisation
+    Public Property ResetCommand As ICommand
 
     'Properties
     Public Property Annee() As String
@@ -53,6 +54,7 @@
         End Get
         Set(ByVal value As String)
             _annee = value
+            OnPropertyChanged("Annee")
         End Set
     End Property
     Public Property Niveau() As String
@@ -61,6 +63,7 @@
         End Get
         Set(ByVal value As String)
             _niveau = value
+            OnPropertyChanged("Niveau")
         End Set
     End Property
     Public Property Resultat() As Promotion
@@ -98,10 +101,11 @@
     Public Sub New(ByVal displayName As String, ByRef addEtudiantView As Action(Of Object), ByVal addStatisticsView As Action(Of Object))
         MyBase.New(displayName)
         _addEtudiantView = addEtudiantView
+        Me.RechCommand = New RelayCommand(AddressOf recherche)
+        Me.ResetCommand = New RelayCommand(AddressOf reset)
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
         Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
-        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/undraw_two_factor_authentication_namy.png")
-
+        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
     End Sub
     Private _viewStatistics As RelayCommand
     Public Property ViewStatistics As RelayCommand
@@ -123,7 +127,7 @@
         End Set
     End Property
 
-
+    'Procedure pour génerer le PV de délibération
     Public Sub generatePV(ByVal o As Object)
         Dim reportWindow As ReportWindow = New ReportWindow
         If Not _resultat Is Nothing Then
@@ -134,6 +138,14 @@
                 MsgBox("Le rapport n'a pas pu s'ouvrir", MsgBoxStyle.Critical)
             End Try
         End If
+    End Sub
+
+    Private Sub reset()
+        PromotionViewModel = New NothingViewModel("Aucune promotion selectionnée", "/Projet2CP;component/Images/Groupe 20.png")
+        Annee = "Année"
+        Niveau = "Niveau"
+        NombreInscrits = 0
+        Resultat = Nothing
     End Sub
 
 End Class

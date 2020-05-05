@@ -45,19 +45,6 @@ Public Class AnneeEtude
 
     End Sub
 
-    Public Sub New(ByVal annee As Integer, ByVal groupe As Integer, ByVal mention As Integer, ByVal niveau As Niveau, ByVal section As Char, ByVal adm As Char, ByVal moyenneJ As Decimal, ByVal rattrapage As Rattrapage)
-        _annee = annee
-        _groupe = groupe
-        _mention = mention
-        _niveau = niveau
-        _section = section
-        _decision = adm
-        _moyenneJ = moyenneJ
-        _rattrapage = rattrapage
-    End Sub
-
-
-
     'Properties
     Public Property Annee() As String
         Get

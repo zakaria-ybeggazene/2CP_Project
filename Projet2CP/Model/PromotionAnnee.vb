@@ -51,7 +51,7 @@
     Public Function getTauxReussite() As Object Implements IPromoStatistics.getTauxReussite
         Dim i As Integer = 0
         For Each Etudiant As EtudiantAnnee In ListeEtudiants
-            If Math.Max(Etudiant.Annee.MoyenneJ, Etudiant.Annee.RatrIn) >= 10 Then
+            If Etudiant.Annee.Decision = "1" Or Etudiant.Annee.Decision = "2" Then
                 i += 1
             End If
         Next
@@ -69,7 +69,7 @@
                 MT += 1
             End If
 
-            If Math.Max(Etudiant.Annee.MoyenneJ, Etudiant.Annee.RatrIn) >= 10 Then
+            If Etudiant.Annee.Decision = "1" Or Etudiant.Annee.Decision = "2" Then
                 If Etudiant.Sexe = "1" Then
                     M += 1
                 Else

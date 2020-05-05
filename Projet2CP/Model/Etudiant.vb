@@ -311,7 +311,7 @@ Public Class EtudiantParcours
     End Property
     ReadOnly Property Moy As Double
         Get
-            Dim annees As List(Of AnneeEtude) = Parcours.Where(Function(a) (a.Decision.Equals("1") Or a.Decision.Equals("0"))).ToList
+            Dim annees As List(Of AnneeEtude) = Parcours.Where(Function(a) ((a.Decision.Equals("1") Or a.Decision.Equals("2")) And (a.Niveau <> Niveau.SIQ3 Or a.Niveau <> Niveau.SI3))).ToList
             Return annees.ConvertAll(Function(a) a.moyenneMax).Sum / annees.Count
         End Get
     End Property
