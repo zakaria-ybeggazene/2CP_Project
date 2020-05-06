@@ -392,7 +392,7 @@ Public Class CrystalReports
         ds.Tables.Add(etudiantTable)
         ds.Tables.Add(notesTable)
 
-        Dim pvDelibRapport = New PvDelibReport()
+        Dim pvDelibRapport As PvDelibReport = New PvDelibReport()
         pvDelibRapport.SetDataSource(ds)
         Return pvDelibRapport
     End Function
