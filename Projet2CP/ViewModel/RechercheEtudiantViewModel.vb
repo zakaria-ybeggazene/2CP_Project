@@ -6,6 +6,7 @@ Public Class RechercheEtudiantViewModel
     Private _matricule, _nom, _prenom, _nomA, _prenomA, _lieuNais, _annee, _sexe, _wilayaNais As String
     Private _visibility1 As Visibility = Visibility.Hidden
     Private _visibility2 As Visibility
+    Private _visibility3 As Visibility = Visibility.Hidden
     Private _dateNais As DateTime? = Nothing
     Private _resultats As List(Of Etudiant)
     Private v As RechercheEtudiantView
@@ -48,11 +49,13 @@ Public Class RechercheEtudiantViewModel
         Mouse.OverrideCursor = Cursors.Wait
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
         If Resultats.Count = 0 Then
-            Visibility2 = Visibility.Visible
+            Visibility2 = Visibility.Hidden
             Visibility1 = Visibility.Hidden
+            Visibility3 = Visibility.Visible
         Else
             Visibility2 = Visibility.Hidden
             Visibility1 = Visibility.Visible
+            Visibility3 = Visibility.Hidden
         End If
 
         Mouse.OverrideCursor = Nothing
@@ -69,6 +72,7 @@ Public Class RechercheEtudiantViewModel
         Annee = ""
         Visibility2 = Visibility.Visible
         Visibility1 = Visibility.Hidden
+        Visibility3 = Visibility.Hidden
     End Sub
     'Recherche Properties
 
@@ -88,6 +92,15 @@ Public Class RechercheEtudiantViewModel
         Set(ByVal value As Visibility)
             _visibility2 = value
             OnPropertyChanged("Visibility2")
+        End Set
+    End Property
+    Public Property Visibility3() As Visibility
+        Get
+            Return _visibility3
+        End Get
+        Set(ByVal value As Visibility)
+            _visibility3 = value
+            OnPropertyChanged("Visibility3")
         End Set
     End Property
     Public Property Matricule() As String
