@@ -11,8 +11,8 @@
     </UserControl.Resources>
     <Grid Height="450">
         <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="26,12,0,0" Name="Label2" VerticalAlignment="Top" Width="285" VerticalContentAlignment="Center" />
-        <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Right" Margin="0,12,262,0" Name="Label1" VerticalAlignment="Top" Width="239" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center"/>
-        <Grid Margin="0,55,44,0"   Width="454" HorizontalAlignment="right" VerticalAlignment="Top" Height="370">
+        <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Right" Margin="0,12,247,0" Name="Label1" VerticalAlignment="Top" Width="239" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center"/>
+        <Grid Margin="0,55,29,0"   Width="454" HorizontalAlignment="right" VerticalAlignment="Top" Height="370">
 
             <Border CornerRadius=" 15"  BorderThickness="3" Margin="-3,0,3,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
                 <Border.Effect>
@@ -58,7 +58,7 @@
                 </Border.BorderBrush>
             </Border>
         </Grid>
-        <Border  BorderThickness="2" Height="290" Margin="483,106,0,0" Name="Border1" Width="3" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border  BorderThickness="2" Height="290" Margin="493,104,576,0" Name="Border1" Width="3" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF123456" Offset="0" />

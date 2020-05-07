@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignWidth="1072">
+             >
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Dictionary.xaml"/>
@@ -12,13 +12,13 @@
     <Grid Height="450">
         <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="32,0,0,0" Name="Label2" VerticalAlignment="Top" Width="Auto" VerticalContentAlignment="Center" />
 
-        <Grid Margin="14,33,12,0"  VerticalAlignment="Top" Height="400">
+        <Grid Margin="14,33,12,0"  VerticalAlignment="Top" >
 
             <Border CornerRadius=" 15" BorderThickness="3" Margin="3,1,-3,6">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="380" Width="1030" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="380" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="Auto" Binding="{Binding Matricule}" FontFamily="Montserrat" />
@@ -38,7 +38,11 @@
                         <DataGridTemplateColumn Header="Details" Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Details" Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}"/>
+                                    <Button  Command="{Binding DataContext.EtudiantTab, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding Path=.}" BorderThickness="0" Background="{x:Null}" Cursor="Hand">
+                                        <Path Data="M2.2,0c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2S0,3.41,0,2.2S0.98,0,2.2,0z M2.2,6.59
+	c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2S0,10,0,8.79S0.98,6.59,2.2,6.59z M2.2,13.18c1.21,0,2.2,0.98,2.2,2.2s-0.98,2.2-2.2,2.2
+	S0,16.59,0,15.38S0.98,13.18,2.2,13.18z" Fill="#FF123456"></Path>
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

@@ -12,13 +12,13 @@
     </UserControl.Resources>
 
     <Grid>
-            <Grid Margin="1,198,25,0"  VerticalAlignment="Top" Height="464">
+        <Grid Margin="11,198,15,0"  VerticalAlignment="Top" Height="443" Visibility="{Binding Visibility1,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}"   >
 
-            <Border CornerRadius=" 15" BorderThickness="3" Margin="0,0,0,-21">
+            <Border CornerRadius=" 15" BorderThickness="3" Margin="0,0,0,6" VerticalAlignment="Top">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="460" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="426" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
@@ -158,6 +158,8 @@
                 </LinearGradientBrush>
             </Border.BorderBrush>
         </Border>
+        <!--<Image Height="367" HorizontalAlignment="Left" Visibility="{Binding Visibility1,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Margin="126,239,0,0" Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="774" Source="/Projet2CP;component/Images/undraw_web_search_eetr1.png" />-->
+        <Image Height="371" HorizontalAlignment="Left" Margin="130,239,0,0" Name="Image3" Stretch="Fill" VerticalAlignment="Top" Width="770" Source="/Projet2CP;component/Images/undraw_online_friends_x73e.png" Visibility="{Binding Visibility2,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </UserControl> 
  

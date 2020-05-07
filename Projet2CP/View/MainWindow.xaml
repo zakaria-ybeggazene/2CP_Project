@@ -33,9 +33,11 @@
 
 
 
-            <Button Command="{Binding HelpCommand}" Height="40" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="6,615,172,6" Width="40" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
+            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="74,595,0,0" Width="40" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
                 <StackPanel>
-                    <Image Source="/Projet2CP;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Center" HorizontalAlignment="Center" Name="Image1" />
+                    
+                    <Image Source="/Projet2CP;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Center" Name="Image1" />
+                    <TextBlock Text="Aide?" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="White" FontSize="14" FontFamily="Montserrat"></TextBlock>
                 </StackPanel>
             </Button>
             <Image Height="67" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="78" Source="/Projet2CP;component/Images/Fichier%2031.png" />
@@ -50,6 +52,20 @@
         </Grid>
 
         <TabControl ItemsSource="{Binding Workspaces}" Name="WorkspaceList" SelectedIndex="{Binding selectedIndex}">
+            <TabControl.Template>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer    HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden"  >
+                            <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Margin="0,4,0,0"/>
+                        </ScrollViewer>
+                        <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </TabControl.Template>
             <TabControl.ItemTemplate >
                 <DataTemplate >
                     <DockPanel Width="150" Height="30">

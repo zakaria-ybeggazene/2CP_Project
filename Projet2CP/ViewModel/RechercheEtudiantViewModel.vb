@@ -4,6 +4,8 @@ Public Class RechercheEtudiantViewModel
     Inherits WorkspaceViewModel
 
     Private _matricule, _nom, _prenom, _nomA, _prenomA, _lieuNais, _annee, _sexe, _wilayaNais As String
+    Private _visibility1 As Visibility = Visibility.Hidden
+    Private _visibility2 As Visibility
     Private _dateNais As DateTime? = Nothing
     Private _resultats As List(Of Etudiant)
     Private v As RechercheEtudiantView
@@ -45,6 +47,14 @@ Public Class RechercheEtudiantViewModel
         End If
         Mouse.OverrideCursor = Cursors.Wait
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
+        If Resultats.Count = 0 Then
+            Visibility2 = Visibility.Visible
+            Visibility1 = Visibility.Hidden
+        Else
+            Visibility2 = Visibility.Hidden
+            Visibility1 = Visibility.Visible
+        End If
+
         Mouse.OverrideCursor = Nothing
     End Sub
     'Reset 
@@ -57,8 +67,29 @@ Public Class RechercheEtudiantViewModel
         LieuNais = ""
         WilayaNais = ""
         Annee = ""
+        Visibility2 = Visibility.Visible
+        Visibility1 = Visibility.Hidden
     End Sub
     'Recherche Properties
+
+    Public Property Visibility1() As Visibility
+        Get
+            Return _visibility1
+        End Get
+        Set(ByVal value As Visibility)
+            _visibility1 = value
+            OnPropertyChanged("Visibility1")
+        End Set
+    End Property
+    Public Property Visibility2() As Visibility
+        Get
+            Return _visibility2
+        End Get
+        Set(ByVal value As Visibility)
+            _visibility2 = value
+            OnPropertyChanged("Visibility2")
+        End Set
+    End Property
     Public Property Matricule() As String
         Get
             Return _matricule
