@@ -14,7 +14,7 @@
     <MyType>Custom</MyType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -55,9 +55,9 @@
     <ApplicationIcon>HistoESI.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll</HintPath>
       <Private>True</Private>
@@ -112,9 +112,10 @@
     <Compile Include="CrystalReports\EtudiantDS.vb">
       <DependentUpon>EtudiantDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReports\PvDelibDS.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="CrystalReports\PvDelibDS.designer.vb">
+      <DependentUpon>PvDelibDS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\PvDelibDS.vb">
       <DependentUpon>PvDelibDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="CrystalReports\PvDelibReport.vb">
@@ -164,7 +165,7 @@
     <Compile Include="ViewModel\CommandViewModel.vb" />
     <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />
-    <Compile Include="View\NothingViewModel.vb" />
+    <Compile Include="ViewModel\NothingViewModel.vb" />
     <Compile Include="ViewModel\PromoStatisticsViewModel.vb" />
     <Compile Include="ViewModel\PromotionViewModel.vb" />
     <Compile Include="ViewModel\RechercheEtudiantViewModel.vb" />
@@ -374,11 +375,7 @@
     <None Include="CrystalReports\PvDelibDS.xsc">
       <DependentUpon>PvDelibDS.xsd</DependentUpon>
     </None>
-    <None Include="CrystalReports\PvDelibDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PvDelibDS.Designer.vb</LastGenOutput>
-    </None>
+    <None Include="CrystalReports\PvDelibDS.xsd" />
     <None Include="CrystalReports\PvDelibDS.xss">
       <DependentUpon>PvDelibDS.xsd</DependentUpon>
     </None>
@@ -537,15 +534,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\undraw_web_search_eetr.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\undraw_web_search_eetr1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\undraw_online_friends_x73e.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
