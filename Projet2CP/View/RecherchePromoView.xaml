@@ -70,7 +70,7 @@
         </Grid>-->
         <Image Height="30" HorizontalAlignment="Left"  Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="31" Source="/Projet2CP;component/Images/Icon%20feather-filter1.png" Margin="25,33,0,0" />
 
-        <Grid Margin="0,11,351,0" Name="Grid1" VerticalAlignment="Top" Background="#F0F0F0" HorizontalAlignment="Right" Width="179" Grid.Column="1" Grid.Row="1">
+        <Grid Margin="0,11,351,0" Name="Grid1" VerticalAlignment="Top" Background="#F0F0F0" HorizontalAlignment="Right" Width="179" Grid.Column="1" Grid.Row="1" ToolTip="De 'TRC1' à 'SIQ2' : Liste Etudiants et Liste Matières&#10;De 'SI3' à 'SI3 &amp; SIQ3' : Classement de fin de cursus" >
             <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Grid.Column="1" Grid.Row="1">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
@@ -158,7 +158,7 @@
             </ComboBox>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="Button3" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération" Grid.Column="1"/>
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="pvButton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération" Grid.Column="1"/>
         <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" ToolTip="Afficher les statistiques de la promotion trouvée" Grid.Column="1"/>
         <ContentPresenter Content="{Binding PromotionViewModel}" Grid.Row="3" Grid.ColumnSpan="2"/>
     </Grid>

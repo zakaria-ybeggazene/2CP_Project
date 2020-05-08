@@ -131,12 +131,12 @@
     Public Sub generatePV(ByVal o As Object)
         Dim reportWindow As ReportWindow = New ReportWindow
         If Not _resultat Is Nothing Then
-            'Try
-            reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.PvDeliberation(_resultat)
-            reportWindow.Show()
-            'Catch e As Exception
-            'MsgBox("Le rapport n'a pas pu s'ouvrir", MsgBoxStyle.Critical)
-            'End Try
+            Try
+                reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.PvDeliberation(_resultat)
+                reportWindow.Show()
+            Catch e As Exception
+                MsgBox("Le rapport n'a pas pu s'ouvrir", MsgBoxStyle.Critical)
+            End Try
         End If
     End Sub
 
