@@ -47,6 +47,12 @@ Public Class RechercheEtudiantViewModel
             _strDate = _strDate.Remove(6, 2)
         End If
         Mouse.OverrideCursor = Cursors.Wait
+        Try
+            If Annee.Length = 4 Then
+                Annee = Annee.Remove(0, 2)
+            End If
+        Catch ex As Exception
+        End Try      
         Resultats = Repository.recherche_etudiants(Matricule, Nom, Prenom, NomA, PrenomA, _strDate, Sexe, Annee, WilayaNais, LieuNais)
         If Resultats.Count = 0 Then
             Visibility2 = Visibility.Hidden
