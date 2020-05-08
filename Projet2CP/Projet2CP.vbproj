@@ -544,5 +544,11 @@
   <ItemGroup>
     <Resource Include="Images\undraw_online_friends_x73e.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\undraw_online_friends_x73e1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\undraw_web_search_eetr2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
