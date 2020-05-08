@@ -1,14 +1,15 @@
 ﻿Imports System.Collections
 
 Public MustInherit Class Promotion
-    Private _annee, _nbInscrits As Integer
+    Private _nbInscrits As Integer
+    Private _annee As String
     Private _niveau As Niveau
 
-    Public Property Annee() As Integer
+    Public Property Annee() As String
         Get
             Return _annee
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             Me._annee = value
         End Set
     End Property

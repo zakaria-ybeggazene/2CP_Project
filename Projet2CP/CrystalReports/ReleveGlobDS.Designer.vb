@@ -955,7 +955,7 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTRC1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC1 As EtudiantRow) As TRC1Row
+        Public Overloads Function AddTRC1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC1 As EtudiantRow) As TRC1Row
             Dim rowTRC1Row As TRC1Row = CType(Me.NewRow,TRC1Row)
             Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing}
             If (Not (parentEtudiantRowByEtudiant_TRC1) Is Nothing) Then
@@ -1010,7 +1010,7 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnMatiere)
             Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -1343,7 +1343,7 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTRC2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC2 As EtudiantRow) As TRC2Row
+        Public Overloads Function AddTRC2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_TRC2 As EtudiantRow) As TRC2Row
             Dim rowTRC2Row As TRC2Row = CType(Me.NewRow,TRC2Row)
             Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing}
             If (Not (parentEtudiantRowByEtudiant_TRC2) Is Nothing) Then
@@ -1398,7 +1398,7 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnMatiere)
             Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -1740,7 +1740,7 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS1 As EtudiantRow, ByVal _Option As String) As CS1Row
+        Public Overloads Function AddCS1Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS1 As EtudiantRow, ByVal _Option As String) As CS1Row
             Dim rowCS1Row As CS1Row = CType(Me.NewRow,CS1Row)
             Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS1) Is Nothing) Then
@@ -1796,7 +1796,7 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnMatiere)
             Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -2144,7 +2144,7 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As Decimal, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS2 As EtudiantRow, ByVal _Option As String) As CS2Row
+        Public Overloads Function AddCS2Row(ByVal Annee As String, ByVal Matiere As String, ByVal Coef As Short, ByVal Note As String, ByVal Ratt As String, ByVal MoyenneJ As String, ByVal MoyenneR As String, ByVal Decision As String, ByVal Rang As String, ByVal parentEtudiantRowByEtudiant_CS2 As EtudiantRow, ByVal _Option As String) As CS2Row
             Dim rowCS2Row As CS2Row = CType(Me.NewRow,CS2Row)
             Dim columnValuesArray() As Object = New Object() {Annee, Matiere, Coef, Note, Ratt, MoyenneJ, MoyenneR, Decision, Rang, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS2) Is Nothing) Then
@@ -2200,7 +2200,7 @@ Partial Public Class ReleveGlobDS
             MyBase.Columns.Add(Me.columnMatiere)
             Me.columnCoef = New Global.System.Data.DataColumn("Coef", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCoef)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnRatt = New Global.System.Data.DataColumn("Ratt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRatt)
@@ -2488,7 +2488,7 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCS3Row(ByVal Annee As String, ByVal Note As Decimal, ByVal Mention As String, ByVal parentEtudiantRowByEtudiant_CS3 As EtudiantRow, ByVal _Option As String) As CS3Row
+        Public Overloads Function AddCS3Row(ByVal Annee As String, ByVal Note As String, ByVal Mention As String, ByVal parentEtudiantRowByEtudiant_CS3 As EtudiantRow, ByVal _Option As String) As CS3Row
             Dim rowCS3Row As CS3Row = CType(Me.NewRow,CS3Row)
             Dim columnValuesArray() As Object = New Object() {Annee, Note, Mention, Nothing, _Option}
             If (Not (parentEtudiantRowByEtudiant_CS3) Is Nothing) Then
@@ -2528,7 +2528,7 @@ Partial Public Class ReleveGlobDS
         Private Sub InitClass()
             Me.columnAnnee = New Global.System.Data.DataColumn("Annee", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnnee)
-            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNote = New Global.System.Data.DataColumn("Note", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNote)
             Me.columnMention = New Global.System.Data.DataColumn("Mention", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMention)
@@ -2540,7 +2540,6 @@ Partial Public Class ReleveGlobDS
             Me.columnOption.ExtendedProperties.Add("Generator_UserColumnName", "Option")
             MyBase.Columns.Add(Me.columnOption)
             Me.columnAnnee.DefaultValue = CType("",String)
-            Me.columnNote.DefaultValue = CType(0D,Decimal)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2882,10 +2881,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As Decimal
+        Public Property Note() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC1.NoteColumn),Decimal)
+                    Return CType(Me(Me.tableTRC1.NoteColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'TRC1' is DBNull.", e)
                 End Try
@@ -3151,10 +3150,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As Decimal
+        Public Property Note() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTRC2.NoteColumn),Decimal)
+                    Return CType(Me(Me.tableTRC2.NoteColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'TRC2' is DBNull.", e)
                 End Try
@@ -3432,10 +3431,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As Decimal
+        Public Property Note() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCS1.NoteColumn),Decimal)
+                    Return CType(Me(Me.tableCS1.NoteColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS1' is DBNull.", e)
                 End Try
@@ -3740,10 +3739,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As Decimal
+        Public Property Note() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCS2.NoteColumn),Decimal)
+                    Return CType(Me(Me.tableCS2.NoteColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS2' is DBNull.", e)
                 End Try
@@ -4022,10 +4021,10 @@ Partial Public Class ReleveGlobDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Note() As Decimal
+        Public Property Note() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCS3.NoteColumn),Decimal)
+                    Return CType(Me(Me.tableCS3.NoteColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Note' in table 'CS3' is DBNull.", e)
                 End Try

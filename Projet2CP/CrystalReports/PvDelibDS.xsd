@@ -12,26 +12,34 @@
   <xs:element name="PvDelibDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PvDelibDS" msprop:Generator_UserDSName="PvDelibDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Promotion" msprop:Generator_TableClassName="PromotionDataTable" msprop:Generator_TableVarName="tablePromotion" msprop:Generator_TablePropName="Promotion" msprop:Generator_RowDeletingName="PromotionRowDeleting" msprop:Generator_RowChangingName="PromotionRowChanging" msprop:Generator_RowEvHandlerName="PromotionRowChangeEventHandler" msprop:Generator_RowDeletedName="PromotionRowDeleted" msprop:Generator_UserTableName="Promotion" msprop:Generator_RowChangedName="PromotionRowChanged" msprop:Generator_RowEvArgName="PromotionRowChangeEvent" msprop:Generator_RowClassName="PromotionRow">
+        <xs:element name="Promotion" msprop:Generator_TableClassName="PromotionDataTable" msprop:Generator_TableVarName="tablePromotion" msprop:Generator_RowChangedName="PromotionRowChanged" msprop:Generator_TablePropName="Promotion" msprop:Generator_RowDeletingName="PromotionRowDeleting" msprop:Generator_RowChangingName="PromotionRowChanging" msprop:Generator_RowEvHandlerName="PromotionRowChangeEventHandler" msprop:Generator_RowDeletedName="PromotionRowDeleted" msprop:Generator_RowClassName="PromotionRow" msprop:Generator_UserTableName="Promotion" msprop:Generator_RowEvArgName="PromotionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Annee" msprop:Generator_ColumnVarNameInTable="columnAnnee" msprop:Generator_ColumnPropNameInRow="Annee" msprop:Generator_ColumnPropNameInTable="AnneeColumn" msprop:Generator_UserColumnName="Annee" type="xs:string" minOccurs="0" />
               <xs:element name="Niveau" msprop:Generator_ColumnVarNameInTable="columnNiveau" msprop:Generator_ColumnPropNameInRow="Niveau" msprop:Generator_ColumnPropNameInTable="NiveauColumn" msprop:Generator_UserColumnName="Niveau" type="xs:string" minOccurs="0" />
+              <xs:element name="Annee" msprop:Generator_ColumnVarNameInTable="columnAnnee" msprop:Generator_ColumnPropNameInRow="Annee" msprop:Generator_ColumnPropNameInTable="AnneeColumn" msprop:Generator_UserColumnName="Annee" type="xs:string" minOccurs="0" />
+              <xs:element name="CM1" msprop:Generator_ColumnVarNameInTable="columnCM1" msprop:Generator_ColumnPropNameInRow="CM1" msprop:Generator_ColumnPropNameInTable="CM1Column" msprop:Generator_UserColumnName="CM1" type="xs:string" minOccurs="0" />
+              <xs:element name="CM2" msprop:Generator_ColumnVarNameInTable="columnCM2" msprop:Generator_ColumnPropNameInRow="CM2" msprop:Generator_ColumnPropNameInTable="CM2Column" msprop:Generator_UserColumnName="CM2" type="xs:string" minOccurs="0" />
+              <xs:element name="CM3" msprop:Generator_ColumnVarNameInTable="columnCM3" msprop:Generator_ColumnPropNameInRow="CM3" msprop:Generator_ColumnPropNameInTable="CM3Column" msprop:Generator_UserColumnName="CM3" type="xs:string" minOccurs="0" />
+              <xs:element name="CM4" msprop:Generator_ColumnVarNameInTable="columnCM4" msprop:Generator_ColumnPropNameInRow="CM4" msprop:Generator_ColumnPropNameInTable="CM4Column" msprop:Generator_UserColumnName="CM4" type="xs:string" minOccurs="0" />
+              <xs:element name="CM5" msprop:Generator_ColumnVarNameInTable="columnCM5" msprop:Generator_ColumnPropNameInRow="CM5" msprop:Generator_ColumnPropNameInTable="CM5Column" msprop:Generator_UserColumnName="CM5" type="xs:string" minOccurs="0" />
+              <xs:element name="CM6" msprop:Generator_ColumnVarNameInTable="columnCM6" msprop:Generator_ColumnPropNameInRow="CM6" msprop:Generator_ColumnPropNameInTable="CM6Column" msprop:Generator_UserColumnName="CM6" type="xs:string" minOccurs="0" />
+              <xs:element name="CM7" msprop:Generator_ColumnVarNameInTable="columnCM7" msprop:Generator_ColumnPropNameInRow="CM7" msprop:Generator_ColumnPropNameInTable="CM7Column" msprop:Generator_UserColumnName="CM7" type="xs:string" minOccurs="0" />
+              <xs:element name="CM8" msprop:Generator_ColumnVarNameInTable="columnCM8" msprop:Generator_ColumnPropNameInRow="CM8" msprop:Generator_ColumnPropNameInTable="CM8Column" msprop:Generator_UserColumnName="CM8" type="xs:string" minOccurs="0" />
+              <xs:element name="Co1" msprop:Generator_ColumnVarNameInTable="columnCo1" msprop:Generator_ColumnPropNameInRow="Co1" msprop:Generator_ColumnPropNameInTable="Co1Column" msprop:Generator_UserColumnName="Co1" type="xs:string" minOccurs="0" />
+              <xs:element name="Co2" msprop:Generator_ColumnVarNameInTable="columnCo2" msprop:Generator_ColumnPropNameInRow="Co2" msprop:Generator_ColumnPropNameInTable="Co2Column" msprop:Generator_UserColumnName="Co2" type="xs:string" minOccurs="0" />
+              <xs:element name="Co3" msprop:Generator_ColumnVarNameInTable="columnCo3" msprop:Generator_ColumnPropNameInRow="Co3" msprop:Generator_ColumnPropNameInTable="Co3Column" msprop:Generator_UserColumnName="Co3" type="xs:string" minOccurs="0" />
+              <xs:element name="Co4" msprop:Generator_ColumnVarNameInTable="columnCo4" msprop:Generator_ColumnPropNameInRow="Co4" msprop:Generator_ColumnPropNameInTable="Co4Column" msprop:Generator_UserColumnName="Co4" type="xs:string" minOccurs="0" />
+              <xs:element name="Co5" msprop:Generator_ColumnVarNameInTable="columnCo5" msprop:Generator_ColumnPropNameInRow="Co5" msprop:Generator_ColumnPropNameInTable="Co5Column" msprop:Generator_UserColumnName="Co5" type="xs:string" minOccurs="0" />
+              <xs:element name="Co6" msprop:Generator_ColumnVarNameInTable="columnCo6" msprop:Generator_ColumnPropNameInRow="Co6" msprop:Generator_ColumnPropNameInTable="Co6Column" msprop:Generator_UserColumnName="Co6" type="xs:string" minOccurs="0" />
+              <xs:element name="Co7" msprop:Generator_ColumnVarNameInTable="columnCo7" msprop:Generator_ColumnPropNameInRow="Co7" msprop:Generator_ColumnPropNameInTable="Co7Column" msprop:Generator_UserColumnName="Co7" type="xs:string" minOccurs="0" />
+              <xs:element name="Co8" msprop:Generator_ColumnVarNameInTable="columnCo8" msprop:Generator_ColumnPropNameInRow="Co8" msprop:Generator_ColumnPropNameInTable="Co8Column" msprop:Generator_UserColumnName="Co8" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Matiere" msprop:Generator_TableClassName="MatiereDataTable" msprop:Generator_TableVarName="tableMatiere" msprop:Generator_TablePropName="Matiere" msprop:Generator_RowDeletingName="MatiereRowDeleting" msprop:Generator_RowChangingName="MatiereRowChanging" msprop:Generator_RowEvHandlerName="MatiereRowChangeEventHandler" msprop:Generator_RowDeletedName="MatiereRowDeleted" msprop:Generator_UserTableName="Matiere" msprop:Generator_RowChangedName="MatiereRowChanged" msprop:Generator_RowEvArgName="MatiereRowChangeEvent" msprop:Generator_RowClassName="MatiereRow">
+        <xs:element name="Etudiant" msprop:Generator_TableClassName="EtudiantDataTable" msprop:Generator_TableVarName="tableEtudiant" msprop:Generator_RowChangedName="EtudiantRowChanged" msprop:Generator_TablePropName="Etudiant" msprop:Generator_RowDeletingName="EtudiantRowDeleting" msprop:Generator_RowChangingName="EtudiantRowChanging" msprop:Generator_RowEvHandlerName="EtudiantRowChangeEventHandler" msprop:Generator_RowDeletedName="EtudiantRowDeleted" msprop:Generator_RowClassName="EtudiantRow" msprop:Generator_UserTableName="Etudiant" msprop:Generator_RowEvArgName="EtudiantRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CodeMat" msprop:Generator_ColumnVarNameInTable="columnCodeMat" msprop:Generator_ColumnPropNameInRow="CodeMat" msprop:Generator_ColumnPropNameInTable="CodeMatColumn" msprop:Generator_UserColumnName="CodeMat" type="xs:string" />
-              <xs:element name="Coefficient" msprop:Generator_ColumnVarNameInTable="columnCoefficient" msprop:Generator_ColumnPropNameInRow="Coefficient" msprop:Generator_ColumnPropNameInTable="CoefficientColumn" msprop:Generator_UserColumnName="Coefficient" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Etudiant" msprop:Generator_TableClassName="EtudiantDataTable" msprop:Generator_TableVarName="tableEtudiant" msprop:Generator_TablePropName="Etudiant" msprop:Generator_RowDeletingName="EtudiantRowDeleting" msprop:Generator_RowChangingName="EtudiantRowChanging" msprop:Generator_RowEvHandlerName="EtudiantRowChangeEventHandler" msprop:Generator_RowDeletedName="EtudiantRowDeleted" msprop:Generator_UserTableName="Etudiant" msprop:Generator_RowChangedName="EtudiantRowChanged" msprop:Generator_RowEvArgName="EtudiantRowChangeEvent" msprop:Generator_RowClassName="EtudiantRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Matricule" msprop:Generator_ColumnVarNameInTable="columnMatricule" msprop:Generator_ColumnPropNameInRow="Matricule" msprop:Generator_ColumnPropNameInTable="MatriculeColumn" msprop:Generator_UserColumnName="Matricule" type="xs:string" minOccurs="0" />
+              <xs:element name="Matricule" msprop:Generator_ColumnVarNameInTable="columnMatricule" msprop:Generator_ColumnPropNameInRow="Matricule" msprop:Generator_ColumnPropNameInTable="MatriculeColumn" msprop:Generator_UserColumnName="Matricule" type="xs:string" />
               <xs:element name="NomPrenom" msprop:Generator_ColumnVarNameInTable="columnNomPrenom" msprop:Generator_ColumnPropNameInRow="NomPrenom" msprop:Generator_ColumnPropNameInTable="NomPrenomColumn" msprop:Generator_UserColumnName="NomPrenom" type="xs:string" minOccurs="0" />
               <xs:element name="Moyenne" msprop:Generator_ColumnVarNameInTable="columnMoyenne" msprop:Generator_ColumnPropNameInRow="Moyenne" msprop:Generator_ColumnPropNameInTable="MoyenneColumn" msprop:Generator_UserColumnName="Moyenne" type="xs:string" minOccurs="0" />
               <xs:element name="Mention" msprop:Generator_ColumnVarNameInTable="columnMention" msprop:Generator_ColumnPropNameInRow="Mention" msprop:Generator_ColumnPropNameInTable="MentionColumn" msprop:Generator_UserColumnName="Mention" type="xs:string" minOccurs="0" />
@@ -39,38 +47,15 @@
               <xs:element name="MoyenneR" msprop:Generator_ColumnVarNameInTable="columnMoyenneR" msprop:Generator_ColumnPropNameInRow="MoyenneR" msprop:Generator_ColumnPropNameInTable="MoyenneRColumn" msprop:Generator_UserColumnName="MoyenneR" type="xs:string" minOccurs="0" />
               <xs:element name="Decision" msprop:Generator_ColumnVarNameInTable="columnDecision" msprop:Generator_ColumnPropNameInRow="Decision" msprop:Generator_ColumnPropNameInTable="DecisionColumn" msprop:Generator_UserColumnName="Decision" type="xs:string" minOccurs="0" />
               <xs:element name="Ne" msprop:Generator_ColumnVarNameInTable="columnNe" msprop:Generator_ColumnPropNameInRow="Ne" msprop:Generator_ColumnPropNameInTable="NeColumn" msprop:Generator_UserColumnName="Ne" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Notes" msprop:Generator_TableClassName="NotesDataTable" msprop:Generator_TableVarName="tableNotes" msprop:Generator_TablePropName="Notes" msprop:Generator_RowDeletingName="NotesRowDeleting" msprop:Generator_RowChangingName="NotesRowChanging" msprop:Generator_RowEvHandlerName="NotesRowChangeEventHandler" msprop:Generator_RowDeletedName="NotesRowDeleted" msprop:Generator_UserTableName="Notes" msprop:Generator_RowChangedName="NotesRowChanged" msprop:Generator_RowEvArgName="NotesRowChangeEvent" msprop:Generator_RowClassName="NotesRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="CodeMat" msprop:Generator_ColumnVarNameInTable="columnCodeMat" msprop:Generator_ColumnPropNameInRow="CodeMat" msprop:Generator_ColumnPropNameInTable="CodeMatColumn" msprop:Generator_UserColumnName="CodeMat" type="xs:string" />
-              <xs:element name="Matricule" msprop:Generator_ColumnVarNameInTable="columnMatricule" msprop:Generator_ColumnPropNameInRow="Matricule" msprop:Generator_ColumnPropNameInTable="MatriculeColumn" msprop:Generator_UserColumnName="Matricule" type="xs:string" />
-              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Matiere" />
-      <xs:field xpath="mstns:CodeMat" />
-    </xs:unique>
-    <xs:unique name="Etudiant_Constraint1" msdata:ConstraintName="Constraint1">
       <xs:selector xpath=".//mstns:Etudiant" />
       <xs:field xpath="mstns:Matricule" />
     </xs:unique>
-    <xs:unique name="Notes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Notes" />
-      <xs:field xpath="mstns:CodeMat" />
-      <xs:field xpath="mstns:Matricule" />
-    </xs:unique>
   </xs:element>
-  <xs:annotation>
-    <xs:appinfo>
-      <msdata:Relationship name="Etudiant_Notes" msdata:parent="Etudiant" msdata:child="Notes" msdata:parentkey="Matricule" msdata:childkey="Matricule" msprop:Generator_UserChildTable="Notes" msprop:Generator_ChildPropName="GetNotesRows" msprop:Generator_UserRelationName="Etudiant_Notes" msprop:Generator_ParentPropName="EtudiantRow" msprop:Generator_RelationVarName="relationEtudiant_Notes" msprop:Generator_UserParentTable="Etudiant" />
-      <msdata:Relationship name="Matiere_Notes" msdata:parent="Matiere" msdata:child="Notes" msdata:parentkey="CodeMat" msdata:childkey="CodeMat" msprop:Generator_UserChildTable="Notes" msprop:Generator_ChildPropName="GetNotesRows" msprop:Generator_UserRelationName="Matiere_Notes" msprop:Generator_ParentPropName="MatiereRow" msprop:Generator_RelationVarName="relationMatiere_Notes" msprop:Generator_UserParentTable="Matiere" />
-    </xs:appinfo>
-  </xs:annotation>
 </xs:schema>

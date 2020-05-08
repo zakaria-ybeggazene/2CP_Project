@@ -392,6 +392,50 @@ Public Class Repository
                 Loop
                 dr.Close()
 
+                Dim notes As Dictionary(Of Matiere, Note)
+                For Each etudiant In etudiants
+                    anneEtude = etudiant.Annee
+                    notes = New Dictionary(Of Matiere, Note)()
+                    cmd.CommandText = "SELECT MATRICULE,ANNEE,OPTIN,ANETIN, ComaMa, CycNO, NoJuNo, NoSyNo,NoRaNo ,ElimNo ,RatrNo FROM ETUDNOTE " _
+                                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & anneEtude.Annee & "' AND OPTIN = '" & Util.GetOption(anneEtude.Niveau) & "' AND ANETIN = '" & Util.GetAnneEt(anneEtude.Niveau) & "';"
+                    dr = cmd.ExecuteReader()
+                    Dim n As Note
+                    Do While dr.Read
+                        n = New Note With {.Noju = Util.dbNullToDouble(dr.Item("NoJuNo")),
+                                              .Nosy = Util.dbNullToDouble(dr.Item("NoSyNo")),
+                                              .Nora = Util.dbNullToDouble(dr.Item("NoRaNo")),
+                                              .Ratrapage = Util.dbNullToInteger(dr.Item("RatrNo")),
+                                              .Eliminatoire = Util.dbNullToString(Not (dr.Item("ElimNo")).Equals("0"))}
+
+                        notes.Add(Matiere.getMatiere(Util.dbNullToString(dr.Item("ComaMa")), anneEtude.Niveau), n)
+                    Loop
+                    dr.Close()
+
+                    If anneEtude.RatrIn > 0 Then
+                        sqlCommand = "SELECT MoyeRa,MentRa,ElimRa " _
+                                    & "FROM RATTRAP " _
+                                    & "WHERE MATRICULE = '" & etudiant.Matricule & "' AND ANNEE = '" & anneEtude.Annee & "' AND OPTIRA = '" & Util.GetOption(anneEtude.Niveau) & "' AND ANETRA = '" & Util.GetAnneEt(anneEtude.Niveau) & "';"
+
+                        cmd.CommandText = sqlCommand
+                        dr = cmd.ExecuteReader
+
+                        If (dr.Read()) Then
+                            Util.dbNullToDouble(dr.Item("MoyeRa"))
+                            Util.dbNullToInteger(dr.Item("MentRa"))
+                            Util.dbNullToInteger(dr.Item("ElimRa"))
+                            anneEtude.Rattrap = New AnneeEtude.Rattrapage With {.MoyenneR = Util.dbNullToDouble(dr.Item("MoyeRa")),
+                                                                    .MentionR = Util.dbNullToInteger(dr.Item("MentRa")),
+                                                                    .Elim = Util.dbNullToInteger(dr.Item("ElimRa"))}
+                        End If
+
+
+                        dr.Close()
+                    End If
+
+                    anneEtude.Notes = notes
+                    etudiant.Annee = anneEtude
+                Next
+
                 Dim moyenneMatiere As Dictionary(Of Matiere, Decimal) = New Dictionary(Of Matiere, Decimal)()
                 cmd.CommandText = "SELECT COMAMA, MoyenneMA FROM MOYMAT " _
                                 & "WHERE ANNEE = '" & annee & "' AND OPTIMA = '" & Util.GetOption(niveau) & "' AND ANETMA = '" & Util.GetAnneEt(niveau) & "';"

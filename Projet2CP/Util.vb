@@ -93,13 +93,33 @@ Public Class Util
         End If
         Return anneeUnivStr
     End Function
-    Public Shared Function GetDecisionCR(ByVal dec As String) As String
+    Public Shared Function GetDecisionRN(ByVal dec As String) As String
         Dim decStr As String
         Select Case dec
             Case 1
                 decStr = "Admis"
             Case 2
                 decStr = "Admis avec rachat"
+            Case 3
+                decStr = "Redouble"
+            Case 4
+                decStr = "Non Admis"
+            Case 5
+                decStr = "Maladie"
+            Case 6
+                decStr = "Abandon"
+            Case Else
+                decStr = ""
+        End Select
+        Return decStr
+    End Function
+    Public Shared Function GetDecisionPV(ByVal dec As String) As String
+        Dim decStr As String
+        Select Case dec
+            Case 1
+                decStr = "Admis"
+            Case 2
+                decStr = "Admis R"
             Case 3
                 decStr = "Redouble"
             Case 4
@@ -130,6 +150,28 @@ Public Class Util
                 menStr = "Abandon"
             Case 8
                 menStr = "Redouble"
+            Case Else
+                menStr = ""
+        End Select
+        Return menStr
+    End Function
+    Public Shared Function GetMentionPV(ByVal mention As Integer) As String
+        Dim menStr As String
+        Select Case mention
+            Case 1
+                menStr = "TB"
+            Case 2
+                menStr = "Bien"
+            Case 3
+                menStr = "AB"
+            Case 4
+                menStr = "Pass."
+            Case 6
+                menStr = "Rattr."
+            Case 7
+                menStr = "ABN"
+            Case 8
+                menStr = "RDB"
             Case Else
                 menStr = ""
         End Select
