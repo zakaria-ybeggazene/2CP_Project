@@ -33,11 +33,11 @@
 
 
 
-            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="74,595,0,0" Width="40" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
+            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="90,595,0,0" Width="50" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
                 <StackPanel>
                     
                     <Image Source="/Projet2CP;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Center" Name="Image1" />
-                    <TextBlock Text="Aide?" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="White" FontSize="14" FontFamily="Montserrat"></TextBlock>
+                    <TextBlock Text="Aide ?" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="White" FontSize="14" FontFamily="Montserrat" Width="Auto"></TextBlock>
                 </StackPanel>
             </Button>
             <Image Height="67" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="78" Source="/Projet2CP;component/Images/Fichier%2031.png" />
