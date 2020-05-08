@@ -145,8 +145,8 @@
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
 
-        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filtrer" Command="{Binding Path=RechercheCommand}" Margin="0,150,50,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Right" Width="130" />
-        <Border Margin="0,150,209,0"   HorizontalAlignment="Right" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="30" Width="130">
+        <Button Style="{DynamicResource RoundCorner}" Name="Filter" Content="Filtrer" Command="{Binding Path=RechercheCommand}" Margin="769,162,0,0" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" VerticalAlignment="Top" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" HorizontalAlignment="Center" Width="130" />
+        <Border Margin="656,162,240,0"   HorizontalAlignment="Center" CornerRadius=" 15" BorderThickness="2" VerticalAlignment="Top" Height="30" Width="130">
             <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True"  Command="{Binding Path=ResetCommand}" Style="{DynamicResource Reset}"  Content="Réinitialiser" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light"  Height="30" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center" Width="120" Background="White" HorizontalContentAlignment="Center" ToolTip="Réinitialiser tous les champs des filtres">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">

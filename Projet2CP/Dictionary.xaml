@@ -31,6 +31,9 @@
     <DataTemplate DataType="{x:Type local:NothingViewModel}">
         <local:NothingView></local:NothingView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type local:WelcomeViewModel}">
+        <local:WelcomeView></local:WelcomeView >
+    </DataTemplate>
     <Style x:Key="Mystyle" TargetType="DataGrid">
         <!-- Make the border and grid lines a little less -->
         <Setter Property="BorderBrush" Value="#DDDDDD" />

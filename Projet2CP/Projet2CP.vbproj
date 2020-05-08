@@ -165,7 +165,7 @@
     <Compile Include="ViewModel\CommandViewModel.vb" />
     <Compile Include="ViewModel\EtudiantViewModel.vb" />
     <Compile Include="ViewModel\MainWindowViewModel.vb" />
-    <Compile Include="View\NothingViewModel.vb" />
+    <Compile Include="ViewModel\NothingViewModel.vb" />
     <Compile Include="ViewModel\PromoStatisticsViewModel.vb" />
     <Compile Include="ViewModel\PromotionViewModel.vb" />
     <Compile Include="ViewModel\RechercheEtudiantViewModel.vb" />
@@ -173,6 +173,7 @@
     <Compile Include="ViewModel\RelayCommand.vb" />
     <Compile Include="ViewModel\StatisticsViewModel.vb" />
     <Compile Include="ViewModel\ViewModelBase.vb" />
+    <Compile Include="ViewModel\WelcomeViewModel.vb" />
     <Compile Include="ViewModel\WorkspaceViewModel.vb" />
     <Compile Include="View\Admin.xaml.vb">
       <DependentUpon>Admin.xaml</DependentUpon>
@@ -221,6 +222,9 @@
     </Compile>
     <Compile Include="View\StatisticsView.xaml.vb">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WelcomeView.xaml.vb">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary.xaml">
       <SubType>Designer</SubType>
@@ -299,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WelcomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -549,6 +557,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\undraw_web_search_eetr2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\first1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Welcome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

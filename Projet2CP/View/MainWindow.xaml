@@ -10,9 +10,9 @@
     <DockPanel Background="White">
         <Grid Width="218">
 
+          
 
-
-            <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,157,0,150" DataContext="{Binding}">
+                <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,157,0,150" DataContext="{Binding}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate >
                         <TextBlock Margin="2,6" > 
@@ -81,6 +81,6 @@
 
             </TabControl.ItemTemplate>
         </TabControl>
-        <ContentPresenter Content="{Binding Hello}" />
+        <ContentPresenter Content="{Binding Welcome}" />
     </DockPanel>
 </Window>

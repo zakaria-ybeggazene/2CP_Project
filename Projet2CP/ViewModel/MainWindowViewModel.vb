@@ -12,6 +12,7 @@ Public Class MainWindowViewModel
         End Set
     End Property
     Private _hello As NothingViewModel
+    Private _welcome As WelcomeViewModel
     Public Property Hello As NothingViewModel
         Get
             Return _hello
@@ -19,6 +20,15 @@ Public Class MainWindowViewModel
         Set(ByVal value As NothingViewModel)
             _hello = value
             OnPropertyChanged("Hello")
+        End Set
+    End Property
+    Public Property Welcome As WelcomeViewModel
+        Get
+            Return _welcome
+        End Get
+        Set(ByVal value As WelcomeViewModel)
+            _welcome = value
+            OnPropertyChanged("Welcome")
         End Set
     End Property
     Private _commands As ObservableCollection(Of CommandViewModel)
@@ -47,7 +57,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
-        Hello = New NothingViewModel("/Projet2CP;component/Images/logo.png")
+        Welcome = New WelcomeViewModel("/Projet2CP;component/Images/Welcome.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
@@ -142,7 +152,7 @@ Public Class MainWindowViewModel
         Workspaces.Remove(sender)
 
         If _workspaces.Count = 0 Then
-            Hello = New NothingViewModel("/Projet2CP;component/Images/logo.png")
+            Welcome = New WelcomeViewModel("/Projet2CP;component/Images/Welcome.png")
         End If
         If sender.GetType() Is GetType(RechercheEtudiantViewModel) Then
             _indexRechercheEtudiant = -1
