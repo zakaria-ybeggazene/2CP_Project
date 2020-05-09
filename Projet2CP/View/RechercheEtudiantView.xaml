@@ -70,52 +70,52 @@
 
         <Grid Background="#F0F0F0" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="175" Height="35">
             <Label Background="#00000000" BorderThickness="0" Content="Matricule" FontFamily="Montserrat" FontSize="14" Foreground="#123456" Height="35" Name="MatriculeHint" Opacity="0.5" VerticalContentAlignment="Center" Width="175" />
-            <TextBox Text="{Binding Path=Matricule}" Background="Transparent" BorderThickness="0" FontFamily="Montserrat" FontSize="14" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" Name="MatriculeTB" SelectionBrush="#FF123456" TextChanged="MatriculeChanged" VerticalContentAlignment="Center" Margin="-1,0,1,0" />
+            <TextBox Text="{Binding Path=Matricule}" MaxLength="7" Background="Transparent" BorderThickness="0" FontFamily="Montserrat" FontSize="14" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="35" Name="MatriculeTB" SelectionBrush="#FF123456" TextChanged="MatriculeChanged" VerticalContentAlignment="Center" Margin="-1,0,1,0" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="175" />
         </Grid>
         <Grid  Height="35"  Margin="220,50,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Label Content="Nom" FontFamily="Montserrat" BorderThickness="0" Name="NomHintfr" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Width="175" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
-            <TextBox Text="{Binding Path=Nom}" BorderThickness="0" Background="Transparent"  TextChanged="NomChangedfr" x:Name="NomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <TextBox Text="{Binding Path=Nom}" MaxLength="30" BorderThickness="0" Background="Transparent"  TextChanged="NomChangedfr" x:Name="NomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
         <Grid Height="35" Background="#F0F0F0" Margin="430,50,0,0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Label Content="Prenom" FontFamily="Montserrat" BorderThickness="0" Name="PrenomHintfr" Foreground="#123456" Opacity="0.5" FontSize="14" Width="175" Height="35" VerticalContentAlignment="Center" Background="#00000000"/>
-            <TextBox Text="{Binding Path=Prenom}" BorderThickness="0" Background="Transparent" TextChanged="PrenomChangedfr" x:Name="PrenomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <TextBox Text="{Binding Path=Prenom}" MaxLength="30" BorderThickness="0" Background="Transparent" TextChanged="PrenomChangedfr" x:Name="PrenomfrTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175"></Border>
         </Grid>
 
         <Grid  Height="35"  Margin="640,50,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Label Content="الاسم" FontFamily="Montserrat" BorderThickness="0" Name="PrenomHintA" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Width="175" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Background="{x:Null}"/>
-            <TextBox Text="{Binding Path=PrenomA}" BorderThickness="0" Background="Transparent"  TextChanged="PrenomChangedA" x:Name="PrenomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right"/>
+            <TextBox Text="{Binding Path=PrenomA}" MaxLength="30" BorderThickness="0" Background="Transparent"  TextChanged="PrenomChangedA" x:Name="PrenomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right"/>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
 
         <Grid  Height="35"  Margin="850,50,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Label Content="اللقب" FontFamily="Montserrat" BorderThickness="0" Name="NomHintA" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Width="175" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Background="{x:Null}"/>
-            <TextBox Text="{Binding Path=NomA}" BorderThickness="0" Background="Transparent"  TextChanged="NomChangedA" x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" />
+            <TextBox Text="{Binding Path=NomA}" MaxLength="30" BorderThickness="0" Background="Transparent"  TextChanged="NomChangedA" x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
 
         <Grid  Height="35"  Margin="10,100,0,0" Background="#F0F0F0" Width="175" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Ex: pour l'année 2000/2001 saisir '00'">
             <Label Content="Année universitaire" FontFamily="Montserrat" BorderThickness="0" Name="PromoHint" Foreground="#FF0D1F45" Opacity="0.5" FontSize="14" Height="35" VerticalContentAlignment="Center" Background="{x:Null}"/>
-            <TextBox Text="{Binding Path=Annee}" BorderThickness="0" Background="Transparent"  TextChanged="PromoChanged" x:Name="PromoTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
+            <TextBox Text="{Binding Path=Annee}" MaxLength="4" BorderThickness="0" Background="Transparent"  TextChanged="PromoChanged" x:Name="PromoTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" Height="35" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0"  VerticalAlignment="Top" Width="175" />
         </Grid>
         <Grid Width="175" VerticalAlignment=" Top" Background="#F0F0F0" HorizontalAlignment=" left" Margin="220,100,0,0" Height="35">
             <Label Content="Lieu de naissance" FontFamily="Montserrat" BorderThickness="0" IsHitTestVisible="False" Name="LieuNaisHint" Foreground="#123456" Opacity="0.5" FontSize="14" Width="175" VerticalContentAlignment="Center" Background="#F0F0F0" Margin="0,1"/>
-            <TextBox Text="{Binding Path=LieuNais}" BorderThickness="0" Background="Transparent" TextChanged="LieuNaischanged" x:Name="LieuNaisTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="0,0,0,1" />
+            <TextBox Text="{Binding Path=LieuNais}"  MaxLength="30" BorderThickness="0" Background="Transparent" TextChanged="LieuNaischanged" x:Name="LieuNaisTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="0,0,0,1" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="175" />
         </Grid>
 
         <Grid Width="175" VerticalAlignment=" Top" Background="#F0F0F0" HorizontalAlignment=" left" Margin="430,100,0,0" Height="35">
             <Label Content="Wilaya de naissance" FontFamily="Montserrat" BorderThickness="0" IsHitTestVisible="False" Name="WilayaNaisHint" Foreground="#123456" Opacity="0.5" FontSize="14" Width="175" VerticalContentAlignment="Center" Background="#F0F0F0" Margin="0,1"/>
-            <TextBox Text="{Binding Path=WilayaNais}" BorderThickness="0" Background="Transparent" TextChanged="WilayaNaisChanged" x:Name="WilayaNaisTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="0,0,0,1" />
+            <TextBox Text="{Binding Path=WilayaNais}" MaxLength="30" BorderThickness="0" Background="Transparent" TextChanged="WilayaNaisChanged" x:Name="WilayaNaisTB" FontFamily="Montserrat" FontWeight="Light" FontSize="14" FontStyle="Normal" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" Margin="0,0,0,1" />
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" HorizontalAlignment="Right" Margin="0,34,0,0" VerticalAlignment="Top" Width="175" />
         </Grid>
         <Image Height="371" HorizontalAlignment="Left" Margin="129,239,0,0" Name="Image3" Stretch="Fill" VerticalAlignment="Top" Width="770" Source="/Projet2CP;component/Images/undraw_online_friends_x73e1.png" Visibility="{Binding Visibility2,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
         <Grid Margin="244,244,208,31" Width="574" Height="366" Visibility="{Binding Visibility3,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}">
            <Image  Height="283" HorizontalAlignment="Center"   Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="560" Source="/Projet2CP;component/Images/undraw_web_search_eetr2.png" Margin="0,6,14,0" />
-           <Label  Content="Aucun etudiant trouvé" Height="40" HorizontalAlignment="Center"  Name="Label1" VerticalAlignment="Bottom" Width="319" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="74,0,182,49" />
+           <Label  Content="Aucun étudiant trouvé" Height="40" HorizontalAlignment="Center"  Name="Label1" VerticalAlignment="Bottom" Width="319" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="74,0,182,49" />
         </Grid>
         <Grid Background="#F0F0F0" Height="35" HorizontalAlignment="Left" Margin="640,99,0,0" VerticalAlignment="Top" Width="175">
             <DatePicker SelectedDate="{Binding Path=DateNais}" SelectedDateFormat="Short" Height="36" HorizontalAlignment="Left" Margin="0,0,0,0" Name="Datenaiss" VerticalAlignment="Center" Width="175" BorderThickness="0" Foreground="#FF123456" VerticalContentAlignment="Center" Background="{x:Null}" OpacityMask="{x:Null}" FontFamily="Montserrat" FontSize="12">

@@ -49,15 +49,23 @@
                 statButton.IsEnabled = True
                 statButton.Opacity = 1
             End If
+            If NiveauCB.SelectedItem <> "SI3" And NiveauCB.SelectedItem <> "SIQ3" And NiveauCB.SelectedItem <> "SI3 & SIQ3" Then
+                pvButton.IsEnabled = True
+                pvButton.Opacity = 1
+            End If
         End If
     End Sub
 
     Private Sub AnneeCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles AnneeCB.SelectionChanged
         statButton.IsEnabled = False
         statButton.Opacity = 0.5
+        pvButton.IsEnabled = False
+        pvButton.Opacity = 0.5
     End Sub
     Private Sub NiveauCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles NiveauCB.SelectionChanged
         statButton.IsEnabled = False
         statButton.Opacity = 0.5
+        pvButton.IsEnabled = False
+        pvButton.Opacity = 0.5
     End Sub
 End Class
