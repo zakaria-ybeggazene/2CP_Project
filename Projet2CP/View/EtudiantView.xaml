@@ -81,18 +81,18 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="263">
+                    <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="275">
                         <Label Content="Année :" Height="Auto" HorizontalAlignment="Left" Margin="40,-88,0,0" Name="Label5" VerticalAlignment="Top" Width="62" Foreground="#FF123456" FontSize="14" />
                         <Label Content="{Binding Annee}" Height="Auto" HorizontalAlignment="Left" Margin="100,-88,292,0" Name="Label6" VerticalAlignment="Top" Width="61" Foreground="#FF1165B8" FontSize="14" />
-                        <Label Content="Séction:" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-64,0,0" Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
+                        <Label Content="Séction :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-64,0,0" Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
                         <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left" Margin="108,-64,0,0" Name="Label8" VerticalAlignment="Top" Width="61" FontSize="14" />
-                        <Label Content="N° groupe:" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-40,0,284" Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
+                        <Label Content="N° groupe :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-40,0,284" Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
                         <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left" Margin="121,-40,0,0" Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" />
-                        <Label Content="Moyenne:" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-91,131,0" Name="Label11" VerticalAlignment="Top" Width="78" />
+                        <Label Content="Moyenne :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-91,131,0" Name="Label11" VerticalAlignment="Top" Width="78" />
                         <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-91,68,0" Name="Label12" VerticalAlignment="Top" Width="61" />
-                        <Label Content="Décision:" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-64,136,0" Name="Label13" VerticalAlignment="Top" Width="73" />
+                        <Label Content="Décision :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-64,136,0" Name="Label13" VerticalAlignment="Top" Width="73" />
                         <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-64,74,0" Name="Label14" VerticalAlignment="Top" Width="61" BorderBrush="#FFD18383" />
-                        <Label Content="Rang:" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-40,157,284" Name="Label15" Width="52" VerticalAlignment="Top" />
+                        <Label Content="Rang :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-40,157,284" Name="Label15" Width="52" VerticalAlignment="Top" />
                         <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-40,78,0" Name="Label16" VerticalAlignment="Top" Width="61" />
                         <Border CornerRadius=" 15" BorderThickness="3" Margin="-1,2,0,0">
                             <Border.Effect>

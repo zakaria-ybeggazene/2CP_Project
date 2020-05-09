@@ -10,11 +10,11 @@
 
     </UserControl.Resources>
     <Grid Height="450">
+        
         <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="32,0,0,0" Name="Label2" VerticalAlignment="Top" Width="Auto" VerticalContentAlignment="Center" />
 
         <Grid Margin="14,33,12,0"  VerticalAlignment="Top" >
-
-            <Border CornerRadius=" 15" BorderThickness="3" Margin="3,1,-3,6">
+                <Border CornerRadius=" 15" BorderThickness="3" Margin="3,1,-3,6">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
