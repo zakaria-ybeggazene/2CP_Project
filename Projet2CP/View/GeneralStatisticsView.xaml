@@ -31,7 +31,7 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
-            <Button ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="20" Width="20" Grid.Column="1" Name="BouttonBac">
+            <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="1" Name="BouttonBac">
                 <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
             </Button>
         </WrapPanel>
@@ -44,9 +44,7 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
-            <Button ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="20" Width="20" Grid.Row="2" Name="BouttonReussiteEchec">
-                <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
-            </Button>
+  
         </WrapPanel>
         <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="PieChart1"></lvc:PieChart>
         <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
@@ -76,7 +74,7 @@
         <Label Content="Distribution des séries de bac des étudiants : " Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Grid.ColumnSpan="3" Width="295" Foreground="#FF123456" />
         <Label Content="Distribution du sexe des étudiants à travers les années :" Grid.Column="2" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
         <Label Content="Nombres de réussites et d'échecs général :" Grid.ColumnSpan="3" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="0,160,0,0" Name="Label3" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="273" Foreground="#FF123456" />
-        <Button ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="20" Width="20" Grid.Column="3" Name="BouttonNombreEtudiant">
+        <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="3" Name="BouttonNombreEtudiant">
             <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path></Button>
 
 

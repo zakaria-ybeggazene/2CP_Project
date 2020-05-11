@@ -58,10 +58,4 @@
         SaveToPng(chart, 70, 450)
         Mouse.OverrideCursor = Nothing
     End Sub
-
-    Private Sub ButtonSexes_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonSexes.Click
-        Mouse.OverrideCursor = Cursors.Wait
-        SaveToPng(SexeChart, 70, 350)
-        Mouse.OverrideCursor = Nothing
-    End Sub
 End Class

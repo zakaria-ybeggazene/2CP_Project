@@ -40,9 +40,4 @@
         Mouse.OverrideCursor = Nothing
     End Sub
 
-    Private Sub ButtonMoyennes_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonMoyennes.Click
-        Mouse.OverrideCursor = Cursors.Wait
-        SaveToPng(Moyennes, 70, 350)
-        Mouse.OverrideCursor = Nothing
-    End Sub
 End Class

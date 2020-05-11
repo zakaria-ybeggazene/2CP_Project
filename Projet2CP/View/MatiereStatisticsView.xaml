@@ -61,15 +61,13 @@
         <WrapPanel Grid.Row="2">
         
         <Label Content="Nombre de réussites et d'échecs au fil des années (1989->2011)" FontSize="12" FontFamily="Montserrat" Height="28" HorizontalAlignment="Left" Margin="330,0,0,0" Name="Label1" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF123456" />
-            <Button ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="20" Width="20" Grid.Column="2" Name="ButtonReussite">
+            <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="2" Name="ButtonReussite">
                 <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
             </Button>
         </WrapPanel>
         <WrapPanel  Grid.Row="3">
             <Label Content="Evolution de la moyenne du module à travers les années (1989->2011)" FontSize="12" FontFamily="Montserrat" Height="28" HorizontalAlignment="Left" Margin="330,0,0,0" Name="Label2" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF123456" />
-            <Button ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="20" Width="20" Name="ButtonMoyennes">
-                <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
-            </Button>
+          
         </WrapPanel>
     </Grid>
 </UserControl>

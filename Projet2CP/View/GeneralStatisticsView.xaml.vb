@@ -62,10 +62,4 @@ Public Class GeneralStatisticsView
         SaveToPng(chart, 70, 350)
         Mouse.OverrideCursor = Nothing
     End Sub
-
-    Private Sub BouttonReussiteEchec_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles BouttonReussiteEchec.Click
-        Mouse.OverrideCursor = Cursors.Wait
-        SaveToPng(chart1, 70, 250)
-        Mouse.OverrideCursor = Nothing
-    End Sub
 End Class
