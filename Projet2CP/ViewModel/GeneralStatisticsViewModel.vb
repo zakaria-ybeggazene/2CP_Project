@@ -9,6 +9,13 @@ Public Class GeneralStatisticsViewModel
 
         _stats = New GeneralStatistics()
 
+
+        displayNbrEtudiants()
+        displayTaux()
+        displaySeries()
+    End Sub
+
+    Public Sub displayNbrEtudiants()
         'Nombre Etudiants Stats Initializing
         DistributionCollection = New LiveCharts.SeriesCollection From {
                 New StackedColumnSeries With {
@@ -32,9 +39,6 @@ Public Class GeneralStatisticsViewModel
         Next
         Formatter1 = Function(value) value.ToString()
         OnPropertyChanged("DistributionCollection")
-
-        displayTaux()
-        displaySeries()
     End Sub
 
     'Properties
@@ -188,4 +192,6 @@ Public Class GeneralStatisticsViewModel
         End If
         OnPropertyChanged("SerBacCollection")
     End Sub
+
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class

@@ -41,4 +41,21 @@
         list.Add("2011")
         AnneeCB.ItemsSource = list
     End Sub
+
+    Private Sub SaveToPng(ByVal visual As FrameworkElement, ByVal addHeight As Integer, ByVal addWidth As Integer)
+        Dim encoder As New PngBitmapEncoder()
+        Util.EncodeVisual(visual, encoder, addHeight, addWidth)
+    End Sub
+
+    Private Sub ButtonTaux_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonTaux.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(Taux, 70, 0)
+        Mouse.OverrideCursor = Nothing
+    End Sub
+
+    Private Sub ButtonMoyennes_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonMoyennes.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(chart, 70, 450)
+        Mouse.OverrideCursor = Nothing
+    End Sub
 End Class

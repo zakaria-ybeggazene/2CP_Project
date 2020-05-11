@@ -1,5 +1,7 @@
 Imports System.Security.Cryptography
 Imports System.Text
+Imports Microsoft.Win32
+Imports System.IO
 
 Public Class Util
     ''Attribut designant la largeur de l'écran
@@ -243,6 +245,28 @@ Public Class Util
 
     End Function
 
+    Public Shared Sub EncodeVisual(ByVal visual As FrameworkElement, ByVal encoder As BitmapEncoder, ByVal addHeight As Integer, ByVal addWidth As Integer)
+
+        Dim sd As New SaveFileDialog()
+        sd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
+
+        If sd.ShowDialog = True Then
+
+
+            Dim fileName As String = sd.FileName
+
+            Dim bitmap As New RenderTargetBitmap(visual.ActualWidth + addWidth, visual.ActualHeight + addHeight, 96, 96, PixelFormats.Pbgra32)
+            bitmap.Render(visual)
+            Dim frame = BitmapFrame.Create(bitmap)
+            encoder.Frames.Add(frame)
+            Dim stream = File.Create(fileName)
+            encoder.Save(stream)
+            stream.Close()
+        End If
+
+
+    End Sub
+
     Public Shared ReglageIconPath As String = "M1.39,7.02H0.9C0.4,7.02,0,7.45,0,7.95v2.69c0,0.51,0.4,0.87,0.9,0.87H1.4c0.81,0,1.3,1.18,0.72,1.76" &
     "l-0.33,0.33c-0.36,0.34-0.36,0.93,0,1.27l1.88,1.9c0.34,0.34,0.91,0.34,1.27,0l0.55-0.55c0.57-0.57,1.52-0.16,1.52,0.64v0.81" &
     "c0,0.49,0.4,0.87,0.9,0.87h2.69c0.49,0,0.9-0.36,0.9-0.87v-0.81c0-0.79,0.97-1.19,1.52-0.63l0.55,0.55c0.34,0.34,0.91,0.34,1.27,0" &
@@ -313,5 +337,13 @@ Public Class Util
  "c0,0-0.25-0.05-0.53,0.08C14.98,3.94,14,4.39,13.73,5.23c-0.17,0.5,0.04,1.55,0.04,1.55s0.01-0.01-0.11,0.1L13.64,6.9" &
  "c-0.08,0.09-0.06,0.38,0.03,0.68c0.08,0.3,0.18,0.38,0.21,0.45c0.25,1.19,1.14,2.21,2.03,2.21s1.73-1.02,1.99-2.21" &
  "c0.03-0.07,0.13-0.15,0.21-0.45C18.2,7.28,18.22,6.97,18.14,6.9z"
+
+    Public Shared ExportIconPath As String = "M17.9,7.5c-0.4,0-0.7,0.3-0.7,0.7v10.4H1.4V2.9h10.4c0.4,0,0.7-0.3,0.7-0.7s-0.3-0.7-0.7-0.7H0.7" &
+ "C0.3,1.4,0,1.7,0,2.1v17.1C0,19.7,0.3,20,0.7,20h17.1c0.4,0,0.7-0.3,0.7-0.7V8.2C18.6,7.8,18.3,7.5,17.9,7.5z M19.8,0.2" &
+ "C19.6,0.1,19.5,0,19.3,0h-4.6c-0.4,0-0.7,0.3-0.7,0.7s0.3,0.7,0.7,0.7h2.9L9.5,9.5c-0.3,0.3-0.3,0.7-0.1,1c0.2,0.3,0.7,0.3,1,0.1" &
+ "c0,0,0.1,0,0.1-0.1l8.1-8.1v2.9c0,0.4,0.3,0.7,0.7,0.7S20,5.8,20,5.4V0.7C20,0.5,19.9,0.4,19.8,0.2z"
+
+
+
 
 End Class

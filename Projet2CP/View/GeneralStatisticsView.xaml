@@ -13,6 +13,7 @@
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -28,6 +29,9 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+            <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="1" Name="BouttonBac">
+                <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
+            </Button>
         </WrapPanel>
         <WrapPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Grid.Column="4" HorizontalContentAlignment="Center">
@@ -38,9 +42,12 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+  
         </WrapPanel>
         <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="PieChart1"></lvc:PieChart>
-        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ToolTip="Decision : Reussite = 1 ou 2, Echec = sinon &#10;(champs DECIIN table Etude)">
+
+        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
                     <lvc:Axis.Separator>
@@ -52,7 +59,9 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter2}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1" ToolTip="Sexe : Masculin = 1, Féminin = 2">
+
+        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="1">
+
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels1}">
                     <lvc:Axis.Separator>
@@ -67,5 +76,9 @@
         <Label Content="Distribution des séries de bac des étudiants : " Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Grid.ColumnSpan="3" Width="295" Foreground="#FF123456" />
         <Label Content="Distribution du sexe des étudiants à travers les années :" Grid.Column="2" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
         <Label Content="Nombres de réussites et d'échecs général :" Grid.ColumnSpan="3" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="0,160,0,0" Name="Label3" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="273" Foreground="#FF123456" />
+        <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="3" Name="BouttonNombreEtudiant">
+            <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path></Button>
+
+
     </Grid>
 </UserControl>

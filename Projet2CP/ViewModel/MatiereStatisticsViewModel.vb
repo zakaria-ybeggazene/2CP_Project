@@ -115,4 +115,6 @@ Public Class MatiereStatisticsViewModel
         OnPropertyChanged("SeriesCollection")
         OnPropertyChanged("MoyennesCollection")
     End Sub
+
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class

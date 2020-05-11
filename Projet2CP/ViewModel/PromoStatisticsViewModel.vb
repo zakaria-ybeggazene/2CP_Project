@@ -169,4 +169,7 @@ Public Class PromoStatisticsViewModel
         OnPropertyChanged("PieCollection")
         OnPropertyChanged("SexeCollection")
     End Sub
+
+
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class
