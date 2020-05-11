@@ -181,4 +181,6 @@ Public Class PromoStatisticsViewModel
         End Set
     End Property
     Public Property ForceCursor As Boolean = True
+
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class

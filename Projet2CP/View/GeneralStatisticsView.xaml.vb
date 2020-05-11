@@ -1,4 +1,9 @@
-﻿Public Class GeneralStatisticsView
+﻿Imports System.IO
+Imports Microsoft.Win32
+
+Public Class GeneralStatisticsView
+
+
     Private Sub comboBox_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
         Dim list As New List(Of String)
         list.Add("Niveau")
@@ -41,4 +46,26 @@
         AnneeCB.ItemsSource = list
     End Sub
 
+    Private Sub SaveToPng(ByVal visual As FrameworkElement, ByVal addHeight As Integer, ByVal addWidth As Integer)
+        Dim encoder As New PngBitmapEncoder()
+        Util.EncodeVisual(visual, encoder, addHeight, addWidth)
+    End Sub
+
+    Private Sub BouttonBac_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles BouttonBac.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(PieChart1, 70, 0)
+        Mouse.OverrideCursor = Nothing
+    End Sub
+
+    Private Sub BouttonNombreEtudiant_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles BouttonNombreEtudiant.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(chart, 70, 350)
+        Mouse.OverrideCursor = Nothing
+    End Sub
+
+    Private Sub BouttonReussiteEchec_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles BouttonReussiteEchec.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(chart1, 70, 250)
+        Mouse.OverrideCursor = Nothing
+    End Sub
 End Class

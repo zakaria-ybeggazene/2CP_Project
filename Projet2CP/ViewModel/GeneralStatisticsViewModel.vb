@@ -9,6 +9,13 @@ Public Class GeneralStatisticsViewModel
 
         _stats = New GeneralStatistics()
 
+
+        displayNbrEtudiants()
+        displayTaux()
+        displaySeries()
+    End Sub
+
+    Public Sub displayNbrEtudiants()
         'Nombre Etudiants Stats Initializing
         DistributionCollection = New LiveCharts.SeriesCollection From {
                 New StackedColumnSeries With {
@@ -32,9 +39,6 @@ Public Class GeneralStatisticsViewModel
         Next
         Formatter1 = Function(value) value.ToString()
         OnPropertyChanged("DistributionCollection")
-
-        displayTaux()
-        displaySeries()
     End Sub
 
     'Properties
@@ -100,7 +104,6 @@ Public Class GeneralStatisticsViewModel
     'Rechercher taux reussite par niveau sub
     Public Sub rechercheTNiv()
         Try
-            Cursor = Cursors.Wait
             If Niveau = "" Or Niveau = "Niveau" Then
                 MsgBox("Vous devez spécifier le niveau", MsgBoxStyle.Information)
             Else
@@ -108,15 +111,12 @@ Public Class GeneralStatisticsViewModel
             End If
         Catch ex As Exception
             MessageBox.Show("Une erreur s'est produite")
-        Finally
-            Cursor = Cursors.Arrow
         End Try
     End Sub
 
     'recherche distribution des bacheliers
     Private Sub recherche()
         Try
-            Cursor = Cursors.Wait
             If Annee = "" Or Annee = "Année" Then
                 MsgBox("Vous devez spécifier l'année", MsgBoxStyle.Information)
             Else
@@ -130,8 +130,6 @@ Public Class GeneralStatisticsViewModel
             End If
         Catch e As Exception
             MessageBox.Show("Une erreur s'est produite")
-        Finally
-            Cursor = Cursors.Arrow
         End Try
     End Sub
 
@@ -189,17 +187,5 @@ Public Class GeneralStatisticsViewModel
         OnPropertyChanged("SerBacCollection")
     End Sub
 
-    Private _cursor As Cursor
-    Public Property Cursor As Cursor
-        Get
-            Return _cursor
-        End Get
-        Set(ByVal value As Cursor)
-            _cursor = value
-            OnPropertyChanged("Cursor")
-        End Set
-    End Property
-    Public Property ForceCursor As Boolean = True
-
-
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class

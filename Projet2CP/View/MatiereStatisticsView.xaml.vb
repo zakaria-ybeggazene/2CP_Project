@@ -28,4 +28,21 @@
     Private Sub AnneeCB_SelectionChanged(ByVal sender As System.Object, ByVal e As System.Windows.Controls.SelectionChangedEventArgs) Handles NiveauCB.SelectionChanged
         AnneecomboBox_Loaded()
     End Sub
+
+    Private Sub SaveToPng(ByVal visual As FrameworkElement, ByVal addHeight As Integer, ByVal addWidth As Integer)
+        Dim encoder As New PngBitmapEncoder()
+        Util.EncodeVisual(visual, encoder, addHeight, addWidth)
+    End Sub
+
+    Private Sub ButtonReussite_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonReussite.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(chart, 70, 350)
+        Mouse.OverrideCursor = Nothing
+    End Sub
+
+    Private Sub ButtonMoyennes_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonMoyennes.Click
+        Mouse.OverrideCursor = Cursors.Wait
+        SaveToPng(Moyennes, 70, 350)
+        Mouse.OverrideCursor = Nothing
+    End Sub
 End Class

@@ -1,5 +1,7 @@
 Imports System.Security.Cryptography
 Imports System.Text
+Imports Microsoft.Win32
+Imports System.IO
 
 Public Class Util
     ''Attribut designant la largeur de l'écran
@@ -243,6 +245,28 @@ Public Class Util
 
     End Function
 
+    Public Shared Sub EncodeVisual(ByVal visual As FrameworkElement, ByVal encoder As BitmapEncoder, ByVal addHeight As Integer, ByVal addWidth As Integer)
+
+        Dim sd As New SaveFileDialog()
+        sd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
+
+        If sd.ShowDialog = True Then
+
+
+            Dim fileName As String = sd.FileName
+
+            Dim bitmap As New RenderTargetBitmap(visual.ActualWidth + addWidth, visual.ActualHeight + addHeight, 96, 96, PixelFormats.Pbgra32)
+            bitmap.Render(visual)
+            Dim frame = BitmapFrame.Create(bitmap)
+            encoder.Frames.Add(frame)
+            Dim stream = File.Create(fileName)
+            encoder.Save(stream)
+            stream.Close()
+        End If
+
+
+    End Sub
+
     Public Shared ReglageIconPath As String = "M1.39,7.02H0.9C0.4,7.02,0,7.45,0,7.95v2.69c0,0.51,0.4,0.87,0.9,0.87H1.4c0.81,0,1.3,1.18,0.72,1.76" &
     "l-0.33,0.33c-0.36,0.34-0.36,0.93,0,1.27l1.88,1.9c0.34,0.34,0.91,0.34,1.27,0l0.55-0.55c0.57-0.57,1.52-0.16,1.52,0.64v0.81" &
     "c0,0.49,0.4,0.87,0.9,0.87h2.69c0.49,0,0.9-0.36,0.9-0.87v-0.81c0-0.79,0.97-1.19,1.52-0.63l0.55,0.55c0.34,0.34,0.91,0.34,1.27,0" &
@@ -313,5 +337,11 @@ Public Class Util
  "c0,0-0.25-0.05-0.53,0.08C14.98,3.94,14,4.39,13.73,5.23c-0.17,0.5,0.04,1.55,0.04,1.55s0.01-0.01-0.11,0.1L13.64,6.9" &
  "c-0.08,0.09-0.06,0.38,0.03,0.68c0.08,0.3,0.18,0.38,0.21,0.45c0.25,1.19,1.14,2.21,2.03,2.21s1.73-1.02,1.99-2.21" &
  "c0.03-0.07,0.13-0.15,0.21-0.45C18.2,7.28,18.22,6.97,18.14,6.9z"
+
+    Public Shared ExportIconPath As String = "M28.89,12.13c-0.64,0-1.16,0.52-1.16,1.16v16.76H2.31V4.62h16.76c0.64,0,1.16-0.52,1.16-1.16" &
+ "s-0.52-1.16-1.16-1.16H1.16C0.52,2.31,0,2.83,0,3.47V31.2c0,0.64,0.52,1.16,1.16,1.16h27.73c0.64,0,1.16-0.52,1.16-1.16V13.29" &
+ "C30.05,12.65,29.53,12.13,28.89,12.13z M32.01,0.35C31.78,0.12,31.49,0,31.2,0h-7.51c-0.64,0-1.16,0.52-1.16,1.16" &
+ "s0.52,1.16,1.16,1.16h4.74L15.37,15.37c-0.46,0.4-0.52,1.16-0.12,1.62c0.4,0.46,1.16,0.52,1.62,0.12c0.06-0.06,0.12-0.06,0.12-0.12" &
+ "L30.05,3.93v4.74c0,0.64,0.52,1.16,1.16,1.16s1.16-0.52,1.16-1.16V1.16C32.36,0.87,32.24,0.58,32.01,0.35z"
 
 End Class

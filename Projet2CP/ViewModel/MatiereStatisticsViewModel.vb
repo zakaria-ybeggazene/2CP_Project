@@ -127,4 +127,6 @@ Public Class MatiereStatisticsViewModel
         End Set
     End Property
     Public Property ForceCursor As Boolean = True
+
+    Public Property exportIcon As String = Util.ExportIconPath
 End Class
