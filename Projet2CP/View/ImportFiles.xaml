@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" Title="Historique ESI" ResizeMode="noResize" Height="554" Width="1050" WindowStartupLocation="CenterScreen" >
+      mc:Ignorable="d" Title="HistoESI" ResizeMode="noResize" Height="554" Width="1050" WindowStartupLocation="CenterScreen" Icon="/HistoESI;component/HistoESI.ico">
     <Grid Background="White" Visibility="Visible" Name="Grid" >
         <Label  Height="64" HorizontalAlignment="Left" Margin="633,19,0,0" Content ="Importer Fichiers " VerticalAlignment="Top" Width="359" FontFamily="Montserrat" FontSize="38" FontWeight="SemiBold">
             <Label.Foreground>
@@ -14,7 +14,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Image Height="400" HorizontalAlignment="Left" Margin="-49,47,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="611" Source="/Projet2CP;component/Images/undraw_spreadsheet_69ax.png" />
+        <Image Height="400" HorizontalAlignment="Left" Margin="-49,47,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="611" Source="/HistoESI;component/Images/undraw_spreadsheet_69ax.png" />
         <Grid Background="#F0F0F0" HorizontalAlignment="Left" Margin="568,129,0,0" VerticalAlignment="Top" Width="350" Height="35">
             <Border  BorderThickness="2" Height="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="350" >
                 <Border.BorderBrush>
@@ -52,25 +52,25 @@
             </Button.BitmapEffect>
         </Button>
         <Grid Margin="600,310,332,93" >
-            <Image Height="112" HorizontalAlignment="Left"  Name="RattrapageImage" Stretch="Fill" Opacity="0.5" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png" />
+            <Image Height="112" HorizontalAlignment="Left"  Name="RattrapageImage" Stretch="Fill" Opacity="0.5" VerticalAlignment="Top" Width="96"  Source="/HistoESI;component/Images/Capa%201.png" />
             <!--Source="/Projet2CP;component/Images/Capa%2011.png"-->
             <Label Content="Rattrapage" Height="32" HorizontalAlignment="Left"  Name="Rattrapage"  VerticalAlignment="Top" Width="68" FontFamily="Montserrat" Foreground="White" Margin="-1,28,0,0" FontSize="10" />
         </Grid>
         <Grid Margin="789,310,143,93">
-            <Image Height="112" HorizontalAlignment="Left" Name="MatieresImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png"/>
+            <Image Height="112" HorizontalAlignment="Left" Name="MatieresImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/HistoESI;component/Images/Capa%201.png"/>
             <Label Content="Matieres" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Matieres" VerticalAlignment="Top" Width="63" />
         </Grid>
         <Grid Margin="789,175,143,233">
-            <Image Height="107" HorizontalAlignment="Left" Name="NoteImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/Projet2CP;component/Images/Capa%201.png" />
+            <Image Height="107" HorizontalAlignment="Left" Name="NoteImage" Opacity="0.5"   Stretch="Fill" VerticalAlignment="Top" Width="96"  Source="/HistoESI;component/Images/Capa%201.png" />
             <Label Content="Note" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0" Name="Note" VerticalAlignment="Top" Width="63" />
         </Grid>
         <Grid Margin="599,175,332,233">
-            <Image Height="107" HorizontalAlignment="Left" Name="InscritsImage" Opacity="0.5"  Stretch="Fill" VerticalAlignment="Top" Width="97" IsHitTestVisible="True" Source="/Projet2CP;component/Images/Capa%201.png" />
+            <Image Height="107" HorizontalAlignment="Left" Name="InscritsImage" Opacity="0.5"  Stretch="Fill" VerticalAlignment="Top" Width="97" IsHitTestVisible="True" Source="/HistoESI;component/Images/Capa%201.png" />
             <Label Content="Inscrits" Name="Inscrits" FontFamily="Montserrat" Foreground="White" Height="32" HorizontalAlignment="Left" Margin="0,28,0,0"  VerticalAlignment="Top" Width="63" />
         </Grid>
 
-        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="Importbar" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe1.png"  />
-        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="ImportbarVerified" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/Projet2CP;component/Images/Groupe%202.png" Visibility="Hidden"  />
+        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="Importbar" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/HistoESI;component/Images/Groupe1.png"  />
+        <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="ImportbarVerified" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/HistoESI;component/Images/Groupe%202.png" Visibility="Hidden"  />
         <Label Content="Importer Fichier" Height="25" HorizontalAlignment="Left" Margin="287,478,0,0" Name="Label1" VerticalAlignment="Top" Width="120" Foreground="#FF1168BF" FontSize="13" FontFamily="Montserrat" FontWeight="SemiBold" />
         <Label Content="Mot de passe" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#FF757583" Height="25" HorizontalAlignment="Left" Margin="631,478,0,0" Name="Label2" VerticalAlignment="Top" Width="101" />
         <Label Content="Cliquez suivant pour lancer la migration" Height="37" HorizontalAlignment="Left" Margin="753,476,0,0" Name="MigrationLabel" Visibility="Hidden" VerticalAlignment="Top" Width="258" Foreground="Red" FontSize="14"/>

@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d"          
-             Cursor="{Binding Cursor}"
-             ForceCursor="{Binding ForceCursor}">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
     </UserControl.Resources>
@@ -42,7 +40,7 @@
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
         </WrapPanel>
         <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="PieChart1"></lvc:PieChart>
-        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ToolTip="Decision : Reussite = 1 ou 2, Echec = sinon &#10;(champs DECIIN table Etude)">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
                     <lvc:Axis.Separator>
@@ -54,7 +52,7 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter2}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1">
+        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.Row="1" ToolTip="Sexe : Masculin = 1, Féminin = 2">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels1}">
                     <lvc:Axis.Separator>

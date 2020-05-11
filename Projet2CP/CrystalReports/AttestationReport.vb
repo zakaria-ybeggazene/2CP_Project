@@ -45,7 +45,7 @@ Public Class AttestationReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Projet2CP.AttestationReport.rpt"
+            Return "HistoESI.AttestationReport.rpt"
         End Get
         Set
             'Do nothing

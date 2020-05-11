@@ -26,7 +26,7 @@ Public Class Repository
         'initialiser la connexion avec la bdd
         Dim dbConnString As String
         'chemin de la bdd qui est : chemin du dossier courant + nom de la bdd
-        Dim path As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+        Dim path As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\db.accdb"
         'initialisation du userpwd
         userpwd = Util.GetHash(password).Substring(0, 14)
         dbConnString = "provider=microsoft.ace.oledb.12.0;data source=" & path & ";Jet OLEDB:Database Password=" & userpwd & ";"
@@ -470,7 +470,7 @@ Public Class Repository
             End If
             Dim sqlCommand As String
             Dim niveauString As String = ""
-            If niveau <> Projet2CP.Niveau.CS3 Then
+            If niveau <> HistoESI.Niveau.CS3 Then
                 niveauString = "AND OPTIIN = '" & Util.GetOption(niveau) & "' "
             End If
 
@@ -666,7 +666,7 @@ Public Class Repository
 
             Dim sqlCommand As String
 
-            sqlCommand = "SELECT ANNEE, Count(*) AS c, Sum(IIF(Sexe = 1, 1, 0)) AS s FROM ETUDE INNER JOIN ETUDIANT " _
+            sqlCommand = "SELECT ANNEE, Count(*) AS c, Sum(IIF(Sexe = 1, 1, 0)) AS m, Sum(IIF(Sexe = 2, 1, 0)) AS f FROM ETUDE INNER JOIN ETUDIANT " _
                        & "ON ETUDE.MATRICULE = ETUDIANT.MATRICULE GROUP BY ANNEE;"
 
             Dim cmd As New System.Data.OleDb.OleDbCommand(sqlCommand, _connection)
@@ -683,8 +683,8 @@ Public Class Repository
 
                 If i >= 0 And i <= 22 Then
                     resultat(i).nbEtudiants = Util.dbNullToInteger(dr.Item("c"))
-                    resultat(i).nbMasculin = Util.dbNullToInteger(dr.Item("s"))
-                    resultat(i).nbFeminin = resultat(i).nbEtudiants - resultat(i).nbMasculin
+                    resultat(i).nbMasculin = Util.dbNullToInteger(dr.Item("m"))
+                    resultat(i).nbFeminin = Util.dbNullToInteger(dr.Item("f"))
                 End If
             End While
 
@@ -777,7 +777,7 @@ Public Class Repository
         _connection.Close()
         Try
             db = CreateObject("Access.Application")
-            db.OpenCurrentDatabase(My.Computer.FileSystem.CurrentDirectory & "\db.accdb", False, userpwd)
+            db.OpenCurrentDatabase(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\db.accdb", False, userpwd)
             db.visible = True
         Catch ex As Exception
             MsgBox("la base de données est déja ouverte")
@@ -787,12 +787,12 @@ Public Class Repository
     'supprimer la based de données
     Public Shared Sub deleteDB()
         disposer()
-        Kill(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
+        Kill(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\db.accdb")
     End Sub
 
     'changer le mot de passe de l'utilisateur
     Public Shared Sub setUserPassword(ByVal oldpwd As String, ByVal newpwd As String)
-        Dim dbPath As String = My.Computer.FileSystem.CurrentDirectory & "\db.accdb"
+        Dim dbPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\db.accdb"
         Try
             _connection.Close()
             Dim dbConnString As String = "provider=microsoft.ace.oledb.12.0;data source=" & dbPath & ";Mode=Share Exclusive;Jet OLEDB:Database Password=" & Util.GetHash(oldpwd).Substring(0, 14) & ";"

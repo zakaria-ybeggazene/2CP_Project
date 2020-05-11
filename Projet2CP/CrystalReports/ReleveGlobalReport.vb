@@ -45,7 +45,7 @@ Public Class ReleveGlobalReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Projet2CP.ReleveGlobalReport.rpt"
+            Return "HistoESI.ReleveGlobalReport.rpt"
         End Get
         Set
             'Do nothing

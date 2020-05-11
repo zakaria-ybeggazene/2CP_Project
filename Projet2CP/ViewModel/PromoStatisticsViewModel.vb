@@ -64,7 +64,7 @@ Public Class PromoStatisticsViewModel
     'Recherche sub
     Public Sub recherche()
         Try
-            Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             If Annee = "" Or Annee = "Année" Or Niveau = "" Or Niveau = "Niveau" Then
                 MsgBox("Vous devez spécifier l'année et le niveau", MsgBoxStyle.Information)
             Else
@@ -80,7 +80,7 @@ Public Class PromoStatisticsViewModel
         Catch ex As Exception
             MessageBox.Show("Une erreur s'est produite")
         Finally
-            Cursor = Cursors.Arrow
+            Mouse.OverrideCursor = Nothing
         End Try
     End Sub
 
@@ -169,16 +169,4 @@ Public Class PromoStatisticsViewModel
         OnPropertyChanged("PieCollection")
         OnPropertyChanged("SexeCollection")
     End Sub
-
-    Private _cursor As Cursor
-    Public Property Cursor As Cursor
-        Get
-            Return _cursor
-        End Get
-        Set(ByVal value As Cursor)
-            _cursor = value
-            OnPropertyChanged("Cursor")
-        End Set
-    End Property
-    Public Property ForceCursor As Boolean = True
 End Class

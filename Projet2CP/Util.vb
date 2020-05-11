@@ -33,11 +33,11 @@ Public Class Util
 
     Public Shared Function GetOption(ByVal niveau As Niveau) As String
         Select Case niveau
-            Case Projet2CP.Niveau.TRC1, Projet2CP.Niveau.TRC2
+            Case HistoESI.Niveau.TRC1, HistoESI.Niveau.TRC2
                 Return "TRC"
-            Case Projet2CP.Niveau.SI1, Projet2CP.Niveau.SI2, Projet2CP.Niveau.SI3
+            Case HistoESI.Niveau.SI1, HistoESI.Niveau.SI2, HistoESI.Niveau.SI3
                 Return "SI"
-            Case Projet2CP.Niveau.SIQ1, Projet2CP.Niveau.SIQ2, Projet2CP.Niveau.SIQ3
+            Case HistoESI.Niveau.SIQ1, HistoESI.Niveau.SIQ2, HistoESI.Niveau.SIQ3
                 Return "SIQ"
             Case Else
                 Return ""
@@ -45,13 +45,13 @@ Public Class Util
     End Function
     Public Shared Function GetAnneEt(ByVal niveau As Niveau) As Integer
         Select Case niveau
-            Case Projet2CP.Niveau.TRC1
+            Case HistoESI.Niveau.TRC1
                 Return 1
-            Case Projet2CP.Niveau.TRC2
+            Case HistoESI.Niveau.TRC2
                 Return 2
-            Case Projet2CP.Niveau.SI1, Projet2CP.Niveau.SIQ1
+            Case HistoESI.Niveau.SI1, HistoESI.Niveau.SIQ1
                 Return 3
-            Case Projet2CP.Niveau.SI2, Projet2CP.Niveau.SIQ2
+            Case HistoESI.Niveau.SI2, HistoESI.Niveau.SIQ2
                 Return 4
             Case Else
                 Return 5
@@ -61,21 +61,21 @@ Public Class Util
         Dim niv As Niveau
         Select Case strNiv
             Case "TRC1"
-                niv = Projet2CP.Niveau.TRC1
+                niv = HistoESI.Niveau.TRC1
             Case "TRC2"
-                niv = Projet2CP.Niveau.TRC2
+                niv = HistoESI.Niveau.TRC2
             Case "SI1"
-                niv = Projet2CP.Niveau.SI1
+                niv = HistoESI.Niveau.SI1
             Case "SIQ1"
-                niv = Projet2CP.Niveau.SIQ1
+                niv = HistoESI.Niveau.SIQ1
             Case "SI2"
-                niv = Projet2CP.Niveau.SI2
+                niv = HistoESI.Niveau.SI2
             Case "SIQ2"
-                niv = Projet2CP.Niveau.SIQ2
+                niv = HistoESI.Niveau.SIQ2
             Case "SI3"
-                niv = Projet2CP.Niveau.SI3
+                niv = HistoESI.Niveau.SI3
             Case "SIQ3"
-                niv = Projet2CP.Niveau.SIQ3
+                niv = HistoESI.Niveau.SIQ3
             Case Else
         End Select
         Return niv

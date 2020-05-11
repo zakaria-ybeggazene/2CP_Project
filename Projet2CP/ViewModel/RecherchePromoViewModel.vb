@@ -13,13 +13,13 @@
         Else
             Dim niv As Niveau
             If Niveau = "SI3 & SIQ3" Then
-                niv = Projet2CP.Niveau.CS3
+                niv = HistoESI.Niveau.CS3
             Else
                 niv = Util.stringToNiveau(Niveau)
             End If
             Dim anneeCut As String = Annee.Substring(2)
             Mouse.OverrideCursor = Cursors.Wait
-            If niv = Projet2CP.Niveau.SI3 Or niv = Projet2CP.Niveau.SIQ3 Or niv = Projet2CP.Niveau.CS3 Then
+            If niv = HistoESI.Niveau.SI3 Or niv = HistoESI.Niveau.SIQ3 Or niv = HistoESI.Niveau.CS3 Then
                 Resultat = Repository.recherche_promo_parcours(niv, anneeCut)
                 If Resultat Is Nothing Then
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
@@ -105,7 +105,7 @@
         Me.ResetCommand = New RelayCommand(AddressOf reset)
         Me.ViewStatistics = New RelayCommand(addStatisticsView)
         Me.PvDelibCommand = New RelayCommand(AddressOf generatePV)
-        PromotionViewModel = New NothingViewModel("/Projet2CP;component/Images/Groupe 20.png")
+        PromotionViewModel = New NothingViewModel("/HistoESI;component/Images/Groupe 20.png")
     End Sub
     Private _viewStatistics As RelayCommand
     Public Property ViewStatistics As RelayCommand
@@ -141,7 +141,7 @@
     End Sub
 
     Private Sub reset()
-        PromotionViewModel = New NothingViewModel("/Projet2CP;component/Images/Groupe 20.png")
+        PromotionViewModel = New NothingViewModel("/HistoESI;component/Images/Groupe 20.png")
         Annee = "Année"
         Niveau = "Niveau"
         NombreInscrits = 0

@@ -11,10 +11,10 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("GestionHistoriqueESI")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("GestionHistoriqueESI")> 
+<Assembly: AssemblyTitle("HistoESI")> 
+<Assembly: AssemblyDescription("Outil de gestion de l'historique des anciens étudiants de l'ESI")> 
+<Assembly: AssemblyCompany("Ecole Nationale Supérieure d'Informatique")> 
+<Assembly: AssemblyProduct("HistoESI")> 
 <Assembly: AssemblyCopyright("Copyright @  2020")> 
 <Assembly: AssemblyTrademark("")> 
 <Assembly: ComVisible(false)>

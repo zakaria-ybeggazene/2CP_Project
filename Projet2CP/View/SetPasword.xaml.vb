@@ -1,4 +1,7 @@
-﻿Public Class SetPasword
+﻿Imports System.Threading
+Imports System.ComponentModel
+
+Public Class SetPasword
 
     Private inscrit, note, mat, rat As String
 
@@ -133,14 +136,20 @@
         AdminPassword.IsEnabled = True
     End Sub
 
-    Private Sub tb_KeyDown(ByVal sender As System.Object, ByVal e As KeyEventArgs) Handles userPassword.PreviewKeyDown
+    Private Sub tb_KeyDown(ByVal sender As System.Object, ByVal e As KeyEventArgs) Handles ConfirmAdminPassword.PreviewKeyDown
         If (e.Key = Key.Enter) Then
             If userValidLabel.Visibility = Windows.Visibility.Visible And adminValidLabel.Visibility = Windows.Visibility.Visible Then
                 Me.ForceCursor = True
                 Mouse.OverrideCursor = Cursors.Wait
                 CType(DataContext, MigrationViewModel).userpwd = userPassword.Password
                 CType(DataContext, MigrationViewModel).adminpwd = AdminPassword.Password
-                CType(DataContext, MigrationViewModel).migration(Nothing)
+                Dim thr As New Thread(AddressOf CType(DataContext, MigrationViewModel).migration)
+                Dim start As Single
+                start = DateAndTime.Timer
+                'CType(DataContext, MigrationViewModel).migration(Nothing)
+                thr.Start()
+                thr.Join()
+                MsgBox("Migration réalisée avec succès !" & vbCrLf & "Temps d'exécution : " & DateAndTime.Timer - start & " secondes")
                 Dim loginWindow As LoginWindow = New LoginWindow()
                 Mouse.OverrideCursor = Nothing
                 Me.Close()
@@ -155,12 +164,17 @@
             Mouse.OverrideCursor = Cursors.Wait
             CType(DataContext, MigrationViewModel).userpwd = userPassword.Password
             CType(DataContext, MigrationViewModel).adminpwd = AdminPassword.Password
-            CType(DataContext, MigrationViewModel).migration(Nothing)
+            Dim thr As New Thread(AddressOf CType(DataContext, MigrationViewModel).migration)
+            Dim start As Single
+            start = DateAndTime.Timer
+            'CType(DataContext, MigrationViewModel).migration(Nothing)
+            thr.Start()
+            thr.Join()
+            MsgBox("Migration réalisée avec succès !" & vbCrLf & "Temps d'exécution : " & DateAndTime.Timer - start & " secondes")
             Dim loginWindow As LoginWindow = New LoginWindow()
             Mouse.OverrideCursor = Nothing
             Me.Close()
             loginWindow.Show()
         End If
     End Sub
-
 End Class

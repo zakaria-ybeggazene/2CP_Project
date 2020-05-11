@@ -100,7 +100,7 @@ Public Class GeneralStatisticsViewModel
     'Rechercher taux reussite par niveau sub
     Public Sub rechercheTNiv()
         Try
-            Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             If Niveau = "" Or Niveau = "Niveau" Then
                 MsgBox("Vous devez spécifier le niveau", MsgBoxStyle.Information)
             Else
@@ -109,14 +109,14 @@ Public Class GeneralStatisticsViewModel
         Catch ex As Exception
             MessageBox.Show("Une erreur s'est produite")
         Finally
-            Cursor = Cursors.Arrow
+            Mouse.OverrideCursor = Nothing
         End Try
     End Sub
 
     'recherche distribution des bacheliers
     Private Sub recherche()
         Try
-            Cursor = Cursors.Wait
+            Mouse.OverrideCursor = Cursors.Wait
             If Annee = "" Or Annee = "Année" Then
                 MsgBox("Vous devez spécifier l'année", MsgBoxStyle.Information)
             Else
@@ -131,7 +131,7 @@ Public Class GeneralStatisticsViewModel
         Catch e As Exception
             MessageBox.Show("Une erreur s'est produite")
         Finally
-            Cursor = Cursors.Arrow
+            Mouse.OverrideCursor = Nothing
         End Try
     End Sub
 
@@ -188,18 +188,4 @@ Public Class GeneralStatisticsViewModel
         End If
         OnPropertyChanged("SerBacCollection")
     End Sub
-
-    Private _cursor As Cursor
-    Public Property Cursor As Cursor
-        Get
-            Return _cursor
-        End Get
-        Set(ByVal value As Cursor)
-            _cursor = value
-            OnPropertyChanged("Cursor")
-        End Set
-    End Property
-    Public Property ForceCursor As Boolean = True
-
-
 End Class

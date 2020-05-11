@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d"             
-             Cursor="{Binding Cursor}"
-             ForceCursor="{Binding ForceCursor}">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
     </UserControl.Resources>
@@ -34,7 +32,7 @@
             </ComboBox>
             <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
         </WrapPanel>
-        <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="25,16,21,6" Grid.Row="1">
+        <lvc:CartesianChart Name="chart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="25,16,21,6" Grid.Row="1" ToolTip="Réussite : Noju OU Nora >= 10, Echec : sinon">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>

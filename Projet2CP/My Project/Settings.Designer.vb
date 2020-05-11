@@ -62,9 +62,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Projet2CP.MySettings
+        Friend ReadOnly Property Settings() As Global.HistoESI.MySettings
             Get
-                Return Global.Projet2CP.MySettings.Default
+                Return Global.HistoESI.MySettings.Default
             End Get
         End Property
     End Module

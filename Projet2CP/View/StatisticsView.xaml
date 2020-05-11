@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Projet2CP"
+             xmlns:local="clr-namespace:HistoESI"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
@@ -11,7 +11,7 @@
     <DockPanel Width="{Binding Width}">
         <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Button Background="White" Command="{Binding LeftCommand}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Height="37" HorizontalAlignment="Center" Name="Button1" VerticalAlignment="Center">
-                <Image Source="/Projet2CP;component/Images/leftarrow.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Image Source="/HistoESI;component/Images/leftarrow.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
             
             <TextBlock  Height="37" HorizontalAlignment="Center" Text="{Binding Path=SelectedViewModel.DisplayName}"  VerticalAlignment="Top" Width="369" FontFamily="Montserrat" FontSize="30" FontWeight="SemiBold" TextAlignment="Center">
@@ -24,7 +24,7 @@
                 </TextBlock.Foreground>
             </TextBlock>
             <Button Background="White" Command="{Binding RightCommand}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Height="37" HorizontalAlignment="Center" Name="Button2" VerticalAlignment="Center">
-                <Image Source="/Projet2CP;component/Images/rightarrow.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Image Source="/HistoESI;component/Images/rightarrow.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
         </WrapPanel>
         <ContentPresenter Content="{Binding SelectedViewModel}" Margin="0, 20, 0, 0"></ContentPresenter>

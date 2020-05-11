@@ -15,7 +15,7 @@
         _list = New List(Of String)
         Dim i As Integer = 1
         For Each a As AnneeEtude In Etudiant.Parcours
-            If a.Niveau <> Projet2CP.Niveau.SI3 And a.Niveau <> Projet2CP.Niveau.SIQ3 Then
+            If a.Niveau <> HistoESI.Niveau.SI3 And a.Niveau <> HistoESI.Niveau.SIQ3 Then
                 _list.Add(i)
                 i += 1
             End If
@@ -690,7 +690,7 @@
                 doPrint = False
             End Try
         ElseIf s = "ReleveGlobal" Then
-            If _etudiant.Parcours(_etudiant.Parcours.Count - 1).Niveau = Projet2CP.Niveau.SIQ3 Or _etudiant.Parcours(_etudiant.Parcours.Count - 1).Niveau = Projet2CP.Niveau.SI3 Then
+            If _etudiant.Parcours(_etudiant.Parcours.Count - 1).Niveau = HistoESI.Niveau.SIQ3 Or _etudiant.Parcours(_etudiant.Parcours.Count - 1).Niveau = HistoESI.Niveau.SI3 Then
                 Try
                     reportWindow.Viewer.ViewerCore.ReportSource = CrystalReports.ReleveNotesGlobal(_etudiant)
                     doPrint = True

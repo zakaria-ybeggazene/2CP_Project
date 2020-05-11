@@ -45,7 +45,7 @@ Public Class PvDelibReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Projet2CP.PvDelibReport.rpt"
+            Return "HistoESI.PvDelibReport.rpt"
         End Get
         Set
             'Do nothing

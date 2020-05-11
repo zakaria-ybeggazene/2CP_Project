@@ -67,17 +67,18 @@
         For Each Etudiant As EtudiantAnnee In ListeEtudiants
             If Etudiant.Sexe = "1" Then
                 MT += 1
+            ElseIf Etudiant.Sexe = "2" Then
+                FT += 1
             End If
 
             If Etudiant.Annee.Decision = "1" Or Etudiant.Annee.Decision = "2" Then
                 If Etudiant.Sexe = "1" Then
                     M += 1
-                Else
+                ElseIf Etudiant.Sexe = "2" Then
                     F += 1
                 End If
             End If
         Next
-        FT = Me.NbInscrits - MT
 
         Return New With {.NbrReussiteMasculin = M, .NbrEchecMasculin = MT - M, .NbrReussiteFeminin = F, .NbrEchecFeminin = FT - F}
     End Function

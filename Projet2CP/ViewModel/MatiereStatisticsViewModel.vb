@@ -115,16 +115,4 @@ Public Class MatiereStatisticsViewModel
         OnPropertyChanged("SeriesCollection")
         OnPropertyChanged("MoyennesCollection")
     End Sub
-
-    Private _cursor As Cursor
-    Public Property Cursor As Cursor
-        Get
-            Return _cursor
-        End Get
-        Set(ByVal value As Cursor)
-            _cursor = value
-            OnPropertyChanged("Cursor")
-        End Set
-    End Property
-    Public Property ForceCursor As Boolean = True
 End Class

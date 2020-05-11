@@ -6,7 +6,7 @@
         MyBase.OnStartup(e)
 
         Dim dbExists As Boolean
-        dbExists = System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory & "\db.accdb")
+        dbExists = System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\db.accdb")
 
         If dbExists Then
             Dim window As LoginWindow = New LoginWindow()
