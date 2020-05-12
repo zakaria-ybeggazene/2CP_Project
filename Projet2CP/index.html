@@ -1,1 +1,250 @@
-hello world!
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Aide HistoESI</title>
+</head>
+<body>
+<header class="cd-header flex flex-column flex-center">
+  <div class="text-component text-center">
+    <h1>Aide HistoESI</h1>
+  </div>
+</header>
+
+<section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
+	<ul class="cd-faq__categories">
+		<li><a class="cd-faq__category cd-faq__category-selected truncate" href="#recherche">Recherche</a></li>
+		<li><a class="cd-faq__category truncate" href="#Etats de sortie">Etats de sortie</a></li>
+		<li><a class="cd-faq__category truncate" href="#Statistiques">Statistiques</a></li>
+		<li><a class="cd-faq__category truncate" href="#Base de donnees">Base de données</a></li>
+		<li><a class="cd-faq__category truncate" href="#Confidentialite">Confidentialité</a></li>
+	</ul> <!-- cd-faq__categories -->
+
+	<div class="cd-faq__items">
+		<ul id="recherche" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Recherche</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment puis-je rechercher un étudiant ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>C'est assez simple de trouver un étudiant, tout ce que vous devrez faire est :</p>
+	    <ol>
+	    <li>Dans le menu qui se trouve à gauche dans la fenêtre principale, cliquez sur "Etudiant".</li>
+	    <li>Un nouvel onglet apparaîtra dans l'espace de travail.</li>
+	    <li>Remplissez les champs des filtres que vous voulez appliquer puis cliquez sur "Filtrer".</li>
+	    </ol>
+	    <p>Les résultats correspondants vont apparaître dans le tableau en dessous (chaque ligne représente un résultat).</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment puis-je rechercher une promotion ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <ol>
+	    <li>Dans le menu qui se trouve à gauche dans la fenêtre principale, cliquez sur "Promotion".</li>
+	    <li>Un nouvel onglet "Promotion" apparaîtra dans l'espace de travail.</li>
+	    <li>Dans les combobox marqués "Année" et "Niveau", choisissez l'année et le niveau désirés puis cliquez sur "Filtrer".</li>
+	    </ol>
+	    <p>La recherche affiche deux tableaux. Le premier se trouvant à gauche contient les matières suivies par cette promotion accompagnées de leurs moyennes. Le deuxième contient la liste des étudiants de la promotion ordonnés selon leurs moyennes.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment afficher le classement de fin de cursus ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+	    <p>C'est la même procédure que celle de la recherche d'une promotion (paragraphe précédent), sauf que vous devrez choisir l'option "SI3", "SIQ3" ou "SI3 & SIQ3" dans combobox marqué "Niveau". Filtrez et vous aurez le classement selon la moyenne des quatres années dans le même onglet.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment afficher les détails d'un étudiant ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <q>Il existe 2 (deux) manières pour le faire :</q>
+	    <p>Rechercher l'étudiant (voir le paragraphe "Comment puis-je rechercher un étudiant ?") puis cliquer sur le bouton (⋮) qui se trouve dans la dernière colonne (Détails) sur la ligne de cet étudiant.</p>
+	    <q>Ou bien </q>
+	    <p>Après avoir trouvé une promotion, si les informations d'un étudiant vous intéressent, allez dans la liste des étudiants de cette promotion puis cliquez sur le même bouton décrit dans la première méthode pour leur accéder.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Pourquoi le bouton "Réinitialiser” ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+             <p>Vous allez trouver ce bouton dans les deux onglets "Etudiant" et "Promotion", il sert à vider les champs des filtres et réinitialiser le(s) résultat(s) en cas où l'utilisateur veut effectuer une nouvelle requête.</p>
+	   </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="Etats de sortie" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Etats de sortie</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment générer une attestation ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>D'abord, vérifiez si votre système dispose de la version de Crystal Reports recommandée dans le fichier d'installation, si elle est installée effectuez ce qui suit :</p>
+	    <ol>
+	    <li>Recherchez l'étudiant désiré (voir "Comment puis-je rechercher un étudiant ?" dans la section "Recherche").</li>
+	    <li>Accédez à ses détails (voir "Comment afficher les détails d'un étudiant ?" dans la section "Recherche").</li>
+	    <li>Dans l'onglet de cet étudiant, cliquez sur le bouton "Générer Attestation".</li>
+	    </ol>
+	    <p>Une fenêtre de Crystal Reports va s'ouvrir pour afficher l'attestation, vous pouvez l'imprimer à partir de cette fenêtre.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment générer un relevé de notes d'un étudiant ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>D'abord assurez-vous que votre système dispose de la version du Crystal Reports recommandée dans le fichier d'installation, si elle est installée effectuez ce qui suit :</p>
+	    <ol>
+	    <li>Ouvrez l'onglet de l'étudiant (voir les étapes 1 & 2 dans le 1er paragraphe de cette section).</li>
+	    <li>Dans l'onglet de cet étudiant, précisez l'année dans le combobox libellé "Année" en bas à gauche puis cliquez sur le bouton "Générer relevé de notes".</li>
+	    </ol>
+	    <p>Une fenêtre de Crystal Reports va s'ouvrir pour afficher le relevé de notes, vous pouvez l'imprimer à partir de cette fenêtre.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment générer le relevé global d'un étudiant ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>D'abord assurez-vous que votre système dispose de la version du Crystal Reports recommandée dans le fichier d'installation, si elle est installée effectuez ce qui suit :</p>
+	    <ol>
+	    <li>Ouvrez l'onglet de l'étudiant (voir les étapes 1 & 2 dans le 1er paragraphe de cette section).</li>
+	    <li>Dans l'onglet de cet étudiant, cliquez sur le bouton "Générer Relevé Global".</li>
+	    </ol>
+	    <p>Si l'étudiant a complété ses 5 années alors une fenêtre de Crystal Reports va s'ouvrir pour afficher le relevé global que vous pouvez l'imprimer à partir de cette fenêtre. S'il n'a pas complété ses 5 années vous aurez un message vous indiquant qu'il doit les avoir complétées.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment générer un PV de délibération ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>D'abord assurez-vous que votre système dispose de la version du Crystal Reports recommandée dans le fichier d'installation, si elle est installée effectuez ce qui suit :</p>
+	    <ol>
+	    <li>Recherchez la promotion (voir "Comment puis-je rechercher une promotion ?" dans la section "Recherche").</li>
+	    <li>Cliquez sur le bouton "Générer PV".</li>
+	    </ol>
+	    <p>Une fenêtre de Crystal Reports va s'ouvrir pour afficher le PV de délibération, vous pouvez l'imprimer à partir de cette fenêtre.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="Statistiques" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Statistiques</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Comment afficher les statistiques ?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>L'onglet des statistiques est accessible pour tout utilisateur s’il clique sur le bouton "Statistiques" dans le menu à gauche.</p>
+	    <p>Il peut choisir le type des statistiques qu'il veut afficher avec les flèches qui se trouvent à droite et à gauche du titre "Statistiques (générales/promotion/matière)". Généralement l'utilisateur doit spécifier quelques détails dans les listes déroulantes disponibles pour afficher les statistique (exemple : Année et Niveau pour les statistiques d'une promotion).</p>
+	    <p>Les statistiques d'une promotion peuvent être accédées à partir de l'onglet de la recherche d'une promotion, le bouton "Statistiques" va ouvrir et initialiser l'onglet et dans ce cas, l'utilisateur n'est amené à spécifier quoi que ce soit.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="Base de donnees" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Base de données</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Accéder au fichier Access</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>D'abord, vous devez vous connecter au mode administrateur pour pouvoir utiliser cette fonctionnalité (voir la section "Confidentialité"). Ensuite suivez les étapes suivantes :</p>
+	    <ol>
+	    <li>Cliquez sur "Réglages" puis "Base de données".</li>
+	    <li>Cliquez sur "Ouvrir".</li>
+	    </ol>
+	    <p>Si un problème est survenu et vous ne pouviez pas ouvrir la BDD, vous pouvez le faire manuellement en suivant ce qui suit :</p>
+	    <ol>
+	    <li>Dans la même fenêtre, cliquez sur "Afficher" et copiez le mot de passe de la BDD.</li>
+	    <li>Ouvrez le fichier Access "db.accdb" dans le dossier "C:\\Utilisateurs\"nom de l'utilisateur courant"\AppData\Roaming\" et entrez le mot de passe.</li>
+	    </ol>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Modifier les informations d'un étudiant dans la BDD</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Premièrement, vous devez vous connecter au mode administrateur pour pouvoir exploiter ce privilège (voir la section "Confidentialité"). Ensuite :</p>
+	    <ol>
+	    <li>Ouvrez l'onglet de l'étudiant (voir la section "Recherche").</li>
+	    <li>Cliquez sur "Modifier".</li>
+	    <li>Modifiez les champs que vous désirez changer (cliquez sur un champ pour modifier son contenu).</li>
+	    <li>Cliquez sur "Sauvegarder" pour enregistrer les modifications.</li>
+	    </ol>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Recréer la base de données</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Si vous voulez, créer la base de données (le fichier Access) à nouveau à partir des fichiers Excel (après avoir corriger les données probablement), suivez la procédure suivante :</p>
+	    <ol>
+	    <li>Connectez vous au mode administrateur si ce n’est pas encore fait (voir la section "Confidentialité").</li>
+	    <li>Ouvrez la fenêtre des réglages par un seul clic sur le bouton "Réglages" dans le menu principal.</li>
+	    <li>Allez vers "Base de données".</li>
+	    <li>Cliquez sur "Supprimer" puis sur "Oui".</li>
+	    </ol>
+	    <p>Cette procédure va vous rediriger vers la fenêtre de l'importation des fichiers Excel ou vous devriez le refaire dans l'ordre spécifié. Après la validation des 4 fichiers Excel, insérez et confirmez les nouveaux mots de passe pour le simple utilisateur et l'admin et attendez pendant que la fin de la migration.</p>
+	    <p>Vous pouvez toujours consulter le manuel d'utilisation pour une meilleure illustration des étapes.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="Confidentialite" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Confidentialité</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Mode administrateur</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Si l'application vous exige d'être connectés en tant qu'administrateur vous devez juste aller au menu principal et cliquer sur "Mode Administrateur" et entrer votre mot de passe.</p>
+            <p>Pour se déconnecter de ce mode, cliquez juste sur "Se Déconnecter" dans le menu principal.</p>
+		</div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Changer un mot de passe</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Premièrement, vous devez vous connecter au mode administrateur pour pouvoir utiliser cette fonctionnalité (paragraphe précédent). Après :</p>
+	    <ol>
+	    <li>Dans le menu principal, cliquez sur le bouton "Réglages".</li>
+	    <li>Choisissez le type d'utilisateur (Utilisateur/Admin) pour lequel vous changer de mot de passe.</li>
+	    <li>Dans la fenêtre des réglages, entrez le mot de passe actuel, le nouveau mot de passe et cliquez sur "Modifier" pour enregistrer.</li>
+	    </ol>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+	</div> <!-- cd-faq__items -->
+
+	<a href="#0" class="cd-faq__close-panel text-replace">Close</a>
+  
+  <div class="cd-faq__overlay" aria-hidden="true"></div>
+</section> <!-- cd-faq -->
+<script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+<script src="assets/js/main.js"></script> 
+</body>
+</html>

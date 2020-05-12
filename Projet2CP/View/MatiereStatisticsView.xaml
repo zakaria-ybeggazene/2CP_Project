@@ -16,14 +16,14 @@
             <RowDefinition Height="19*" />
         </Grid.RowDefinitions>
         <WrapPanel HorizontalAlignment="Center" Width="450">
-            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="0, 0, 30, 0" Width="150">
+            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0"   FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Margin="0, 0, 15, 0" Width="150">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Background" Value="#E7EFF6" />
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
-            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Name="Matieres" Loaded="AnneecomboBox_Loaded" SelectedItem="{Binding Path=MatiereLabel}" Text="Matiere" VerticalContentAlignment="Center" Width="150">
+            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="34" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Name="Matieres" Loaded="AnneecomboBox_Loaded" SelectedItem="{Binding Path=MatiereLabel}" Text="Matiere" VerticalContentAlignment="Center" Width="150" Margin="0, 0, 15, 0">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Control.Background" Value="#E7EFF6" />

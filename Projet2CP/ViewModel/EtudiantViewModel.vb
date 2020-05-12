@@ -620,7 +620,7 @@
             _etudiant.WilayaNaisA = _wilayaNais
             _etudiant.CodePostal = _codePostal
             Repository.modifierEtudiant(_etudiant)
-            MsgBox("sauvegarde reussie", MsgBoxStyle.Information)
+            MsgBox("Sauvegarde reussie", MsgBoxStyle.Information)
         ElseIf result = MsgBoxResult.No Then
             Nom = _etudiant.Nom
             Prenom = _etudiant.Prenom
