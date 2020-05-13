@@ -106,7 +106,9 @@ Public Class CrystalReports
         If annee.Rattrap Is Nothing Then
             row("MoyenneJ") = String.Format("{0:00.00}", annee.MoyenneJ)
         Else
-            row("MoyenneJ") = String.Format("{0:00.00}", annee.MoyenneJ) & "    Moyenne de septembre : " & String.Format("{0:00.00}", annee.Rattrap.MoyenneR)
+            If annee.Rattrap.MoyenneR > annee.MoyenneJ Then
+                row("MoyenneJ") = String.Format("{0:00.00}", annee.MoyenneJ) & "    Moyenne de septembre : " & String.Format("{0:00.00}", annee.Rattrap.MoyenneR)
+            End If
         End If
         row("Rang") = annee.Rang & " sur " & annee.NbrEtudiants
         row("Decision") = Util.GetDecisionRN(annee.Decision)

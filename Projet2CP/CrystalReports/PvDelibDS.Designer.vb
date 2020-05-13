@@ -316,8 +316,7 @@ Partial Public Class PvDelibDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class PromotionDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of PromotionRow)
         
         Private columnNiveau As Global.System.Data.DataColumn
         
@@ -354,6 +353,10 @@ Partial Public Class PvDelibDS
         Private columnCo7 As Global.System.Data.DataColumn
         
         Private columnCo8 As Global.System.Data.DataColumn
+        
+        Private columnCM9 As Global.System.Data.DataColumn
+        
+        Private columnCo9 As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -535,6 +538,22 @@ Partial Public Class PvDelibDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CM9Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCM9
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Co9Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCo9
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -589,18 +608,14 @@ Partial Public Class PvDelibDS
                     ByVal Co5 As String,  _
                     ByVal Co6 As String,  _
                     ByVal Co7 As String,  _
-                    ByVal Co8 As String) As PromotionRow
+                    ByVal Co8 As String,  _
+                    ByVal CM9 As String,  _
+                    ByVal Co9 As String) As PromotionRow
             Dim rowPromotionRow As PromotionRow = CType(Me.NewRow,PromotionRow)
-            Dim columnValuesArray() As Object = New Object() {Niveau, Annee, CM1, CM2, CM3, CM4, CM5, CM6, CM7, CM8, Co1, Co2, Co3, Co4, Co5, Co6, Co7, Co8}
+            Dim columnValuesArray() As Object = New Object() {Niveau, Annee, CM1, CM2, CM3, CM4, CM5, CM6, CM7, CM8, Co1, Co2, Co3, Co4, Co5, Co6, Co7, Co8, CM9, Co9}
             rowPromotionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPromotionRow)
             Return rowPromotionRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -638,6 +653,8 @@ Partial Public Class PvDelibDS
             Me.columnCo6 = MyBase.Columns("Co6")
             Me.columnCo7 = MyBase.Columns("Co7")
             Me.columnCo8 = MyBase.Columns("Co8")
+            Me.columnCM9 = MyBase.Columns("CM9")
+            Me.columnCo9 = MyBase.Columns("Co9")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -679,6 +696,10 @@ Partial Public Class PvDelibDS
             MyBase.Columns.Add(Me.columnCo7)
             Me.columnCo8 = New Global.System.Data.DataColumn("Co8", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCo8)
+            Me.columnCM9 = New Global.System.Data.DataColumn("CM9", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCM9)
+            Me.columnCo9 = New Global.System.Data.DataColumn("Co9", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCo9)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -814,8 +835,7 @@ Partial Public Class PvDelibDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class EtudiantDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of EtudiantRow)
         
         Private columnMatricule As Global.System.Data.DataColumn
         
@@ -991,12 +1011,6 @@ Partial Public Class PvDelibDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function FindByMatricule(ByVal Matricule As String) As EtudiantRow
             Return CType(Me.Rows.Find(New Object() {Matricule}),EtudiantRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1467,6 +1481,36 @@ Partial Public Class PvDelibDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CM9() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePromotion.CM9Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CM9' in table 'Promotion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePromotion.CM9Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Co9() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePromotion.Co9Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Co9' in table 'Promotion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePromotion.Co9Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsNiveauNull() As Boolean
             Return Me.IsNull(Me.tablePromotion.NiveauColumn)
         End Function
@@ -1679,6 +1723,30 @@ Partial Public Class PvDelibDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCo8Null()
             Me(Me.tablePromotion.Co8Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCM9Null() As Boolean
+            Return Me.IsNull(Me.tablePromotion.CM9Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCM9Null()
+            Me(Me.tablePromotion.CM9Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCo9Null() As Boolean
+            Return Me.IsNull(Me.tablePromotion.Co9Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCo9Null()
+            Me(Me.tablePromotion.Co9Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
