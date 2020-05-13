@@ -16,22 +16,26 @@ Public Class PromoStatisticsViewModel
 
 
     Public Sub New(ByVal displayName As String, ByVal obj As IPromoStatistics)
-        MyBase.DisplayName = displayName
+        Try
+            MyBase.DisplayName = displayName
 
-        _promotion = obj
-        If Not obj Is Nothing Then
-            'initialiser les combo box
-            Dim a As Integer = CType(obj, Promotion).Annee
-            If a > 60 Then
-                Annee = a.ToString.Insert(0, "19")
-            ElseIf a < 10 Then
-                Annee = a.ToString.Insert(0, "200")
-            Else
-                Annee = a.ToString.Insert(0, "20")
+            _promotion = obj
+            If Not obj Is Nothing Then
+                'initialiser les combo box
+                Dim a As Integer = CType(obj, Promotion).Annee
+                If a > 60 Then
+                    Annee = a.ToString.Insert(0, "19")
+                ElseIf a < 10 Then
+                    Annee = a.ToString.Insert(0, "200")
+                Else
+                    Annee = a.ToString.Insert(0, "20")
+                End If
+                Niveau = CType(obj, Promotion).NiveauP.ToString
             End If
-            Niveau = CType(obj, Promotion).NiveauP.ToString
-        End If
-        displayStatistics()
+            displayStatistics()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     'Fields

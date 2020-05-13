@@ -145,7 +145,7 @@ Public Class MainWindowViewModel
         End Set
     End Property
     Private Sub OpenHelp()
-        Process.Start("file:///" & IO.Path.GetFullPath("..\..\index.html"))
+        Process.Start("file:///" & IO.Path.GetFullPath(".\index.html"))
     End Sub
 
     Private Sub OnWorkspaceClose(ByVal sender As WorkspaceViewModel)

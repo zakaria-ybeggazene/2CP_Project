@@ -842,17 +842,21 @@ Public Class Repository
     End Sub
     'se connecter en tant qu'administrateur
     Public Shared Sub adminLogin(ByVal password As String)
-        Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
-        cmdAccess.Connection = _connection
-        cmdAccess.CommandText = "SELECT * FROM AUTHENTIC;"
-        cmdAccess = New OleDbCommand(cmdAccess.CommandText, _connection)
-        Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
-        oledbReader.Read()
-        If StrComp(Trim(oledbReader.Item("MotDePasse").ToString), password) = 0 Then
-            admin = True
-        End If
-        oledbReader.Close()
-        cmdAccess.Dispose()
+        Try
+            Dim cmdAccess As New System.Data.OleDb.OleDbCommand()
+            cmdAccess.Connection = _connection
+            cmdAccess.CommandText = "SELECT * FROM AUTHENTIC;"
+            cmdAccess = New OleDbCommand(cmdAccess.CommandText, _connection)
+            Dim oledbReader As OleDbDataReader = cmdAccess.ExecuteReader()
+            oledbReader.Read()
+            If StrComp(Trim(oledbReader.Item("MotDePasse").ToString), password) = 0 Then
+                admin = True
+            End If
+            oledbReader.Close()
+            cmdAccess.Dispose()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Public Shared Sub modifierEtudiant(ByVal etudiant As EtudiantParcours)
