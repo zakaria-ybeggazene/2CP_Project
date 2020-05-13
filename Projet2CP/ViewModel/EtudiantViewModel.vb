@@ -642,7 +642,7 @@
         SaveVis = Visibility.Hidden
         Read_only = True
         Enable = False
-        Dim result = MsgBox("Confirmer les modifications?", MsgBoxStyle.YesNo)
+        Dim result = MsgBox("Confirmer les modifications ?", MsgBoxStyle.YesNo)
         If result = MsgBoxResult.Yes Then
             Dim sexe As Short
             If _sexe = "Masculin" Then
@@ -667,7 +667,7 @@
             _etudiant.WilayaNaisA = _wilayaNais
             _etudiant.CodePostal = _codePostal
             Repository.modifierEtudiant(_etudiant)
-            MsgBox("Sauvegarde reussie", MsgBoxStyle.Information)
+            MsgBox("Sauvegarde réussie", MsgBoxStyle.Information)
         ElseIf result = MsgBoxResult.No Then
             Nom = _etudiant.Nom
             Prenom = _etudiant.Prenom
