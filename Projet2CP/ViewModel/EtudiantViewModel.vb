@@ -560,7 +560,39 @@
     End Sub
 
 
+    'annulation
 
+    Public _annulerCommand As New RelayCommand(AddressOf Annulation)
+    Public ReadOnly Property AnnulerCommand As ICommand
+        Get
+            Return _annulerCommand
+        End Get
+    End Property
+    Public Sub Annulation()
+        Nom = _etudiant.Nom
+        Prenom = _etudiant.Prenom
+        NomA = _etudiant.NomA
+        PrenomA = _etudiant.PrenomA
+        PrenomPere = _etudiant.PrenomPere
+        NomMere = _etudiant.NomMere
+        Adresse = _etudiant.Adresse
+        Wilaya = _etudiant.Wilaya
+        Ville = _etudiant.Ville
+        LieuNais = _etudiant.LieuNais
+        WilayaNais = _etudiant.WilayaNaisA
+        DateNais = _etudiant.DateNais
+        CodePostal = _etudiant.CodePostal
+        If _etudiant.Sexe = 1 Then
+            Sexe = "Masculin"
+        ElseIf _etudiant.Sexe = 2 Then
+            Sexe = "Féminin"
+        End If
+        SaveVis = Windows.Visibility.Hidden
+        Read_only = True
+        Enable = False
+        ModifVis = Windows.Visibility.Visible
+        Validite()
+    End Sub
 
     'sauvegrarde
 
@@ -579,6 +611,21 @@
             Else
                 Valide = True
             End If
+        Else
+            NomV = Visibility.Hidden
+            PrenomV = Visibility.Hidden
+            AdresseV = Visibility.Hidden
+            NomAV = Visibility.Hidden
+            PrenomAV = Visibility.Hidden
+            WilayaV = Visibility.Hidden
+            LieuNaisV = Visibility.Hidden
+            WilayaNaisV = Visibility.Hidden
+            CodePostalV = Visibility.Hidden
+            NomMereV = Visibility.Hidden
+            PrenomPereV = Visibility.Hidden
+            VilleV = Visibility.Hidden
+            DateNaisV = Visibility.Hidden
+            SexeV = Visibility.Hidden
         End If
     End Sub
 
@@ -595,7 +642,7 @@
         SaveVis = Visibility.Hidden
         Read_only = True
         Enable = False
-        Dim result = MsgBox("Confirmer les modifications?", MsgBoxStyle.YesNo)
+        Dim result = MsgBox("Confirmer les modifications ?", MsgBoxStyle.YesNo)
         If result = MsgBoxResult.Yes Then
             Dim sexe As Short
             If _sexe = "Masculin" Then
@@ -620,7 +667,7 @@
             _etudiant.WilayaNaisA = _wilayaNais
             _etudiant.CodePostal = _codePostal
             Repository.modifierEtudiant(_etudiant)
-            MsgBox("Sauvegarde reussie", MsgBoxStyle.Information)
+            MsgBox("Sauvegarde réussie", MsgBoxStyle.Information)
         ElseIf result = MsgBoxResult.No Then
             Nom = _etudiant.Nom
             Prenom = _etudiant.Prenom
