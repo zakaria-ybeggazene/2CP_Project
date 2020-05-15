@@ -13,4 +13,8 @@
         list.Add("4")
         NiveauCB.ItemsSource = list
     End Sub
+
+    Private Sub NomATB_TextChanged(sender As System.Object, e As System.Windows.Controls.TextChangedEventArgs) Handles NomATB.TextChanged
+
+    End Sub
 End Class
