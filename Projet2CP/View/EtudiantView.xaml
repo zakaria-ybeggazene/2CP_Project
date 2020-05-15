@@ -10,7 +10,7 @@
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Dictionary.xaml"/>
-          
+
     </UserControl.Resources>
     <Grid  VerticalAlignment="Stretch" Width="{Binding Width}">
         <Grid.ColumnDefinitions>
@@ -23,7 +23,7 @@
             <RowDefinition Height="3*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-       
+
         <Button IsEnabled="{Binding Valide}" Visibility="{Binding SaveVis}" BorderThickness="0" Command="{Binding Path=SaveCommand}" ClickMode="Release" ClipToBounds="True" Content="Sauvegarder" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Left" Margin="81,50,0,0" Name="Savebutton" Style="{DynamicResource Save}" VerticalAlignment="Top" Width="152" Grid.Row="2" Grid.Column="2" />
         <Button Name="Attestation" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="14,19,0,0" Cursor="Hand" Width="201" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
             <TextBlock Text="Générer Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -55,7 +55,7 @@
         <Label Content="Moyenne Bac" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left" Margin="13,47,0,0" Name="moyenneBacHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="Auto" Grid.Row="2" Grid.Column="1" />
         <Button Command="{Binding ModifCommand}" Visibility="{Binding ModifVis}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Modifier" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" Margin="78,50,89,0" Name="Modifierbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" />
         <Button Command="{Binding AnnulerCommand}" Visibility="{Binding SaveVis}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Annuler" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Right" Margin="0,95,89,0" Name="Annulerbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" Grid.Row="2" Grid.Column="2" />
-            <TabControl ItemsSource="{Binding Etudiant.Parcours}" Height="412" HorizontalAlignment="Left" Margin="11,2,0,0" Name="TabControl1" VerticalAlignment="Top" Width="420" Grid.Row="1" BorderBrush="Black">
+        <TabControl ItemsSource="{Binding Etudiant.Parcours}" Height="412" HorizontalAlignment="Left" Margin="11,2,0,0" Name="TabControl1" VerticalAlignment="Top" Width="420" Grid.Row="1" BorderBrush="Black">
             <TabControl.Template>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid>
@@ -72,11 +72,11 @@
             </TabControl.Template>
             <TabControl.ItemTemplate >
                 <DataTemplate >
-                    
-                        <DockPanel Width="60" Height="27">
+
+                    <DockPanel Width="60" Height="27">
                         <TextBlock  Text="{Binding Niveau}"  Foreground="#FF123456" FontFamily="Montserrat" VerticalAlignment="Center"  />
                     </DockPanel>
-                    
+
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
@@ -128,7 +128,7 @@
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
                         </Border>
-                     
+
                     </Grid>
                 </DataTemplate>
             </TabControl.ContentTemplate>
@@ -155,7 +155,7 @@
         <Button Name="releve" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="230,79,0,0" HorizontalAlignment="Left" Width="201" Cursor="Hand" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
             <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
-        <ComboBox Text="Année" Width="201" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" ItemsSource="{Binding Path=NiveauCBList}" IsReadOnly="True" Margin="14,79,0,0" HorizontalContentAlignment="Left" Grid.Row="2"> 
+        <ComboBox Text="Année" Width="201" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" ItemsSource="{Binding Path=NiveauCBList}" IsReadOnly="True" Margin="14,79,0,0" HorizontalContentAlignment="Left" Grid.Row="2">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
                     <Setter Property="Background" Value="#B9EBEFF3" />

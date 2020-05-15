@@ -74,11 +74,11 @@
                 <ColumnDefinition Width="360*" />
                 <ColumnDefinition Width="575*" />
              </Grid.ColumnDefinitions> 
-                <Label Content="Distribution des séries de bac des étudiants : " Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="295" Foreground="#FF123456" Margin="7,54,0,0" />
-        <Label Content="Distribution du sexe des étudiants à travers les années :" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="24,54,0,0" Grid.Column="1" />
+                <Label Content="Distribution des séries de bac des étudiants" Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="295" Foreground="#FF123456" Margin="7,54,0,0" />
+        <Label Content="Distribution du sexe des étudiants à travers les années" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="24,54,0,0" Grid.Column="1" />
         <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Name="BouttonNombreEtudiant" Margin="492,57,110,10" Grid.Column="1">
             <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path></Button>
-        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,6,0,54">
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,6,0,54">
             <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalContentAlignment="Center" Margin="0, 0, 10, 0">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
@@ -86,7 +86,7 @@
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
-            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
+            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" HorizontalAlignment="Center" />
             </WrapPanel>
             <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Name="BouttonBac" Margin="312,54,25,13">
                 <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>

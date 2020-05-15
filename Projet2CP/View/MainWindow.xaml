@@ -9,10 +9,12 @@
 
     <DockPanel Background="White">
         <Grid Width="218">
-
-          
-
-                <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,157,0,150" DataContext="{Binding}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,2,0,2" DataContext="{Binding}" Grid.Row="1">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate >
                         <TextBlock Margin="2,6" > 
@@ -33,7 +35,7 @@
 
 
 
-            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Center"  Name="HelpButton" VerticalAlignment="Bottom" Margin="84,0,84,46" Width="50" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
+            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Center"  Name="HelpButton" VerticalAlignment="Top"  Width="50" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide" Grid.Row="2">
                 <StackPanel>
 
                     <Image Source="/HistoESI;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Center" Name="Image1" />

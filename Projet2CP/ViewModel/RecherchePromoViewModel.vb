@@ -2,9 +2,49 @@
     Inherits WorkspaceViewModel
 
     'Fields
+    Private _pvEnable As Boolean = False
+    Private _statEnable As Boolean = False
+    Public Property PvEnable() As Boolean
+        Get
+            Return _pvEnable
+        End Get
+        Set(ByVal value As Boolean)
+            _pvEnable = value
+            OnPropertyChanged("PvEnable")
+        End Set
+    End Property
+    Public Property StatEnable() As Boolean
+        Get
+            Return _statEnable
+        End Get
+        Set(ByVal value As Boolean)
+            _statEnable = value
+            OnPropertyChanged("StatEnable")
+        End Set
+    End Property
     Private _niveau, _annee As String
     Private _resultat As Promotion
     Private _nbIns As Integer
+    Private _pvOpacity As Decimal = 0.5
+    Private _statOpacity As Decimal = 0.5
+    Public Property PvOpacity() As Decimal
+        Get
+            Return _pvOpacity
+        End Get
+        Set(ByVal value As Decimal)
+            _pvOpacity = value
+            OnPropertyChanged("PvOpacity")
+        End Set
+    End Property
+    Public Property StatOpacity() As Decimal
+        Get
+            Return _statOpacity
+        End Get
+        Set(ByVal value As Decimal)
+            _statOpacity = value
+            OnPropertyChanged("StatOpacity")
+        End Set
+    End Property
     Private _promotionViewModel As ViewModelBase
     'Recherche sub
     Public Sub recherche()
@@ -22,16 +62,32 @@
             If niv = HistoESI.Niveau.SI3 Or niv = HistoESI.Niveau.SIQ3 Or niv = HistoESI.Niveau.CS3 Then
                 Resultat = Repository.recherche_promo_parcours(niv, anneeCut)
                 If Resultat Is Nothing Then
+                    PvOpacity = 0.5
+                    PvEnable = False
+                    StatOpacity = 0.5
+                    StatEnable = False
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
                 Else
+                    PvOpacity = 0.5
+                    PvEnable = False
+                    StatOpacity = 1
+                    StatEnable = True
                     NombreInscrits = Resultat.NbInscrits.ToString
                     PromotionViewModel = New ClassementViewModel(CType(Resultat, PromotionParcours), _addEtudiantView)
                 End If
             Else
                 Resultat = Repository.recherche_promo(niv, anneeCut)
                 If Resultat Is Nothing Then
+                    PvOpacity = 0.5
+                    PvEnable = False
+                    StatOpacity = 0.5
+                    StatEnable = False
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
                 Else
+                    PvOpacity = 1
+                    PvEnable = True
+                    StatOpacity = 1
+                    StatEnable = True
                     NombreInscrits = Resultat.NbInscrits.ToString
                     PromotionViewModel = New PromotionViewModel(CType(Resultat, PromotionAnnee), _addEtudiantView)
                 End If

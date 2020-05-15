@@ -10,7 +10,7 @@
         <ResourceDictionary Source="../Dictionary.xaml"/>
 
     </UserControl.Resources>
-<!-- view fixed , details icon added-->
+    <!-- view fixed , details icon added-->
     <Grid Width="{Binding Width}">
         <Grid.RowDefinitions>
             <RowDefinition Height="66" />
@@ -158,8 +158,8 @@
             </ComboBox>
             <Border BorderBrush="#FF123456" BorderThickness="2" Height="1" VerticalAlignment="Bottom" />
         </Grid>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="pvButton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération" Grid.Column="1"/>
-        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="False" Opacity="0.5" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" ToolTip="Afficher les statistiques de la promotion trouvée" Grid.Column="1"/>
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Générer PV" Cursor="Hand" Focusable="True" IsEnabled="{Binding PvEnable}" Opacity="{Binding PvOpacity}" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,24,0" Name="pvButton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="135" Command="{Binding PvDelibCommand}" ToolTip="Pv de délibération" Grid.Column="1"/>
+        <Button BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Statistiques" Cursor="Hand" Focusable="True" IsEnabled="{Binding StatEnable}" Opacity="{Binding StatOpacity}" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,29,185,0" Name="statButton" Style="{DynamicResource Terminer}" Command="{Binding Path=ViewStatistics}" CommandParameter="{Binding Path=Resultat}" VerticalAlignment="Top" Width="135" ToolTip="Afficher les statistiques de la promotion trouvée" Grid.Column="1"/>
         <ContentPresenter Content="{Binding PromotionViewModel}" Grid.Row="3" Grid.ColumnSpan="2"/>
     </Grid>
 </UserControl>
