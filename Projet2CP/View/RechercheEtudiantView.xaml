@@ -16,7 +16,7 @@
             <RowDefinition Height="192" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid  VerticalAlignment="Top"   Grid.Row="1">
+        <Grid     Grid.Row="1">
             <Image Height="371" HorizontalAlignment="Center"  Name="Image3" Stretch="Fill" VerticalAlignment="Center" Width="770" Source="/HistoESI;component/Images/undraw_online_friends_x73e1.png" Visibility="{Binding Visibility2,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" IsManipulationEnabled="True" />
             <Grid  Width="574" Height="366" Visibility="{Binding Visibility3,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image  Height="283" HorizontalAlignment="Center"   Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="560" Source="/HistoESI;component/Images/undraw_web_search_eetr2.png" Margin="0,6,14,0" />
@@ -26,7 +26,7 @@
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="426" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="Auto" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" >
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
