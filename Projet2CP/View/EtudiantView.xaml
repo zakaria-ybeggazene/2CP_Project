@@ -243,7 +243,7 @@
             </Grid>
                 
             <!--sexe-->
-            <ComboBox Text="{Binding Sexe}" IsEnabled="{Binding Enable}" Background="#FFEBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="29" Loaded="Sexecb_Loaded" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False"  Name="Sexecb" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="140" Foreground="#FF123456" Margin="75,47,75,0" Grid.RowSpan="2">
+            <ComboBox Text="{Binding Sexe}" IsEnabled="{Binding Enable}" Background="#FFEBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="29" Loaded="Sexecb_Loaded" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False"  Name="Sexecb" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="140" Foreground="#FF123456"  Grid.RowSpan="1" Grid.Row="1">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Control.Background" Value="#B9EBEFF3" />
