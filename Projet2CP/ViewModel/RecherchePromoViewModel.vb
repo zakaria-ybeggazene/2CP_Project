@@ -202,6 +202,11 @@
         Niveau = "Niveau"
         NombreInscrits = 0
         Resultat = Nothing
+        PvOpacity = 0.5
+        PvEnable = False
+        StatOpacity = 0.5
+        StatEnable = False
+
     End Sub
 
 End Class

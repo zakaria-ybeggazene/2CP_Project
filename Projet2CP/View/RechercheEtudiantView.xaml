@@ -14,11 +14,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="192" />
-            <RowDefinition Height="449" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Margin="11,6,15,0"  VerticalAlignment="Top" Height="443" Visibility="{Binding Visibility1,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
-
-            <Border CornerRadius=" 15" BorderThickness="3" Margin="0,0,0,6" VerticalAlignment="Top">
+        <Grid  VerticalAlignment="Top"   Grid.Row="1">
+            <Image Height="371" HorizontalAlignment="Center"  Name="Image3" Stretch="Fill" VerticalAlignment="Center" Width="770" Source="/HistoESI;component/Images/undraw_online_friends_x73e1.png" Visibility="{Binding Visibility2,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" IsManipulationEnabled="True" />
+            <Grid  Width="574" Height="366" Visibility="{Binding Visibility3,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image  Height="283" HorizontalAlignment="Center"   Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="560" Source="/HistoESI;component/Images/undraw_web_search_eetr2.png" Margin="0,6,14,0" />
+                <Label  Content="Aucun étudiant trouvé" Height="40" HorizontalAlignment="Center"  Name="Label1" VerticalAlignment="Bottom" Width="319" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="74,0,182,49" />
+            </Grid>
+            <Border CornerRadius=" 15" BorderThickness="3"  VerticalAlignment="Top" Visibility="{Binding Visibility1,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}">
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
@@ -68,11 +72,7 @@
             </Border>
             
         </Grid>
-        <Image Height="371" HorizontalAlignment="Left" Margin="129,47,0,0" Name="Image3" Stretch="Fill" VerticalAlignment="Top" Width="770" Source="/HistoESI;component/Images/undraw_online_friends_x73e1.png" Visibility="{Binding Visibility2,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" />
-        <Grid Margin="244,52,208,31" Width="574" Height="366" Visibility="{Binding Visibility3,Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
-            <Image  Height="283" HorizontalAlignment="Center"   Name="Image2" Stretch="Fill" VerticalAlignment="Top" Width="560" Source="/HistoESI;component/Images/undraw_web_search_eetr2.png" Margin="0,6,14,0" />
-            <Label  Content="Aucun étudiant trouvé" Height="40" HorizontalAlignment="Center"  Name="Label1" VerticalAlignment="Bottom" Width="319" FontSize="26" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="74,0,182,49" />
-        </Grid>
+        
         <Grid >
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*" />
