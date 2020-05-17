@@ -34,7 +34,7 @@
                 <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" HorizontalAlignment="Center" />
 
             </WrapPanel>
-            <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0">
+            <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0" ToolTip="Decision : Reussite = 1 ou 2, Echec = sinon &#10;(champs DECIIN table Etude)">
 
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Name="PieChart1" Grid.Column="0"></lvc:PieChart>
-            <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0">
+            <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0" ToolTip="Sexe : Masculin = 1, Féminin = 2">
 
                 <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels1}">
