@@ -53,7 +53,6 @@
         _enable = False
         _saveVis = Visibility.Hidden
         _modifVis = Visibility.Visible
-        _valide = True
     End Sub
 
     Private _etudiant As EtudiantParcours
@@ -70,8 +69,18 @@
 
 
 
-    'booleens relatifs au view
+    'Attributs relatifs au view
     Private _read_only, _valide, _enable As Boolean
+    Private _saveOpacity As Decimal
+    Public Property SaveOpacity() As Decimal
+        Get
+            Return _saveOpacity
+        End Get
+        Set(ByVal value As Decimal)
+            _saveOpacity = value
+            OnPropertyChanged("SaveOpacity")
+        End Set
+    End Property
     Private _saveVis, _modifVis As Visibility
 
     Public Property Read_only() As Boolean
@@ -195,10 +204,9 @@
                 Else
                     PrenomAV = Windows.Visibility.Hidden
                 End If
-                OnPropertyChanged("NomA")
                 Validite()
             End If
-            OnPropertyChanged("NomA")
+            OnPropertyChanged("PrenomA")
         End Set
     End Property
 
@@ -554,6 +562,8 @@
             Enable = True
             SaveVis = Visibility.Visible
             ModifVis = Visibility.Hidden
+            SaveOpacity = 1
+            Valide = True
         Else
             MsgBox("Connectez-vous en tant qu'administrateur pour pouvoir modifier", MsgBoxStyle.Exclamation)
         End If
@@ -600,16 +610,22 @@
         If _read_only = False And Enable = True Then
             If NomV = Visibility.Visible Or PrenomV = Visibility.Visible Or AdresseV = Visibility.Visible Then
                 Valide = False
+                SaveOpacity = 0.5
             ElseIf NomAV = Visibility.Visible Or PrenomAV = Visibility.Visible Or WilayaV = Visibility.Visible Then
                 Valide = False
+                SaveOpacity = 0.5
             ElseIf LieuNaisV = Visibility.Visible Or WilayaNaisV = Visibility.Visible Or CodePostalV = Visibility.Visible Then
                 Valide = False
+                SaveOpacity = 0.5
             ElseIf NomMereV = Visibility.Visible Or PrenomPereV = Visibility.Visible Or VilleV = Visibility.Visible Then
                 Valide = False
+                SaveOpacity = 0.5
             ElseIf DateNaisV = Visibility.Visible Or SexeV = Visibility.Visible Then
                 Valide = False
+                SaveOpacity = 0.5
             Else
                 Valide = True
+                SaveOpacity = 1
             End If
         Else
             NomV = Visibility.Hidden
@@ -638,55 +654,59 @@
 
 
     Public Sub Sauvegarder()
-        ModifVis = Visibility.Visible
-        SaveVis = Visibility.Hidden
-        Read_only = True
-        Enable = False
-        Dim result = MsgBox("Confirmer les modifications ?", MsgBoxStyle.YesNo)
-        If result = MsgBoxResult.Yes Then
-            Dim sexe As Short
-            If _sexe = "Masculin" Then
-                sexe = 1
-            ElseIf _sexe = "Féminin" Then
-                sexe = 2
+        If Repository.admin Then
+            ModifVis = Visibility.Visible
+            SaveVis = Visibility.Hidden
+            Read_only = True
+            Enable = False
+            Dim result = MsgBox("Confirmer les modifications?", MsgBoxStyle.YesNo)
+            If result = MsgBoxResult.Yes Then
+                Dim sexe As Short
+                If _sexe = "Masculin" Then
+                    sexe = 1
+                ElseIf _sexe = "Féminin" Then
+                    sexe = 2
+                End If
+                _etudiant.Sexe = sexe
+                If _dateNais.Length = 10 Then
+                    _etudiant.DateNais = _dateNais.Remove(6, 2)
+                End If
+                _etudiant.Nom = _nom
+                _etudiant.Prenom = _prenom
+                _etudiant.NomA = _nomA
+                _etudiant.PrenomA = _prenomA
+                _etudiant.PrenomPere = _prenomPere
+                _etudiant.NomMere = _nomMere
+                _etudiant.Adresse = _adresse
+                _etudiant.Wilaya = _wilaya
+                _etudiant.Ville = _ville
+                _etudiant.LieuNais = _lieuNais
+                _etudiant.WilayaNaisA = _wilayaNais
+                _etudiant.CodePostal = _codePostal
+                Repository.modifierEtudiant(_etudiant)
+                MsgBox("Sauvegarde réussie", MsgBoxStyle.Information)
+            ElseIf result = MsgBoxResult.No Then
+                Nom = _etudiant.Nom
+                Prenom = _etudiant.Prenom
+                NomA = _etudiant.NomA
+                PrenomA = _etudiant.PrenomA
+                PrenomPere = _etudiant.PrenomPere
+                NomMere = _etudiant.NomMere
+                Adresse = _etudiant.Adresse
+                Wilaya = _etudiant.Wilaya
+                Ville = _etudiant.Ville
+                LieuNais = _etudiant.LieuNais
+                WilayaNais = _etudiant.WilayaNaisA
+                DateNais = _etudiant.DateNais
+                CodePostal = _etudiant.CodePostal
+                If _etudiant.Sexe = 1 Then
+                    Sexe = "Masculin"
+                ElseIf _etudiant.Sexe = 2 Then
+                    Sexe = "Féminin"
+                End If
             End If
-            _etudiant.Sexe = sexe
-            If _dateNais.Length = 10 Then
-                _etudiant.DateNais = _dateNais.Remove(6, 2)
-            End If
-            _etudiant.Nom = _nom
-            _etudiant.Prenom = _prenom
-            _etudiant.NomA = _nomA
-            _etudiant.PrenomA = _prenomA
-            _etudiant.PrenomPere = _prenomPere
-            _etudiant.NomMere = _nomMere
-            _etudiant.Adresse = _adresse
-            _etudiant.Wilaya = _wilaya
-            _etudiant.Ville = _ville
-            _etudiant.LieuNais = _lieuNais
-            _etudiant.WilayaNaisA = _wilayaNais
-            _etudiant.CodePostal = _codePostal
-            Repository.modifierEtudiant(_etudiant)
-            MsgBox("Sauvegarde réussie", MsgBoxStyle.Information)
-        ElseIf result = MsgBoxResult.No Then
-            Nom = _etudiant.Nom
-            Prenom = _etudiant.Prenom
-            NomA = _etudiant.NomA
-            PrenomA = _etudiant.PrenomA
-            PrenomPere = _etudiant.PrenomPere
-            NomMere = _etudiant.NomMere
-            Adresse = _etudiant.Adresse
-            Wilaya = _etudiant.Wilaya
-            Ville = _etudiant.Ville
-            LieuNais = _etudiant.LieuNais
-            WilayaNais = _etudiant.WilayaNaisA
-            DateNais = _etudiant.DateNais
-            CodePostal = _etudiant.CodePostal
-            If _etudiant.Sexe = 1 Then
-                Sexe = "Masculin"
-            ElseIf _etudiant.Sexe = 2 Then
-                Sexe = "Féminin"
-            End If
+        Else
+            MsgBox("Connectez-vous en tant qu'administrateur pour pouvoir sauvegarder", MsgBoxStyle.Exclamation)
         End If
     End Sub
 

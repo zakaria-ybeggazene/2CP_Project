@@ -4,49 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d">
+             mc:Ignorable="d" d:DesignHeight="669" d:DesignWidth="935">
     <UserControl.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
     </UserControl.Resources>
     <Grid Width="{Binding Width}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="5*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*" />
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <WrapPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="30,30,19,114" Grid.RowSpan="2">
-            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalContentAlignment="Center" Margin="0, 0, 10, 0">
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="Control.Background" Value="#E7EFF6" />
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
-            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
-            <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="1" Name="BouttonBac" Margin="10, 0, 0, 0">
-                <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
-            </Button>
-        </WrapPanel>
-        <WrapPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0, 0, 10, 0">
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="#E7EFF6" />
-                    </Style>
-                </ComboBox.ItemContainerStyle>
-            </ComboBox>
-            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" />
-  
-        </WrapPanel>
-        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="PieChart1"></lvc:PieChart>
 
-        <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Nombres de réussites et d'échecs général :" Height="28" HorizontalAlignment="Center"  Name="Label3" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="SemiBold" Width="276" Foreground="#FF123456" />
+            <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="59,70,59,0">
+                <ComboBox Text="Niveau" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" Loaded="ComboBox_Loaded" IsReadOnly="True" Grid.Column="4" HorizontalContentAlignment="Center" >
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Background" Value="#E7EFF6" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
+                <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommandTNiv}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" HorizontalAlignment="Center" />
+
+            </WrapPanel>
+            <lvc:CartesianChart Name="chart1" Series="{Binding DistEchReuCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0" ToolTip="Decision : Reussite = 1 ou 2, Echec = sinon &#10;(champs DECIIN table Etude)">
 
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels2}">
@@ -59,10 +47,16 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter2}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Series="{Binding SerBacCollection}" HorizontalAlignment="Stretch" Name="PieChart1" Grid.Column="0"></lvc:PieChart>
+            <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="1" Margin="0,0,6,0" ToolTip="Sexe : Masculin = 1, Féminin = 2">
 
-        <lvc:CartesianChart Name="chart" Series="{Binding DistributionCollection}" LegendLocation="Bottom" Grid.Column="2" Grid.ColumnSpan="2"  Grid.Row="1">
-
-            <lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Années" Labels="{Binding Labels1}">
                     <lvc:Axis.Separator>
                         <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
@@ -73,12 +67,30 @@
                 <lvc:Axis Title="Nombre d'Etudiants" LabelFormatter="{Binding Formatter1}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <Label Content="Distribution des séries de bac des étudiants : " Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Grid.ColumnSpan="3" Width="295" Foreground="#FF123456" />
-        <Label Content="Distribution du sexe des étudiants à travers les années :" Grid.Column="2" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" />
-        <Label Content="Nombres de réussites et d'échecs général :" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="0,160,0,0" Name="Label3" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="273" Foreground="#FF123456" />
-        <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Grid.Column="3" Name="BouttonNombreEtudiant">
+        </Grid> 
+        
+        <Grid>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="360*" />
+                <ColumnDefinition Width="575*" />
+             </Grid.ColumnDefinitions> 
+                <Label Content="Distribution des séries de bac des étudiants" Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Width="295" Foreground="#FF123456" Margin="7,54,0,0" />
+        <Label Content="Distribution du sexe des étudiants à travers les années" Height="28" HorizontalAlignment="Left" Name="Label2" VerticalAlignment="Top" FontFamily="Montserrat" FontWeight="SemiBold" Foreground="#FF123456" Margin="24,54,0,0" Grid.Column="1" />
+        <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Name="BouttonNombreEtudiant" Margin="492,57,110,10" Grid.Column="1">
             <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path></Button>
-
-
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,6,0,54">
+            <ComboBox Background="#F0F0F0" BorderThickness="0" FontFamily="Montserrat" FontSize="14" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False" Loaded="AnneecomboBox_Loaded" Name="AnneeCB" SelectedItem="{Binding Path=Annee}" Text="Année" VerticalContentAlignment="Center" Margin="0, 0, 10, 0">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Control.Background" Value="#E7EFF6" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <Button Style="{DynamicResource RoundCorner}" Content="Rechercher" Command="{Binding Path=RechCommand}" Foreground="White" FontSize="18" FontFamily="Montserrat" FontWeight="Light" Height="30" ClickMode="Release" Cursor="Hand" BorderThickness="0" ClipToBounds="True" Focusable="True" Width="120" HorizontalAlignment="Center" />
+            </WrapPanel>
+            <Button BorderThickness="0" Background="{x:Null}" ClickMode="Release" ClipToBounds="True" Cursor="Hand" Focusable="True" Foreground="White" Height="23" Width="23" Name="BouttonBac" Margin="312,54,25,13">
+                <Path Data="{Binding exportIcon}" Fill="#FF123456"></Path>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

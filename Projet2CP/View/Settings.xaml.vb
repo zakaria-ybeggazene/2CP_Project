@@ -1,13 +1,6 @@
 ﻿Public Class Settings
 
     Public Shared _closeWindow As Action
-    Private Sub UserPasswordbutton_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles UserPasswordbutton.Click
-
-    End Sub
-
-    Private Sub Image4_ImageFailed(ByVal sender As System.Object, ByVal e As System.Windows.ExceptionRoutedEventArgs)
-
-    End Sub
 
     Private Sub Password_PasswordChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Password.PasswordChanged
         If Password.Password.Length = 0 Then

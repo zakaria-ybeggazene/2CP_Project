@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
                d:DesignWidth="1012" d:DesignHeight="614">
     <Grid Height="604">
-        <Image Height="605" HorizontalAlignment="Left" Margin="77,0,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="875" Source="{Binding ImageUrl}" />
+        <Image Height="445" HorizontalAlignment="Center"  Name="Image1" Stretch="Fill" VerticalAlignment="Center" Width="762" Source="{Binding ImageUrl}" />
     </Grid>
 </UserControl>

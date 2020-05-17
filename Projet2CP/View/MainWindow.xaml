@@ -2,17 +2,19 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    xmlns:local="clr-namespace:HistoESI"
-    Title="HistoESI" ResizeMode="CanResize" WindowState="Maximized" WindowStartupLocation="CenterScreen"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="700" Width="1300" Icon="/HistoESI;component/HistoESI.ico">
+    Title="HistoESI" ResizeMode="CanResize" WindowState="Maximized" WindowStartupLocation="CenterScreen"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="600" Width="1200" Icon="/HistoESI;component/HistoESI.ico">
     <Window.Resources>
         <ResourceDictionary Source="../Dictionary.xaml"/>
     </Window.Resources>
 
     <DockPanel Background="White">
         <Grid Width="218">
-
-          
-
-                <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,157,0,150" DataContext="{Binding}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Height="Auto" DataContext="{Binding}" Grid.Row="1">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate >
                         <TextBlock Margin="2,6" > 
@@ -33,7 +35,7 @@
 
 
 
-            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Left" Name="HelpButton" VerticalAlignment="Top" Margin="90,595,0,0" Width="50" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide">
+            <Button Command="{Binding HelpCommand}" Height="60" HorizontalAlignment="Center"  Name="HelpButton" VerticalAlignment="Top"  Width="50" BorderThickness="0" Background="Transparent" Cursor="Hand" Style="{DynamicResource HelpStyle}" ToolTip="Aide" Grid.Row="2">
                 <StackPanel>
 
                     <Image Source="/HistoESI;component/Images/help_icon.png" Stretch="Uniform" Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Center" Name="Image1" />
