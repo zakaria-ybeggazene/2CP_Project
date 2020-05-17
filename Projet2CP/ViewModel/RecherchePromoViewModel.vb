@@ -66,6 +66,7 @@
                     PvEnable = False
                     StatOpacity = 0.5
                     StatEnable = False
+                    reset()
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
                 Else
                     PvOpacity = 0.5
@@ -82,6 +83,7 @@
                     PvEnable = False
                     StatOpacity = 0.5
                     StatEnable = False
+                    reset()
                     MsgBox("Promotion introuvable", MsgBoxStyle.Information)
                 Else
                     PvOpacity = 1

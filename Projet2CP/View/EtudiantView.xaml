@@ -35,7 +35,7 @@
         </Button>
 
         <Button Command="{Binding AnnulerCommand}" Visibility="{Binding SaveVis}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Annuler" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Center" Name="Annulerbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" Grid.Row="3" Grid.Column="2" />
-        <TabControl ItemsSource="{Binding Etudiant.Parcours}" Height="412" HorizontalAlignment="Left" Margin="11,2,0,0" Name="TabControl1" VerticalAlignment="Top" Width="420" Grid.Row="1" BorderBrush="Black">
+        <TabControl SelectedIndex="0" ItemsSource="{Binding Etudiant.Parcours}" Height="412" HorizontalAlignment="Left" Margin="11,2,0,0" Name="TabControl1" VerticalAlignment="Top" Width="420" Grid.Row="1" BorderBrush="Black">
             <TabControl.Template>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid>
@@ -82,48 +82,48 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Année :" Height="Auto" HorizontalAlignment="Center"  Name="Label5" VerticalAlignment="Center" Width="62" Foreground="#FF123456" FontSize="14" Grid.Column="0" />
-                                <Label Content="{Binding Annee}" Height="Auto" HorizontalAlignment="center"  Name="Label6" VerticalAlignment="Center" Width="61" Foreground="#FF1165B8" FontSize="14" Grid.Column="1" />
+                                <Label Content="Année :" Height="Auto" HorizontalAlignment="Left"  Name="Label5" VerticalAlignment="Center" Width="62" Foreground="#FF123456" FontSize="14" Grid.Column="0" />
+                                <Label Content="{Binding Annee}" Height="Auto" HorizontalAlignment="Left"  Name="Label6" VerticalAlignment="Center" Width="61" Foreground="#FF1165B8" FontSize="14" Grid.Column="1" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                            <Label Content="Séction :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"   Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
-                            <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="center"  Name="Label8" VerticalAlignment="Top"  Width="61" FontSize="14" Grid.Column="1" />
+                            <Label Content="Séction :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left"   Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
+                            <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left"  Name="Label8" VerticalAlignment="Top"  Width="61" FontSize="14" Grid.Column="1" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="2">
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="N° groupe :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
-                                <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" Grid.Column="1" />
+                                <Label Content="N° groupe :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left"  Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
+                                <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left"  Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" Grid.Column="1" />
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Moyenne :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"   Name="Label11" VerticalAlignment="Top" Width="78" />
-                                <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"   Name="Label12" VerticalAlignment="Top" Width="61" Grid.Column="1" />
+                                <Label Content="Moyenne :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left"   Name="Label11" VerticalAlignment="Top" Width="78" />
+                                <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left"   Name="Label12" VerticalAlignment="Top" Width="61" Grid.Column="1" />
                           </Grid>
                             <Grid Grid.Column="1" Grid.Row="1">
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Décision :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label13" VerticalAlignment="Top" Width="73" />
-                                <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label14" VerticalAlignment="Top" Width="61" BorderBrush="#FFD18383" Grid.Column="1" />
+                                <Label Content="Décision :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left"  Name="Label13" VerticalAlignment="Top" Width="73" />
+                                <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left"  Name="Label14" VerticalAlignment="Top" Width="61" BorderBrush="#FFD18383" Grid.Column="1" />
                          </Grid>
                             <Grid Grid.Column="1" Grid.Row="2">
                                 <Grid.ColumnDefinitions >
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Rang :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label15" Width="52" VerticalAlignment="Top" />
-                               <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label16" VerticalAlignment="Top" Width="61" Grid.Column="1" />
+                                <Label Content="Rang :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left"  Name="Label15" Width="52" VerticalAlignment="Top" />
+                               <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left"  Name="Label16" VerticalAlignment="Top" Width="61" Grid.Column="1" />
                                </Grid> 
                          </Grid>
 
@@ -208,7 +208,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <!-- -->
-                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Center"  Name="nomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding NomAV}" Grid.Row="0" />
+                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Center"  Name="PrenomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding PrenomAV}" Grid.Row="0" />
                 <TextBox MaxLength="30" Text="{Binding PrenomA, Mode=TwoWay}" BorderThickness="0" Background="#B9EBEFF3" x:Name="PrenomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="{Binding Read_only}" VerticalAlignment="Top" Width="140" HorizontalAlignment="Center"  />
                 <Label Content="الاسم" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Center" Name="PreomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="Auto"  HorizontalContentAlignment="Center" Grid.Column="1" />
             </Grid> 
@@ -293,7 +293,7 @@
                 <!--la9ab-->
                 <Label Content="اللقب" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Center" Name="NomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="Auto"  HorizontalContentAlignment="Right" Grid.Column="1" />
                 <TextBox MaxLength="30" Text="{Binding NomA, Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Background="#B9EBEFF3" x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="{Binding Read_only}" VerticalAlignment="Top" Width="140"  HorizontalAlignment="Center" />
-                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Center"  Name="prenomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding PrenomAV}"  />
+                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Center"  Name="NomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding NomAV}"  />
             </Grid>
             
             <!--sexe-->

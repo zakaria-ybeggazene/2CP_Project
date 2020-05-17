@@ -204,10 +204,9 @@
                 Else
                     PrenomAV = Windows.Visibility.Hidden
                 End If
-                OnPropertyChanged("NomA")
                 Validite()
             End If
-            OnPropertyChanged("NomA")
+            OnPropertyChanged("PrenomA")
         End Set
     End Property
 
@@ -685,7 +684,7 @@
                 _etudiant.WilayaNaisA = _wilayaNais
                 _etudiant.CodePostal = _codePostal
                 Repository.modifierEtudiant(_etudiant)
-                MsgBox("Sauvegarde reussie", MsgBoxStyle.Information)
+                MsgBox("Sauvegarde réussie", MsgBoxStyle.Information)
             ElseIf result = MsgBoxResult.No Then
                 Nom = _etudiant.Nom
                 Prenom = _etudiant.Prenom

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Settings"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="HistoESI - Réglages" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="400" d:DesignWidth="678" SizeToContent="WidthAndHeight" >
+    Title="HistoESI - Réglages" Icon="/HistoESI;component/HistoESI.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="400" d:DesignWidth="678" SizeToContent="WidthAndHeight" >
     <Window.Resources>
         <Storyboard x:Key="usergridOpen">
             <!-- filter animation  -->
