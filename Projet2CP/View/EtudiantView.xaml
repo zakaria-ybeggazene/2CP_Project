@@ -15,7 +15,7 @@
     <Grid VerticalAlignment="Stretch" Width="{Binding Width}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*" />
-            <ColumnDefinition Width="13*" />
+            <ColumnDefinition Width="9*" />
             <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >

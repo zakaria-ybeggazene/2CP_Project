@@ -29,12 +29,12 @@
                 <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="Auto" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=Resultats}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" >
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn  Header="Matricule" Width="100" Binding="{Binding Matricule}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Nom" Width="140" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn  Header="Matricule" Width="*" Binding="{Binding Matricule}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
                         <DataGridTextColumn Header="Prenoms" Width="*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Lieu de naissance" Width=" 180" Binding="{Binding LieuNais}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Date de Naissance" Width=" 160" Binding="{Binding DateNais}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Ville" Width="100" Binding="{Binding Ville}" FontFamily="Montserrat">
+                        <DataGridTextColumn Header="Lieu de naissance" Width="2*" Binding="{Binding LieuNais}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Date de Naissance" Width="*" Binding="{Binding DateNais}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Ville" Width="2*" Binding="{Binding Ville}" FontFamily="Montserrat">
                         </DataGridTextColumn>
                         <DataGridTemplateColumn Header="Details" Width="Auto">
                             <DataGridTemplateColumn.CellTemplate>

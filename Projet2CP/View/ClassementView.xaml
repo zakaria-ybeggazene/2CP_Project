@@ -3,28 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             >
+             mc:Ignorable="d">
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Dictionary.xaml"/>
 
     </UserControl.Resources>
-    <Grid Height="450">
-        
-        <Label Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left" Margin="32,0,0,0" Name="Label2" VerticalAlignment="Top" Width="Auto" VerticalContentAlignment="Center" />
-
-        <Grid Margin="14,33,12,0"  VerticalAlignment="Top" >
-                <Border CornerRadius=" 15" BorderThickness="3" Margin="3,1,-3,6">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="310" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Content="Classement fin de cursus:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Center"  Name="Label2" VerticalAlignment="Top" Width="Auto" VerticalContentAlignment="Center" />
+           </Grid>
+    <Grid  Grid.Row="1"   >
+            <Border VerticalAlignment="Top" CornerRadius=" 15" BorderThickness="3" >
                 <Border.Effect>
                     <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
                 </Border.Effect>
-                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False" Height="380" Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <DataGrid BorderThickness=" 0" Style="{StaticResource Mystyle}" Name="Mygrid" AutoGenerateColumns="False"  Width="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None" FontFamily="Montserrat" FontSize="15" ItemsSource="{Binding Path=ListeEtuds}" IsReadOnly="True" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn  Header="Matricule" Width="Auto" Binding="{Binding Matricule}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Nom" Width="Auto" Binding="{Binding Nom}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Prenoms" Width="3.5*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
-                        <DataGridTextColumn Header="Option" Width="Auto" Binding="{Binding Opt}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Nom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Prenoms" Width="2*" Binding="{Binding Prenom}" FontFamily="Montserrat" />
+                        <DataGridTextColumn Header="Option" Width="*" Binding="{Binding Opt}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="TRC1" Width="*" Binding="{Binding TRC1}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="TRC1 S" Width="*" Binding="{Binding TRC1S}" FontFamily="Montserrat" />
                         <DataGridTextColumn  Header="TRC2" Width="*" Binding="{Binding TRC2}" FontFamily="Montserrat" />
