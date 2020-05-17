@@ -12,10 +12,10 @@
         <ResourceDictionary Source="../Dictionary.xaml"/>
 
     </UserControl.Resources>
-    <Grid Width="{Binding Width}" VerticalAlignment="Stretch">
+    <Grid VerticalAlignment="Stretch" Width="{Binding Width}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*" />
-            <ColumnDefinition Width="11*" />
+            <ColumnDefinition Width="13*" />
             <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
@@ -26,12 +26,12 @@
         </Grid.RowDefinitions>
 
 
-        <Button Name="Attestation" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="14,19,0,0" Cursor="Hand" Width="201" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
-            <TextBlock Text="Générer Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Button Name="Attestation" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="Attestation" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="14,19,0,0" Cursor="Hand" Width="165" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
+            <TextBlock Text="Attestation" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Button>
-        <Button Name="releve_glob" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveGlobal" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="230,19,0,0" Cursor="Hand" Width="201" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
+        <Button Name="releve_glob" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveGlobal" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="230,19,0,0" Cursor="Hand" Width="165" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="2">
 
-            <TextBlock Text="Générer relevé global" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock Text="Relevé global" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
 
         <Button Command="{Binding AnnulerCommand}" Visibility="{Binding SaveVis}" BorderThickness="0" ClickMode="Release" ClipToBounds="True" Content="Annuler" Cursor="Hand" Focusable="True" FontFamily="Montserrat" FontSize="18" FontWeight="Light" Foreground="White" Height="35" HorizontalAlignment="Center" Name="Annulerbutton" Style="{DynamicResource Terminer}" VerticalAlignment="Top" Width="152" Grid.Row="3" Grid.Column="2" />
@@ -61,24 +61,78 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <Grid    Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="275">
-                        <Label Content="Année :" Height="Auto" HorizontalAlignment="Left" Margin="40,-88,0,0" Name="Label5" VerticalAlignment="Top" Width="62" Foreground="#FF123456" FontSize="14" />
-                        <Label Content="{Binding Annee}" Height="Auto" HorizontalAlignment="Left" Margin="100,-88,292,0" Name="Label6" VerticalAlignment="Top" Width="61" Foreground="#FF1165B8" FontSize="14" />
-                        <Label Content="Séction :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-64,0,0" Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
-                        <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left" Margin="108,-64,0,0" Name="Label8" VerticalAlignment="Top" Width="61" FontSize="14" />
-                        <Label Content="N° groupe :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Left" Margin="40,-40,0,284" Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
-                        <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Left" Margin="121,-40,0,0" Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" />
-                        <Label Content="Moyenne :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-91,131,0" Name="Label11" VerticalAlignment="Top" Width="78" />
-                        <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-91,68,0" Name="Label12" VerticalAlignment="Top" Width="61" />
-                        <Label Content="Décision :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-64,136,0" Name="Label13" VerticalAlignment="Top" Width="73" />
-                        <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-64,74,0" Name="Label14" VerticalAlignment="Top" Width="61" BorderBrush="#FFD18383" />
-                        <Label Content="Rang :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Right" Margin="0,-40,157,284" Name="Label15" Width="52" VerticalAlignment="Top" />
-                        <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Right" Margin="0,-40,78,0" Name="Label16" VerticalAlignment="Top" Width="61" />
-                        <Border CornerRadius=" 15" BorderThickness="3" Margin="-1,2,0,0">
+                    <Grid    >
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="7"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row=" 1">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Année :" Height="Auto" HorizontalAlignment="Center"  Name="Label5" VerticalAlignment="Center" Width="62" Foreground="#FF123456" FontSize="14" Grid.Column="0" />
+                                <Label Content="{Binding Annee}" Height="Auto" HorizontalAlignment="center"  Name="Label6" VerticalAlignment="Center" Width="61" Foreground="#FF1165B8" FontSize="14" Grid.Column="1" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                            <Label Content="Séction :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"   Name="Label7" VerticalAlignment="Top" Width="68" FontSize="14" />
+                            <Label Content="{Binding Section}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="center"  Name="Label8" VerticalAlignment="Top"  Width="61" FontSize="14" Grid.Column="1" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="2">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="N° groupe :" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label9" Width="86" FontSize="14" VerticalAlignment="Top" />
+                                <Label Content="{Binding Groupe}" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label10" VerticalAlignment="Top" Width="61" FontSize="14" Grid.Column="1" />
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Moyenne :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"   Name="Label11" VerticalAlignment="Top" Width="78" />
+                                <Label Content="{Binding MoyenneJ}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"   Name="Label12" VerticalAlignment="Top" Width="61" Grid.Column="1" />
+                          </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Décision :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label13" VerticalAlignment="Top" Width="73" />
+                                <Label Content="{Binding Decision}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label14" VerticalAlignment="Top" Width="61" BorderBrush="#FFD18383" Grid.Column="1" />
+                         </Grid>
+                            <Grid Grid.Column="1" Grid.Row="2">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Rang :" FontSize="14" Foreground="#FF123456" Height="Auto" HorizontalAlignment="Center"  Name="Label15" Width="52" VerticalAlignment="Top" />
+                               <Label Content="{Binding Rang}" FontSize="14" Foreground="#FF1165B8" Height="Auto" HorizontalAlignment="Center"  Name="Label16" VerticalAlignment="Top" Width="61" Grid.Column="1" />
+                               </Grid> 
+                         </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Border CornerRadius=" 15" BorderThickness="3" >
                             <Border.Effect>
                                 <DropShadowEffect Color="#123456" Opacity="0.3" ShadowDepth="3" RenderingBias="Quality" />
                             </Border.Effect>
-                            <DataGrid CanUserResizeColumns="False"  ItemsSource="{Binding Notes}" BorderThickness=" 0" Height="262" Width="400" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None"  FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <DataGrid CanUserResizeColumns="False"  ItemsSource="{Binding Notes}" BorderThickness=" 0"  Width="400" Style="{StaticResource Mystyle}" Name="Note" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" GridLinesVisibility="None"  FontFamily="Montserrat" FontSize="15"  IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Module" Width="*" FontFamily="Montserrat" Binding="{Binding Key.CodMat}"  />
                                     <DataGridTextColumn Header="Moy-Juin" Width="65"  FontFamily="Montserrat" Binding="{Binding Value.Noju}" />
@@ -108,7 +162,7 @@
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
                         </Border>
-
+                        </Grid>
                     </Grid>
                 </DataTemplate>
             </TabControl.ContentTemplate>
@@ -132,10 +186,10 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Button Name="releve" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="230,0,0,0" HorizontalAlignment="Left" Width="201" Cursor="Hand" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="3">
-            <TextBlock Text="Générer relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Name="releve" Height="35" Command="{Binding Path=ReportCommand}" CommandParameter="ReleveNotes" BorderThickness="0" FontFamily="Montserrat" FontSize="16" Foreground="#ffffff" Background="#A0557190" Margin="230,0,0,0" HorizontalAlignment="Left" Width="165" Cursor="Hand" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Row="3">
+            <TextBlock Text="Relevé de notes" TextAlignment="Center" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Button>
-        <ComboBox Text="Année" Width="201" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" ItemsSource="{Binding Path=NiveauCBList}" IsReadOnly="True" Margin="14,0,0,0" HorizontalContentAlignment="Left" Grid.Row="3">
+        <ComboBox Text="Année" Width="165" SelectedItem="{Binding Path=Niveau}" Background="#F0F0F0" Height="34" BorderThickness="0" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="14" VerticalAlignment="Top" Name="NiveauCB" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False" ItemsSource="{Binding Path=NiveauCBList}" IsReadOnly="True" Margin="14,0,0,0" HorizontalContentAlignment="Left" Grid.Row="3">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">
                     <Setter Property="Background" Value="#B9EBEFF3" />
@@ -173,7 +227,7 @@
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions >
-                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="180" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <!-- -->
@@ -202,7 +256,7 @@
                 <!-- -->
                 <Label Content="Lieu de Naissance" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left"  Name="lieuNaisHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="Auto" Grid.Row="3"  />
                 <TextBox MaxLength="30" Text="{Binding LieuNais, Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Background="#B9EBEFF3" x:Name="LieuNais" FontFamily="Montserrat" FontWeight="Light" FontSize="15" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding Read_only}" VerticalAlignment="Top" Width="140" HorizontalAlignment="Left"  BorderBrush="#FFEBEFF3" Grid.Row="3" Grid.Column="1" />
-                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left"  Name="lieuNV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding LieuNaisV}" Grid.Row="3" Grid.Column="1" Width="172" />
+                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left"  Name="lieuNV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding LieuNaisV}" Grid.Row="3" Grid.Column="1" />
                 <!-- -->
                 <Label Content="Wilaya de Naissance" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Left"  Name="WilayaNaisAHint" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Width="Auto" Grid.Row="4" Grid.ColumnSpan="2" />
                 <TextBox MaxLength="30" Text="{Binding WilayaNais, Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" Background="#B9EBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="15" FontStyle="Normal" FontWeight="Light" Foreground="#FF123456" Height="29" IsEnabled="True" IsHitTestVisible="True" IsReadOnly="{Binding Read_only}" Name="wilayaNais" SelectionBrush="#FF123456" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="140" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" />
@@ -239,9 +293,9 @@
                 <!--la9ab-->
                 <Label Content="اللقب" FontFamily="Montserrat" FontSize="15" FontWeight="Light" Foreground="#FF123456" Height="29" HorizontalAlignment="Center" Name="NomHintA" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="Auto"  HorizontalContentAlignment="Right" Grid.Column="1" />
                 <TextBox MaxLength="30" Text="{Binding NomA, Mode=TwoWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" Background="#B9EBEFF3" x:Name="NomATB" FontFamily="Montserrat" FontWeight="Light" FontSize="16" FontStyle="Normal" Height="29" VerticalContentAlignment="Center" SelectionBrush="#FF123456" Foreground="#FF123456" TextAlignment="Right" IsReadOnly="{Binding Read_only}" VerticalAlignment="Top" Width="140"  HorizontalAlignment="Center" />
-                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Left"  Name="prenomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding PrenomAV}"  />
+                <Label Content="*Ce champ ne doit pas être vide" Height="28" HorizontalAlignment="Center"  Name="prenomAV" VerticalAlignment="Bottom" Foreground="Red" Visibility="{Binding PrenomAV}"  />
             </Grid>
-                
+            
             <!--sexe-->
             <ComboBox Text="{Binding Sexe}" IsEnabled="{Binding Enable}" Background="#FFEBEFF3" BorderThickness="0" FontFamily="Montserrat" FontSize="14" Height="29" Loaded="Sexecb_Loaded" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="False"  Name="Sexecb" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="140" Foreground="#FF123456"  Grid.RowSpan="1" Grid.Row="1">
                 <ComboBox.ItemContainerStyle>

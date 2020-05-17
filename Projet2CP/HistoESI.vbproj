@@ -576,5 +576,8 @@
   <ItemGroup>
     <Resource Include="Images\Welcome.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Welcome1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -57,7 +57,7 @@ Public Class MainWindowViewModel
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
         _helpCommand = New RelayCommand(AddressOf Me.OpenHelp)
-        Welcome = New WelcomeViewModel("/HistoESI;component/Images/Welcome.png")
+        Welcome = New WelcomeViewModel("/HistoESI;component/Images/Welcome1.png")
         setList(False)
         AddHandler Repository.AdminStateChanged, AddressOf Me.setList
     End Sub
@@ -152,7 +152,7 @@ Public Class MainWindowViewModel
         Workspaces.Remove(sender)
 
         If _workspaces.Count = 0 Then
-            Welcome = New WelcomeViewModel("/HistoESI;component/Images/Welcome.png")
+            Welcome = New WelcomeViewModel("/HistoESI;component/Images/Welcome1.png")
         End If
         If sender.GetType() Is GetType(RechercheEtudiantViewModel) Then
             _indexRechercheEtudiant = -1

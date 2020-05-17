@@ -14,7 +14,7 @@
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Margin="-3,2,0,2" DataContext="{Binding}" Grid.Row="1">
+            <ItemsControl DockPanel.Dock="Left" ItemsSource="{Binding Commands}"  Height="Auto" DataContext="{Binding}" Grid.Row="1">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate >
                         <TextBlock Margin="2,6" > 

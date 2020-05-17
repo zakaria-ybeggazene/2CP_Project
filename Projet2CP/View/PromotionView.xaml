@@ -15,15 +15,26 @@
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
             <Grid.RowDefinitions >
                 <RowDefinition Height="60" />
                 <RowDefinition Height="*" />
                 
             </Grid.RowDefinitions>
-
-            <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Left"  Name="Label2" VerticalAlignment="Center" Width="285" VerticalContentAlignment="Center" Padding="30,5,5,5" />
-            <Grid    HorizontalAlignment="Center"   Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+                <Label Content="Moyenne Par module:" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" Height="Auto" HorizontalAlignment="Center"   Name="Label2" VerticalAlignment="Center"  VerticalContentAlignment="Center"  />
+           </Grid>
+           <Grid    HorizontalAlignment="Center"   Grid.Row="1">
                 <Border CornerRadius=" 15" BorderThickness="3" >
                     <Border.Effect>
                         <DropShadowEffect Color="#123456" Opacity="0.5" ShadowDepth="3" RenderingBias="Quality" />
@@ -55,14 +66,21 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Grid.Row="0">
             <Grid.RowDefinitions >
                 <RowDefinition Height="60" />
                 <RowDefinition Height="*" />
 
             </Grid.RowDefinitions>
-            <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Left"  Name="Label1" VerticalAlignment="Center" Width="276" FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center" Padding="30,5,5,5" Margin="0,12" />
-        <Grid    HorizontalAlignment="Center"   Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Liste des Etudiants:" Height="Auto" HorizontalAlignment="Center"  Name="Label1" VerticalAlignment="Center"  FontFamily="Montserrat" FontSize="22" FontWeight="SemiBold" Foreground="#FF115AA3" VerticalContentAlignment="Center"  />
+          </Grid> 
+                <Grid    HorizontalAlignment="Center"   Grid.Row="1">
 
             <Border CornerRadius=" 15"  BorderThickness="3" Margin="-3,0,3,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4">
                 <Border.Effect>
@@ -109,14 +127,7 @@
             </Border>
         </Grid>
             </Grid> 
-        <Border  BorderThickness="2" Height="290"  Name="Border1" Width="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-            <Border.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF123456" Offset="0" />
-                    <GradientStop Color="#FF1168BF" Offset="1" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-        </Border>
+     
         
         <!--<Grid Margin="26,55,0,0"   Width="376" HorizontalAlignment="Left" Height="376" VerticalAlignment="Top">
             <Border CornerRadius=" 15" BorderThickness="3" Margin="0,0,6,0">
