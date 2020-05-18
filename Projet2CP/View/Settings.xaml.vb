@@ -1,6 +1,6 @@
 ﻿Public Class Settings
 
-    Public Shared _closeWindow As Action
+    Public Shared _closeWindow As Action(Of Boolean)
 
     Private Sub Password_PasswordChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Password.PasswordChanged
         If Password.Password.Length = 0 Then
@@ -121,7 +121,7 @@
                 Repository.deleteDB()
                 Dim importerfichiers As New ImportFiles
                 Me.Close()
-                _closeWindow()
+                _closeWindow(False)
                 importerfichiers.Show()
             End If
         Catch ex As Exception

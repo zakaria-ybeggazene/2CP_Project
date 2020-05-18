@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SetPasword"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="HistoESI" ResizeMode="CanMinimize" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="554" d:DesignWidth="1050" SizeToContent="WidthAndHeight">
+    Title="HistoESI" ResizeMode="CanMinimize" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="554" d:DesignWidth="1050" SizeToContent="WidthAndHeight" Icon="/HistoESI;component/HistoESI.ico">
     <Grid>
         <Image Height="390" HorizontalAlignment="Left" Margin="519,41,0,0" Name="Image1" Stretch="Fill" VerticalAlignment="Top" Width="484" Source="/HistoESI;component/Images/undraw_two_factor_authentication_namy.png" />
         <Image Height="20" HorizontalAlignment="Left" Margin="336,451,0,0" Name="Importbar" Stretch="Fill" VerticalAlignment="Top" Width="357" Source="/HistoESI;component/Images/Groupe%203.png"  />

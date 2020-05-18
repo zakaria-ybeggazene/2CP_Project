@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.Office.Interop
 
 Public Class Admin
-    Public Shared _closeWindow As Action
+    Public Shared _closeWindow As Action(Of Boolean)
 
     Private Sub userPassword_PasswordChanged(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
         If adminPassword.Password.Length = 0 Then

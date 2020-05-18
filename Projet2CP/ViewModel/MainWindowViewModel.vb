@@ -1,7 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Public Class MainWindowViewModel
     Inherits ViewModelBase
-    Private _closeWindow As Action
+    Private _closeWindow As Action(Of Boolean)
     Private _workspaces As ObservableCollection(Of WorkspaceViewModel)
     Property Workspaces As ObservableCollection(Of WorkspaceViewModel)
         Get
@@ -52,7 +52,7 @@ Public Class MainWindowViewModel
         End Set
     End Property
 
-    Public Sub New(ByVal closeWindow As Action)
+    Public Sub New(ByVal closeWindow As Action(Of Boolean))
         _workspaces = New ObservableCollection(Of WorkspaceViewModel)()
         'We'll add a starting menu here at initializing
         _closeWindow = closeWindow
