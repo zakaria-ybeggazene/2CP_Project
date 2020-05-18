@@ -33,6 +33,6 @@ dans le SGBD Microsoft Access
 - Impression des états : relevé de notes, certificat de scolarité, PV de délibération
 - Classement de fin de cursus des étudiants par promotion.
 - Statistiques selon plusieurs critères :
-..- Statistiques générales : nombre d’inscrits au cours des années selon le sexe, distribution des étudiants inscrits en fonction de leurs séries du BAC, taux de réussite et d'échec d'un niveau au cours des années
-..- Statistiques d'une promotion : distribution des moyennes générales des étudiants, les taux d’échec et de réussite par sexe.
-..- Statistiques d'une matière : les taux d’échec et de réussite et la moyennes des moyennes des étudiants dans une matière au cours des années.
+..* Statistiques générales : nombre d’inscrits au cours des années selon le sexe, distribution des étudiants inscrits en fonction de leurs séries du BAC, taux de réussite et d'échec d'un niveau au cours des années
+..* Statistiques d'une promotion : distribution des moyennes générales des étudiants, les taux d’échec et de réussite par sexe.
+..* Statistiques d'une matière : les taux d’échec et de réussite et la moyennes des moyennes des étudiants dans une matière au cours des années.
